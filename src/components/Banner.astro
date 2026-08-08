@@ -1,15 +1,23 @@
 ---
 import { SITE } from '../site';
 ---
-<div class="banner" id="klub-banner" hidden>
+<div class="banner" id="klub-banner">
   <p>
     We're opening September 2026 — join our Founding Member list for early access and exclusive rates.
     <a href="/founding-member/">Join now</a>
   </p>
   <button type="button" aria-label="Dismiss announcement" id="klub-banner-close">&times;</button>
 </div>
+<script is:inline>
+  // Runs before first paint: hide the banner synchronously if previously dismissed,
+  // so returning visitors get no layout shift.
+  if (localStorage.getItem('klub-banner-dismissed') === '1') {
+    document.getElementById('klub-banner').setAttribute('hidden', '');
+  }
+</script>
 
 <style>
+  .banner[hidden] { display: none; }
   .banner {
     background: var(--umber);
     color: #fff;
@@ -32,12 +40,8 @@ import { SITE } from '../site';
 </style>
 
 <script>
-  const banner = document.getElementById('klub-banner');
-  if (banner && localStorage.getItem('klub-banner-dismissed') !== '1') {
-    banner.hidden = false;
-  }
   document.getElementById('klub-banner-close')?.addEventListener('click', () => {
-    banner?.setAttribute('hidden', '');
+    document.getElementById('klub-banner')?.setAttribute('hidden', '');
     localStorage.setItem('klub-banner-dismissed', '1');
   });
 </script>
