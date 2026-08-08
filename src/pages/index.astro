@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
+import ArchVideo from '../components/ArchVideo.astro';
+import Marquee from '../components/Marquee.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { CLASSES } from '../data/classes';
 import { SITE, whatsappLink } from '../site';
@@ -11,47 +13,66 @@ import { SITE, whatsappLink } from '../site';
 >
   <!-- Hero -->
   <section class="hero">
-    <div class="container split">
-      <div>
-        <span class="eyebrow">Limassol City Center · Opening September 2026</span>
-        <h1>Where Intentional Movement Meets Mindful Strength</h1>
-        <p class="lede">
-          Premium reformer Pilates in the heart of Limassol. Small-group classes and private
-          sessions designed for real bodies, real progress, real connection.
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow rise">Limassol City Center · Opening September 2026</span>
+        <h1 class="rise rise-d1">
+          Intentional <span class="ital">movement.</span><br />
+          Mindful <span class="ital">strength.</span>
+        </h1>
+        <p class="lede rise rise-d2">
+          Premium reformer Pilates in the heart of Limassol — small groups of six, private
+          1-to-1 sessions, and a space that feels like an exhale.
         </p>
-        <div class="btn-row">
+        <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href="/book/">Book Your First Class — €20</a>
           <a class="btn btn--ghost" href="/timetable/">View Timetable</a>
         </div>
       </div>
-      <div class="arch hero-arch">
-        <Pic
-          src="/images/arch-entrance.jpg"
-          alt="Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree"
-          width={322} height={431} loading="eager"
-        />
+      <div class="hero-media rise rise-d2">
+        <ArchVideo src="/videos/cyprus-pool.mp4" poster="/videos/cyprus-pool-poster.jpg" class="hero-film" />
+        <div class="hero-mini arch">
+          <Pic
+            src="/images/arch-entrance.jpg"
+            alt="Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree"
+            width={322} height={431} loading="eager"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Trust bar -->
-  <section class="section--white trust">
-    <div class="container grid grid--4">
-      <div>
-        <h3 class="trust-h">All classes in English</h3>
-        <p>Welcoming every nationality — no Greek needed.</p>
+  <Marquee items={[
+    'Reformer Pilates',
+    '<em>Limassol City Center</em>',
+    'Small groups of six',
+    'Classes in <em>English</em>',
+    'Private 1-to-1',
+    'Pre &amp; post-natal certified',
+    'Opening <em>September 2026</em>',
+  ]} />
+
+  <!-- World to island story -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="story-head reveal">
+        <span class="eyebrow">The KLUB Standard</span>
+        <h2>The world's best Pilates,<br /><span class="ital">brought home to Cyprus</span></h2>
+        <p class="lede">
+          Our founder trained and taught in the studios of London and Dubai — and built her
+          online studio from the island. KLUB brings all of it home to Limassol.
+        </p>
       </div>
-      <div>
-        <h3 class="trust-h">Small groups, max 6</h3>
-        <p>Personal attention in every single session.</p>
+      <div class="triptych">
+        <div class="reveal"><ArchVideo src="/videos/dubai-studio.mp4" poster="/videos/dubai-studio-poster.jpg" label="Refined abroad" sublabel="Teaching in Dubai's studios" /></div>
+        <div class="reveal reveal-d1"><ArchVideo src="/videos/cyprus-pool.mp4" poster="/videos/cyprus-pool-poster.jpg" label="Rooted in Cyprus" sublabel="Movement under the Limassol sun" /></div>
+        <div class="reveal reveal-d2"><ArchVideo src="/videos/mat-home.mp4" poster="/videos/mat-home-poster.jpg" label="For every body" sublabel="From first class to strongest self" /></div>
       </div>
-      <div>
-        <h3 class="trust-h">Private 1-to-1 available</h3>
-        <p>Fully tailored sessions, rare in the city center.</p>
-      </div>
-      <div>
-        <h3 class="trust-h">Limassol City Center</h3>
-        <p>Right in the heart of town, easy to reach.</p>
+      <div class="stat-row story-stats reveal">
+        <div class="stat"><b>6</b><span>people max per class — you're seen, every rep</span></div>
+        <div class="stat"><b>50<small>′</small></b><span>minutes of focused, full-body work</span></div>
+        <div class="stat"><b>3</b><span>cities of training behind every class — London, Dubai, Cyprus</span></div>
+        <div class="stat"><b>€20</b><span>your first class. No commitment, all welcome</span></div>
       </div>
     </div>
   </section>
@@ -59,27 +80,27 @@ import { SITE, whatsappLink } from '../site';
   <!-- About preview -->
   <section class="section">
     <div class="container split">
-      <div class="arch">
+      <div class="arch reveal">
         <Pic
           src="/images/reception.jpg"
           alt="Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"
           width={467} height={431}
         />
       </div>
-      <div>
+      <div class="reveal reveal-d1">
         <span class="eyebrow">About KLUB</span>
-        <h2>A Space Built for Balance</h2>
+        <h2>A space built <span class="ital">for balance</span></h2>
         <p>
-          KLUB stands for <em>Keep Living Under Balance</em> — and the studio is designed around
-          exactly that. Warm plaster walls, arched doorways, soft light and calm proportions:
-          a space that slows you down the moment you walk in.
+          KLUB stands for <em>Keep Living Under Balance</em>. Warm plaster walls, arched
+          doorways, soft light and calm proportions — a studio designed to slow you down the
+          moment you walk in.
         </p>
         <p>
-          On the floor, it's serious equipment and small groups. Reformer classes are capped at
-          six people, so your instructor sees every rep — your alignment, your pace, your progress.
+          On the floor it's serious equipment and small groups: reformer classes capped at six,
+          so your instructor sees every rep — your alignment, your pace, your progress.
         </p>
         <p class="pull-quote">Chill vibes are found here.</p>
-        <a class="btn btn--ghost" href="/instructors/">Meet Our Instructors</a>
+        <a class="btn btn--ghost" href="/about/">Step Inside</a>
       </div>
     </div>
   </section>
@@ -87,13 +108,14 @@ import { SITE, whatsappLink } from '../site';
   <!-- Classes preview -->
   <section class="section section--white">
     <div class="container">
-      <div class="center">
-        <h2>Find Your Class</h2>
+      <div class="center reveal">
+        <span class="eyebrow">Classes</span>
+        <h2>Find <span class="ital">your</span> class</h2>
         <p class="lede">Four ways to move, from your first step to your strongest self.</p>
       </div>
       <div class="grid grid--4 class-grid">
-        {CLASSES.map((c) => (
-          <a class="card class-card" href={`/classes/${c.slug}/`}>
+        {CLASSES.map((c, i) => (
+          <a class:list={['card class-card reveal', `reveal-d${i % 4 === 0 ? 0 : i % 4}`]} href={`/classes/${c.slug}/`}>
             <div class="class-img">
               <Pic src={c.image} alt={c.imageAlt} width={360} height={300} />
             </div>
@@ -108,15 +130,39 @@ import { SITE, whatsappLink } from '../site';
     </div>
   </section>
 
-  <!-- Pricing teaser -->
+  <!-- Meet Izzy teaser -->
   <section class="section section--sand">
     <div class="container split">
-      <div>
-        <h2>Transparent Pricing</h2>
+      <div class="reveal">
+        <span class="eyebrow">Your Instructor</span>
+        <h2>Meet <span class="ital">Izzy</span></h2>
+        <p class="lede">
+          Royal Academy of Dance graduate. Certified reformer and mat Pilates instructor.
+          Pre/post-natal qualified. From London stages to Dubai studios — now bringing it all
+          home to Limassol.
+        </p>
+        <a class="btn btn--primary" href="/instructors/">Her Story</a>
+      </div>
+      <div class="arch izzy-teaser reveal reveal-d1">
+        <Pic
+          src="/images/izzy-dubai-teaching.jpg"
+          alt="Izzy Nicolaou guiding a reformer Pilates class in an arched, softly lit Dubai studio"
+          width={480} height={620}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing teaser -->
+  <section class="section section--white">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2>Transparent <span class="ital">pricing</span></h2>
         <p>No hidden fees. No complicated tiers. Just clear options that fit how you want to move.</p>
         <a class="btn btn--primary" href="/pricing/">View Full Price List</a>
       </div>
-      <div class="grid price-teaser">
+      <div class="grid price-teaser reveal reveal-d1">
         <div class="card card--pad center">
           <span class="eyebrow">Drop-In</span>
           <p class="big-price">€20</p>
@@ -125,7 +171,7 @@ import { SITE, whatsappLink } from '../site';
         <div class="card card--pad center">
           <span class="eyebrow">Intro Pack</span>
           <p class="big-price">€32</p>
-          <p>Your first reformer experience</p>
+          <p>Your first two reformer classes</p>
         </div>
         <div class="card card--pad center">
           <span class="eyebrow">Private Session</span>
@@ -136,38 +182,22 @@ import { SITE, whatsappLink } from '../site';
     </div>
   </section>
 
-  <!-- Timetable preview -->
-  <section class="section section--white">
-    <div class="container center">
-      <h2>Classes Morning to Evening</h2>
-      <p class="lede">
-        Early starts, lunchtime resets and after-work sessions — the full timetable goes live
-        with bookings before opening day.
-      </p>
-      <a class="btn btn--primary" href="/timetable/">View Timetable</a>
-    </div>
-  </section>
-
   <!-- Location -->
   <section class="section">
     <div class="container split">
-      <div class="arch">
+      <div class="arch reveal">
         <Pic
           src="/images/street-sign.jpg"
           alt="Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
           width={358} height={294}
         />
       </div>
-      <div>
+      <div class="reveal reveal-d1">
         <span class="eyebrow">Find Us</span>
-        <h2>In the Heart of Limassol</h2>
+        <h2>In the heart <span class="ital">of Limassol</span></h2>
         <p>
           {SITE.addressLocality}, {SITE.addressCountry}.<br />
           <em>{SITE.addressNote}</em>
-        </p>
-        <p>
-          Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
-          Instagram: <a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a>
         </p>
         <div class="btn-row">
           <a class="btn btn--ghost" href="/location/">Location &amp; Directions</a>
@@ -180,36 +210,73 @@ import { SITE, whatsappLink } from '../site';
   <!-- Founding member -->
   <section class="section section--dark">
     <div class="container split">
-      <div>
-        <h2>Be Part of the Founding Circle</h2>
+      <div class="reveal">
+        <h2>Be part of the <span class="ital">founding circle</span></h2>
         <p>
           Join before we open for exclusive founding member rates and first access to bookings.
           Early members choose their class times before anyone else.
         </p>
       </div>
-      <FoundingForm compact />
+      <div class="reveal reveal-d1">
+        <FoundingForm compact />
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .hero { padding: clamp(56px, 9vw, 110px) 0; }
-  .hero-arch { max-width: 420px; justify-self: center; }
-  .trust { padding: 48px 0; }
-  .trust-h { font-size: 19px; margin-bottom: 4px; }
-  .trust p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+  .hero { padding: clamp(48px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow: hidden; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .hero-copy .lede { max-width: 46ch; }
+  .hero-media { position: relative; max-width: 400px; justify-self: center; width: 100%; }
+  .hero-media :global(.hero-film) { width: 82%; margin-left: auto; }
+  .hero-mini {
+    position: absolute;
+    left: -6%;
+    bottom: -8%;
+    width: 44%;
+    box-shadow: 0 24px 48px -24px rgba(26, 23, 20, 0.35);
+    background: var(--sand);
+  }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-media { max-width: 320px; margin-top: 12px; }
+  }
 
-  .class-grid { margin-top: 40px; }
+  .story-head { max-width: 720px; margin-bottom: 48px; }
+  .triptych {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3.5vw, 44px);
+    align-items: end;
+  }
+  .triptych > div:nth-child(2) { transform: translateY(-24px); }
+  @media (max-width: 780px) {
+    .triptych { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+    .triptych > div:nth-child(2) { transform: none; }
+  }
+  .story-stats { margin-top: clamp(48px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: 40px; }
+
+  .class-grid { margin-top: 48px; }
   .class-card { text-decoration: none; color: var(--ink); overflow: hidden; display: flex; flex-direction: column; }
   .class-img { aspect-ratio: 6/5; overflow: hidden; }
-  .class-img :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-  .class-card:hover .class-img :global(img) { transform: scale(1.03); }
+  .class-img :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .class-card:hover .class-img :global(img) { transform: scale(1.05); }
   .class-body { padding: 20px 22px 24px; }
   .class-body h3 { font-size: 21px; }
   .class-body p { font-size: 14px; color: var(--ink-soft); }
   .more { font: 500 13px/1.4 var(--sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--umber); }
 
+  .izzy-teaser { max-width: 420px; justify-self: center; }
+
   .price-teaser { grid-template-columns: 1fr; gap: 16px; }
-  .big-price { font-family: var(--serif); font-size: 40px; margin: 0; }
+  .big-price { font-family: var(--serif); font-size: 44px; margin: 0; }
   .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
+
+  .stat b small { font-size: 0.55em; }
 </style>

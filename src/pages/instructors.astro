@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
+import ArchVideo from '../components/ArchVideo.astro';
 import { whatsappLink } from '../site';
 
 const izzySchema = {
@@ -11,95 +12,241 @@ const izzySchema = {
   worksFor: { '@type': 'Organization', name: 'KLUB Pilates Studio' },
   alumniOf: 'Royal Academy of Dance',
   knowsLanguage: ['English', 'Greek'],
-  sameAs: ['https://www.instagram.com/pilateswithizzy', 'https://www.instagram.com/pilatizstudio'],
+  sameAs: [
+    'https://www.instagram.com/pilateswithizzy',
+    'https://www.instagram.com/pilatizstudio',
+    'https://www.facebook.com/share/1HEgcu8Aio/',
+  ],
 };
+
+const journey = [
+  {
+    place: 'London',
+    era: 'The foundation',
+    title: 'Trained where movement is a language',
+    body: 'Izzy earned her BA (Hons) in Ballet Education at the Royal Academy of Dance — one of the most respected dance institutions in the world. Years of classical training taught her what most fitness certifications never do: how bodies actually learn to move, and how to teach with precision and patience.',
+    media: { type: 'image', src: '/images/izzy-mat-wide.jpg', alt: 'Izzy Nicolaou moving through a mat Pilates sequence in warm Mediterranean light', wide: true },
+  },
+  {
+    place: 'Dubai',
+    era: 'The refinement',
+    title: 'Taught in world-class studios',
+    body: "In Dubai, Izzy taught reformer Pilates in some of the region's most beautiful studios and trained clients of every level — athletes, beginners, mothers, executives. It's where classical technique met contemporary studio culture, and where her teaching style took its final shape: exacting, warm, and impossible to get lost in.",
+    media: { type: 'video', src: '/videos/dubai-studio.mp4', poster: '/videos/dubai-studio-poster.jpg' },
+  },
+  {
+    place: 'Online',
+    era: 'The studio without walls',
+    title: 'Built PILATIZ, her online studio',
+    body: 'Izzy founded PILATIZ — an on-demand Pilates platform with workouts from 10 to 40 minutes, live classes and monthly challenges, followed by thousands. Teaching on camera sharpened what her in-person clients already knew: she can break any movement down until it clicks.',
+    media: { type: 'video', src: '/videos/online-studio.mp4', poster: '/videos/online-studio-poster.jpg' },
+  },
+  {
+    place: 'Limassol',
+    era: 'The homecoming',
+    title: 'Bringing it all home to Cyprus',
+    body: "KLUB is the studio Izzy always wanted to walk into: warm, calm, seriously equipped, and small enough that every client is known by name. London's discipline, Dubai's polish, the island's soul — all under one arched roof in Limassol city center.",
+    media: { type: 'image', src: '/images/arch-entrance.jpg', alt: 'The arched entrance of KLUB Pilates studio in Limassol with glowing circular logo' },
+  },
+];
+
+const quals = [
+  { t: 'BA (Hons) Ballet Education', s: 'Royal Academy of Dance, London' },
+  { t: 'Certified Reformer Pilates Instructor', s: 'Comprehensive apparatus training' },
+  { t: 'Certified Mat Pilates Instructor', s: 'Classical foundations, contemporary method' },
+  { t: 'Pre & Post-Natal Qualified', s: 'Safe movement through pregnancy and recovery' },
+  { t: 'International Teaching Experience', s: 'London · Dubai · Cyprus' },
+  { t: 'Founder, PILATIZ Online Studio', s: 'On-demand classes followed worldwide' },
+];
 ---
 <Base
-  title="Meet Our Pilates Instructors | KLUB Limassol"
-  description="Meet Izzy Nicolaou, founder of KLUB Limassol — Royal Academy of Dance graduate, certified reformer Pilates instructor and pre/post-natal specialist. Classes in English."
-  ogImage="/images/izzy-pilates.jpg"
+  title="Meet Izzy Nicolaou | Founder & Pilates Instructor | KLUB Limassol"
+  description="Izzy Nicolaou, founder of KLUB Limassol — Royal Academy of Dance graduate, certified reformer Pilates instructor and pre/post-natal specialist, trained in London and Dubai."
+  ogImage="/images/izzy-cyprus-pool.jpg"
   schema={izzySchema}
 >
-  <section class="page-hero">
+  <!-- Profile hero -->
+  <section class="p-hero">
+    <div class="container p-grid">
+      <div class="p-copy">
+        <span class="eyebrow rise">Founder &amp; Lead Instructor</span>
+        <h1 class="rise rise-d1">Izzy <span class="ital">Nicolaou</span></h1>
+        <p class="lede rise rise-d2">
+          Classically trained ballet teacher. Certified Pilates instructor. Founder of KLUB —
+          and the reason your form is about to get very, very good.
+        </p>
+        <div class="btn-row rise rise-d3">
+          <a class="btn btn--primary" href="/book/">Book a class with Izzy</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/pilateswithizzy" rel="noopener">@pilateswithizzy</a>
+        </div>
+      </div>
+      <div class="p-media rise rise-d2">
+        <ArchVideo src="/videos/cyprus-pool.mp4" poster="/videos/cyprus-pool-poster.jpg" />
+      </div>
+    </div>
     <div class="container">
-      <span class="eyebrow">Instructors</span>
-      <h1>The People Behind the Practice</h1>
-      <p>Internationally trained, fully certified — and genuinely glad you came.</p>
+      <div class="stat-row p-stats reveal">
+        <div class="stat"><b>RAD</b><span>BA (Hons) Ballet Education, Royal Academy of Dance</span></div>
+        <div class="stat"><b>3</b><span>cities of teaching — London, Dubai, Cyprus</span></div>
+        <div class="stat"><b>Pre/Post</b><span>natal qualified — every stage, safely</span></div>
+        <div class="stat"><b>1000s</b><span>guided through PILATIZ, her online studio</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="section--white bios">
+  <!-- Journey -->
+  <section class="section section--white">
     <div class="container">
-      <article class="card bio">
-        <div class="portrait">
-          <Pic
-            src="/images/izzy-pilates.jpg"
-            alt="Izzy Nicolaou practicing a side-lying Pilates leg lift on a mat in front of sheer curtains"
-            width={420} height={525} loading="eager"
-          />
-        </div>
-        <div class="body">
-          <h2>Elizabeth "Izzy" Nicolaou</h2>
-          <p class="creds">
-            Founder &amp; Lead Instructor · BA (Hons) Ballet Education, Royal Academy of Dance ·
-            Certified Reformer &amp; Mat Pilates Instructor · Pre/Post-Natal Qualified
-          </p>
-          <p>
-            Izzy is a classically trained ballet teacher turned Pilates instructor, with a
-            Bachelor of Arts with Honours in Ballet Education from the Royal Academy of Dance.
-            Her teaching career has taken her from London to Dubai and home to Cyprus — and that
-            journey shapes every class she leads: precise like ballet, welcoming like a friend's
-            living room.
-          </p>
-          <p>
-            She came to the reformer through dance, using it to build the core strength, posture
-            and control that dancers depend on — and quickly discovered it does the same for
-            every body, whether you sit at a desk all day or train for sport. She is fully
-            qualified in pre- and post-natal movement, so mothers and mothers-to-be train with
-            complete confidence.
-          </p>
-          <p>
-            Between studio sessions, Izzy runs <a href="https://www.instagram.com/pilatizstudio" rel="noopener">PILATIZ</a>,
-            her online studio — on-demand workouts, live classes and monthly challenges you can
-            do from anywhere. If you want to start moving before KLUB opens its doors, that is
-            the place.
-          </p>
-          <p class="creds">Languages: English, Greek</p>
-          <div class="btn-row">
-            <a class="btn btn--primary btn--sm" href="/book/">Book a class with Izzy</a>
-            <a class="btn btn--ghost btn--sm" href="https://www.instagram.com/pilateswithizzy" rel="noopener">Follow @pilateswithizzy</a>
-          </div>
-        </div>
-      </article>
-
-      <div class="card card--pad online">
-        <h3>Can't wait for opening day?</h3>
-        <p>
-          Train with Izzy online now through PILATIZ — workouts from 10 to 40 minutes, beginner
-          to advanced, new sessions every month.
-        </p>
-        <a class="btn btn--accent btn--sm" href="https://www.instagram.com/pilatizstudio" rel="noopener">Visit PILATIZ Online Studio</a>
+      <div class="reveal">
+        <span class="eyebrow">The Journey</span>
+        <h2>London. Dubai. <span class="ital">Home.</span></h2>
       </div>
 
-      <p class="center closing">
-        All our instructors are fully certified and insured. Questions about qualifications?
-        <a href={whatsappLink('Hi KLUB! I have a question about your instructors.')} rel="noopener">Ask us anytime</a>.
-      </p>
+      {journey.map((j, i) => (
+        <article class:list={['leg', { flip: i % 2 === 1 }]}>
+          <div class="leg-media reveal">
+            {j.media.type === 'video' ? (
+              <ArchVideo src={j.media.src} poster={j.media.poster} />
+            ) : j.media.wide ? (
+              <div class="wide-img"><Pic src={j.media.src} alt={j.media.alt} width={800} height={448} /></div>
+            ) : (
+              <div class="arch"><Pic src={j.media.src} alt={j.media.alt} width={420} height={520} /></div>
+            )}
+          </div>
+          <div class="leg-copy reveal reveal-d1">
+            <div class="leg-marker">
+              <span class="leg-place">{j.place}</span>
+              <span class="leg-era">{j.era}</span>
+            </div>
+            <h3>{j.title}</h3>
+            <p>{j.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Qualifications -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Credentials</span>
+        <h2>Qualified is an <span class="ital">understatement</span></h2>
+      </div>
+      <div class="grid grid--3 qual-grid">
+        {quals.map((q, i) => (
+          <div class:list={['card card--pad reveal', `reveal-d${i % 3}`]}>
+            <h3 class="q-t">{q.t}</h3>
+            <p class="q-s">{q.s}</p>
+          </div>
+        ))}
+      </div>
+      <p class="center langs reveal">Teaches in English · Also speaks Greek · Fully certified and insured</p>
+    </div>
+  </section>
+
+  <!-- Philosophy quote -->
+  <section class="section section--sand">
+    <div class="container center">
+      <blockquote class="big-quote reveal">
+        “Pilates gave my dancers strength without bulk, control without tension. It does the
+        same for every body that walks in — you just have to <span class="ital">start</span>.”
+      </blockquote>
+      <p class="quote-by reveal">— Izzy, on why she teaches</p>
+    </div>
+  </section>
+
+  <!-- PILATIZ -->
+  <section class="section section--white">
+    <div class="container split">
+      <div class="p-media-sm reveal">
+        <ArchVideo src="/videos/mat-home.mp4" poster="/videos/mat-home-poster.jpg" />
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="eyebrow">Can't wait for opening day?</span>
+        <h2>Train with Izzy <span class="ital">today</span></h2>
+        <p>
+          PILATIZ is Izzy's online studio — on-demand workouts from 10 to 40 minutes, beginner
+          to advanced, live classes and monthly challenges. Start moving now, walk into KLUB
+          already stronger.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--accent" href="https://www.instagram.com/pilatizstudio" rel="noopener">Visit PILATIZ</a>
+          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about Izzy and KLUB.')} rel="noopener">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark">
+    <div class="container center">
+      <h2 class="reveal">Your first class is <span class="ital">€20</span></h2>
+      <p class="reveal reveal-d1">Six people, fifty minutes, one very good teacher.</p>
+      <div class="btn-row center-row reveal reveal-d2">
+        <a class="btn btn--accent" href="/book/">Book Now</a>
+        <a class="btn btn--ghost-light" href="/founding-member/">Join the Founding Circle</a>
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .bios { padding: var(--section-y) 0; }
-  .bio { display: grid; grid-template-columns: 1fr 1.6fr; overflow: hidden; margin-bottom: 28px; }
-  .portrait :global(img) { width: 100%; height: 100%; object-fit: cover; }
-  .body { padding: clamp(24px, 4vw, 44px); }
-  .creds { font-size: 14px; color: var(--umber); font-weight: 500; }
-  @media (max-width: 780px) {
-    .bio { grid-template-columns: 1fr; }
-    .portrait :global(img) { max-height: 420px; }
+  .p-hero { padding: clamp(48px, 7vw, 96px) 0 clamp(32px, 5vw, 56px); overflow: hidden; }
+  .p-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
   }
-  .online { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; background: var(--sand); border-color: var(--sand); }
-  .online h3 { margin-bottom: 2px; }
-  .closing { margin-top: 32px; }
+  .p-media { max-width: 360px; justify-self: center; width: 100%; }
+  @media (max-width: 860px) {
+    .p-grid { grid-template-columns: 1fr; }
+    .p-media { max-width: 300px; }
+  }
+  .p-stats { margin-top: clamp(40px, 6vw, 64px); border-top: 1px solid var(--line); padding-top: 36px; }
+
+  .leg {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+    margin-top: clamp(56px, 8vw, 96px);
+  }
+  .leg.flip .leg-media { order: 2; }
+  .leg-media { max-width: 380px; width: 100%; justify-self: center; }
+  .leg-media .wide-img { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--line); }
+  .leg-media:has(.wide-img) { max-width: 560px; }
+  .leg-marker { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; }
+  .leg-place {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--umber);
+  }
+  .leg-era {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+  }
+  .leg h3 { font-size: clamp(22px, 2.6vw, 30px); }
+  @media (max-width: 780px) {
+    .leg, .leg.flip { grid-template-columns: 1fr; }
+    .leg.flip .leg-media { order: 0; }
+    .leg-media { max-width: 320px; }
+  }
+
+  .qual-grid { margin-top: 40px; }
+  .q-t { font-size: 20px; margin-bottom: 4px; }
+  .q-s { color: var(--ink-soft); font-size: 14px; margin: 0; }
+  .langs { margin-top: 28px; color: var(--ink-soft); font-size: 14px; letter-spacing: 0.04em; }
+
+  .big-quote {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.6vw, 40px);
+    line-height: 1.25;
+    max-width: 22ch;
+    margin: 0 auto 18px;
+  }
+  .quote-by { color: var(--ink-soft); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .p-media-sm { max-width: 340px; width: 100%; justify-self: center; }
+  .center-row { justify-content: center; }
 </style>

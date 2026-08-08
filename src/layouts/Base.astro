@@ -53,6 +53,7 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
@@ -73,7 +74,7 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
     rel="stylesheet"
   />
 
@@ -89,5 +90,19 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
   </main>
   <Footer />
   <WhatsAppButton />
+  <script>
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
 </body>
 </html>

@@ -16,7 +16,7 @@
   --line: #E8E0D6;
 
   --serif: "DM Serif Display", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --radius-card: 16px;
   --radius-btn: 12px;
@@ -46,10 +46,14 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0 0 0.5em; }
-h1 { font-size: clamp(40px, 6vw, 56px); line-height: 1.1; letter-spacing: -0.02em; }
-h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.15; letter-spacing: -0.01em; }
+h1 { font-size: clamp(44px, 7.5vw, 84px); line-height: 1.04; letter-spacing: -0.025em; }
+h2 { font-size: clamp(32px, 5vw, 52px); line-height: 1.08; letter-spacing: -0.015em; }
 h3 { font-size: clamp(21px, 2.5vw, 26px); line-height: 1.2; }
 h4 { margin: 0 0 0.5em; font-size: 17px; }
+
+/* Italic serif accent inside headlines */
+.ital { font-style: italic; color: var(--umber); }
+.section--dark .ital { color: var(--sand); }
 
 p { margin: 0 0 16px; max-width: 65ch; }
 a { color: var(--umber); text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -235,3 +239,93 @@ input:focus, select:focus, textarea:focus {
 /* Page hero (interior pages) */
 .page-hero { padding: clamp(56px, 9vw, 104px) 0 clamp(36px, 6vw, 64px); }
 .page-hero p { color: var(--ink-soft); font-size: 18px; }
+
+/* ============================================================
+   Lush layer — grain, reveals, marquee, arch video
+   ============================================================ */
+
+/* Film grain over the whole page, very subtle */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* Scroll reveals — .in is added by a tiny IntersectionObserver in the layout.
+   Only hide when JS is running (html.js is set inline in the layout head). */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.12s; }
+.reveal-d2 { transition-delay: 0.24s; }
+.reveal-d3 { transition-delay: 0.36s; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Hero entrance */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: riseIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.rise-d1 { animation-delay: 0.12s; }
+.rise-d2 { animation-delay: 0.24s; }
+.rise-d3 { animation-delay: 0.38s; }
+.rise-d4 { animation-delay: 0.52s; }
+
+/* Marquee band */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  background: var(--card);
+}
+.marquee__track {
+  display: inline-block;
+  animation: marquee 36s linear infinite;
+}
+.marquee span {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.2vw, 26px);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  padding: 0 18px;
+}
+.marquee span em { font-style: italic; color: var(--umber); }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+}
+
+/* Arch-framed video */
+.arch-video {
+  border-radius: 999px 999px var(--radius-card) var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--sand);
+  aspect-ratio: 9 / 14;
+  box-shadow: 0 24px 48px -24px rgba(26, 23, 20, 0.28);
+}
+.arch-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Editorial stat row */
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 860px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+.stat-row .stat b {
+  display: block;
+  font: 400 clamp(26px, 3vw, 38px)/1.1 var(--serif);
+  margin-bottom: 4px;
+}
+.stat-row .stat span { color: var(--ink-soft); font-size: 14px; }

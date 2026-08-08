@@ -1,0 +1,19 @@
+---
+interface Props { items: string[] }
+const { items } = Astro.props;
+const strip = items;
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {[0, 1].map(() => (
+      <>
+        {strip.map((t, i) => (
+          <>
+            <span set:html={t} />
+            <span><em>·</em></span>
+          </>
+        ))}
+      </>
+    ))}
+  </div>
+</div>

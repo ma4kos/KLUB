@@ -19,6 +19,7 @@ export const SITE = {
 
   instagram: 'https://www.instagram.com/klubstudios',
   instagramHandle: '@klubstudios',
+  facebook: 'https://www.facebook.com/share/1HEgcu8Aio/',
 
   openingLabel: 'Opening September 2026',
   openingDate: '2026-09-01',
