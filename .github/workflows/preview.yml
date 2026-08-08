@@ -1,4 +1,5 @@
-# Deploys a shareable preview of the site to GitHub Pages on every push.
+# Deploys a shareable preview of the site to GitHub Pages on every push,
+# by publishing the built site to the gh-pages branch.
 # Production hosting is Netlify (see netlify.toml) — this is the pre-launch preview.
 name: Deploy preview to GitHub Pages
 
@@ -10,9 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -21,9 +20,6 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -42,13 +38,13 @@ jobs:
         run: |
           find dist -name '*.html' -exec sed -i 's|href="/|href="/KLUB/|g; s|src="/|src="/KLUB/|g; s|srcset="/|srcset="/KLUB/|g; s|action="/|action="/KLUB/|g' {} +
 
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish to gh-pages branch
+        run: |
+          cd dist
+          touch .nojekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Deploy preview: ${{ github.sha }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
