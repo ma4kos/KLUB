@@ -1,0 +1,35 @@
+---
+import { SITE, whatsappLink } from '../site';
+const isWhatsApp = Boolean(SITE.whatsappNumber);
+const label = isWhatsApp ? 'Chat with KLUB on WhatsApp' : 'Message KLUB on Instagram';
+---
+<a class="float-chat" class:list={{ ig: !isWhatsApp }} href={whatsappLink()} rel="noopener" aria-label={label} title={label}>
+  {isWhatsApp ? (
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.5c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.4-.3z"/>
+    </svg>
+  ) : (
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true">
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="17.3" cy="6.7" r="1.2" fill="#fff" stroke="none" />
+    </svg>
+  )}
+</a>
+
+<style>
+  .float-chat {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 50;
+    transition: transform 0.2s ease;
+  }
+  .float-chat.ig { background: var(--umber); }
+  .float-chat:hover { transform: scale(1.05); }
+  @media (max-width: 600px) { .float-chat { right: 16px; bottom: 16px; } }
+</style>

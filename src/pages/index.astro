@@ -1,0 +1,215 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { CLASSES } from '../data/classes';
+import { SITE, whatsappLink } from '../site';
+---
+<Base
+  title="KLUB | Pilates Reformer Studio in Limassol City Center"
+  description="Premium Pilates reformer classes in Limassol city center. Small group sessions & private 1-to-1 training. New to Pilates? Start with our €20 intro offer. Opening September 2026."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Limassol City Center · Opening September 2026</span>
+        <h1>Where Intentional Movement Meets Mindful Strength</h1>
+        <p class="lede">
+          Premium reformer Pilates in the heart of Limassol. Small-group classes and private
+          sessions designed for real bodies, real progress, real connection.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/book/">Book Your First Class — €20</a>
+          <a class="btn btn--ghost" href="/timetable/">View Timetable</a>
+        </div>
+      </div>
+      <div class="arch hero-arch">
+        <Pic
+          src="/images/arch-entrance.jpg"
+          alt="Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree"
+          width={322} height={431} loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="section--white trust">
+    <div class="container grid grid--4">
+      <div>
+        <h3 class="trust-h">All classes in English</h3>
+        <p>Welcoming every nationality — no Greek needed.</p>
+      </div>
+      <div>
+        <h3 class="trust-h">Small groups, max 6</h3>
+        <p>Personal attention in every single session.</p>
+      </div>
+      <div>
+        <h3 class="trust-h">Private 1-to-1 available</h3>
+        <p>Fully tailored sessions, rare in the city center.</p>
+      </div>
+      <div>
+        <h3 class="trust-h">Limassol City Center</h3>
+        <p>Right in the heart of town, easy to reach.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About preview -->
+  <section class="section">
+    <div class="container split">
+      <div class="arch">
+        <Pic
+          src="/images/reception.jpg"
+          alt="Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"
+          width={467} height={431}
+        />
+      </div>
+      <div>
+        <span class="eyebrow">About KLUB</span>
+        <h2>A Space Built for Balance</h2>
+        <p>
+          KLUB stands for <em>Keep Living Under Balance</em> — and the studio is designed around
+          exactly that. Warm plaster walls, arched doorways, soft light and calm proportions:
+          a space that slows you down the moment you walk in.
+        </p>
+        <p>
+          On the floor, it's serious equipment and small groups. Reformer classes are capped at
+          six people, so your instructor sees every rep — your alignment, your pace, your progress.
+        </p>
+        <p class="pull-quote">Chill vibes are found here.</p>
+        <a class="btn btn--ghost" href="/instructors/">Meet Our Instructors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Classes preview -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="center">
+        <h2>Find Your Class</h2>
+        <p class="lede">Four ways to move, from your first step to your strongest self.</p>
+      </div>
+      <div class="grid grid--4 class-grid">
+        {CLASSES.map((c) => (
+          <a class="card class-card" href={`/classes/${c.slug}/`}>
+            <div class="class-img">
+              <Pic src={c.image} alt={c.imageAlt} width={360} height={300} />
+            </div>
+            <div class="class-body">
+              <h3>{c.name}</h3>
+              <p>{c.short}</p>
+              <span class="more">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing teaser -->
+  <section class="section section--sand">
+    <div class="container split">
+      <div>
+        <h2>Transparent Pricing</h2>
+        <p>No hidden fees. No complicated tiers. Just clear options that fit how you want to move.</p>
+        <a class="btn btn--primary" href="/pricing/">View Full Price List</a>
+      </div>
+      <div class="grid price-teaser">
+        <div class="card card--pad center">
+          <span class="eyebrow">Drop-In</span>
+          <p class="big-price">€20</p>
+          <p>Try any group class</p>
+        </div>
+        <div class="card card--pad center">
+          <span class="eyebrow">Intro Pack</span>
+          <p class="big-price">€32</p>
+          <p>Your first reformer experience</p>
+        </div>
+        <div class="card card--pad center">
+          <span class="eyebrow">Private Session</span>
+          <p class="big-price">€80</p>
+          <p>1-to-1 personal training</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timetable preview -->
+  <section class="section section--white">
+    <div class="container center">
+      <h2>Classes Morning to Evening</h2>
+      <p class="lede">
+        Early starts, lunchtime resets and after-work sessions — the full timetable goes live
+        with bookings before opening day.
+      </p>
+      <a class="btn btn--primary" href="/timetable/">View Timetable</a>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="section">
+    <div class="container split">
+      <div class="arch">
+        <Pic
+          src="/images/street-sign.jpg"
+          alt="Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
+          width={358} height={294}
+        />
+      </div>
+      <div>
+        <span class="eyebrow">Find Us</span>
+        <h2>In the Heart of Limassol</h2>
+        <p>
+          {SITE.addressLocality}, {SITE.addressCountry}.<br />
+          <em>{SITE.addressNote}</em>
+        </p>
+        <p>
+          Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+          Instagram: <a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a>
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="/location/">Location &amp; Directions</a>
+          <a class="btn btn--accent" href={whatsappLink('Hi KLUB! Where exactly are you located?')} rel="noopener">Message Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding member -->
+  <section class="section section--dark">
+    <div class="container split">
+      <div>
+        <h2>Be Part of the Founding Circle</h2>
+        <p>
+          Join before we open for exclusive founding member rates and first access to bookings.
+          Early members choose their class times before anyone else.
+        </p>
+      </div>
+      <FoundingForm compact />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: clamp(56px, 9vw, 110px) 0; }
+  .hero-arch { max-width: 420px; justify-self: center; }
+  .trust { padding: 48px 0; }
+  .trust-h { font-size: 19px; margin-bottom: 4px; }
+  .trust p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+  .class-grid { margin-top: 40px; }
+  .class-card { text-decoration: none; color: var(--ink); overflow: hidden; display: flex; flex-direction: column; }
+  .class-img { aspect-ratio: 6/5; overflow: hidden; }
+  .class-img :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .class-card:hover .class-img :global(img) { transform: scale(1.03); }
+  .class-body { padding: 20px 22px 24px; }
+  .class-body h3 { font-size: 21px; }
+  .class-body p { font-size: 14px; color: var(--ink-soft); }
+  .more { font: 500 13px/1.4 var(--sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--umber); }
+
+  .price-teaser { grid-template-columns: 1fr; gap: 16px; }
+  .big-price { font-family: var(--serif); font-size: 40px; margin: 0; }
+  .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
+</style>

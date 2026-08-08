@@ -1,0 +1,43 @@
+---
+import { SITE } from '../site';
+---
+<div class="banner" id="klub-banner" hidden>
+  <p>
+    We're opening September 2026 — join our Founding Member list for early access and exclusive rates.
+    <a href="/founding-member/">Join now</a>
+  </p>
+  <button type="button" aria-label="Dismiss announcement" id="klub-banner-close">&times;</button>
+</div>
+
+<style>
+  .banner {
+    background: var(--umber);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 48px 10px 20px;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+  }
+  .banner p { margin: 0; max-width: none; }
+  .banner a { color: #fff; font-weight: 600; }
+  .banner button {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    background: none; border: 0; color: #fff; font-size: 22px; line-height: 1;
+    cursor: pointer; padding: 4px 8px;
+  }
+</style>
+
+<script>
+  const banner = document.getElementById('klub-banner');
+  if (banner && localStorage.getItem('klub-banner-dismissed') !== '1') {
+    banner.hidden = false;
+  }
+  document.getElementById('klub-banner-close')?.addEventListener('click', () => {
+    banner?.setAttribute('hidden', '');
+    localStorage.setItem('klub-banner-dismissed', '1');
+  });
+</script>

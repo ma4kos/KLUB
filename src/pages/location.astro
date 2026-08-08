@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { SITE, whatsappLink } from '../site';
+---
+<Base
+  title="KLUB Pilates Studio Location | Limassol City Center | Directions"
+  description="Find KLUB Pilates studio in Limassol city center, Cyprus. Full address, map and parking guide coming with our September 2026 opening. Message us for directions."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Location</span>
+      <h1>Find Us in Limassol City Center</h1>
+      <p>
+        {SITE.addressLocality}, {SITE.addressCountry} — {SITE.addressNote.toLowerCase()}
+      </p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container">
+      <div class="grid grid--2 gallery">
+        <div class="card imgcard"><Pic src="/images/street-sign.jpg" alt="Illuminated KLUB studio sign on a stone building corner in Limassol city center" width={358} height={294} /></div>
+        <div class="card imgcard"><Pic src="/images/arch-entrance.jpg" alt="KLUB Pilates studio entrance with arched doorway and glowing circular logo" width={322} height={431} /></div>
+        <div class="card imgcard"><Pic src="/images/reception.jpg" alt="KLUB reception area with stone desk, armchairs and warm neutral tones" width={467} height={431} /></div>
+        <div class="card imgcard"><Pic src="/images/studio-room.jpg" alt="Reformer studio room at KLUB with sheer curtains and soft evening light" width={418} height={294} /></div>
+      </div>
+
+      <div class="grid grid--3 info">
+        <div class="card card--pad">
+          <h3>Getting Here</h3>
+          <p>
+            We're right in the city center — walkable from the seafront, the old town and the
+            main business district. A detailed map and directions go live with our address.
+          </p>
+        </div>
+        <div class="card card--pad">
+          <h3>Parking</h3>
+          <p>
+            Public parking is available within a short walk. We'll publish a simple
+            where-to-park guide before opening day — Limassol parking should not be a workout.
+          </p>
+        </div>
+        <div class="card card--pad">
+          <h3>Contact</h3>
+          <p>
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+            <a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a><br />
+            <a href={whatsappLink('Hi KLUB! Can you send me directions to the studio?')} rel="noopener">Message us for directions</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card card--pad center announce">
+        <h2>Want the address the moment it drops?</h2>
+        <p>Founding members hear everything first — address, opening hours and booking access.</p>
+        <a class="btn btn--accent" href="/founding-member/">Join the Founding Member List</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .gallery { margin-bottom: 40px; }
+  .imgcard { overflow: hidden; aspect-ratio: 4/3; }
+  .imgcard :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .info { margin-bottom: 40px; }
+  .announce p { margin-inline: auto; }
+</style>

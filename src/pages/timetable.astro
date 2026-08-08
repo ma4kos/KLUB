@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { whatsappLink } from '../site';
+
+// Planned launch schedule — replace with the live booking embed once the booking system is on.
+const days = [
+  { day: 'Monday–Friday', slots: [
+    { time: '07:30', name: 'Reformer Flow' },
+    { time: '09:00', name: 'Reformer Fundamentals' },
+    { time: '13:00', name: 'Lunchtime Reformer Flow' },
+    { time: '17:30', name: 'Reformer Power' },
+    { time: '19:00', name: 'Reformer Flow' },
+  ]},
+  { day: 'Saturday', slots: [
+    { time: '09:00', name: 'Reformer Fundamentals' },
+    { time: '10:30', name: 'Reformer Flow' },
+  ]},
+  { day: 'By appointment', slots: [
+    { time: 'Flexible', name: 'Private 1-to-1 Sessions' },
+  ]},
+];
+---
+<Base
+  title="Pilates Class Timetable Limassol | Book Your Spot | KLUB"
+  description="View the planned reformer Pilates class schedule at KLUB Limassol. Morning, lunchtime and evening sessions. Booking opens before our September 2026 launch."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Timetable</span>
+      <h1>Class Timetable</h1>
+      <p>Find a time that fits your rhythm — early mornings, lunchtime resets and evening sessions.</p>
+    </div>
+  </section>
+
+  <section class="section--white schedule">
+    <div class="container">
+      <div class="card card--pad notice">
+        <span class="pill pill--good">Opening September 2026</span>
+        <p>
+          This is our planned launch schedule. Online booking opens shortly before we do —
+          founding members get first access to every slot.
+        </p>
+      </div>
+
+      {days.map((d) => (
+        <div class="day">
+          <h2>{d.day}</h2>
+          <div class="slots">
+            {d.slots.map((s) => (
+              <div class="card slot">
+                <span class="time">{s.time}</span>
+                <span class="name">{s.name}</span>
+                <span class="cap">50 min · max 6</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <p class="foot-note">
+        Can't find a time that works? <a href="/classes/private-sessions/">Private sessions</a> are
+        available by appointment — <a href={whatsappLink('Hi KLUB! Can I arrange a private session time?')} rel="noopener">message us</a> to arrange one.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container split">
+      <div>
+        <h2>Be First on the Timetable</h2>
+        <p>Join the founding member list and you'll book before public slots open.</p>
+      </div>
+      <FoundingForm compact />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .schedule { padding: var(--section-y) 0; }
+  .notice { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 40px; }
+  .notice p { margin: 0; }
+  .day { margin-bottom: 36px; }
+  .day h2 { font-size: 24px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+  .slot { padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+  .time { font-family: var(--serif); font-size: 22px; }
+  .name { font-weight: 600; font-size: 15px; }
+  .cap { color: var(--ink-faint); font-size: 13px; }
+  .foot-note { margin-top: 16px; color: var(--ink-soft); }
+</style>

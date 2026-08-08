@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+---
+<Base
+  title="Founding Member | Early Access & Exclusive Rates | KLUB Limassol"
+  description="Join the KLUB founding member list for early access to bookings, exclusive founding rates and priority class selection before our September 2026 Limassol opening."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Founding Member</span>
+      <h1>Be Part of the Founding Circle</h1>
+      <p>The people who join before we open get the best of KLUB, permanently.</p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container split" style="align-items: start;">
+      <div>
+        <h2>What founding members get</h2>
+        <ul class="perks">
+          <li><strong>Exclusive founding rates</strong> — locked in before public pricing, kept as long as you stay.</li>
+          <li><strong>First access to bookings</strong> — choose your class times before slots open to anyone else.</li>
+          <li><strong>Opening week priority</strong> — guaranteed spots in launch week classes.</li>
+          <li><strong>The address first</strong> — location, hours and every announcement before they're public.</li>
+        </ul>
+        <p class="scarcity">
+          Founding membership closes when we open in September 2026. After that, it's gone for good.
+        </p>
+        <p class="form-note">
+          We never share your details. You'll receive a couple of emails before opening,
+          then only our weekly timetable — unsubscribe anytime.
+        </p>
+      </div>
+      <div class="card card--pad">
+        <h2>Join the list</h2>
+        <FoundingForm />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .perks { list-style: none; padding: 0; margin: 0 0 24px; }
+  .perks li {
+    padding: 14px 0 14px 34px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    color: var(--ink-soft);
+  }
+  .perks li::before {
+    content: "✓";
+    position: absolute; left: 4px;
+    color: var(--good); font-weight: 700;
+  }
+  .perks strong { color: var(--ink); }
+  .scarcity { font-weight: 500; color: var(--umber-deep); }
+</style>

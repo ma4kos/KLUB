@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { whatsappLink } from '../site';
+---
+<Base
+  title="Book a Pilates Class in Limassol | KLUB"
+  description="Booking for KLUB Pilates Limassol opens with our September 2026 launch. Join the founding member list for first access, or message us to reserve your spot personally."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Book</span>
+      <h1>Booking Opens Soon</h1>
+      <p>
+        Online booking goes live shortly before we open in September 2026.
+        Founding members book first.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container grid grid--2" style="align-items: start;">
+      <div class="card card--pad">
+        <h2>Get first access</h2>
+        <p>Join the founding member list — early rates, priority booking, the address before anyone else.</p>
+        <FoundingForm />
+      </div>
+      <div>
+        <div class="card card--pad option">
+          <h3>Reserve a spot personally</h3>
+          <p>Want to lock in a class the human way? Message us with your preferred class and time and we'll confirm within a few hours.</p>
+          <a class="btn btn--accent btn--sm" href={whatsappLink("Hi KLUB! I'd like to reserve a spot. My preferred class and time:")} rel="noopener">Message to Reserve</a>
+        </div>
+        <div class="card card--pad option">
+          <h3>Not sure where to start?</h3>
+          <p>New to the reformer? Start with <a href="/classes/reformer-fundamentals/">Reformer Fundamentals</a> or read the <a href="/faq/">FAQ</a> — it answers everything from what to wear to how sore you'll be.</p>
+        </div>
+        <div class="card card--pad option">
+          <h3>Private sessions</h3>
+          <p>1-to-1 sessions can be arranged before general booking opens — ideal for pre/post-natal training or injury recovery. <a href={whatsappLink("Hi KLUB! I'm interested in a private 1-to-1 session.")} rel="noopener">Ask about availability</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .option { margin-bottom: 20px; }
+  .option h3 { font-size: 20px; }
+  .option p { color: var(--ink-soft); font-size: 15px; }
+</style>

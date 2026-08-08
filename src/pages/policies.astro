@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+<Base
+  title="Studio Policies | Cancellations, Grip Socks & Arrival | KLUB"
+  description="KLUB Limassol studio policies: 12-hour cancellation notice, grip socks required, 10-minute late arrival rule, class pack expiry and privacy. Read before your first class."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Policies</span>
+      <h1>Studio Policies</h1>
+      <p>Short, fair and there to keep classes running smoothly for everyone.</p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container policies">
+      <div class="card card--pad">
+        <h2>Grip Socks</h2>
+        <ul>
+          <li>Grip socks are required in every class — for hygiene and for safety on the reformer.</li>
+          <li>Forgot yours? Pairs are available for purchase at reception.</li>
+        </ul>
+      </div>
+
+      <div class="card card--pad">
+        <h2>Arrival &amp; Late Policy</h2>
+        <ul>
+          <li>Please arrive 5–10 minutes early, and 10 minutes early for your very first visit.</li>
+          <li>Entry closes 10 minutes after class starts. The warm-up is part of keeping you safe — missing it means missing the class.</li>
+          <li>If you miss the cut-off, message us and we'll help you rebook.</li>
+        </ul>
+      </div>
+
+      <div class="card card--pad">
+        <h2>Cancellation &amp; No-Show</h2>
+        <ul>
+          <li>Cancel at least 12 hours before class and your credit is returned automatically.</li>
+          <li>Cancellations inside 12 hours, and no-shows, are charged in full — in a class of six, your spot matters.</li>
+          <li>Genuine emergencies happen. Talk to us.</li>
+        </ul>
+      </div>
+
+      <div class="card card--pad">
+        <h2>Class Pack Expiry</h2>
+        <ul>
+          <li>5-class Flexi Packs are valid for 2 months from purchase.</li>
+          <li>10-class Flexi Packs are valid for 3 months from purchase.</li>
+          <li>Monthly memberships renew each month; unused classes don't roll over.</li>
+        </ul>
+      </div>
+
+      <div class="card card--pad">
+        <h2>Health &amp; Safety</h2>
+        <ul>
+          <li>Tell us about injuries, pregnancy or health conditions before your first class — it stays confidential and helps us keep you safe.</li>
+          <li>Our instructors are fully certified and insured, including pre/post-natal qualification.</li>
+          <li>Equipment is cleaned between every class.</li>
+        </ul>
+      </div>
+
+      <div class="card card--pad">
+        <h2>Privacy</h2>
+        <ul>
+          <li>We collect only the details needed to manage your bookings and keep in touch: name, contact details and any health information you choose to share.</li>
+          <li>We never sell or share your data with third parties for marketing.</li>
+          <li>Marketing emails are opt-in and every one includes an unsubscribe link.</li>
+          <li>To access or delete your data, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> — we comply with GDPR.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .policies { display: grid; gap: 24px; max-width: 800px; }
+  .policies ul { margin: 0; padding-left: 20px; }
+  .policies li { margin-bottom: 10px; color: var(--ink-soft); }
+</style>

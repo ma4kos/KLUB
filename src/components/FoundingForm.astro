@@ -1,0 +1,54 @@
+---
+// Netlify Forms-compatible signup form (works automatically when hosted on Netlify).
+// On other hosts, point the action at a Formspree endpoint instead.
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<form
+  class="founding-form"
+  name="founding-member"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/founding-member/?success=true"
+>
+  <input type="hidden" name="form-name" value="founding-member" />
+  <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+
+  {!compact && (
+    <div class="field">
+      <label for="ff-name">Name</label>
+      <input id="ff-name" type="text" name="name" autocomplete="name" required />
+    </div>
+  )}
+  <div class="field">
+    <label for="ff-email">Email</label>
+    <input id="ff-email" type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+  </div>
+  {!compact && (
+    <>
+      <div class="field">
+        <label for="ff-phone">Phone / WhatsApp (optional)</label>
+        <input id="ff-phone" type="tel" name="phone" autocomplete="tel" />
+      </div>
+      <div class="field">
+        <label for="ff-interest">What interests you most?</label>
+        <select id="ff-interest" name="interest">
+          <option>Small-group reformer classes</option>
+          <option>Private 1-to-1 sessions</option>
+          <option>Pre/post-natal Pilates</option>
+          <option>I'm new to Pilates</option>
+          <option>Just curious</option>
+        </select>
+      </div>
+    </>
+  )}
+  <button class="btn btn--accent" type="submit">Join the List</button>
+  <p class="form-note">We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.</p>
+</form>
+
+<style>
+  .founding-form { max-width: 480px; }
+  .founding-form .btn { margin-top: 6px; }
+  .founding-form .form-note { margin-top: 12px; }
+</style>
