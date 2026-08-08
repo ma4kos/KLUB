@@ -1,0 +1,54 @@
+# Deploys a shareable preview of the site to GitHub Pages on every push.
+# Production hosting is Netlify (see netlify.toml) — this is the pre-launch preview.
+name: Deploy preview to GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/izzy-pilates-website-w61t75
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      # GitHub Pages serves this repo under /KLUB/, so prefix the site's
+      # root-absolute URLs. The Netlify production build stays untouched.
+      - name: Rewrite absolute URLs for the /KLUB/ base path
+        run: |
+          find dist -name '*.html' -exec sed -i 's|href="/|href="/KLUB/|g; s|src="/|src="/KLUB/|g; s|srcset="/|srcset="/KLUB/|g; s|action="/|action="/KLUB/|g' {} +
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
