@@ -86,7 +86,12 @@ Configure these as the paid plans/packages — they match the site's pricing pag
 
 ## 5. Every page, word for word
 
-The full sitemap with each page's SEO title, meta description, headings, body copy, button labels and link targets follows. Rebuild pages top-to-bottom in this order; `[Button: …]` lines show the exact label and destination.
+The full sitemap with each page's SEO title, meta description, headings, body copy, button labels, and every image and video placement follows. Rebuild pages top-to-bottom in this order:
+
+- `[Button: …]` lines show the exact label and destination
+- 🖼 `[Image: …]` lines show which photo sits in that spot (file paths are inside the repo ZIP's `public/` folder; use the .jpg version) — **copy the alt text into Wix's image alt field**, it's part of the SEO
+- 🎞 `[Video loop: …]` lines show which clip plays there: muted, autoplaying, looping, no controls. The poster frame is the still shown before the video loads. In Wix use "Video Box" with autoplay + loop + no sound
+- Portrait images and all videos sit in the arch-shaped frame (see section 2)
 
 ## Home
 
@@ -102,9 +107,21 @@ Premium reformer Pilates in the heart of Limassol — small groups of six, priva
 
 [Button: View Timetable → /timetable/]
 
+🎞 [Video loop (muted, autoplay): `/videos/studio-tour.mp4` — poster frame: `/videos/studio-tour-poster.jpg`]
+
+🖼 [Image: `/images/arch-entrance.jpg` — alt text: "Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree"]
+
 #### The world's best Pilates, brought home to Cyprus
 
 Our founder trained and taught in the studios of London and Dubai — and built her online studio from the island. KLUB brings all of it home to Limassol.
+
+🎞 [Video loop (muted, autoplay): `/videos/dubai-studio.mp4` — poster frame: `/videos/dubai-studio-poster.jpg` — caption below: "Refined abroad — Teaching in Dubai's studios"]
+
+🎞 [Video loop (muted, autoplay): `/videos/cyprus-pool.mp4` — poster frame: `/videos/cyprus-pool-poster.jpg` — caption below: "Rooted in Cyprus — Movement under the Limassol sun"]
+
+🎞 [Video loop (muted, autoplay): `/videos/studio-lounge.mp4` — poster frame: `/videos/studio-lounge-poster.jpg` — caption below: "Home in Limassol — The KLUB studio, ready for you"]
+
+🖼 [Image: `/images/reception.jpg` — alt text: "Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"]
 
 #### A space built for balance
 
@@ -120,17 +137,25 @@ Chill vibes are found here.
 
 Four ways to move, from your first step to your strongest self.
 
+🖼 [Image: `/images/equipment-wall.jpg` — alt text: "Black reformer Pilates springs and equipment displayed in arched niches at KLUB studio Limassol"]
+
 ##### Reformer Fundamentals
 
 Perfect for beginners. Learn the machine, master the basics, build confidence.
+
+🖼 [Image: `/images/studio-room.jpg` — alt text: "Softly lit reformer Pilates studio room with sheer curtains and equipment shelving at KLUB Limassol"]
 
 ##### Reformer Flow
 
 Smooth, continuous movement for those ready to build stamina and grace.
 
+🖼 [Image: `/images/mat-studio.jpg` — alt text: "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"]
+
 ##### Reformer Power
 
 Intensified resistance, dynamic sequences. For the experienced mover.
+
+🖼 [Image: `/images/interior-arch.jpg` — alt text: "Calm arched interior with warm lighting at KLUB Pilates studio in Limassol city center"]
 
 ##### Private Sessions
 
@@ -141,6 +166,8 @@ Training tailored to your body, your goals, your schedule.
 Royal Academy of Dance graduate. Certified reformer and mat Pilates instructor. Pre/post-natal qualified. From London stages to Dubai studios — now bringing it all home to Limassol.
 
 [Button: Her Story → /instructors/]
+
+🖼 [Image: `/images/izzy-dubai-teaching.jpg` — alt text: "Izzy Nicolaou guiding a reformer Pilates class in an arched, softly lit Dubai studio"]
 
 #### Transparent pricing
 
@@ -160,6 +187,8 @@ Your first two reformer classes
 
 1-to-1 personal training
 
+🖼 [Image: `/images/street-sign.jpg` — alt text: "Illuminated KLUB sign mounted on a stone building facade in Limassol city center"]
+
 #### In the heart of Limassol
 
 Limassol City Center, Cyprus. Full street address announced soon — join the list to be first to know.
@@ -171,7 +200,6 @@ Limassol City Center, Cyprus. Full street address announced soon — join the li
 #### Be part of the founding circle
 
 Join before we open for exclusive founding member rates and first access to bookings. Early members choose their class times before anyone else.
-
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
@@ -195,6 +223,10 @@ On the floor: professional reformer machines, capped at six per class, arranged 
 Chill vibes are found here.
 
 It's painted on our wall, and it is a promise. No intimidation, no competition — just intentional movement, mindful strength and real connection.
+
+🖼 [Image: `/images/lounge.jpg` — alt text: "Cozy white sofa lounge corner with warm lamp light at KLUB Pilates studio Limassol"]
+
+🖼 [Image: `/images/equipment-wall.jpg` — alt text: "Black Pilates springs, balls and equipment displayed in arched cream niches at KLUB Limassol"]
 
 #### What We Believe
 
@@ -223,6 +255,8 @@ A studio should know your name. Ours will — and the community forming around i
 
 Four ways to move. One space to grow.
 
+🖼 [Image: `/images/equipment-wall.jpg` — alt text: "Black reformer Pilates springs and equipment displayed in arched niches at KLUB studio Limassol"]
+
 #### Reformer Fundamentals
 
 If you have never stepped onto a reformer — or it has been a while — this is where you start. Fundamentals is a slow, deliberate introduction to the machine: the carriage, the springs, the straps, and how your body works with each of them.
@@ -230,6 +264,8 @@ If you have never stepped onto a reformer — or it has been a while — this is
 [Button: About this class → /classes/reformer-fundamentals/]
 
 [Button: Book → /book/]
+
+🖼 [Image: `/images/studio-room.jpg` — alt text: "Softly lit reformer Pilates studio room with sheer curtains and equipment shelving at KLUB Limassol"]
 
 #### Reformer Flow
 
@@ -239,6 +275,8 @@ Flow is where the reformer starts to feel like dancing. Movements link into cont
 
 [Button: Book → /book/]
 
+🖼 [Image: `/images/mat-studio.jpg` — alt text: "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"]
+
 #### Reformer Power
 
 Power is our strongest class. Heavier springs, quicker transitions, longer holds — designed for movers who know the reformer and want to be challenged by it.
@@ -246,6 +284,8 @@ Power is our strongest class. Heavier springs, quicker transitions, longer holds
 [Button: About this class → /classes/reformer-power/]
 
 [Button: Book → /book/]
+
+🖼 [Image: `/images/interior-arch.jpg` — alt text: "Calm arched interior with warm lighting at KLUB Pilates studio in Limassol city center"]
 
 #### Private Sessions
 
@@ -273,6 +313,8 @@ Your instructor walks the room the whole time. With six people maximum, nobody g
 [Button: Book this class → /book/]
 
 [Button: View in timetable → /timetable/]
+
+🖼 [Image: `/images/equipment-wall.jpg` — alt text: "Black reformer Pilates springs and equipment displayed in arched niches at KLUB studio Limassol"]
 
 #### What to expect
 
@@ -310,6 +352,8 @@ Rooted in classical technique and shaped by our ballet heritage, Flow rewards yo
 
 [Button: View in timetable → /timetable/]
 
+🖼 [Image: `/images/studio-room.jpg` — alt text: "Softly lit reformer Pilates studio room with sheer curtains and equipment shelving at KLUB Limassol"]
+
 #### What to expect
 
 - Continuous sequences with minimal stops
@@ -346,6 +390,8 @@ Expect to work close to your edge, safely. The group stays capped at six, so int
 
 [Button: View in timetable → /timetable/]
 
+🖼 [Image: `/images/mat-studio.jpg` — alt text: "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"]
+
 #### What to expect
 
 - Increased spring resistance and tempo
@@ -381,6 +427,8 @@ They are also the right choice when a group setting is not: recovering from inju
 [Button: Book this class → /book/]
 
 [Button: View in timetable → /timetable/]
+
+🖼 [Image: `/images/interior-arch.jpg` — alt text: "Calm arched interior with warm lighting at KLUB Pilates studio in Limassol city center"]
 
 #### What to expect
 
@@ -502,7 +550,6 @@ Can't find a time that works? Private sessions are available by appointment — 
 
 Join the founding member list and you'll book before public slots open.
 
-
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
 
@@ -520,19 +567,29 @@ Classically trained ballet teacher. Certified Pilates instructor. Founder of KLU
 
 [Button: @pilateswithizzy → https://www.instagram.com/pilateswithizzy]
 
+🎞 [Video loop (muted, autoplay): `/videos/cyprus-pool.mp4` — poster frame: `/videos/cyprus-pool-poster.jpg`]
+
 #### London. Dubai. Home.
+
+🖼 [Image: `/images/izzy-mat-wide.jpg` — alt text: "Izzy Nicolaou moving through a mat Pilates sequence in warm Mediterranean light"]
 
 ##### Trained where movement is a language
 
 Izzy earned her BA (Hons) in Ballet Education at the Royal Academy of Dance — one of the most respected dance institutions in the world. Years of classical training taught her what most fitness certifications never do: how bodies actually learn to move, and how to teach with precision and patience.
 
+🎞 [Video loop (muted, autoplay): `/videos/dubai-studio.mp4` — poster frame: `/videos/dubai-studio-poster.jpg`]
+
 ##### Taught in world-class studios
 
 In Dubai, Izzy taught reformer Pilates in some of the region's most beautiful studios and trained clients of every level — athletes, beginners, mothers, executives. It's where classical technique met contemporary studio culture, and where her teaching style took its final shape: exacting, warm, and impossible to get lost in.
 
+🎞 [Video loop (muted, autoplay): `/videos/online-studio.mp4` — poster frame: `/videos/online-studio-poster.jpg`]
+
 ##### Built PILATIZ, her online studio
 
 Izzy founded PILATIZ — an on-demand Pilates platform with workouts from 10 to 40 minutes, live classes and monthly challenges, followed by thousands. Teaching on camera sharpened what her in-person clients already knew: she can break any movement down until it clicks.
+
+🎞 [Video loop (muted, autoplay): `/videos/studio-reformers.mp4` — poster frame: `/videos/studio-reformers-poster.jpg`]
 
 ##### Bringing it all home to Cyprus
 
@@ -569,6 +626,8 @@ Teaches in English · Also speaks Greek · Fully certified and insured
 > “Pilates gave my dancers strength without bulk, control without tension. It does the same for every body that walks in — you just have to start .”
 
 — Izzy, on why she teaches
+
+🎞 [Video loop (muted, autoplay): `/videos/mat-home.mp4` — poster frame: `/videos/mat-home-poster.jpg`]
 
 #### Train with Izzy today
 
@@ -778,6 +837,14 @@ Message us — we typically reply within 30 minutes during business hours.
 
 Limassol City Center, Cyprus — full street address announced soon — join the list to be first to know.
 
+🖼 [Image: `/images/street-sign.jpg` — alt text: "Illuminated KLUB studio sign on a stone building corner in Limassol city center"]
+
+🖼 [Image: `/images/arch-entrance.jpg` — alt text: "KLUB Pilates studio entrance with arched doorway and glowing circular logo"]
+
+🖼 [Image: `/images/klub-reformers.jpg` — alt text: "Rows of black reformer machines on the bright studio floor at KLUB Pilates Limassol"]
+
+🖼 [Image: `/images/klub-lounge.jpg` — alt text: "KLUB studio lounge with white sofa and spiral staircase, Limassol city center"]
+
 ##### Getting Here
 
 We're right in the city center — walkable from the seafront, the old town and the main business district. A detailed map and directions go live with our address.
@@ -806,7 +873,6 @@ Founding members hear everything first — address, opening hours and booking ac
 ### Say Hello
 
 Questions, bookings, or just curious? We're quick to reply.
-
 
 #### Send a message
 
@@ -850,7 +916,6 @@ Founding membership closes when we open in September 2026. After that, it's gone
 We never share your details. You'll receive a couple of emails before opening, then only our weekly timetable — unsubscribe anytime.
 
 #### Join the list
-
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
@@ -909,7 +974,6 @@ Online booking goes live shortly before we open in September 2026. Founding memb
 #### Get first access
 
 Join the founding member list — early rates, priority booking, the address before anyone else.
-
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
