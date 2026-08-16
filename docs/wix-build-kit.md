@@ -172,7 +172,6 @@ Limassol City Center, Cyprus. Full street address announced soon — join the li
 
 Join before we open for exclusive founding member rates and first access to bookings. Early members choose their class times before anyone else.
 
-Don't fill this in:
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
@@ -503,7 +502,6 @@ Can't find a time that works? Private sessions are available by appointment — 
 
 Join the founding member list and you'll book before public slots open.
 
-Don't fill this in:
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
@@ -809,7 +807,6 @@ Founding members hear everything first — address, opening hours and booking ac
 
 Questions, bookings, or just curious? We're quick to reply.
 
-Don't fill this in:
 
 #### Send a message
 
@@ -854,7 +851,6 @@ We never share your details. You'll receive a couple of emails before opening, t
 
 #### Join the list
 
-Don't fill this in:
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
@@ -914,7 +910,6 @@ Online booking goes live shortly before we open in September 2026. Founding memb
 
 Join the founding member list — early rates, priority booking, the address before anyone else.
 
-Don't fill this in:
 
 We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.
 
