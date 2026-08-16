@@ -37,6 +37,8 @@ jobs:
       - name: Rewrite absolute URLs for the /KLUB/ base path
         run: |
           find dist -name '*.html' -exec sed -i 's|href="/|href="/KLUB/|g; s|src="/|src="/KLUB/|g; s|srcset="/|srcset="/KLUB/|g; s|action="/|action="/KLUB/|g' {} +
+          # Built CSS references root-absolute assets too (e.g. @font-face url(/fonts/...)).
+          find dist -name '*.css' -exec sed -i -E "s|url\((['\"]?)/|url(\1/KLUB/|g" {} +
 
       - name: Publish to gh-pages branch
         run: |
