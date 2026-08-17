@@ -5,9 +5,11 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Long-lived immutable caching for content-stable assets (hashed CSS/JS, fonts,
-# videos, images). HTML stays at the default revalidate so content edits appear
-# on the next deploy.
+# Caching. Only /_astro/* has content-hashed filenames, so only it is safe to mark
+# immutable. /fonts, /images and /videos are stable, non-hashed URLs that a CMS edit
+# can replace at the same path, so they get a moderate max-age (still cached well,
+# but a replaced asset refreshes within a day/week rather than being pinned for a
+# year). HTML stays at the default revalidate so edits appear on the next deploy.
 [[headers]]
   for = "/_astro/*"
   [headers.values]
@@ -16,17 +18,17 @@
 [[headers]]
   for = "/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/videos/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=86400"
 
 # Baseline security headers on every response. (A Content-Security-Policy is
 # intentionally omitted here: the site and the /admin/ editor rely on inline

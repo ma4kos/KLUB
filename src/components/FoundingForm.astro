@@ -1,8 +1,10 @@
 ---
 // Netlify Forms-compatible signup form (works automatically when hosted on Netlify).
 // On other hosts, point the action at a Formspree endpoint instead.
-interface Props { compact?: boolean }
-const { compact = false } = Astro.props;
+// `source` is captured as a hidden field so each signup shows which page it came
+// from (home, book, timetable, founding-page) in the Netlify dashboard.
+interface Props { compact?: boolean; source?: string }
+const { compact = false, source = 'founding-page' } = Astro.props;
 ---
 <form
   class="founding-form"
@@ -13,6 +15,7 @@ const { compact = false } = Astro.props;
   action="/founding-member/?success=true"
 >
   <input type="hidden" name="form-name" value="founding-member" />
+  <input type="hidden" name="source" value={source} />
   <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
 
   {!compact && (
@@ -43,6 +46,10 @@ const { compact = false } = Astro.props;
       </div>
     </>
   )}
+  <label class="consent">
+    <input type="checkbox" name="consent" value="yes" required />
+    <span>Keep me posted about KLUB's opening and founding-member offers. I've read the <a href="/policies/">privacy&nbsp;policy</a>.</span>
+  </label>
   <button class="btn btn--accent" type="submit">Join the List</button>
   <p class="form-note">We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.</p>
 </form>
@@ -51,4 +58,8 @@ const { compact = false } = Astro.props;
   .founding-form { max-width: 480px; }
   .founding-form .btn { margin-top: 6px; }
   .founding-form .form-note { margin-top: 12px; }
+  /* inherit the surrounding text colour so it reads on both dark sections and white cards */
+  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0 2px; font-size: 13px; color: inherit; cursor: pointer; }
+  .consent input { margin-top: 3px; flex-shrink: 0; }
+  .consent a { color: inherit; text-decoration: underline; }
 </style>
