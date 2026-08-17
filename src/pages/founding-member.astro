@@ -25,11 +25,29 @@ import page from '../content/pages/founding.json';
         <p class="form-note">{page.formNote}</p>
       </div>
       <div class="card card--pad">
-        <h2>{page.joinHeading}</h2>
-        <FoundingForm />
+        <div id="founding-form-wrap">
+          <h2>{page.joinHeading}</h2>
+          <FoundingForm />
+        </div>
+        <div id="founding-success" class="form-success" role="status" hidden>
+          <h2>You're on the list</h2>
+          <p>Thanks for joining the KLUB founding circle. Keep an eye on your inbox — founding members get early access and exclusive rates before we open.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    if (new URLSearchParams(location.search).get('success') === 'true') {
+      var wrap = document.getElementById('founding-form-wrap');
+      var ok = document.getElementById('founding-success');
+      if (wrap && ok) {
+        wrap.hidden = true;
+        ok.hidden = false;
+        ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  </script>
 </Base>
 
 <style>

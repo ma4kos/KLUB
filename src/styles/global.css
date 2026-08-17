@@ -224,7 +224,7 @@ input:focus, select:focus, textarea:focus {
   border-color: var(--umber);
   box-shadow: 0 0 0 3px rgba(122,106,85,0.12);
 }
-.form-note { font-size: 13px; color: var(--ink-faint); }
+.form-note { font-size: 13px; color: var(--ink-soft); }
 
 /* Accordion (FAQ) */
 .accordion { border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--card); overflow: hidden; }
