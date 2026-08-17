@@ -20,7 +20,7 @@ local_backend: true
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
-site_url: "https://klub-cy.com"
+site_url: "https://klub.cy"
 
 collections:
   - name: "settings"
