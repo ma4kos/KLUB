@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://klub-cy.com',
+  site: 'https://klub.cy',
   integrations: [sitemap()],
   compressHTML: true,
 });
