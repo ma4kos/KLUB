@@ -6,20 +6,32 @@
 
 ## 1. The honest starting point
 
-Wix is a closed platform: **there is no way to import or "plug in" an externally-coded website into Wix.** Wix pages can only be built with Wix's own editor. So "use Wix" means one of two real options:
+Three real routes into Wix — updated after the deep-dive Wix research in `docs/wix-research/` (Manus, Aug 2026), which confirmed one important nuance: while the existing code can never become **editable Wix Studio pages**, Wix now has an official "Wix-managed Headless" path that hosts an existing Astro site inside the Wix ecosystem, keeping the code and design exactly as they are.
 
-### Option A — Hybrid (recommended for "for the moment")
+### Path 1 — Hybrid, now (recommended first step)
 
-Keep the finished custom site as the public website, and use Wix **only for what Wix is genuinely great at: bookings and payments** (Wix Bookings handles class schedules, packages, memberships and cancellations out of the box).
+Keep the finished custom site as the public website, and use Wix **only for bookings and payments** (Wix Bookings handles class schedules, packages, memberships and cancellations out of the box).
 
-- The custom site is already built, live as a preview, and free to host (Netlify free tier / GitHub Pages).
-- Every "Book" button on the site gets pointed at the Wix booking page (a one-line change, I can do it the moment the Wix booking URL exists).
-- Zero rebuild work. You get the premium design *and* Wix's booking engine, today.
-- Later, if you decide everything should live in Wix, nothing is lost — this kit covers the rebuild too.
+- The custom site is already built, live as a preview, and free to host.
+- Set up Wix Bookings as its own Wix site: 3 "Class" services (Fundamentals, Flow, Power) + 1 "Appointment" service (Private Sessions), capacity 6, 50 min, 12-hour cancellation window — full templates in `docs/wix-research/Wix_KLUB_Implementation_Templates.md`.
+- Every "Book" button then points at the Wix booking flow (a one-line change once the URL exists).
+- Zero rebuild. This is also exactly what the Wix research recommends as the interim route, and it derisks the platform before committing further.
+- Note: Wix Bookings is free to configure, but accepting bookings/payments requires a paid Wix plan.
 
-### Option B — Full rebuild in Wix
+### Path 2 — Wix-managed Headless (recommended end state, keeps this code)
 
-Recreate the site inside Wix using this kit as the blueprint: same colors, fonts, structure, photos, videos and word-for-word copy (all of it is in section 5 below). Expect roughly a weekend of work in the Wix editor for someone comfortable with it. You lose some of the custom polish (arch-shaped video frames, scroll animations, the performance scores) but gain full self-service editing.
+Wix's official route for existing Astro projects: one CLI command links this repo to a Wix-provisioned business — Wix then hosts the frontend, provides the Bookings SDK, checkout, dashboard and automations, while the site's design and code stay untouched. This is the closest thing to "plugging the site into Wix" that exists.
+
+- **The one prerequisite (Astro 5) is already done** — the repo was upgraded and verified building clean on Astro 5.
+- The `/book/` page can then grow into a real branded booking screen: live class list, availability, secure Wix checkout.
+- Trade-off: page *content* stays in code, so copy edits go through a developer (or me) — day-to-day business editing (schedule, prices, clients) happens in the Wix dashboard.
+- Full phased plan in `docs/wix-research/Wix_KLUB_Migration_Approach.md`.
+
+### Path 3 — Full rebuild in Wix Studio (only if drag-and-drop editing is a must)
+
+If Izzy or staff need to visually rearrange page layouts themselves, rebuild in Wix Studio (blank canvas, not a template) using this kit as the blueprint: sections 2–5 carry the theme, assets, booking config and word-for-word copy. Roughly a weekend of work; trades the custom polish for full self-service editing. The research's Studio templates (theme token sheet, page blueprints, CMS schema for classes) are in the templates file.
+
+**Suggested sequence: Path 1 this month → Path 2 when ready. Path 3 only if visual self-editing outweighs design fidelity.**
 
 Either way, **don't lose the SEO work**: every page in section 5 lists its browser-tab title and meta description — paste those into Wix's per-page SEO settings, they were written for "pilates limassol" searches.
 
@@ -81,6 +93,12 @@ Configure these as the paid plans/packages — they match the site's pricing pag
 - Class types: Reformer Fundamentals, Reformer Flow, Reformer Power, Private Sessions
 
 *(Prices are the working draft from the PRD — confirm with Izzy before switching payments on.)*
+
+---
+
+## 4½. Deeper research
+
+The `docs/wix-research/` folder holds the full Wix migration research package (six files): a 14,000-word Wix knowledge base, the KLUB-specific migration plan, 30 implementation templates (Studio theme sheet, CMS schemas, Bookings services & policies, headless code samples, SEO records, release sign-off), and a source inventory mapping every file in this repo to its Wix counterpart. Start with `Wix_KLUB_Project_Overview.md`.
 
 ---
 

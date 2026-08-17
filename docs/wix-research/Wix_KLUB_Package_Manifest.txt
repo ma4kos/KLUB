@@ -1,0 +1,6 @@
+Wix_KLUB_Implementation_Templates.md
+Wix_KLUB_Knowledge_Base.md
+Wix_KLUB_Migration_Approach.md
+Wix_KLUB_Package_Manifest.txt
+Wix_KLUB_Project_Overview.md
+Wix_KLUB_Source_Inventory.md
