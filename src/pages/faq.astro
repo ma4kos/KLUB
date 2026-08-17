@@ -2,76 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { whatsappLink } from '../site';
 
-const sections: { title: string; items: { q: string; a: string }[] }[] = [
-  {
-    title: 'Getting Started',
-    items: [
-      { q: 'What is reformer Pilates?', a: 'Reformer Pilates is practiced on a machine with a sliding carriage, springs and straps. The springs add resistance and support, making exercises both harder and safer than mat work alone. It builds strength, flexibility and control — and it is genuinely fun.' },
-      { q: 'Do I need any experience to start?', a: 'None at all. Our Reformer Fundamentals class is built for complete beginners — you will learn the machine from zero with a maximum of six people in the room.' },
-      { q: 'What should I wear?', a: 'Comfortable leggings or shorts and a fitted top that lets your instructor see your alignment. Avoid anything with zips that could scratch the equipment.' },
-      { q: 'Do I need grip socks?', a: 'Yes — grip socks are required in all classes for hygiene and safety. Bring your own or buy a pair at reception.' },
-      { q: 'What should I bring?', a: 'Just yourself, grip socks and a bottle of water. Everything else is provided.' },
-      { q: 'What happens if I arrive late?', a: 'Doors close 10 minutes after class starts — the warm-up matters for safety. If you miss the window, we will happily help you rebook.' },
-      { q: 'Is Pilates a good workout, or is it too gentle?', a: 'Both, depending on the class. Fundamentals is measured and controlled; Power will challenge experienced athletes. Every class is a genuine full-body workout — expect to feel muscles you forgot you had.' },
-      { q: 'How quickly will I notice results?', a: 'Most people feel a difference in posture and core awareness within a few sessions, and see visible change with two to three classes a week over a couple of months. Consistency beats intensity.' },
-    ],
-  },
-  {
-    title: 'Classes & Booking',
-    items: [
-      { q: 'How big are the classes?', a: 'Maximum six people. Small enough that your instructor sees and corrects every rep.' },
-      { q: 'How long is a class?', a: 'All group classes and private sessions are 50 minutes.' },
-      { q: 'Can I book a private 1-to-1 session?', a: 'Yes — we are one of the few city-center studios offering true private sessions. They run by appointment and start from €70 per session in packs.' },
-      { q: 'How do I book?', a: 'Online booking opens shortly before we launch in September 2026. Until then, join the founding member list for first access, or message us and we will reserve your spot personally.' },
-      { q: "What's the cancellation policy?", a: 'Cancel at least 12 hours before class and your credit returns to your account automatically. Later than that, the class is charged — the spot was held for you in a room of six.' },
-      { q: 'Is there a waitlist for full classes?', a: 'Yes. If a class is full, join the waitlist and you will be notified automatically the moment a spot opens.' },
-    ],
-  },
-  {
-    title: 'Location & Facilities',
-    items: [
-      { q: 'Where exactly is the studio?', a: 'We are in Limassol city center. The exact street address is being announced with our opening — join the founding member list or follow @klubstudios and you will be the first to know.' },
-      { q: 'Is there parking nearby?', a: 'Yes — public parking is available within a short walk of the studio. We will publish a simple parking guide before opening day.' },
-      { q: 'Can I reach you by public transport?', a: 'The studio is centrally located and well served by city bus routes. Exact stop details will be published with our address.' },
-      { q: 'Do you have changing rooms?', a: 'Yes — changing facilities are available, so a lunchtime class between meetings is absolutely doable.' },
-      { q: 'Can I store my things during class?', a: 'Yes, there is space for your belongings inside the studio, always within sight.' },
-      { q: 'Is the studio air-conditioned?', a: 'Yes — comfortably cool in summer and warm in winter. Cyprus summers are no joke; we have planned for them.' },
-    ],
-  },
-  {
-    title: 'Health & Safety',
-    items: [
-      { q: 'Can I do Pilates while pregnant?', a: 'In many cases yes, with the right guidance. Our founder Izzy is fully certified in pre-natal movement. We recommend private sessions during pregnancy so everything is tailored to you — and always check with your doctor first.' },
-      { q: 'When can I return after giving birth?', a: 'Every recovery is different. With your doctor\'s clearance — typically from six weeks after birth — our post-natal certified instructors will rebuild your strength gradually and safely, starting with the deep core.' },
-      { q: 'I have back pain. Is reformer Pilates safe for me?', a: 'Reformer Pilates is often recommended for back pain because the springs support you while you strengthen the muscles that protect your spine. Tell us about your pain when you book — we may suggest starting with a private session.' },
-      { q: 'Can I train with an injury?', a: 'Often yes, and thoughtfully. Message us about your injury before booking. Private sessions let us work around and with your body; in group classes we offer modifications for most exercises.' },
-      { q: 'Do you offer modifications in class?', a: 'Constantly. With six people maximum, your instructor adapts exercises to your level and any limitations in real time.' },
-      { q: 'Is reformer Pilates safe for older adults?', a: 'Yes — the reformer is one of the most joint-friendly ways to build strength and balance at any age. Fundamentals is the right starting point.' },
-      { q: 'Should I eat before class?', a: 'Keep it light. A small snack an hour or two before is ideal; a full meal right before class is not your friend on the reformer.' },
-      { q: 'Do I need to tell you about health conditions?', a: 'Please do — it stays confidential and it helps us keep you safe. There is space for this when you register, and you can always message us privately.' },
-    ],
-  },
-  {
-    title: 'Pricing & Memberships',
-    items: [
-      { q: 'How much does a class cost?', a: 'A drop-in class is €20. Packs bring the per-class price down to as low as €20 for groups, and monthly memberships run from €120. The intro pack gives newcomers two classes for €32. Full details are on our pricing page.' },
-      { q: 'Do class packs expire?', a: 'Flexi packs are valid for 2 months (5 classes) or 3 months (10 classes). Monthly memberships renew monthly.' },
-      { q: 'Can I share my pack with someone else?', a: 'Packs are personal. Friends are always welcome to join you with their own drop-in or intro pack.' },
-      { q: 'What payment methods do you accept?', a: 'Card and cash at the studio, and card online once booking opens.' },
-      { q: 'Is there a refund policy?', a: 'Unused, unexpired packs can be discussed case by case — talk to us. Completed classes and expired packs are non-refundable.' },
-      { q: 'Are there founding member rates?', a: 'Yes — joining the founding member list before we open locks in exclusive rates and first access to bookings.' },
-    ],
-  },
-  {
-    title: 'Language & Community',
-    items: [
-      { q: 'What language are classes taught in?', a: 'All classes are taught in English, and we welcome every nationality. Our team also speaks Greek.' },
-      { q: 'Do I need to speak Greek to join?', a: 'Not at all. English is the language of the studio, and much of our community is international.' },
-      { q: 'Can I come alone?', a: 'Most people do. Classes of six get friendly fast — coming alone is the normal way to arrive and rarely how people leave.' },
-      { q: 'Is the studio beginner-friendly in atmosphere?', a: 'Completely. No mirrored walls of intimidation, no competitive energy. Chill vibes are found here — it is on the wall, and we mean it.' },
-    ],
-  },
-];
+import faq from '../content/faq.json';
+const sections = faq.sections;
 
 const faqSchema = {
   '@context': 'https://schema.org',

@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import { CLASS_DETAILS } from '../../data/classDetails';
-import { whatsappLink } from '../../site';
+import { whatsappLink, bookLink } from '../../site';
 
 export function getStaticPaths() {
   return CLASS_DETAILS.map((c) => ({ params: { slug: c.slug }, props: { c } }));
@@ -31,7 +31,7 @@ const courseSchema = {
         </div>
         {c.intro.map((p) => <p>{p}</p>)}
         <div class="btn-row">
-          <a class="btn btn--primary" href="/book/">Book this class</a>
+          <a class="btn btn--primary" href={bookLink()}>Book this class</a>
           <a class="btn btn--ghost" href="/timetable/">View in timetable</a>
         </div>
       </div>

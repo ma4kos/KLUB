@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import ArchVideo from '../components/ArchVideo.astro';
-import { whatsappLink } from '../site';
+import { whatsappLink, bookLink } from '../site';
 
 const izzySchema = {
   '@context': 'https://schema.org',
@@ -76,7 +76,7 @@ const quals = [
           and the reason your form is about to get very, very good.
         </p>
         <div class="btn-row rise rise-d3">
-          <a class="btn btn--primary" href="/book/">Book a class with Izzy</a>
+          <a class="btn btn--primary" href={bookLink()}>Book a class with Izzy</a>
           <a class="btn btn--ghost" href="https://www.instagram.com/pilateswithizzy" rel="noopener">@pilateswithizzy</a>
         </div>
       </div>
@@ -184,7 +184,7 @@ const quals = [
       <h2 class="reveal">Your first class is <span class="ital">€20</span></h2>
       <p class="reveal reveal-d1">Six people, fifty minutes, one very good teacher.</p>
       <div class="btn-row center-row reveal reveal-d2">
-        <a class="btn btn--accent" href="/book/">Book Now</a>
+        <a class="btn btn--accent" href={bookLink()}>Book Now</a>
         <a class="btn btn--ghost-light" href="/founding-member/">Join the Founding Circle</a>
       </div>
     </div>

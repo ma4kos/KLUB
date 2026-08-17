@@ -1,29 +1,21 @@
-// Central place for studio facts. Update these once and the whole site follows.
+// Central place for studio facts. Brand constants live here; everything a
+// non-developer might change lives in src/content/studio.json (editable via
+// the CMS at /admin/ — see README).
+import studio from './content/studio.json';
+
 export const SITE = {
   name: 'KLUB Pilates Studio',
   shortName: 'KLUB',
   tagline: 'Intentional Movement. Mindful Strength. Real Connection.',
   url: 'https://klub-cy.com',
-  email: 'team@klub-cy.com',
-
-  // TODO: fill in when confirmed — digits only, international format, no "+" (e.g. "35799123456")
-  whatsappNumber: '',
-  // TODO: fill in when confirmed (e.g. "+357 99 123 456")
-  phoneDisplay: '',
-  // TODO: exact street address once announced
-  streetAddress: '',
-
-  addressLocality: 'Limassol City Center',
   addressCountry: 'Cyprus',
-  addressNote: 'Full street address announced soon — join the list to be first to know.',
-
-  instagram: 'https://www.instagram.com/klubstudios',
-  instagramHandle: '@klubstudios',
-  facebook: 'https://www.facebook.com/share/1HEgcu8Aio/',
-
-  openingLabel: 'Opening September 2026',
   openingDate: '2026-09-01',
+
+  // Editable in the CMS: contact details, address, socials, banner, booking URL
+  ...studio,
 };
+
+export const BANNER = studio.banner;
 
 export function whatsappLink(message = "Hi KLUB! I'd like to book a class. Can you help me?") {
   if (SITE.whatsappNumber) {
@@ -31,4 +23,10 @@ export function whatsappLink(message = "Hi KLUB! I'd like to book a class. Can y
   }
   // Fallback until the WhatsApp Business number is confirmed
   return SITE.instagram;
+}
+
+// Where "Book" buttons point. Once a live booking URL (e.g. Wix Bookings) is
+// set in the CMS, every Book button on the site switches to it automatically.
+export function bookLink() {
+  return SITE.bookingUrl || '/book/';
 }

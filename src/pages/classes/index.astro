@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import { CLASS_DETAILS } from '../../data/classDetails';
-import { whatsappLink } from '../../site';
+import { whatsappLink, bookLink } from '../../site';
 ---
 <Base
   title="Pilates Classes in Limassol | Reformer, Flow & Private | KLUB"
@@ -35,7 +35,7 @@ import { whatsappLink } from '../../site';
             <p>{c.intro[0]}</p>
             <div class="btn-row">
               <a class="btn btn--primary btn--sm" href={`/classes/${c.slug}/`}>About this class</a>
-              <a class="btn btn--ghost btn--sm" href="/book/">Book</a>
+              <a class="btn btn--ghost btn--sm" href={bookLink()}>Book</a>
             </div>
           </div>
         </article>

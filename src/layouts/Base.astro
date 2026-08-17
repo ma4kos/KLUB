@@ -54,7 +54,14 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script is:inline>document.documentElement.classList.add('js');</script>
+  <script is:inline>
+    document.documentElement.classList.add('js');
+    // Netlify Identity email invites land on the homepage with a token in the
+    // hash — forward them to the CMS so the signup completes there.
+    if (/^#(invite_token|recovery_token|confirmation_token)=/.test(location.hash)) {
+      location.replace('/admin/' + location.hash);
+    }
+  </script>
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />

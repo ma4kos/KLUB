@@ -1,4 +1,5 @@
 ---
+import { bookLink } from '../site';
 const links = [
   { href: '/classes/', label: 'Classes' },
   { href: '/pricing/', label: 'Pricing' },
@@ -20,7 +21,7 @@ const isActive = (href: string) => path.startsWith(href);
       ))}
     </nav>
 
-    <a href="/book/" class="btn btn--primary btn--sm book-cta">Book Now</a>
+    <a href={bookLink()} class="btn btn--primary btn--sm book-cta">Book Now</a>
 
     <button class="hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
@@ -31,7 +32,7 @@ const isActive = (href: string) => path.startsWith(href);
     {links.map((l) => <a href={l.href}>{l.label}</a>)}
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
-    <a href="/book/" class="btn btn--primary">Book Now</a>
+    <a href={bookLink()} class="btn btn--primary">Book Now</a>
   </nav>
 </header>
 

@@ -1,0 +1,134 @@
+# Decap CMS configuration — the editing panel at /admin/
+#
+# How editors log in (production): the site must be hosted on Netlify with
+# Identity + Git Gateway enabled (Site settings → Identity → Enable, then
+# Identity → Services → Git Gateway → Enable). Invite editors by email from
+# the Identity tab. Full steps in README.md.
+#
+# Editing locally without any of that: run `npx decap-server` in the project
+# folder alongside `npm run dev`, then open http://localhost:4321/admin/
+
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+site_url: "https://klub-cy.com"
+
+collections:
+  - name: "settings"
+    label: "Studio Settings"
+    files:
+      - name: "studio"
+        label: "Contact, Socials & Banner"
+        file: "src/content/studio.json"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "WhatsApp number", name: "whatsappNumber", widget: "string", required: false, hint: "Digits only, international format, no + (e.g. 35799123456). Once set, the chat button switches from Instagram to WhatsApp." }
+          - { label: "Phone (as displayed)", name: "phoneDisplay", widget: "string", required: false, hint: "e.g. +357 99 123 456" }
+          - { label: "Online booking link", name: "bookingUrl", widget: "string", required: false, hint: "Paste the Wix Bookings URL here when it exists — every Book button on the site will point to it automatically." }
+          - { label: "Street address", name: "streetAddress", widget: "string", required: false, hint: "Leave empty until announced." }
+          - { label: "Area", name: "addressLocality", widget: "string" }
+          - { label: "Address note", name: "addressNote", widget: "string", hint: "Shown wherever the address would appear, until the street address is filled in." }
+          - { label: "Instagram URL", name: "instagram", widget: "string" }
+          - { label: "Instagram handle", name: "instagramHandle", widget: "string" }
+          - { label: "Facebook URL", name: "facebook", widget: "string" }
+          - { label: "Opening label", name: "openingLabel", widget: "string" }
+          - label: "Announcement banner"
+            name: "banner"
+            widget: "object"
+            fields:
+              - { label: "Show the banner", name: "enabled", widget: "boolean" }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Link text", name: "linkText", widget: "string" }
+              - { label: "Link URL", name: "linkUrl", widget: "string" }
+      - name: "home"
+        label: "Homepage Intro"
+        file: "src/content/home.json"
+        fields:
+          - { label: "Small line above the headline", name: "heroEyebrow", widget: "string" }
+          - { label: "Intro paragraph under the headline", name: "heroLede", widget: "text" }
+
+  - name: "pricing"
+    label: "Pricing"
+    files:
+      - name: "pricing"
+        label: "Price Tables & Pricing FAQ"
+        file: "src/content/pricing.json"
+        fields:
+          - label: "Price tables"
+            name: "tables"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Table title", name: "title", widget: "string" }
+              - { label: "Short description", name: "blurb", widget: "string" }
+              - { label: "Last two column headings", name: "cols", widget: "list", allow_add: false, hint: "e.g. Per class / Best for" }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.price}}"
+                fields:
+                  - { label: "Package name", name: "name", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Per class/session", name: "per", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
+          - { label: "Terms line (shown under the tables)", name: "termsText", widget: "text" }
+          - label: "Pricing questions"
+            name: "faqs"
+            widget: "list"
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Question", name: "q", widget: "string" }
+              - { label: "Answer", name: "a", widget: "text" }
+
+  - name: "classes"
+    label: "Classes"
+    files:
+      - name: "classes"
+        label: "Class Descriptions"
+        file: "src/content/classes.json"
+        fields:
+          - label: "Classes"
+            name: "classes"
+            widget: "list"
+            allow_add: false
+            summary: "{{fields.name}}"
+            hint: "Class photos are managed by your developer; everything written about a class is editable here."
+            fields:
+              - { label: "Slug (do not change — it is the page address)", name: "slug", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Level", name: "level", widget: "string" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - { label: "Capacity", name: "capacity", widget: "string" }
+              - { label: "Price", name: "price", widget: "string" }
+              - { label: "One-line description (cards)", name: "short", widget: "string" }
+              - { label: "Browser-tab title (SEO)", name: "seoTitle", widget: "string" }
+              - { label: "Search result description (SEO)", name: "seoDescription", widget: "text" }
+              - { label: "Intro paragraphs", name: "intro", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              - { label: "What to expect", name: "expect", widget: "list", field: { label: "Point", name: "point", widget: "string" } }
+              - { label: "Who it's for", name: "goodFor", widget: "list", field: { label: "Point", name: "point", widget: "string" } }
+
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - name: "faq"
+        label: "FAQ Page"
+        file: "src/content/faq.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Section title", name: "title", widget: "string" }
+              - label: "Questions"
+                name: "items"
+                widget: "list"
+                summary: "{{fields.q}}"
+                fields:
+                  - { label: "Question", name: "q", widget: "string" }
+                  - { label: "Answer", name: "a", widget: "text" }

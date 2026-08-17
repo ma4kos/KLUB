@@ -5,7 +5,8 @@ import ArchVideo from '../components/ArchVideo.astro';
 import Marquee from '../components/Marquee.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { CLASSES } from '../data/classes';
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, bookLink } from '../site';
+import home from '../content/home.json';
 ---
 <Base
   title="KLUB | Pilates Reformer Studio in Limassol City Center"
@@ -16,17 +17,14 @@ import { SITE, whatsappLink } from '../site';
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow rise">Limassol City Center · Opening September 2026</span>
+        <span class="eyebrow rise">{home.heroEyebrow}</span>
         <h1 class="rise rise-d1">
           Intentional <span class="ital">movement.</span><br />
           Mindful <span class="ital">strength.</span>
         </h1>
-        <p class="lede rise rise-d2">
-          Premium reformer Pilates in the heart of Limassol — small groups of six, private
-          1-to-1 sessions, and a space that feels like an exhale.
-        </p>
+        <p class="lede rise rise-d2">{home.heroLede}</p>
         <div class="btn-row rise rise-d3">
-          <a class="btn btn--primary" href="/book/">Book Your First Class — €20</a>
+          <a class="btn btn--primary" href={bookLink()}>Book Your First Class — €20</a>
           <a class="btn btn--ghost" href="/timetable/">View Timetable</a>
         </div>
       </div>

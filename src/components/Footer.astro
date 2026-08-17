@@ -1,5 +1,5 @@
 ---
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, bookLink } from '../site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
         <a href="/pricing/">Pricing</a>
         <a href="/timetable/">Timetable</a>
         <a href="/instructors/">Instructors</a>
-        <a href="/book/">Book Now</a>
+        <a href={bookLink()}>Book Now</a>
       </nav>
       <nav aria-label="Information">
         <h4>Information</h4>

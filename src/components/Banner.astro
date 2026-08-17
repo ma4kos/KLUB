@@ -1,13 +1,15 @@
 ---
-import { SITE } from '../site';
+import { BANNER } from '../site';
 ---
+{BANNER.enabled && (
 <div class="banner" id="klub-banner">
   <p>
-    We're opening September 2026 — join our Founding Member list for early access and exclusive rates.
-    <a href="/founding-member/">Join now</a>
+    {BANNER.text}
+    <a href={BANNER.linkUrl}>{BANNER.linkText}</a>
   </p>
   <button type="button" aria-label="Dismiss announcement" id="klub-banner-close">&times;</button>
 </div>
+)}
 <script is:inline>
   // Runs before first paint: hide the banner synchronously if previously dismissed,
   // so returning visitors get no layout shift. Storage can throw in strict
