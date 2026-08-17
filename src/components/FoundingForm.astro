@@ -46,10 +46,11 @@ const { compact = false, source = 'founding-page' } = Astro.props;
       </div>
     </>
   )}
-  <label class="consent">
-    <input type="checkbox" name="consent" value="yes" required />
-    <span>Keep me posted about KLUB's opening and founding-member offers. I've read the <a href="/policies/">privacy&nbsp;policy</a>.</span>
-  </label>
+  <div class="consent">
+    <input type="checkbox" id="ff-consent" name="consent" value="yes" required aria-describedby="ff-consent-note" />
+    <label for="ff-consent">Keep me posted about KLUB's opening and founding-member offers, and I accept the privacy policy.</label>
+  </div>
+  <p id="ff-consent-note" class="consent-note"><a href="/policies/">Read the privacy policy</a></p>
   <button class="btn btn--accent" type="submit">Join the List</button>
   <p class="form-note">We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.</p>
 </form>
@@ -58,8 +59,11 @@ const { compact = false, source = 'founding-page' } = Astro.props;
   .founding-form { max-width: 480px; }
   .founding-form .btn { margin-top: 6px; }
   .founding-form .form-note { margin-top: 12px; }
-  /* inherit the surrounding text colour so it reads on both dark sections and white cards */
-  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0 2px; font-size: 13px; color: inherit; cursor: pointer; }
+  /* inherit the surrounding text colour so it reads on both dark sections and white cards.
+     The privacy link is kept OUTSIDE the checkbox label so clicking it never toggles the box. */
+  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0 2px; font-size: 13px; color: inherit; }
   .consent input { margin-top: 3px; flex-shrink: 0; }
-  .consent a { color: inherit; text-decoration: underline; }
+  .consent label { cursor: pointer; }
+  .consent-note { margin: 2px 0 4px 28px; font-size: 13px; color: inherit; }
+  .consent-note a { color: inherit; text-decoration: underline; }
 </style>
