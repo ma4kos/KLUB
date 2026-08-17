@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
+import { CLASS_DETAILS } from '../../data/classDetails';
+import { whatsappLink, bookLink } from '../../site';
+
+export function getStaticPaths() {
+  return CLASS_DETAILS.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${c.name} — KLUB Pilates Studio`,
+  description: c.seoDescription,
+  provider: { '@type': 'Organization', name: 'KLUB Pilates Studio', sameAs: 'https://klub-cy.com' },
+};
+---
+<Base title={c.seoTitle} description={c.seoDescription} ogImage="/images/og/classes.jpg" schema={courseSchema}>
+  <section class="page-hero">
+    <div class="container split">
+      <div>
+        <span class="eyebrow"><a href="/classes/">Classes</a> / {c.name}</span>
+        <h1>{c.name}</h1>
+        <div class="meta-row">
+          <span>{c.duration}</span>
+          <span>{c.capacity}</span>
+          <span>{c.price}</span>
+          <span class="pill">{c.level}</span>
+        </div>
+        {c.intro.map((p) => <p>{p}</p>)}
+        <div class="btn-row">
+          <a class="btn btn--primary" href={bookLink()}>Book this class</a>
+          <a class="btn btn--ghost" href="/timetable/">View in timetable</a>
+        </div>
+      </div>
+      <div class="arch detail-img">
+        <Pic src={c.image} alt={c.imageAlt} width={420} height={480} loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container grid grid--2">
+      <div class="card card--pad">
+        <h2>What to expect</h2>
+        <ul>{c.expect.map((e) => <li>{e}</li>)}</ul>
+      </div>
+      <div class="card card--pad">
+        <h2>Who it's for</h2>
+        <ul>{c.goodFor.map((g) => <li>{g}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container center">
+      <h2>Good to know</h2>
+      <p class="lede">
+        Wear comfortable leggings or shorts and a fitted top. Grip socks are required — bring
+        your own or pick up a pair at the studio. Arrive 10 minutes early for your first visit.
+      </p>
+      <p>
+        Questions before you book? <a href="/faq/">Read the FAQ</a> or
+        <a href={whatsappLink(`Hi KLUB! I have a question about ${c.name}.`)} rel="noopener">message us</a>.
+      </p>
+      <a class="btn btn--accent" href="/pricing/">See pricing</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .detail-img { max-width: 400px; justify-self: center; }
+  ul { margin: 0; padding-left: 20px; }
+  li { margin-bottom: 10px; color: var(--ink-soft); }
+</style>

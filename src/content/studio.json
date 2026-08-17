@@ -1,0 +1,19 @@
+{
+  "email": "team@klub-cy.com",
+  "whatsappNumber": "",
+  "phoneDisplay": "",
+  "bookingUrl": "",
+  "streetAddress": "",
+  "addressLocality": "Limassol City Center",
+  "addressNote": "Full street address announced soon — join the list to be first to know.",
+  "instagram": "https://www.instagram.com/klubstudios",
+  "instagramHandle": "@klubstudios",
+  "facebook": "https://www.facebook.com/share/1HEgcu8Aio/",
+  "openingLabel": "Opening September 2026",
+  "banner": {
+    "enabled": true,
+    "text": "We're opening September 2026 — join our Founding Member list for early access and exclusive rates.",
+    "linkText": "Join now",
+    "linkUrl": "/founding-member/"
+  }
+}

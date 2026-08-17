@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Pilates Class Timetable Limassol | Book Your Spot | KLUB",
+    "description": "View the planned reformer Pilates class schedule at KLUB Limassol. Morning, lunchtime and evening sessions. Booking opens before our September 2026 launch."
+  },
+  "hero": {
+    "eyebrow": "Timetable",
+    "heading": "Class Timetable",
+    "intro": "Find a time that fits your rhythm — early mornings, lunchtime resets and evening sessions."
+  },
+  "noticePill": "Opening September 2026",
+  "noticeText": "This is our planned launch schedule. Online booking opens shortly before we do — founding members get first access to every slot.",
+  "slotCaption": "50 min · max 6",
+  "days": [
+    {
+      "day": "Monday–Friday",
+      "slots": [
+        { "time": "07:30", "name": "Reformer Flow" },
+        { "time": "09:00", "name": "Reformer Fundamentals" },
+        { "time": "13:00", "name": "Lunchtime Reformer Flow" },
+        { "time": "17:30", "name": "Reformer Power" },
+        { "time": "19:00", "name": "Reformer Flow" }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "slots": [
+        { "time": "09:00", "name": "Reformer Fundamentals" },
+        { "time": "10:30", "name": "Reformer Flow" }
+      ]
+    },
+    {
+      "day": "By appointment",
+      "slots": [
+        { "time": "Flexible", "name": "Private 1-to-1 Sessions" }
+      ]
+    }
+  ],
+  "cta": {
+    "heading": "Be First on the Timetable",
+    "text": "Join the founding member list and you'll book before public slots open."
+  }
+}

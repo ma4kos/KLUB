@@ -1,0 +1,203 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import ArchVideo from '../components/ArchVideo.astro';
+import { whatsappLink, bookLink } from '../site';
+import page from '../content/pages/izzy.json';
+import { inline } from '../lib/inline';
+
+const izzySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Elizabeth "Izzy" Nicolaou',
+  jobTitle: 'Founder & Lead Pilates Instructor',
+  worksFor: { '@type': 'Organization', name: 'KLUB Pilates Studio' },
+  alumniOf: 'Royal Academy of Dance',
+  knowsLanguage: ['English', 'Greek'],
+  sameAs: [
+    'https://www.instagram.com/pilateswithizzy',
+    'https://www.instagram.com/pilatizstudio',
+    'https://www.facebook.com/share/1HEgcu8Aio/',
+  ],
+};
+---
+<Base
+  title={page.seo.title}
+  description={page.seo.description}
+  ogImage="/images/og/izzy.jpg"
+  schema={izzySchema}
+>
+  <!-- Profile hero -->
+  <section class="p-hero">
+    <div class="container p-grid">
+      <div class="p-copy">
+        <span class="eyebrow rise">{page.hero.eyebrow}</span>
+        <h1 class="rise rise-d1" set:html={inline(page.hero.heading)} />
+        <p class="lede rise rise-d2">{page.hero.lede}</p>
+        <div class="btn-row rise rise-d3">
+          <a class="btn btn--primary" href={bookLink()}>Book a class with Izzy</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/pilateswithizzy" rel="noopener">@pilateswithizzy</a>
+        </div>
+      </div>
+      <div class="p-media rise rise-d2">
+        <ArchVideo src={page.hero.video} poster={page.hero.poster} />
+      </div>
+    </div>
+    <div class="container">
+      <div class="stat-row p-stats reveal">
+        {page.stats.map((s) => (
+          <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">{page.journeyEyebrow}</span>
+        <h2 set:html={inline(page.journeyHeading)} />
+      </div>
+
+      {page.journey.map((j, i) => (
+        <article class:list={['leg', { flip: i % 2 === 1 }]}>
+          <div class="leg-media reveal">
+            {j.mediaType === 'video' ? (
+              <ArchVideo src={j.video} poster={j.poster} />
+            ) : j.wide ? (
+              <div class="wide-img"><Pic src={j.image} alt={j.imageAlt} width={800} height={448} /></div>
+            ) : (
+              <div class="arch"><Pic src={j.image} alt={j.imageAlt} width={420} height={520} /></div>
+            )}
+          </div>
+          <div class="leg-copy reveal reveal-d1">
+            <div class="leg-marker">
+              <span class="leg-place">{j.place}</span>
+              <span class="leg-era">{j.era}</span>
+            </div>
+            <h3>{j.title}</h3>
+            <p>{j.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Qualifications -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">{page.qualsEyebrow}</span>
+        <h2 set:html={inline(page.qualsHeading)} />
+      </div>
+      <div class="grid grid--3 qual-grid">
+        {page.quals.map((q, i) => (
+          <div class:list={['card card--pad reveal', `reveal-d${i % 3}`]}>
+            <h3 class="q-t">{q.t}</h3>
+            <p class="q-s">{q.s}</p>
+          </div>
+        ))}
+      </div>
+      <p class="center langs reveal">{page.langsLine}</p>
+    </div>
+  </section>
+
+  <!-- Philosophy quote -->
+  <section class="section section--sand">
+    <div class="container center">
+      <blockquote class="big-quote reveal" set:html={'“' + inline(page.quote.text) + '”'} />
+      <p class="quote-by reveal">{page.quote.by}</p>
+    </div>
+  </section>
+
+  <!-- PILATIZ -->
+  <section class="section section--white">
+    <div class="container split">
+      <div class="p-media-sm reveal">
+        <ArchVideo src={page.pilatiz.video} poster={page.pilatiz.poster} />
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="eyebrow">{page.pilatiz.eyebrow}</span>
+        <h2 set:html={inline(page.pilatiz.heading)} />
+        <p>{page.pilatiz.text}</p>
+        <div class="btn-row">
+          <a class="btn btn--accent" href="https://www.instagram.com/pilatizstudio" rel="noopener">Visit PILATIZ</a>
+          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about Izzy and KLUB.')} rel="noopener">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark">
+    <div class="container center">
+      <h2 class="reveal" set:html={inline(page.cta.heading)} />
+      <p class="reveal reveal-d1">{page.cta.text}</p>
+      <div class="btn-row center-row reveal reveal-d2">
+        <a class="btn btn--accent" href={bookLink()}>Book Now</a>
+        <a class="btn btn--ghost-light" href="/founding-member/">Join the Founding Circle</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .p-hero { padding: clamp(48px, 7vw, 96px) 0 clamp(32px, 5vw, 56px); overflow: hidden; }
+  .p-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .p-media { max-width: 360px; justify-self: center; width: 100%; }
+  @media (max-width: 860px) {
+    .p-grid { grid-template-columns: 1fr; }
+    .p-media { max-width: 300px; }
+  }
+  .p-stats { margin-top: clamp(40px, 6vw, 64px); border-top: 1px solid var(--line); padding-top: 36px; }
+
+  .leg {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+    margin-top: clamp(56px, 8vw, 96px);
+  }
+  .leg.flip .leg-media { order: 2; }
+  .leg-media { max-width: 380px; width: 100%; justify-self: center; }
+  .leg-media .wide-img { border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--line); }
+  .leg-media:has(.wide-img) { max-width: 560px; }
+  .leg-marker { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; }
+  .leg-place {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--umber);
+  }
+  .leg-era {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+  }
+  .leg h3 { font-size: clamp(22px, 2.6vw, 30px); }
+  @media (max-width: 780px) {
+    .leg, .leg.flip { grid-template-columns: 1fr; }
+    .leg.flip .leg-media { order: 0; }
+    .leg-media { max-width: 320px; }
+  }
+
+  .qual-grid { margin-top: 40px; }
+  .q-t { font-size: 20px; margin-bottom: 4px; }
+  .q-s { color: var(--ink-soft); font-size: 14px; margin: 0; }
+  .langs { margin-top: 28px; color: var(--ink-soft); font-size: 14px; letter-spacing: 0.04em; }
+
+  .big-quote {
+    font-family: var(--serif);
+    font-size: clamp(24px, 3.6vw, 40px);
+    line-height: 1.25;
+    max-width: 22ch;
+    margin: 0 auto 18px;
+  }
+  .quote-by { color: var(--ink-soft); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .p-media-sm { max-width: 340px; width: 100%; justify-self: center; }
+  .center-row { justify-content: center; }
+</style>

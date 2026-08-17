@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { whatsappLink } from '../site';
+import page from '../content/pages/book.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container grid grid--2" style="align-items: start;">
+      <div class="card card--pad">
+        <h2>{page.firstAccess.heading}</h2>
+        <p>{page.firstAccess.text}</p>
+        <FoundingForm />
+      </div>
+      <div>
+        <div class="card card--pad option">
+          <h3>{page.reserve.heading}</h3>
+          <p>{page.reserve.text}</p>
+          <a class="btn btn--accent btn--sm" href={whatsappLink("Hi KLUB! I'd like to reserve a spot. My preferred class and time:")} rel="noopener">{page.reserve.buttonLabel}</a>
+        </div>
+        <div class="card card--pad option">
+          <h3>Not sure where to start?</h3>
+          <p>New to the reformer? Start with <a href="/classes/reformer-fundamentals/">Reformer Fundamentals</a> or read the <a href="/faq/">FAQ</a> — it answers everything from what to wear to how sore you'll be.</p>
+        </div>
+        <div class="card card--pad option">
+          <h3>{page.privateHeading}</h3>
+          <p>1-to-1 sessions can be arranged before general booking opens — ideal for pre/post-natal training or injury recovery. <a href={whatsappLink("Hi KLUB! I'm interested in a private 1-to-1 session.")} rel="noopener">Ask about availability</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .option { margin-bottom: 20px; }
+  .option h3 { font-size: 20px; }
+  .option p { color: var(--ink-soft); font-size: 15px; }
+</style>

@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Studio Policies | Cancellations, Grip Socks & Arrival | KLUB",
+    "description": "KLUB Limassol studio policies: 12-hour cancellation notice, grip socks required, 10-minute late arrival rule, class pack expiry and privacy. Read before your first class."
+  },
+  "hero": {
+    "eyebrow": "Policies",
+    "heading": "Studio Policies",
+    "intro": "Short, fair and there to keep classes running smoothly for everyone."
+  },
+  "sections": [
+    {
+      "title": "Grip Socks",
+      "items": [
+        "Grip socks are required in every class — for hygiene and for safety on the reformer.",
+        "Forgot yours? Pairs are available for purchase at reception."
+      ]
+    },
+    {
+      "title": "Arrival & Late Policy",
+      "items": [
+        "Please arrive 5–10 minutes early, and 10 minutes early for your very first visit.",
+        "Entry closes 10 minutes after class starts. The warm-up is part of keeping you safe — missing it means missing the class.",
+        "If you miss the cut-off, message us and we'll help you rebook."
+      ]
+    },
+    {
+      "title": "Cancellation & No-Show",
+      "items": [
+        "Cancel at least 12 hours before class and your credit is returned automatically.",
+        "Cancellations inside 12 hours, and no-shows, are charged in full — in a class of six, your spot matters.",
+        "Genuine emergencies happen. Talk to us."
+      ]
+    },
+    {
+      "title": "Class Pack Expiry",
+      "items": [
+        "5-class Flexi Packs are valid for 2 months from purchase.",
+        "10-class Flexi Packs are valid for 3 months from purchase.",
+        "Monthly memberships renew each month; unused classes don't roll over."
+      ]
+    },
+    {
+      "title": "Health & Safety",
+      "items": [
+        "Tell us about injuries, pregnancy or health conditions before your first class — it stays confidential and helps us keep you safe.",
+        "Our instructors are fully certified and insured, including pre/post-natal qualification.",
+        "Equipment is cleaned between every class."
+      ]
+    },
+    {
+      "title": "Privacy",
+      "items": [
+        "We collect only the details needed to manage your bookings and keep in touch: name, contact details and any health information you choose to share.",
+        "We never sell or share your data with third parties for marketing.",
+        "Marketing emails are opt-in and every one includes an unsubscribe link.",
+        "To access or delete your data, email team@klub-cy.com — we comply with GDPR."
+      ]
+    }
+  ]
+}

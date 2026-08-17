@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import { SITE, whatsappLink } from '../site';
+import page from '../content/pages/location.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>
+        {SITE.addressLocality}, {SITE.addressCountry} — {SITE.addressNote.toLowerCase()}
+      </p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container">
+      <div class="grid grid--2 gallery">
+        {page.gallery.map((g) => (
+          <div class="card imgcard"><Pic src={g.image} alt={g.alt} width={576} height={432} /></div>
+        ))}
+      </div>
+
+      <div class="grid grid--3 info">
+        {page.infoCards.map((c) => (
+          <div class="card card--pad">
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+        <div class="card card--pad">
+          <h3>Contact</h3>
+          <p>
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+            <a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a><br />
+            <a href={whatsappLink('Hi KLUB! Can you send me directions to the studio?')} rel="noopener">Message us for directions</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card card--pad center announce">
+        <h2>{page.announce.heading}</h2>
+        <p>{page.announce.text}</p>
+        <a class="btn btn--accent" href="/founding-member/">{page.announce.buttonLabel}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .gallery { margin-bottom: 40px; }
+  .imgcard { overflow: hidden; aspect-ratio: 4/3; }
+  .imgcard :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .info { margin-bottom: 40px; }
+  .announce p { margin-inline: auto; }
+</style>

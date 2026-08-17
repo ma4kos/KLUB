@@ -1,0 +1,79 @@
+---
+import { SITE, whatsappLink, bookLink } from '../site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="footer-logo">KLUB</p>
+        <p class="tagline">{SITE.tagline}</p>
+        <p class="social">
+          <a href={SITE.instagram} rel="noopener">Instagram</a>
+          &nbsp;·&nbsp;
+          <a href={SITE.facebook} rel="noopener">Facebook</a>
+        </p>
+      </div>
+      <nav aria-label="Explore">
+        <h4>Explore</h4>
+        <a href="/classes/">Classes</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/timetable/">Timetable</a>
+        <a href="/instructors/">Instructors</a>
+        <a href={bookLink()}>Book Now</a>
+      </nav>
+      <nav aria-label="Information">
+        <h4>Information</h4>
+        <a href="/faq/">FAQ</a>
+        <a href="/about/">About</a>
+        <a href="/policies/">Policies</a>
+        <a href="/location/">Location</a>
+        <a href="/contact/">Contact</a>
+        <a href="/founding-member/">Founding Member</a>
+      </nav>
+      <div>
+        <h4>Contact</h4>
+        <p>
+          {SITE.streetAddress ? <>{SITE.streetAddress}<br /></> : null}
+          {SITE.addressLocality}, {SITE.addressCountry}
+        </p>
+        {SITE.phoneDisplay && <p><a href={`tel:${SITE.phoneDisplay.replace(/\s/g, '')}`}>{SITE.phoneDisplay}</a></p>}
+        <p><a href={whatsappLink()} rel="noopener">Message us{SITE.whatsappNumber ? ' on WhatsApp' : ' on Instagram'}</a></p>
+        <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        <p class="opening">{SITE.openingLabel}</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <p>© {year} {SITE.name}. All rights reserved.</p>
+      <p><a href="/policies/">Policies &amp; Privacy</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--ink); color: var(--sand); padding: 64px 0 32px; }
+  .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 40px; }
+  @media (max-width: 860px) { .cols { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .cols { grid-template-columns: 1fr; } }
+  .footer-logo { font-family: var(--serif); font-size: 28px; letter-spacing: 0.22em; margin: 0 0 10px; color: #fff; }
+  .tagline { font-size: 14px; color: var(--sand); }
+  h4 {
+    font: 500 12px/1.4 var(--sans);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #9A9088; margin: 0 0 14px;
+  }
+  nav a { display: block; color: var(--sand); text-decoration: none; padding: 5px 0; font-size: 15px; }
+  nav a:hover, .site-footer p a:hover { color: #fff; }
+  .site-footer p { font-size: 15px; margin: 0 0 8px; }
+  .site-footer p a { color: var(--sand); }
+  .social a { color: var(--sand); }
+  .opening { color: #9A9088; font-size: 13px; margin-top: 14px; }
+  .bottom {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    border-top: 1px solid rgba(232,224,214,0.15);
+    margin-top: 48px; padding-top: 24px;
+    font-size: 13px; color: #9A9088;
+  }
+  .bottom p { margin: 0; }
+  .bottom a { color: #9A9088; }
+</style>

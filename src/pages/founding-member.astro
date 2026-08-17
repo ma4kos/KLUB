@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import page from '../content/pages/founding.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container split" style="align-items: start;">
+      <div>
+        <h2>{page.perksHeading}</h2>
+        <ul class="perks">
+          {page.perks.map((p) => (
+            <li><strong>{p.strong}</strong> — {p.rest}</li>
+          ))}
+        </ul>
+        <p class="scarcity">{page.scarcity}</p>
+        <p class="form-note">{page.formNote}</p>
+      </div>
+      <div class="card card--pad">
+        <h2>{page.joinHeading}</h2>
+        <FoundingForm />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .perks { list-style: none; padding: 0; margin: 0 0 24px; }
+  .perks li {
+    padding: 14px 0 14px 34px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    color: var(--ink-soft);
+  }
+  .perks li::before {
+    content: "✓";
+    position: absolute; left: 4px;
+    color: var(--good); font-weight: 700;
+  }
+  .perks strong { color: var(--ink); }
+  .scarcity { font-weight: 500; color: var(--umber-deep); }
+</style>

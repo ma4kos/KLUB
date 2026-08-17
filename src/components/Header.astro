@@ -1,0 +1,101 @@
+---
+import { bookLink } from '../site';
+const links = [
+  { href: '/classes/', label: 'Classes' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/timetable/', label: 'Timetable' },
+  { href: '/instructors/', label: 'Instructors' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/location/', label: 'Location' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) => path.startsWith(href);
+---
+<header class="site-header">
+  <div class="container inner">
+    <a class="logo" href="/" aria-label="KLUB home">KLUB</a>
+
+    <nav class="desktop-nav" aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} class:list={{ active: isActive(l.href) }}>{l.label}</a>
+      ))}
+    </nav>
+
+    <a href={bookLink()} class="btn btn--primary btn--sm book-cta">Book Now</a>
+
+    <button class="hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href={bookLink()} class="btn btn--primary">Book Now</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .inner { display: flex; align-items: center; gap: 28px; height: 72px; }
+  .logo {
+    font-family: var(--serif);
+    font-size: 26px;
+    letter-spacing: 0.22em;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .desktop-nav { display: flex; gap: 26px; }
+  .desktop-nav a {
+    font: 500 13px/1.4 var(--sans);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .desktop-nav a:hover { color: var(--umber); }
+  .desktop-nav a.active { color: var(--umber); border-bottom-color: var(--umber); }
+
+  .hamburger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; }
+
+  .mobile-nav[hidden] { display: none; }
+  .mobile-nav {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 12px 24px 24px;
+    background: #fff; border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav a {
+    font: 500 15px/1.4 var(--sans);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-nav a.btn { margin-top: 14px; text-align: center; color: #fff; border-bottom: 0; }
+
+  @media (max-width: 900px) {
+    .desktop-nav, .book-cta { display: none; }
+    .hamburger { display: block; }
+    .inner { height: 64px; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('mobile-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.hasAttribute('hidden');
+    if (open) { nav?.removeAttribute('hidden'); toggle.setAttribute('aria-expanded', 'true'); }
+    else { nav?.setAttribute('hidden', ''); toggle.setAttribute('aria-expanded', 'false'); }
+  });
+</script>

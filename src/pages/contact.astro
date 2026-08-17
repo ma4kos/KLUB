@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, whatsappLink } from '../site';
+import page from '../content/pages/contact.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container split" style="align-items: start;">
+      <form
+        class="card card--pad"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/contact/?success=true"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
+        <h2>{page.formHeading}</h2>
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input id="c-name" type="text" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" type="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="c-phone">Phone (optional)</label>
+          <input id="c-phone" type="tel" name="phone" autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Send Message</button>
+      </form>
+
+      <div>
+        <h2>{page.directHeading}</h2>
+        <div class="line">
+          <h3>Instant message</h3>
+          <p><a href={whatsappLink()} rel="noopener">Message KLUB</a> — {page.messageNote}</p>
+        </div>
+        <div class="line">
+          <h3>Email</h3>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        </div>
+        <div class="line">
+          <h3>Instagram</h3>
+          <p><a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a> — {page.instagramNote}</p>
+        </div>
+        <div class="line">
+          <h3>Visit</h3>
+          <p>{SITE.addressLocality}, {SITE.addressCountry}<br /><em>{SITE.addressNote}</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .line { margin-bottom: 26px; }
+  .line h3 { font-size: 19px; margin-bottom: 4px; }
+  .line p { color: var(--ink-soft); }
+</style>

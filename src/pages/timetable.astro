@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { whatsappLink } from '../site';
+import page from '../content/pages/timetable.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white schedule">
+    <div class="container">
+      <div class="card card--pad notice">
+        <span class="pill pill--good">{page.noticePill}</span>
+        <p>{page.noticeText}</p>
+      </div>
+
+      {page.days.map((d) => (
+        <div class="day">
+          <h2>{d.day}</h2>
+          <div class="slots">
+            {d.slots.map((s) => (
+              <div class="card slot">
+                <span class="time">{s.time}</span>
+                <span class="name">{s.name}</span>
+                <span class="cap">{page.slotCaption}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <p class="foot-note">
+        Can't find a time that works? <a href="/classes/private-sessions/">Private sessions</a> are
+        available by appointment — <a href={whatsappLink('Hi KLUB! Can I arrange a private session time?')} rel="noopener">message us</a> to arrange one.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container split">
+      <div>
+        <h2>{page.cta.heading}</h2>
+        <p>{page.cta.text}</p>
+      </div>
+      <FoundingForm compact />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .schedule { padding: var(--section-y) 0; }
+  .notice { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 40px; }
+  .notice p { margin: 0; }
+  .day { margin-bottom: 36px; }
+  .day h2 { font-size: 24px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+  .slot { padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+  .time { font-family: var(--serif); font-size: 22px; }
+  .name { font-weight: 600; font-size: 15px; }
+  .cap { color: var(--ink-faint); font-size: 13px; }
+  .foot-note { margin-top: 16px; color: var(--ink-soft); }
+</style>

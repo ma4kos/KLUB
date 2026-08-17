@@ -1,0 +1,79 @@
+{
+  "heroEyebrow": "Limassol City Center · Opening September 2026",
+  "heroHeading": "Intentional *movement.*\nMindful *strength.*",
+  "heroLede": "Premium reformer Pilates in the heart of Limassol — small groups of six, private 1-to-1 sessions, and a space that feels like an exhale.",
+  "heroVideo": "/videos/studio-tour.mp4",
+  "heroPoster": "/videos/studio-tour-poster.jpg",
+  "heroMiniImage": "/images/arch-entrance.jpg",
+  "heroMiniAlt": "Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree",
+  "marquee": [
+    "Reformer Pilates",
+    "*Limassol City Center*",
+    "Small groups of six",
+    "Classes in *English*",
+    "Private 1-to-1",
+    "Pre & post-natal certified",
+    "Opening *September 2026*"
+  ],
+  "story": {
+    "eyebrow": "The KLUB Standard",
+    "heading": "The world's best Pilates,\n*brought home to Cyprus*",
+    "lede": "Our founder trained and taught in the studios of London and Dubai — and built her online studio from the island. KLUB brings all of it home to Limassol.",
+    "triptych": [
+      { "video": "/videos/dubai-studio.mp4", "poster": "/videos/dubai-studio-poster.jpg", "label": "Refined abroad", "sublabel": "Teaching in Dubai's studios" },
+      { "video": "/videos/cyprus-pool.mp4", "poster": "/videos/cyprus-pool-poster.jpg", "label": "Rooted in Cyprus", "sublabel": "Movement under the Limassol sun" },
+      { "video": "/videos/studio-lounge.mp4", "poster": "/videos/studio-lounge-poster.jpg", "label": "Home in Limassol", "sublabel": "The KLUB studio, ready for you" }
+    ]
+  },
+  "stats": [
+    { "big": "6", "small": "people max per class — you're seen, every rep" },
+    { "big": "50~′~", "small": "minutes of focused, full-body work" },
+    { "big": "3", "small": "cities of training behind every class — London, Dubai, Cyprus" },
+    { "big": "€20", "small": "your first class. No commitment, all welcome" }
+  ],
+  "about": {
+    "eyebrow": "About KLUB",
+    "heading": "A space built *for balance*",
+    "paragraphs": [
+      "KLUB stands for Keep Living Under Balance. Warm plaster walls, arched doorways, soft light and calm proportions — a studio designed to slow you down the moment you walk in.",
+      "On the floor it's serious equipment and small groups: reformer classes capped at six, so your instructor sees every rep — your alignment, your pace, your progress."
+    ],
+    "pullQuote": "Chill vibes are found here.",
+    "buttonLabel": "Step Inside",
+    "image": "/images/reception.jpg",
+    "alt": "Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"
+  },
+  "classesHead": {
+    "eyebrow": "Classes",
+    "heading": "Find *your* class",
+    "lede": "Four ways to move, from your first step to your strongest self."
+  },
+  "izzy": {
+    "eyebrow": "Your Instructor",
+    "heading": "Meet *Izzy*",
+    "lede": "Royal Academy of Dance graduate. Certified reformer and mat Pilates instructor. Pre/post-natal qualified. From London stages to Dubai studios — now bringing it all home to Limassol.",
+    "buttonLabel": "Her Story",
+    "image": "/images/izzy-dubai-teaching.jpg",
+    "alt": "Izzy Nicolaou guiding a reformer Pilates class in an arched, softly lit Dubai studio"
+  },
+  "pricingTeaser": {
+    "eyebrow": "Pricing",
+    "heading": "Transparent *pricing*",
+    "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
+    "cards": [
+      { "eyebrow": "Drop-In", "price": "€20", "note": "Try any group class" },
+      { "eyebrow": "Intro Pack", "price": "€32", "note": "Your first two reformer classes" },
+      { "eyebrow": "Private Session", "price": "€80", "note": "1-to-1 personal training" }
+    ]
+  },
+  "location": {
+    "eyebrow": "Find Us",
+    "heading": "In the heart *of Limassol*",
+    "image": "/images/street-sign.jpg",
+    "alt": "Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
+  },
+  "founding": {
+    "heading": "Be part of the *founding circle*",
+    "text": "Join before we open for exclusive founding member rates and first access to bookings. Early members choose their class times before anyone else."
+  }
+}

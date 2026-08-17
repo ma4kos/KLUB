@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "Book a Pilates Class in Limassol | KLUB",
+    "description": "Booking for KLUB Pilates Limassol opens with our September 2026 launch. Join the founding member list for first access, or message us to reserve your spot personally."
+  },
+  "hero": {
+    "eyebrow": "Book",
+    "heading": "Booking Opens Soon",
+    "intro": "Online booking goes live shortly before we open in September 2026. Founding members book first."
+  },
+  "firstAccess": {
+    "heading": "Get first access",
+    "text": "Join the founding member list — early rates, priority booking, the address before anyone else."
+  },
+  "reserve": {
+    "heading": "Reserve a spot personally",
+    "text": "Want to lock in a class the human way? Message us with your preferred class and time and we'll confirm within a few hours.",
+    "buttonLabel": "Message to Reserve"
+  },
+  "privateHeading": "Private sessions"
+}

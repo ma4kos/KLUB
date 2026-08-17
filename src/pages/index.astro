@@ -1,0 +1,230 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import ArchVideo from '../components/ArchVideo.astro';
+import Marquee from '../components/Marquee.astro';
+import FoundingForm from '../components/FoundingForm.astro';
+import { CLASSES } from '../data/classes';
+import { SITE, whatsappLink, bookLink } from '../site';
+import home from '../content/home.json';
+import { inline } from '../lib/inline';
+---
+<Base
+  title="KLUB | Pilates Reformer Studio in Limassol City Center"
+  description="Premium Pilates reformer classes in Limassol city center. Small group sessions & private 1-to-1 training. New to Pilates? Start with our €20 intro offer. Opening September 2026."
+  preloadImage={home.heroPoster}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow rise">{home.heroEyebrow}</span>
+        <h1 class="rise rise-d1" set:html={inline(home.heroHeading)} />
+        <p class="lede rise rise-d2">{home.heroLede}</p>
+        <div class="btn-row rise rise-d3">
+          <a class="btn btn--primary" href={bookLink()}>Book Your First Class — €20</a>
+          <a class="btn btn--ghost" href="/timetable/">View Timetable</a>
+        </div>
+      </div>
+      <div class="hero-media rise rise-d2">
+        <ArchVideo src={home.heroVideo} poster={home.heroPoster} class="hero-film" />
+        <div class="hero-mini arch">
+          <Pic src={home.heroMiniImage} alt={home.heroMiniAlt} width={322} height={431} loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Marquee items={home.marquee.map((m) => inline(m))} />
+
+  <!-- World to island story -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="story-head reveal">
+        <span class="eyebrow">{home.story.eyebrow}</span>
+        <h2 set:html={inline(home.story.heading)} />
+        <p class="lede">{home.story.lede}</p>
+      </div>
+      <div class="triptych">
+        {home.story.triptych.map((t, i) => (
+          <div class:list={['reveal', { 'reveal-d1': i === 1, 'reveal-d2': i === 2 }]}>
+            <ArchVideo src={t.video} poster={t.poster} label={t.label} sublabel={t.sublabel} />
+          </div>
+        ))}
+      </div>
+      <div class="stat-row story-stats reveal">
+        {home.stats.map((s) => (
+          <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About preview -->
+  <section class="section">
+    <div class="container split">
+      <div class="arch reveal">
+        <Pic src={home.about.image} alt={home.about.alt} width={467} height={431} />
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="eyebrow">{home.about.eyebrow}</span>
+        <h2 set:html={inline(home.about.heading)} />
+        {home.about.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="pull-quote">{home.about.pullQuote}</p>
+        <a class="btn btn--ghost" href="/about/">{home.about.buttonLabel}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Classes preview -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="center reveal">
+        <span class="eyebrow">{home.classesHead.eyebrow}</span>
+        <h2 set:html={inline(home.classesHead.heading)} />
+        <p class="lede">{home.classesHead.lede}</p>
+      </div>
+      <div class="grid grid--4 class-grid">
+        {CLASSES.map((c, i) => (
+          <a class:list={['card class-card reveal', `reveal-d${i % 4 === 0 ? 0 : i % 4}`]} href={`/classes/${c.slug}/`}>
+            <div class="class-img">
+              <Pic src={c.image} alt={c.imageAlt} width={360} height={300} />
+            </div>
+            <div class="class-body">
+              <h3>{c.name}</h3>
+              <p>{c.short}</p>
+              <span class="more">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Izzy teaser -->
+  <section class="section section--sand">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">{home.izzy.eyebrow}</span>
+        <h2 set:html={inline(home.izzy.heading)} />
+        <p class="lede">{home.izzy.lede}</p>
+        <a class="btn btn--primary" href="/instructors/">{home.izzy.buttonLabel}</a>
+      </div>
+      <div class="arch izzy-teaser reveal reveal-d1">
+        <Pic src={home.izzy.image} alt={home.izzy.alt} width={480} height={620} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing teaser -->
+  <section class="section section--white">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">{home.pricingTeaser.eyebrow}</span>
+        <h2 set:html={inline(home.pricingTeaser.heading)} />
+        <p>{home.pricingTeaser.text}</p>
+        <a class="btn btn--primary" href="/pricing/">View Full Price List</a>
+      </div>
+      <div class="grid price-teaser reveal reveal-d1">
+        {home.pricingTeaser.cards.map((c) => (
+          <div class="card card--pad center">
+            <span class="eyebrow">{c.eyebrow}</span>
+            <p class="big-price">{c.price}</p>
+            <p>{c.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="section">
+    <div class="container split">
+      <div class="arch reveal">
+        <Pic src={home.location.image} alt={home.location.alt} width={358} height={294} />
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="eyebrow">{home.location.eyebrow}</span>
+        <h2 set:html={inline(home.location.heading)} />
+        <p>
+          {SITE.addressLocality}, {SITE.addressCountry}.<br />
+          <em>{SITE.addressNote}</em>
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--ghost" href="/location/">Location &amp; Directions</a>
+          <a class="btn btn--accent" href={whatsappLink('Hi KLUB! Where exactly are you located?')} rel="noopener">Message Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding member -->
+  <section class="section section--dark">
+    <div class="container split">
+      <div class="reveal">
+        <h2 set:html={inline(home.founding.heading)} />
+        <p>{home.founding.text}</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <FoundingForm compact />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: clamp(48px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow: hidden; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .hero-copy .lede { max-width: 46ch; }
+  .hero-media { position: relative; max-width: 400px; justify-self: center; width: 100%; }
+  .hero-media :global(.hero-film) { width: 82%; margin-left: auto; }
+  .hero-mini {
+    position: absolute;
+    left: -6%;
+    bottom: -8%;
+    width: 44%;
+    box-shadow: 0 24px 48px -24px rgba(26, 23, 20, 0.35);
+    background: var(--sand);
+  }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-media { max-width: 320px; margin-top: 12px; }
+  }
+
+  .story-head { max-width: 720px; margin-bottom: 48px; }
+  .triptych {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3.5vw, 44px);
+    align-items: end;
+  }
+  .triptych > div:nth-child(2) { transform: translateY(-24px); }
+  @media (max-width: 780px) {
+    .triptych { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+    .triptych > div:nth-child(2) { transform: none; }
+  }
+  .story-stats { margin-top: clamp(48px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: 40px; }
+
+  .class-grid { margin-top: 48px; }
+  .class-card { text-decoration: none; color: var(--ink); overflow: hidden; display: flex; flex-direction: column; }
+  .class-img { aspect-ratio: 6/5; overflow: hidden; }
+  .class-img :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .class-card:hover .class-img :global(img) { transform: scale(1.05); }
+  .class-body { padding: 20px 22px 24px; }
+  .class-body h3 { font-size: 21px; }
+  .class-body p { font-size: 14px; color: var(--ink-soft); }
+  .more { font: 500 13px/1.4 var(--sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--umber); }
+
+  .izzy-teaser { max-width: 420px; justify-self: center; }
+
+  .price-teaser { grid-template-columns: 1fr; gap: 16px; }
+  .big-price { font-family: var(--serif); font-size: 44px; margin: 0; }
+  .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
+
+  .stat b :global(small) { font-size: 0.55em; }
+</style>

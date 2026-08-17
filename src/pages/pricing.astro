@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import { whatsappLink, bookLink } from '../site';
+
+import pricing from '../content/pricing.json';
+const tables = pricing.tables;
+
+const faqs = pricing.faqs;
+
+const offerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'KLUB Pilates Pricing',
+  itemListElement: tables.flatMap((t) =>
+    t.rows.map((r) => ({
+      '@type': 'Offer',
+      name: r.name,
+      price: r.price.replace('€', ''),
+      priceCurrency: 'EUR',
+    }))
+  ),
+};
+---
+<Base
+  title={pricing.seo.title}
+  description={pricing.seo.description}
+  ogImage="/images/og/pricing.jpg"
+  schema={offerSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{pricing.hero.eyebrow}</span>
+      <h1>{pricing.hero.heading}</h1>
+      <p>{pricing.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white tables">
+    <div class="container">
+      <div class="grid grid--2">
+        {tables.map((t) => (
+          <div class="card card--pad">
+            <h2>{t.title}</h2>
+            <p class="blurb">{t.blurb}</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>Package</th><th>Price</th><th>{t.cols[0]}</th><th>{t.cols[1]}</th></tr>
+              </thead>
+              <tbody>
+                {t.rows.map((r) => (
+                  <tr>
+                    <td>{r.name}</td>
+                    <td class="price">{r.price}</td>
+                    <td>{r.per}</td>
+                    <td>{r.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <a class="btn btn--primary btn--sm" href={bookLink()}>Book Now</a>
+          </div>
+        ))}
+      </div>
+
+      <p class="terms">
+        {pricing.termsText} <a href="/policies/">read our full policies</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Pricing questions</h2>
+      <div class="accordion">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <div class="a"><p>{f.a}</p></div>
+          </details>
+        ))}
+      </div>
+      <p class="center" style="margin-top: 28px;">
+        Anything else? <a href={whatsappLink('Hi KLUB! I have a question about pricing.')} rel="noopener">Message us</a> —
+        we usually reply within half an hour.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tables { padding: var(--section-y) 0; }
+  .tables .card h2 { font-size: 26px; }
+  .blurb { color: var(--ink-soft); font-size: 15px; }
+  .tables table { margin-bottom: 22px; }
+  .terms { margin-top: 32px; color: var(--ink-soft); font-size: 14px; text-align: center; max-width: none; }
+</style>

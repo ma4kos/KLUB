@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import { whatsappLink } from '../site';
+
+import faq from '../content/faq.json';
+const sections = faq.sections;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sections.flatMap((s) =>
+    s.items.map((i) => ({
+      '@type': 'Question',
+      name: i.q,
+      acceptedAnswer: { '@type': 'Answer', text: i.a },
+    }))
+  ),
+};
+---
+<Base title={faq.seo.title} description={faq.seo.description} schema={faqSchema}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{faq.hero.eyebrow}</span>
+      <h1>{faq.hero.heading}</h1>
+      <p>{faq.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white faq-body">
+    <div class="container">
+      {sections.map((s) => (
+        <div class="faq-section">
+          <h2>{s.title}</h2>
+          <div class="accordion">
+            {s.items.map((i) => (
+              <details>
+                <summary>{i.q}</summary>
+                <div class="a"><p>{i.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="card card--pad center still">
+        <h2>{faq.still.heading}</h2>
+        <p>{faq.still.text}</p>
+        <a class="btn btn--accent" href={whatsappLink('Hi KLUB! I have a question that is not in your FAQ.')} rel="noopener">Message Us</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq-body { padding: var(--section-y) 0; }
+  .faq-section { margin-bottom: 44px; }
+  .faq-section h2 { font-size: 26px; }
+  .still { margin-top: 12px; }
+  .still p { margin-inline: auto; }
+</style>

@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import page from '../content/pages/about.json';
+---
+<Base title={page.seo.title} description={page.seo.description}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
+    </div>
+  </section>
+
+  <section class="section--white">
+    <div class="container split" style="padding-block: var(--section-y);">
+      <div>
+        <h2>{page.space.heading}</h2>
+        {page.space.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="pull-quote">{page.space.pullQuote}</p>
+        <p>{page.space.afterQuote}</p>
+      </div>
+      <div class="stack">
+        <div class="arch">
+          <Pic src={page.space.images[0].image} alt={page.space.images[0].alt} width={367} height={346} />
+        </div>
+        <div class="arch">
+          <Pic src={page.space.images[1].image} alt={page.space.images[1].alt} width={285} height={431} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{page.beliefs.heading}</h2>
+      <div class="grid grid--3">
+        {page.beliefs.cards.map((c) => (
+          <div class="card card--pad">
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="center" style="margin-top: 40px;">
+        <a class="btn btn--primary" href="/instructors/">Meet Our Instructors</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  @media (max-width: 500px) { .stack { grid-template-columns: 1fr; } }
+</style>

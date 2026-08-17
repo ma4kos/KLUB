@@ -1,0 +1,32 @@
+{
+  "seo": {
+    "title": "About KLUB | Pilates Reformer Studio Limassol",
+    "description": "KLUB — Keep Living Under Balance — is a premium reformer Pilates studio opening in Limassol city center in September 2026. Small groups, private sessions, warm space."
+  },
+  "hero": {
+    "eyebrow": "About",
+    "heading": "Keep Living Under Balance",
+    "intro": "That's what KLUB stands for — and what the studio is built around."
+  },
+  "space": {
+    "heading": "The Space",
+    "paragraphs": [
+      "Warm plaster walls, arched doorways, dried botanicals and soft, indirect light. The studio was designed to feel less like a gym and more like an exhale — a place where the pace of the city stops at the door.",
+      "On the floor: professional reformer machines, capped at six per class, arranged so every person has space to move and be seen by their instructor."
+    ],
+    "pullQuote": "Chill vibes are found here.",
+    "afterQuote": "It's painted on our wall, and it is a promise. No intimidation, no competition — just intentional movement, mindful strength and real connection.",
+    "images": [
+      { "image": "/images/lounge.jpg", "alt": "Cozy white sofa lounge corner with warm lamp light at KLUB Pilates studio Limassol" },
+      { "image": "/images/equipment-wall.jpg", "alt": "Black Pilates springs, balls and equipment displayed in arched cream niches at KLUB Limassol" }
+    ]
+  },
+  "beliefs": {
+    "heading": "What We Believe",
+    "cards": [
+      { "title": "Intentional Movement", "text": "Every exercise has a purpose. We teach you what you're doing and why, so strength comes with understanding." },
+      { "title": "Mindful Strength", "text": "Progress that lasts is built with control, not chaos. Six people per class means your form always comes first." },
+      { "title": "Real Connection", "text": "A studio should know your name. Ours will — and the community forming around it is the part we're most excited about." }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+---
+import { BANNER } from '../site';
+---
+{BANNER.enabled && (
+<div class="banner" id="klub-banner">
+  <p>
+    {BANNER.text}
+    <a href={BANNER.linkUrl}>{BANNER.linkText}</a>
+  </p>
+  <button type="button" aria-label="Dismiss announcement" id="klub-banner-close">&times;</button>
+</div>
+)}
+<script is:inline>
+  // Runs before first paint: hide the banner synchronously if previously dismissed,
+  // so returning visitors get no layout shift. Storage can throw in strict
+  // privacy modes — in that case the banner just stays visible.
+  try {
+    if (localStorage.getItem('klub-banner-dismissed') === '1') {
+      document.getElementById('klub-banner')?.setAttribute('hidden', '');
+    }
+  } catch {}
+</script>
+
+<style>
+  .banner[hidden] { display: none; }
+  .banner {
+    background: var(--umber);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 48px 10px 20px;
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+  }
+  .banner p { margin: 0; max-width: none; }
+  .banner a { color: #fff; font-weight: 600; }
+  .banner button {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    background: none; border: 0; color: #fff; font-size: 22px; line-height: 1;
+    cursor: pointer; padding: 4px 8px;
+  }
+</style>
+
+<script>
+  document.getElementById('klub-banner-close')?.addEventListener('click', () => {
+    document.getElementById('klub-banner')?.setAttribute('hidden', '');
+    try {
+      localStorage.setItem('klub-banner-dismissed', '1');
+    } catch {}
+  });
+</script>

@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import Pic from '../../components/Pic.astro';
+import { CLASS_DETAILS } from '../../data/classDetails';
+import { whatsappLink, bookLink } from '../../site';
+---
+<Base
+  title="Pilates Classes in Limassol | Reformer, Flow & Private | KLUB"
+  description="Small-group reformer Pilates classes and private 1-to-1 sessions in Limassol city center. All levels welcome. Classes taught in English. Book your first class for €20."
+  ogImage="/images/og/classes.jpg"
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Classes</span>
+      <h1>Our Classes</h1>
+      <p>Four ways to move. One space to grow.</p>
+    </div>
+  </section>
+
+  <section class="section--white class-list">
+    <div class="container">
+      {CLASS_DETAILS.map((c, i) => (
+        <article class="card class-row" class:list={{ flip: i % 2 === 1 }}>
+          <div class="img">
+            <Pic src={c.image} alt={c.imageAlt} width={460} height={400} />
+          </div>
+          <div class="body">
+            <span class="pill">{c.level}</span>
+            <h2>{c.name}</h2>
+            <div class="meta-row">
+              <span>{c.duration}</span>
+              <span>{c.capacity}</span>
+              <span>{c.price}</span>
+            </div>
+            <p>{c.intro[0]}</p>
+            <div class="btn-row">
+              <a class="btn btn--primary btn--sm" href={`/classes/${c.slug}/`}>About this class</a>
+              <a class="btn btn--ghost btn--sm" href={bookLink()}>Book</a>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <p class="center closing">
+        Not sure which class is right for you?
+        <a href="/faq/">Read our FAQ</a> or
+        <a href={whatsappLink("Hi KLUB! I'm not sure which class suits me — can you help?")} rel="noopener">message us</a>
+        — we'll point you to the right starting place.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .class-list { padding: var(--section-y) 0; }
+  .class-row {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .class-row.flip { grid-template-columns: 1.25fr 1fr; }
+  .class-row.flip .img { order: 2; }
+  .img { min-height: 280px; }
+  .img :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .body { padding: clamp(24px, 4vw, 44px); }
+  .body h2 { margin-top: 12px; }
+  @media (max-width: 780px) {
+    .class-row, .class-row.flip { grid-template-columns: 1fr; }
+    .class-row.flip .img { order: 0; }
+    .img { min-height: 220px; }
+  }
+  .closing { margin-top: 24px; }
+</style>

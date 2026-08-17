@@ -1,0 +1,52 @@
+---
+// Muted looping film inside an arch frame — the KLUB signature.
+interface Props {
+  src: string;
+  poster: string;
+  label?: string;
+  sublabel?: string;
+  class?: string;
+}
+const { src, poster, label, sublabel, class: cls } = Astro.props;
+---
+<figure class:list={['arch-film', cls]}>
+  <div class="arch-video">
+    <video autoplay muted loop playsinline preload="metadata" poster={poster}>
+      <source src={src} type="video/mp4" />
+    </video>
+  </div>
+  {label && (
+    <figcaption>
+      <span class="l">{label}</span>
+      {sublabel && <span class="s">{sublabel}</span>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  .arch-film { margin: 0; }
+  figcaption { text-align: center; margin-top: 14px; }
+  .l {
+    display: block;
+    font-family: var(--serif);
+    font-size: 22px;
+  }
+  .s {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+</style>
+
+<script>
+  // Respect reduced motion: show the poster instead of playing film.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.arch-video video').forEach((v) => {
+      (v as HTMLVideoElement).removeAttribute('autoplay');
+      (v as HTMLVideoElement).pause();
+    });
+  }
+</script>
