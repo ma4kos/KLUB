@@ -3,11 +3,12 @@ import { test, expect, type Locator } from '@playwright/test';
 /**
  * Netlify form integrity for the two real forms.
  *
- * Both are Netlify-wired static forms:
- *   - data-netlify="true", netlify-honeypot="bot-field"
+ * Both are Netlify-wired static forms. NOTE: Netlify STRIPS data-netlify and
+ * netlify-honeypot from the SERVED HTML once it registers the form at deploy
+ * time, so on the live site the durable wiring markers are:
  *   - a hidden <input name="form-name"> whose value equals the form name
  *   - a honeypot <input name="bot-field"> inside a hidden <p>
- * We assert markup + client-side required validation. We DO NOT submit to
+ * We assert those + client-side required validation. We DO NOT submit to
  * Netlify — the empty-submit test relies on native constraint validation
  * blocking the POST, so no request ever leaves the browser.
  *
@@ -20,9 +21,9 @@ import { test, expect, type Locator } from '@playwright/test';
 
 async function assertNetlifyWiring(form: Locator, formName: string) {
   await expect(form).toBeVisible();
-  await expect(form).toHaveAttribute('data-netlify', 'true');
-  await expect(form).toHaveAttribute('netlify-honeypot', 'bot-field');
-  // Hidden form-name input carrying the form identifier.
+  // data-netlify / netlify-honeypot are NOT asserted here: Netlify removes them
+  // from the served HTML after it registers the form at deploy time. The hidden
+  // form-name input below is the durable proof the deployed form is wired.
   await expect(form.locator('input[name="form-name"]')).toHaveValue(formName);
   // Honeypot present but not visible to users.
   await expect(form.locator('input[name="bot-field"]')).toHaveCount(1);
