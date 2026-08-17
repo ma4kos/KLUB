@@ -1,19 +1,26 @@
 ---
 // Muted looping film inside an arch frame — the KLUB signature.
+// Below-the-fold films are lazy-loaded (only fetched when scrolled near the
+// viewport); pass `eager` for the above-the-fold hero film so it loads at once.
 interface Props {
   src: string;
   poster: string;
   label?: string;
   sublabel?: string;
+  eager?: boolean;
   class?: string;
 }
-const { src, poster, label, sublabel, class: cls } = Astro.props;
+const { src, poster, label, sublabel, eager = false, class: cls } = Astro.props;
 ---
 <figure class:list={['arch-film', cls]}>
   <div class="arch-video">
-    <video autoplay muted loop playsinline preload="metadata" poster={poster}>
-      <source src={src} type="video/mp4" />
-    </video>
+    {eager ? (
+      <video autoplay muted loop playsinline preload="metadata" poster={poster}>
+        <source src={src} type="video/mp4" />
+      </video>
+    ) : (
+      <video muted loop playsinline preload="none" poster={poster} data-src={src}></video>
+    )}
   </div>
   {label && (
     <figcaption>
@@ -42,11 +49,49 @@ const { src, poster, label, sublabel, class: cls } = Astro.props;
 </style>
 
 <script>
-  // Respect reduced motion: show the poster instead of playing film.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.arch-video video').forEach((v) => {
-      (v as HTMLVideoElement).removeAttribute('autoplay');
-      (v as HTMLVideoElement).pause();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Respect reduced motion: pause the eager (autoplaying) hero film.
+  if (reduce) {
+    document.querySelectorAll('.arch-video video[autoplay]').forEach((v) => {
+      const vid = v as HTMLVideoElement;
+      vid.removeAttribute('autoplay');
+      vid.pause();
     });
+  }
+
+  // Lazy films: only fetch + play once scrolled near the viewport.
+  const lazy = Array.from(
+    document.querySelectorAll('.arch-video video[data-src]')
+  ) as HTMLVideoElement[];
+
+  const activate = (v: HTMLVideoElement) => {
+    if (v.dataset.loaded) return;
+    v.dataset.loaded = '1';
+    if (v.dataset.src) v.src = v.dataset.src;
+    v.load();
+    if (!reduce) {
+      const p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    }
+  };
+
+  if (lazy.length) {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              activate(e.target as HTMLVideoElement);
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { rootMargin: '200px 0px' }
+      );
+      lazy.forEach((v) => io.observe(v));
+    } else {
+      lazy.forEach(activate);
+    }
   }
 </script>

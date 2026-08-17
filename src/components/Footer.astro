@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
         </p>
       </div>
       <nav aria-label="Explore">
-        <h4>Explore</h4>
+        <h2 class="footer-head">Explore</h2>
         <a href="/classes/">Classes</a>
         <a href="/pricing/">Pricing</a>
         <a href="/timetable/">Timetable</a>
@@ -23,7 +23,7 @@ const year = new Date().getFullYear();
         <a href={bookLink()}>Book Now</a>
       </nav>
       <nav aria-label="Information">
-        <h4>Information</h4>
+        <h2 class="footer-head">Information</h2>
         <a href="/faq/">FAQ</a>
         <a href="/about/">About</a>
         <a href="/policies/">Policies</a>
@@ -32,7 +32,7 @@ const year = new Date().getFullYear();
         <a href="/founding-member/">Founding Member</a>
       </nav>
       <div>
-        <h4>Contact</h4>
+        <h2 class="footer-head">Contact</h2>
         <p>
           {SITE.streetAddress ? <>{SITE.streetAddress}<br /></> : null}
           {SITE.addressLocality}, {SITE.addressCountry}
@@ -57,7 +57,7 @@ const year = new Date().getFullYear();
   @media (max-width: 520px) { .cols { grid-template-columns: 1fr; } }
   .footer-logo { font-family: var(--serif); font-size: 28px; letter-spacing: 0.22em; margin: 0 0 10px; color: #fff; }
   .tagline { font-size: 14px; color: var(--sand); }
-  h4 {
+  .footer-head {
     font: 500 12px/1.4 var(--sans);
     letter-spacing: 0.12em; text-transform: uppercase;
     color: #9A9088; margin: 0 0 14px;
