@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "Founding Member | Early Access & Exclusive Rates | KLUB Limassol",
+    "description": "Join the KLUB founding member list for early access to bookings, exclusive founding rates and priority class selection before our September 2026 Limassol opening."
+  },
+  "hero": {
+    "eyebrow": "Founding Member",
+    "heading": "Be Part of the Founding Circle",
+    "intro": "The people who join before we open get the best of KLUB, permanently."
+  },
+  "perksHeading": "What founding members get",
+  "perks": [
+    { "strong": "Exclusive founding rates", "rest": "locked in before public pricing, kept as long as you stay." },
+    { "strong": "First access to bookings", "rest": "choose your class times before slots open to anyone else." },
+    { "strong": "Opening week priority", "rest": "guaranteed spots in launch week classes." },
+    { "strong": "The address first", "rest": "location, hours and every announcement before they're public." }
+  ],
+  "scarcity": "Founding membership closes when we open in September 2026. After that, it's gone for good.",
+  "formNote": "We never share your details. You'll receive a couple of emails before opening, then only our weekly timetable — unsubscribe anytime.",
+  "joinHeading": "Join the list"
+}

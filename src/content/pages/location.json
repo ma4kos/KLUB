@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "KLUB Pilates Studio Location | Limassol City Center | Directions",
+    "description": "Find KLUB Pilates studio in Limassol city center, Cyprus. Full address, map and parking guide coming with our September 2026 opening. Message us for directions."
+  },
+  "hero": {
+    "eyebrow": "Location",
+    "heading": "Find Us in Limassol City Center"
+  },
+  "gallery": [
+    { "image": "/images/street-sign.jpg", "alt": "Illuminated KLUB studio sign on a stone building corner in Limassol city center" },
+    { "image": "/images/arch-entrance.jpg", "alt": "KLUB Pilates studio entrance with arched doorway and glowing circular logo" },
+    { "image": "/images/klub-reformers.jpg", "alt": "Rows of black reformer machines on the bright studio floor at KLUB Pilates Limassol" },
+    { "image": "/images/klub-lounge.jpg", "alt": "KLUB studio lounge with white sofa and spiral staircase, Limassol city center" }
+  ],
+  "infoCards": [
+    { "title": "Getting Here", "text": "We're right in the city center — walkable from the seafront, the old town and the main business district. A detailed map and directions go live with our address." },
+    { "title": "Parking", "text": "Public parking is available within a short walk. We'll publish a simple where-to-park guide before opening day — Limassol parking should not be a workout." }
+  ],
+  "announce": {
+    "heading": "Want the address the moment it drops?",
+    "text": "Founding members hear everything first — address, opening hours and booking access.",
+    "buttonLabel": "Join the Founding Member List"
+  }
+}

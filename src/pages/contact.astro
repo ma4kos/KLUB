@@ -1,16 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, whatsappLink } from '../site';
+import page from '../content/pages/contact.json';
 ---
-<Base
-  title="Contact KLUB Pilates | Message, Email & Instagram | Limassol"
-  description="Contact KLUB Pilates studio in Limassol. Message us, email team@klub-cy.com or reach us on Instagram @klubstudios. We reply within 30 minutes in business hours."
->
+<Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Contact</span>
-      <h1>Say Hello</h1>
-      <p>Questions, bookings, or just curious? We're quick to reply.</p>
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
     </div>
   </section>
 
@@ -26,7 +24,7 @@ import { SITE, whatsappLink } from '../site';
       >
         <input type="hidden" name="form-name" value="contact" />
         <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
-        <h2>Send a message</h2>
+        <h2>{page.formHeading}</h2>
         <div class="field">
           <label for="c-name">Name</label>
           <input id="c-name" type="text" name="name" autocomplete="name" required />
@@ -47,10 +45,10 @@ import { SITE, whatsappLink } from '../site';
       </form>
 
       <div>
-        <h2>Direct lines</h2>
+        <h2>{page.directHeading}</h2>
         <div class="line">
           <h3>Instant message</h3>
-          <p><a href={whatsappLink()} rel="noopener">Message KLUB</a> — fastest response, usually within 30 minutes during business hours.</p>
+          <p><a href={whatsappLink()} rel="noopener">Message KLUB</a> — {page.messageNote}</p>
         </div>
         <div class="line">
           <h3>Email</h3>
@@ -58,7 +56,7 @@ import { SITE, whatsappLink } from '../site';
         </div>
         <div class="line">
           <h3>Instagram</h3>
-          <p><a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a> — studio updates, class previews and opening news.</p>
+          <p><a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a> — {page.instagramNote}</p>
         </div>
         <div class="line">
           <h3>Visit</h3>

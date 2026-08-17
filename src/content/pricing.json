@@ -1,41 +1,112 @@
 {
+  "seo": {
+    "title": "Pilates Prices Limassol | Drop-In, Packages & Private | KLUB",
+    "description": "Clear, simple Pilates pricing in Limassol. Drop-in €20. Intro pack €32. Monthly packages from €120. Private 1-to-1 sessions from €70 per session. No hidden fees."
+  },
+  "hero": {
+    "eyebrow": "Pricing",
+    "heading": "Simple, Honest Pricing",
+    "intro": "All prices in euro. What you see is what you pay — no joining fees, no surprises."
+  },
   "tables": [
     {
       "title": "Getting Started",
       "blurb": "Your first steps on the reformer.",
-      "cols": ["Per class", "Best for"],
+      "cols": [
+        "Per class",
+        "Best for"
+      ],
       "rows": [
-        { "name": "Drop-In Class", "price": "€20", "per": "€20", "note": "Try any class, no commitment" },
-        { "name": "Intro Pack (2 classes)", "price": "€32", "per": "€16", "note": "First-timers — your best-value start" }
+        {
+          "name": "Drop-In Class",
+          "price": "€20",
+          "per": "€20",
+          "note": "Try any class, no commitment"
+        },
+        {
+          "name": "Intro Pack (2 classes)",
+          "price": "€32",
+          "per": "€16",
+          "note": "First-timers — your best-value start"
+        }
       ]
     },
     {
       "title": "Monthly Memberships",
       "blurb": "A steady rhythm, month after month.",
-      "cols": ["Per class", "Best for"],
+      "cols": [
+        "Per class",
+        "Best for"
+      ],
       "rows": [
-        { "name": "4 Classes / Month", "price": "€120", "per": "€30", "note": "A weekly routine" },
-        { "name": "8 Classes / Month", "price": "€200", "per": "€25", "note": "Twice-weekly commitment" },
-        { "name": "Unlimited", "price": "€280", "per": "—", "note": "Daily practice" }
+        {
+          "name": "4 Classes / Month",
+          "price": "€120",
+          "per": "€30",
+          "note": "A weekly routine"
+        },
+        {
+          "name": "8 Classes / Month",
+          "price": "€200",
+          "per": "€25",
+          "note": "Twice-weekly commitment"
+        },
+        {
+          "name": "Unlimited",
+          "price": "€280",
+          "per": "—",
+          "note": "Daily practice"
+        }
       ]
     },
     {
       "title": "Flexi Packs",
       "blurb": "Buy a bundle, book when it suits you.",
-      "cols": ["Per class", "Validity"],
+      "cols": [
+        "Per class",
+        "Validity"
+      ],
       "rows": [
-        { "name": "5-Class Pack", "price": "€110", "per": "€22", "note": "Valid 2 months" },
-        { "name": "10-Class Pack", "price": "€200", "per": "€20", "note": "Valid 3 months" }
+        {
+          "name": "5-Class Pack",
+          "price": "€110",
+          "per": "€22",
+          "note": "Valid 2 months"
+        },
+        {
+          "name": "10-Class Pack",
+          "price": "€200",
+          "per": "€20",
+          "note": "Valid 3 months"
+        }
       ]
     },
     {
       "title": "Private 1-to-1",
       "blurb": "Fully personalized sessions, by appointment.",
-      "cols": ["Per session", "Best for"],
+      "cols": [
+        "Per session",
+        "Best for"
+      ],
       "rows": [
-        { "name": "Single Private Session", "price": "€80", "per": "€80", "note": "One-off focus or assessment" },
-        { "name": "5-Session Pack", "price": "€375", "per": "€75", "note": "A short-term goal" },
-        { "name": "10-Session Pack", "price": "€700", "per": "€70", "note": "Long-term progress" }
+        {
+          "name": "Single Private Session",
+          "price": "€80",
+          "per": "€80",
+          "note": "One-off focus or assessment"
+        },
+        {
+          "name": "5-Session Pack",
+          "price": "€375",
+          "per": "€75",
+          "note": "A short-term goal"
+        },
+        {
+          "name": "10-Session Pack",
+          "price": "€700",
+          "per": "€70",
+          "note": "Long-term progress"
+        }
       ]
     }
   ],

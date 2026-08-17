@@ -1,44 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
+import page from '../content/pages/about.json';
 ---
-<Base
-  title="About KLUB | Pilates Reformer Studio Limassol"
-  description="KLUB — Keep Living Under Balance — is a premium reformer Pilates studio opening in Limassol city center in September 2026. Small groups, private sessions, warm space."
->
+<Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">About</span>
-      <h1>Keep Living Under Balance</h1>
-      <p>That's what KLUB stands for — and what the studio is built around.</p>
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
     </div>
   </section>
 
   <section class="section--white">
     <div class="container split" style="padding-block: var(--section-y);">
       <div>
-        <h2>The Space</h2>
-        <p>
-          Warm plaster walls, arched doorways, dried botanicals and soft, indirect light.
-          The studio was designed to feel less like a gym and more like an exhale — a place
-          where the pace of the city stops at the door.
-        </p>
-        <p>
-          On the floor: professional reformer machines, capped at six per class, arranged so
-          every person has space to move and be seen by their instructor.
-        </p>
-        <p class="pull-quote">Chill vibes are found here.</p>
-        <p>
-          It's painted on our wall, and it is a promise. No intimidation, no competition —
-          just intentional movement, mindful strength and real connection.
-        </p>
+        <h2>{page.space.heading}</h2>
+        {page.space.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="pull-quote">{page.space.pullQuote}</p>
+        <p>{page.space.afterQuote}</p>
       </div>
       <div class="stack">
         <div class="arch">
-          <Pic src="/images/lounge.jpg" alt="Cozy white sofa lounge corner with warm lamp light at KLUB Pilates studio Limassol" width={367} height={346} />
+          <Pic src={page.space.images[0].image} alt={page.space.images[0].alt} width={367} height={346} />
         </div>
         <div class="arch">
-          <Pic src="/images/equipment-wall.jpg" alt="Black Pilates springs, balls and equipment displayed in arched cream niches at KLUB Limassol" width={285} height={431} />
+          <Pic src={page.space.images[1].image} alt={page.space.images[1].alt} width={285} height={431} />
         </div>
       </div>
     </div>
@@ -46,20 +33,14 @@ import Pic from '../components/Pic.astro';
 
   <section class="section">
     <div class="container">
-      <h2>What We Believe</h2>
+      <h2>{page.beliefs.heading}</h2>
       <div class="grid grid--3">
-        <div class="card card--pad">
-          <h3>Intentional Movement</h3>
-          <p>Every exercise has a purpose. We teach you what you're doing and why, so strength comes with understanding.</p>
-        </div>
-        <div class="card card--pad">
-          <h3>Mindful Strength</h3>
-          <p>Progress that lasts is built with control, not chaos. Six people per class means your form always comes first.</p>
-        </div>
-        <div class="card card--pad">
-          <h3>Real Connection</h3>
-          <p>A studio should know your name. Ours will — and the community forming around it is the part we're most excited about.</p>
-        </div>
+        {page.beliefs.cards.map((c) => (
+          <div class="card card--pad">
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
       </div>
       <div class="center" style="margin-top: 40px;">
         <a class="btn btn--primary" href="/instructors/">Meet Our Instructors</a>

@@ -17,16 +17,12 @@ const faqSchema = {
   ),
 };
 ---
-<Base
-  title="Pilates FAQ Limassol | First Class, What to Wear, Parking | KLUB"
-  description="Everything you need to know before your first Pilates class in Limassol: what to wear, grip socks, class sizes, pregnancy Pilates, back pain, parking and more."
-  schema={faqSchema}
->
+<Base title={faq.seo.title} description={faq.seo.description} schema={faqSchema}>
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">FAQ</span>
-      <h1>Your Questions, Answered</h1>
-      <p>Everything people ask before their first class — and a few things they wish they'd asked.</p>
+      <span class="eyebrow">{faq.hero.eyebrow}</span>
+      <h1>{faq.hero.heading}</h1>
+      <p>{faq.hero.intro}</p>
     </div>
   </section>
 
@@ -47,8 +43,8 @@ const faqSchema = {
       ))}
 
       <div class="card card--pad center still">
-        <h2>Still have questions?</h2>
-        <p>Message us — we typically reply within 30 minutes during business hours.</p>
+        <h2>{faq.still.heading}</h2>
+        <p>{faq.still.text}</p>
         <a class="btn btn--accent" href={whatsappLink('Hi KLUB! I have a question that is not in your FAQ.')} rel="noopener">Message Us</a>
       </div>
     </div>

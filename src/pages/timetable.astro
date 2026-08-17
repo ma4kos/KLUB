@@ -2,48 +2,25 @@
 import Base from '../layouts/Base.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { whatsappLink } from '../site';
-
-// Planned launch schedule — replace with the live booking embed once the booking system is on.
-const days = [
-  { day: 'Monday–Friday', slots: [
-    { time: '07:30', name: 'Reformer Flow' },
-    { time: '09:00', name: 'Reformer Fundamentals' },
-    { time: '13:00', name: 'Lunchtime Reformer Flow' },
-    { time: '17:30', name: 'Reformer Power' },
-    { time: '19:00', name: 'Reformer Flow' },
-  ]},
-  { day: 'Saturday', slots: [
-    { time: '09:00', name: 'Reformer Fundamentals' },
-    { time: '10:30', name: 'Reformer Flow' },
-  ]},
-  { day: 'By appointment', slots: [
-    { time: 'Flexible', name: 'Private 1-to-1 Sessions' },
-  ]},
-];
+import page from '../content/pages/timetable.json';
 ---
-<Base
-  title="Pilates Class Timetable Limassol | Book Your Spot | KLUB"
-  description="View the planned reformer Pilates class schedule at KLUB Limassol. Morning, lunchtime and evening sessions. Booking opens before our September 2026 launch."
->
+<Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Timetable</span>
-      <h1>Class Timetable</h1>
-      <p>Find a time that fits your rhythm — early mornings, lunchtime resets and evening sessions.</p>
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
     </div>
   </section>
 
   <section class="section--white schedule">
     <div class="container">
       <div class="card card--pad notice">
-        <span class="pill pill--good">Opening September 2026</span>
-        <p>
-          This is our planned launch schedule. Online booking opens shortly before we do —
-          founding members get first access to every slot.
-        </p>
+        <span class="pill pill--good">{page.noticePill}</span>
+        <p>{page.noticeText}</p>
       </div>
 
-      {days.map((d) => (
+      {page.days.map((d) => (
         <div class="day">
           <h2>{d.day}</h2>
           <div class="slots">
@@ -51,7 +28,7 @@ const days = [
               <div class="card slot">
                 <span class="time">{s.time}</span>
                 <span class="name">{s.name}</span>
-                <span class="cap">50 min · max 6</span>
+                <span class="cap">{page.slotCaption}</span>
               </div>
             ))}
           </div>
@@ -68,8 +45,8 @@ const days = [
   <section class="section section--dark">
     <div class="container split">
       <div>
-        <h2>Be First on the Timetable</h2>
-        <p>Join the founding member list and you'll book before public slots open.</p>
+        <h2>{page.cta.heading}</h2>
+        <p>{page.cta.text}</p>
       </div>
       <FoundingForm compact />
     </div>

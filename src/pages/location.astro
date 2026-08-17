@@ -2,15 +2,13 @@
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import { SITE, whatsappLink } from '../site';
+import page from '../content/pages/location.json';
 ---
-<Base
-  title="KLUB Pilates Studio Location | Limassol City Center | Directions"
-  description="Find KLUB Pilates studio in Limassol city center, Cyprus. Full address, map and parking guide coming with our September 2026 opening. Message us for directions."
->
+<Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Location</span>
-      <h1>Find Us in Limassol City Center</h1>
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
       <p>
         {SITE.addressLocality}, {SITE.addressCountry} — {SITE.addressNote.toLowerCase()}
       </p>
@@ -20,27 +18,18 @@ import { SITE, whatsappLink } from '../site';
   <section class="section--white" style="padding-block: var(--section-y);">
     <div class="container">
       <div class="grid grid--2 gallery">
-        <div class="card imgcard"><Pic src="/images/street-sign.jpg" alt="Illuminated KLUB studio sign on a stone building corner in Limassol city center" width={358} height={294} /></div>
-        <div class="card imgcard"><Pic src="/images/arch-entrance.jpg" alt="KLUB Pilates studio entrance with arched doorway and glowing circular logo" width={322} height={431} /></div>
-        <div class="card imgcard"><Pic src="/images/klub-reformers.jpg" alt="Rows of black reformer machines on the bright studio floor at KLUB Pilates Limassol" width={576} height={1024} /></div>
-        <div class="card imgcard"><Pic src="/images/klub-lounge.jpg" alt="KLUB studio lounge with white sofa and spiral staircase, Limassol city center" width={576} height={1024} /></div>
+        {page.gallery.map((g) => (
+          <div class="card imgcard"><Pic src={g.image} alt={g.alt} width={576} height={432} /></div>
+        ))}
       </div>
 
       <div class="grid grid--3 info">
-        <div class="card card--pad">
-          <h3>Getting Here</h3>
-          <p>
-            We're right in the city center — walkable from the seafront, the old town and the
-            main business district. A detailed map and directions go live with our address.
-          </p>
-        </div>
-        <div class="card card--pad">
-          <h3>Parking</h3>
-          <p>
-            Public parking is available within a short walk. We'll publish a simple
-            where-to-park guide before opening day — Limassol parking should not be a workout.
-          </p>
-        </div>
+        {page.infoCards.map((c) => (
+          <div class="card card--pad">
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
         <div class="card card--pad">
           <h3>Contact</h3>
           <p>
@@ -52,9 +41,9 @@ import { SITE, whatsappLink } from '../site';
       </div>
 
       <div class="card card--pad center announce">
-        <h2>Want the address the moment it drops?</h2>
-        <p>Founding members hear everything first — address, opening hours and booking access.</p>
-        <a class="btn btn--accent" href="/founding-member/">Join the Founding Member List</a>
+        <h2>{page.announce.heading}</h2>
+        <p>{page.announce.text}</p>
+        <a class="btn btn--accent" href="/founding-member/">{page.announce.buttonLabel}</a>
       </div>
     </div>
   </section>

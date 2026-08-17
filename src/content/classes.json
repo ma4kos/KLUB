@@ -24,7 +24,9 @@
         "Complete beginners",
         "Anyone returning to movement after a break or injury",
         "Experienced movers who want to refine their technique"
-      ]
+      ],
+      "image": "/images/equipment-wall.jpg",
+      "imageAlt": "Black reformer Pilates springs and equipment displayed in arched niches at KLUB studio Limassol"
     },
     {
       "slug": "reformer-flow",
@@ -50,7 +52,9 @@
         "Anyone comfortable with reformer basics",
         "Those who love rhythm and momentum in a workout",
         "Building lean, functional strength week over week"
-      ]
+      ],
+      "image": "/images/studio-room.jpg",
+      "imageAlt": "Softly lit reformer Pilates studio room with sheer curtains and equipment shelving at KLUB Limassol"
     },
     {
       "slug": "reformer-power",
@@ -76,7 +80,9 @@
         "Experienced reformer clients ready to progress",
         "Athletes cross-training for strength and control",
         "Regulars who have outgrown Flow and want more"
-      ]
+      ],
+      "image": "/images/mat-studio.jpg",
+      "imageAlt": "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"
     },
     {
       "slug": "private-sessions",
@@ -103,7 +109,9 @@
         "Pre- and post-natal training",
         "Athletic conditioning and sport-specific goals",
         "Anyone who wants undivided attention"
-      ]
+      ],
+      "image": "/images/interior-arch.jpg",
+      "imageAlt": "Calm arched interior with warm lighting at KLUB Pilates studio in Limassol city center"
     }
   ]
 }

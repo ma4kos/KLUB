@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import ArchVideo from '../components/ArchVideo.astro';
 import { whatsappLink, bookLink } from '../site';
+import page from '../content/pages/izzy.json';
+import { inline } from '../lib/inline';
 
 const izzySchema = {
   '@context': 'https://schema.org',
@@ -18,50 +20,10 @@ const izzySchema = {
     'https://www.facebook.com/share/1HEgcu8Aio/',
   ],
 };
-
-const journey = [
-  {
-    place: 'London',
-    era: 'The foundation',
-    title: 'Trained where movement is a language',
-    body: 'Izzy earned her BA (Hons) in Ballet Education at the Royal Academy of Dance — one of the most respected dance institutions in the world. Years of classical training taught her what most fitness certifications never do: how bodies actually learn to move, and how to teach with precision and patience.',
-    media: { type: 'image', src: '/images/izzy-mat-wide.jpg', alt: 'Izzy Nicolaou moving through a mat Pilates sequence in warm Mediterranean light', wide: true },
-  },
-  {
-    place: 'Dubai',
-    era: 'The refinement',
-    title: 'Taught in world-class studios',
-    body: "In Dubai, Izzy taught reformer Pilates in some of the region's most beautiful studios and trained clients of every level — athletes, beginners, mothers, executives. It's where classical technique met contemporary studio culture, and where her teaching style took its final shape: exacting, warm, and impossible to get lost in.",
-    media: { type: 'video', src: '/videos/dubai-studio.mp4', poster: '/videos/dubai-studio-poster.jpg' },
-  },
-  {
-    place: 'Online',
-    era: 'The studio without walls',
-    title: 'Built PILATIZ, her online studio',
-    body: 'Izzy founded PILATIZ — an on-demand Pilates platform with workouts from 10 to 40 minutes, live classes and monthly challenges, followed by thousands. Teaching on camera sharpened what her in-person clients already knew: she can break any movement down until it clicks.',
-    media: { type: 'video', src: '/videos/online-studio.mp4', poster: '/videos/online-studio-poster.jpg' },
-  },
-  {
-    place: 'Limassol',
-    era: 'The homecoming',
-    title: 'Bringing it all home to Cyprus',
-    body: "KLUB is the studio Izzy always wanted to walk into: bright, calm, seriously equipped, and small enough that every client is known by name. London's discipline, Dubai's polish, the island's soul — all under one roof in Limassol city center. The reformers are already on the floor.",
-    media: { type: 'video', src: '/videos/studio-reformers.mp4', poster: '/videos/studio-reformers-poster.jpg' },
-  },
-];
-
-const quals = [
-  { t: 'BA (Hons) Ballet Education', s: 'Royal Academy of Dance, London' },
-  { t: 'Certified Reformer Pilates Instructor', s: 'Comprehensive apparatus training' },
-  { t: 'Certified Mat Pilates Instructor', s: 'Classical foundations, contemporary method' },
-  { t: 'Pre & Post-Natal Qualified', s: 'Safe movement through pregnancy and recovery' },
-  { t: 'International Teaching Experience', s: 'London · Dubai · Cyprus' },
-  { t: 'Founder, PILATIZ Online Studio', s: 'On-demand classes followed worldwide' },
-];
 ---
 <Base
-  title="Meet Izzy Nicolaou | Founder & Pilates Instructor | KLUB Limassol"
-  description="Izzy Nicolaou, founder of KLUB Limassol — Royal Academy of Dance graduate, certified reformer Pilates instructor and pre/post-natal specialist, trained in London and Dubai."
+  title={page.seo.title}
+  description={page.seo.description}
   ogImage="/images/og/izzy.jpg"
   schema={izzySchema}
 >
@@ -69,27 +31,23 @@ const quals = [
   <section class="p-hero">
     <div class="container p-grid">
       <div class="p-copy">
-        <span class="eyebrow rise">Founder &amp; Lead Instructor</span>
-        <h1 class="rise rise-d1">Izzy <span class="ital">Nicolaou</span></h1>
-        <p class="lede rise rise-d2">
-          Classically trained ballet teacher. Certified Pilates instructor. Founder of KLUB —
-          and the reason your form is about to get very, very good.
-        </p>
+        <span class="eyebrow rise">{page.hero.eyebrow}</span>
+        <h1 class="rise rise-d1" set:html={inline(page.hero.heading)} />
+        <p class="lede rise rise-d2">{page.hero.lede}</p>
         <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href={bookLink()}>Book a class with Izzy</a>
           <a class="btn btn--ghost" href="https://www.instagram.com/pilateswithizzy" rel="noopener">@pilateswithizzy</a>
         </div>
       </div>
       <div class="p-media rise rise-d2">
-        <ArchVideo src="/videos/cyprus-pool.mp4" poster="/videos/cyprus-pool-poster.jpg" />
+        <ArchVideo src={page.hero.video} poster={page.hero.poster} />
       </div>
     </div>
     <div class="container">
       <div class="stat-row p-stats reveal">
-        <div class="stat"><b>RAD</b><span>BA (Hons) Ballet Education, Royal Academy of Dance</span></div>
-        <div class="stat"><b>3</b><span>cities of teaching — London, Dubai, Cyprus</span></div>
-        <div class="stat"><b>Pre/Post</b><span>natal qualified — every stage, safely</span></div>
-        <div class="stat"><b>1000s</b><span>guided through PILATIZ, her online studio</span></div>
+        {page.stats.map((s) => (
+          <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
+        ))}
       </div>
     </div>
   </section>
@@ -98,19 +56,19 @@ const quals = [
   <section class="section section--white">
     <div class="container">
       <div class="reveal">
-        <span class="eyebrow">The Journey</span>
-        <h2>London. Dubai. <span class="ital">Home.</span></h2>
+        <span class="eyebrow">{page.journeyEyebrow}</span>
+        <h2 set:html={inline(page.journeyHeading)} />
       </div>
 
-      {journey.map((j, i) => (
+      {page.journey.map((j, i) => (
         <article class:list={['leg', { flip: i % 2 === 1 }]}>
           <div class="leg-media reveal">
-            {j.media.type === 'video' ? (
-              <ArchVideo src={j.media.src} poster={j.media.poster} />
-            ) : j.media.wide ? (
-              <div class="wide-img"><Pic src={j.media.src} alt={j.media.alt} width={800} height={448} /></div>
+            {j.mediaType === 'video' ? (
+              <ArchVideo src={j.video} poster={j.poster} />
+            ) : j.wide ? (
+              <div class="wide-img"><Pic src={j.image} alt={j.imageAlt} width={800} height={448} /></div>
             ) : (
-              <div class="arch"><Pic src={j.media.src} alt={j.media.alt} width={420} height={520} /></div>
+              <div class="arch"><Pic src={j.image} alt={j.imageAlt} width={420} height={520} /></div>
             )}
           </div>
           <div class="leg-copy reveal reveal-d1">
@@ -130,29 +88,26 @@ const quals = [
   <section class="section">
     <div class="container">
       <div class="reveal">
-        <span class="eyebrow">Credentials</span>
-        <h2>Qualified is an <span class="ital">understatement</span></h2>
+        <span class="eyebrow">{page.qualsEyebrow}</span>
+        <h2 set:html={inline(page.qualsHeading)} />
       </div>
       <div class="grid grid--3 qual-grid">
-        {quals.map((q, i) => (
+        {page.quals.map((q, i) => (
           <div class:list={['card card--pad reveal', `reveal-d${i % 3}`]}>
             <h3 class="q-t">{q.t}</h3>
             <p class="q-s">{q.s}</p>
           </div>
         ))}
       </div>
-      <p class="center langs reveal">Teaches in English · Also speaks Greek · Fully certified and insured</p>
+      <p class="center langs reveal">{page.langsLine}</p>
     </div>
   </section>
 
   <!-- Philosophy quote -->
   <section class="section section--sand">
     <div class="container center">
-      <blockquote class="big-quote reveal">
-        “Pilates gave my dancers strength without bulk, control without tension. It does the
-        same for every body that walks in — you just have to <span class="ital">start</span>.”
-      </blockquote>
-      <p class="quote-by reveal">— Izzy, on why she teaches</p>
+      <blockquote class="big-quote reveal" set:html={'“' + inline(page.quote.text) + '”'} />
+      <p class="quote-by reveal">{page.quote.by}</p>
     </div>
   </section>
 
@@ -160,16 +115,12 @@ const quals = [
   <section class="section section--white">
     <div class="container split">
       <div class="p-media-sm reveal">
-        <ArchVideo src="/videos/mat-home.mp4" poster="/videos/mat-home-poster.jpg" />
+        <ArchVideo src={page.pilatiz.video} poster={page.pilatiz.poster} />
       </div>
       <div class="reveal reveal-d1">
-        <span class="eyebrow">Can't wait for opening day?</span>
-        <h2>Train with Izzy <span class="ital">today</span></h2>
-        <p>
-          PILATIZ is Izzy's online studio — on-demand workouts from 10 to 40 minutes, beginner
-          to advanced, live classes and monthly challenges. Start moving now, walk into KLUB
-          already stronger.
-        </p>
+        <span class="eyebrow">{page.pilatiz.eyebrow}</span>
+        <h2 set:html={inline(page.pilatiz.heading)} />
+        <p>{page.pilatiz.text}</p>
         <div class="btn-row">
           <a class="btn btn--accent" href="https://www.instagram.com/pilatizstudio" rel="noopener">Visit PILATIZ</a>
           <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about Izzy and KLUB.')} rel="noopener">Ask a Question</a>
@@ -181,8 +132,8 @@ const quals = [
   <!-- CTA -->
   <section class="section section--dark">
     <div class="container center">
-      <h2 class="reveal">Your first class is <span class="ital">€20</span></h2>
-      <p class="reveal reveal-d1">Six people, fifty minutes, one very good teacher.</p>
+      <h2 class="reveal" set:html={inline(page.cta.heading)} />
+      <p class="reveal reveal-d1">{page.cta.text}</p>
       <div class="btn-row center-row reveal reveal-d2">
         <a class="btn btn--accent" href={bookLink()}>Book Now</a>
         <a class="btn btn--ghost-light" href="/founding-member/">Join the Founding Circle</a>

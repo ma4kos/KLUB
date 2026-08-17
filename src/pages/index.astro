@@ -7,21 +7,19 @@ import FoundingForm from '../components/FoundingForm.astro';
 import { CLASSES } from '../data/classes';
 import { SITE, whatsappLink, bookLink } from '../site';
 import home from '../content/home.json';
+import { inline } from '../lib/inline';
 ---
 <Base
   title="KLUB | Pilates Reformer Studio in Limassol City Center"
   description="Premium Pilates reformer classes in Limassol city center. Small group sessions & private 1-to-1 training. New to Pilates? Start with our €20 intro offer. Opening September 2026."
-  preloadImage="/videos/studio-tour-poster.jpg"
+  preloadImage={home.heroPoster}
 >
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow rise">{home.heroEyebrow}</span>
-        <h1 class="rise rise-d1">
-          Intentional <span class="ital">movement.</span><br />
-          Mindful <span class="ital">strength.</span>
-        </h1>
+        <h1 class="rise rise-d1" set:html={inline(home.heroHeading)} />
         <p class="lede rise rise-d2">{home.heroLede}</p>
         <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href={bookLink()}>Book Your First Class — €20</a>
@@ -29,49 +27,35 @@ import home from '../content/home.json';
         </div>
       </div>
       <div class="hero-media rise rise-d2">
-        <ArchVideo src="/videos/studio-tour.mp4" poster="/videos/studio-tour-poster.jpg" class="hero-film" />
+        <ArchVideo src={home.heroVideo} poster={home.heroPoster} class="hero-film" />
         <div class="hero-mini arch">
-          <Pic
-            src="/images/arch-entrance.jpg"
-            alt="Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree"
-            width={322} height={431} loading="eager"
-          />
+          <Pic src={home.heroMiniImage} alt={home.heroMiniAlt} width={322} height={431} loading="eager" />
         </div>
       </div>
     </div>
   </section>
 
-  <Marquee items={[
-    'Reformer Pilates',
-    '<em>Limassol City Center</em>',
-    'Small groups of six',
-    'Classes in <em>English</em>',
-    'Private 1-to-1',
-    'Pre &amp; post-natal certified',
-    'Opening <em>September 2026</em>',
-  ]} />
+  <Marquee items={home.marquee.map((m) => inline(m))} />
 
   <!-- World to island story -->
   <section class="section section--white">
     <div class="container">
       <div class="story-head reveal">
-        <span class="eyebrow">The KLUB Standard</span>
-        <h2>The world's best Pilates,<br /><span class="ital">brought home to Cyprus</span></h2>
-        <p class="lede">
-          Our founder trained and taught in the studios of London and Dubai — and built her
-          online studio from the island. KLUB brings all of it home to Limassol.
-        </p>
+        <span class="eyebrow">{home.story.eyebrow}</span>
+        <h2 set:html={inline(home.story.heading)} />
+        <p class="lede">{home.story.lede}</p>
       </div>
       <div class="triptych">
-        <div class="reveal"><ArchVideo src="/videos/dubai-studio.mp4" poster="/videos/dubai-studio-poster.jpg" label="Refined abroad" sublabel="Teaching in Dubai's studios" /></div>
-        <div class="reveal reveal-d1"><ArchVideo src="/videos/cyprus-pool.mp4" poster="/videos/cyprus-pool-poster.jpg" label="Rooted in Cyprus" sublabel="Movement under the Limassol sun" /></div>
-        <div class="reveal reveal-d2"><ArchVideo src="/videos/studio-lounge.mp4" poster="/videos/studio-lounge-poster.jpg" label="Home in Limassol" sublabel="The KLUB studio, ready for you" /></div>
+        {home.story.triptych.map((t, i) => (
+          <div class:list={['reveal', { 'reveal-d1': i === 1, 'reveal-d2': i === 2 }]}>
+            <ArchVideo src={t.video} poster={t.poster} label={t.label} sublabel={t.sublabel} />
+          </div>
+        ))}
       </div>
       <div class="stat-row story-stats reveal">
-        <div class="stat"><b>6</b><span>people max per class — you're seen, every rep</span></div>
-        <div class="stat"><b>50<small>′</small></b><span>minutes of focused, full-body work</span></div>
-        <div class="stat"><b>3</b><span>cities of training behind every class — London, Dubai, Cyprus</span></div>
-        <div class="stat"><b>€20</b><span>your first class. No commitment, all welcome</span></div>
+        {home.stats.map((s) => (
+          <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
+        ))}
       </div>
     </div>
   </section>
@@ -80,26 +64,14 @@ import home from '../content/home.json';
   <section class="section">
     <div class="container split">
       <div class="arch reveal">
-        <Pic
-          src="/images/reception.jpg"
-          alt="Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"
-          width={467} height={431}
-        />
+        <Pic src={home.about.image} alt={home.about.alt} width={467} height={431} />
       </div>
       <div class="reveal reveal-d1">
-        <span class="eyebrow">About KLUB</span>
-        <h2>A space built <span class="ital">for balance</span></h2>
-        <p>
-          KLUB stands for <em>Keep Living Under Balance</em>. Warm plaster walls, arched
-          doorways, soft light and calm proportions — a studio designed to slow you down the
-          moment you walk in.
-        </p>
-        <p>
-          On the floor it's serious equipment and small groups: reformer classes capped at six,
-          so your instructor sees every rep — your alignment, your pace, your progress.
-        </p>
-        <p class="pull-quote">Chill vibes are found here.</p>
-        <a class="btn btn--ghost" href="/about/">Step Inside</a>
+        <span class="eyebrow">{home.about.eyebrow}</span>
+        <h2 set:html={inline(home.about.heading)} />
+        {home.about.paragraphs.map((p) => <p>{p}</p>)}
+        <p class="pull-quote">{home.about.pullQuote}</p>
+        <a class="btn btn--ghost" href="/about/">{home.about.buttonLabel}</a>
       </div>
     </div>
   </section>
@@ -108,9 +80,9 @@ import home from '../content/home.json';
   <section class="section section--white">
     <div class="container">
       <div class="center reveal">
-        <span class="eyebrow">Classes</span>
-        <h2>Find <span class="ital">your</span> class</h2>
-        <p class="lede">Four ways to move, from your first step to your strongest self.</p>
+        <span class="eyebrow">{home.classesHead.eyebrow}</span>
+        <h2 set:html={inline(home.classesHead.heading)} />
+        <p class="lede">{home.classesHead.lede}</p>
       </div>
       <div class="grid grid--4 class-grid">
         {CLASSES.map((c, i) => (
@@ -133,21 +105,13 @@ import home from '../content/home.json';
   <section class="section section--sand">
     <div class="container split">
       <div class="reveal">
-        <span class="eyebrow">Your Instructor</span>
-        <h2>Meet <span class="ital">Izzy</span></h2>
-        <p class="lede">
-          Royal Academy of Dance graduate. Certified reformer and mat Pilates instructor.
-          Pre/post-natal qualified. From London stages to Dubai studios — now bringing it all
-          home to Limassol.
-        </p>
-        <a class="btn btn--primary" href="/instructors/">Her Story</a>
+        <span class="eyebrow">{home.izzy.eyebrow}</span>
+        <h2 set:html={inline(home.izzy.heading)} />
+        <p class="lede">{home.izzy.lede}</p>
+        <a class="btn btn--primary" href="/instructors/">{home.izzy.buttonLabel}</a>
       </div>
       <div class="arch izzy-teaser reveal reveal-d1">
-        <Pic
-          src="/images/izzy-dubai-teaching.jpg"
-          alt="Izzy Nicolaou guiding a reformer Pilates class in an arched, softly lit Dubai studio"
-          width={480} height={620}
-        />
+        <Pic src={home.izzy.image} alt={home.izzy.alt} width={480} height={620} />
       </div>
     </div>
   </section>
@@ -156,27 +120,19 @@ import home from '../content/home.json';
   <section class="section section--white">
     <div class="container split">
       <div class="reveal">
-        <span class="eyebrow">Pricing</span>
-        <h2>Transparent <span class="ital">pricing</span></h2>
-        <p>No hidden fees. No complicated tiers. Just clear options that fit how you want to move.</p>
+        <span class="eyebrow">{home.pricingTeaser.eyebrow}</span>
+        <h2 set:html={inline(home.pricingTeaser.heading)} />
+        <p>{home.pricingTeaser.text}</p>
         <a class="btn btn--primary" href="/pricing/">View Full Price List</a>
       </div>
       <div class="grid price-teaser reveal reveal-d1">
-        <div class="card card--pad center">
-          <span class="eyebrow">Drop-In</span>
-          <p class="big-price">€20</p>
-          <p>Try any group class</p>
-        </div>
-        <div class="card card--pad center">
-          <span class="eyebrow">Intro Pack</span>
-          <p class="big-price">€32</p>
-          <p>Your first two reformer classes</p>
-        </div>
-        <div class="card card--pad center">
-          <span class="eyebrow">Private Session</span>
-          <p class="big-price">€80</p>
-          <p>1-to-1 personal training</p>
-        </div>
+        {home.pricingTeaser.cards.map((c) => (
+          <div class="card card--pad center">
+            <span class="eyebrow">{c.eyebrow}</span>
+            <p class="big-price">{c.price}</p>
+            <p>{c.note}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -185,15 +141,11 @@ import home from '../content/home.json';
   <section class="section">
     <div class="container split">
       <div class="arch reveal">
-        <Pic
-          src="/images/street-sign.jpg"
-          alt="Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
-          width={358} height={294}
-        />
+        <Pic src={home.location.image} alt={home.location.alt} width={358} height={294} />
       </div>
       <div class="reveal reveal-d1">
-        <span class="eyebrow">Find Us</span>
-        <h2>In the heart <span class="ital">of Limassol</span></h2>
+        <span class="eyebrow">{home.location.eyebrow}</span>
+        <h2 set:html={inline(home.location.heading)} />
         <p>
           {SITE.addressLocality}, {SITE.addressCountry}.<br />
           <em>{SITE.addressNote}</em>
@@ -210,11 +162,8 @@ import home from '../content/home.json';
   <section class="section section--dark">
     <div class="container split">
       <div class="reveal">
-        <h2>Be part of the <span class="ital">founding circle</span></h2>
-        <p>
-          Join before we open for exclusive founding member rates and first access to bookings.
-          Early members choose their class times before anyone else.
-        </p>
+        <h2 set:html={inline(home.founding.heading)} />
+        <p>{home.founding.text}</p>
       </div>
       <div class="reveal reveal-d1">
         <FoundingForm compact />
@@ -277,5 +226,5 @@ import home from '../content/home.json';
   .big-price { font-family: var(--serif); font-size: 44px; margin: 0; }
   .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
 
-  .stat b small { font-size: 0.55em; }
+  .stat b :global(small) { font-size: 0.55em; }
 </style>

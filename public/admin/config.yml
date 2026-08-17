@@ -7,6 +7,10 @@
 #
 # Editing locally without any of that: run `npx decap-server` in the project
 # folder alongside `npm run dev`, then open http://localhost:4321/admin/
+#
+# Text conventions inside fields:
+#   *word*  → renders in the serif italic accent color (e.g. "Meet *Izzy*")
+#   a line break inside a heading renders as a line break on the page
 
 backend:
   name: git-gateway
@@ -45,12 +49,410 @@ collections:
               - { label: "Text", name: "text", widget: "string" }
               - { label: "Link text", name: "linkText", widget: "string" }
               - { label: "Link URL", name: "linkUrl", widget: "string" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
       - name: "home"
-        label: "Homepage Intro"
+        label: "Homepage"
         file: "src/content/home.json"
         fields:
-          - { label: "Small line above the headline", name: "heroEyebrow", widget: "string" }
-          - { label: "Intro paragraph under the headline", name: "heroLede", widget: "text" }
+          - { label: "Line above the headline", name: "heroEyebrow", widget: "string" }
+          - { label: "Headline", name: "heroHeading", widget: "text", hint: "*word* = italic accent. Press Enter for a second line." }
+          - { label: "Intro paragraph", name: "heroLede", widget: "text" }
+          - { label: "Hero video", name: "heroVideo", widget: "file", hint: "Short muted mp4 loop." }
+          - { label: "Hero video poster (still shown while loading)", name: "heroPoster", widget: "image" }
+          - { label: "Small hero photo", name: "heroMiniImage", widget: "image" }
+          - { label: "Small hero photo — alt text", name: "heroMiniAlt", widget: "string" }
+          - { label: "Scrolling ribbon lines", name: "marquee", widget: "list", field: { label: "Line", name: "line", widget: "string" } }
+          - label: "Story section (three films)"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "text" }
+              - { label: "Intro", name: "lede", widget: "text" }
+              - label: "The three films"
+                name: "triptych"
+                widget: "list"
+                allow_add: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Video", name: "video", widget: "file" }
+                  - { label: "Poster", name: "poster", widget: "image" }
+                  - { label: "Caption line 1", name: "label", widget: "string" }
+                  - { label: "Caption line 2", name: "sublabel", widget: "string" }
+          - label: "Numbers row"
+            name: "stats"
+            widget: "list"
+            allow_add: false
+            summary: "{{fields.big}}"
+            fields:
+              - { label: "Big number", name: "big", widget: "string" }
+              - { label: "Caption", name: "small", widget: "string" }
+          - label: "About section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "p", widget: "text" } }
+              - { label: "Pull quote", name: "pullQuote", widget: "string" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
+          - label: "Classes section heading"
+            name: "classesHead"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "lede", widget: "string" }
+          - label: "Meet Izzy section"
+            name: "izzy"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "lede", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
+          - label: "Pricing preview"
+            name: "pricingTeaser"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Price cards"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.eyebrow}} — {{fields.price}}"
+                fields:
+                  - { label: "Label", name: "eyebrow", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
+          - label: "Location section"
+            name: "location"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
+          - label: "Founding circle section"
+            name: "founding"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+      - name: "izzy"
+        label: "Meet Izzy"
+        file: "src/content/pages/izzy.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
+              - { label: "Intro", name: "lede", widget: "text" }
+              - { label: "Video", name: "video", widget: "file" }
+              - { label: "Video poster", name: "poster", widget: "image" }
+          - label: "Numbers row"
+            name: "stats"
+            widget: "list"
+            allow_add: false
+            summary: "{{fields.big}}"
+            fields:
+              - { label: "Big", name: "big", widget: "string" }
+              - { label: "Caption", name: "small", widget: "string" }
+          - { label: "Journey — eyebrow", name: "journeyEyebrow", widget: "string" }
+          - { label: "Journey — heading", name: "journeyHeading", widget: "string" }
+          - label: "Journey chapters"
+            name: "journey"
+            widget: "list"
+            summary: "{{fields.place}} — {{fields.title}}"
+            fields:
+              - { label: "Place", name: "place", widget: "string" }
+              - { label: "Era label", name: "era", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Story", name: "body", widget: "text" }
+              - { label: "Media type", name: "mediaType", widget: "select", options: ["image", "video"] }
+              - { label: "Photo (if image)", name: "image", widget: "image", required: false }
+              - { label: "Photo alt text", name: "imageAlt", widget: "string", required: false }
+              - { label: "Wide photo?", name: "wide", widget: "boolean", required: false }
+              - { label: "Video (if video)", name: "video", widget: "file", required: false }
+              - { label: "Video poster", name: "poster", widget: "image", required: false }
+          - { label: "Credentials — eyebrow", name: "qualsEyebrow", widget: "string" }
+          - { label: "Credentials — heading", name: "qualsHeading", widget: "string" }
+          - label: "Credentials"
+            name: "quals"
+            widget: "list"
+            summary: "{{fields.t}}"
+            fields:
+              - { label: "Qualification", name: "t", widget: "string" }
+              - { label: "Detail", name: "s", widget: "string" }
+          - { label: "Languages line", name: "langsLine", widget: "string" }
+          - label: "Quote"
+            name: "quote"
+            widget: "object"
+            fields:
+              - { label: "Quote text", name: "text", widget: "text" }
+              - { label: "Attribution", name: "by", widget: "string" }
+          - label: "PILATIZ section"
+            name: "pilatiz"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Video", name: "video", widget: "file" }
+              - { label: "Video poster", name: "poster", widget: "image" }
+          - label: "Bottom call-to-action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+
+      - name: "about"
+        label: "About"
+        file: "src/content/pages/about.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - label: "The Space section"
+            name: "space"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "p", widget: "text" } }
+              - { label: "Pull quote", name: "pullQuote", widget: "string" }
+              - { label: "Closing paragraph", name: "afterQuote", widget: "text" }
+              - label: "Photos"
+                name: "images"
+                widget: "list"
+                allow_add: false
+                fields:
+                  - { label: "Photo", name: "image", widget: "image" }
+                  - { label: "Alt text", name: "alt", widget: "string" }
+          - label: "What We Believe section"
+            name: "beliefs"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+      - name: "timetable"
+        label: "Timetable"
+        file: "src/content/pages/timetable.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - { label: "Notice pill", name: "noticePill", widget: "string" }
+          - { label: "Notice text", name: "noticeText", widget: "text" }
+          - { label: "Caption under every slot", name: "slotCaption", widget: "string", hint: "e.g. 50 min · max 6" }
+          - label: "Schedule"
+            name: "days"
+            widget: "list"
+            summary: "{{fields.day}}"
+            fields:
+              - { label: "Day(s)", name: "day", widget: "string" }
+              - label: "Classes"
+                name: "slots"
+                widget: "list"
+                summary: "{{fields.time}} — {{fields.name}}"
+                fields:
+                  - { label: "Time", name: "time", widget: "string" }
+                  - { label: "Class", name: "name", widget: "string" }
+          - label: "Bottom call-to-action"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+
+      - name: "location"
+        label: "Location"
+        file: "src/content/pages/location.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Photo gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Alt text", name: "alt", widget: "string" }
+          - label: "Info cards"
+            name: "infoCards"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Bottom banner"
+            name: "announce"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+
+      - name: "contact"
+        label: "Contact"
+        file: "src/content/pages/contact.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - { label: "Form heading", name: "formHeading", widget: "string" }
+          - { label: "Right column heading", name: "directHeading", widget: "string" }
+          - { label: "Note after the message link", name: "messageNote", widget: "string" }
+          - { label: "Note after the Instagram link", name: "instagramNote", widget: "string" }
+
+      - name: "book"
+        label: "Book"
+        file: "src/content/pages/book.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "text" }
+          - label: "First access card"
+            name: "firstAccess"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - label: "Reserve personally card"
+            name: "reserve"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+          - { label: "Private sessions card heading", name: "privateHeading", widget: "string" }
+
+      - name: "founding"
+        label: "Founding Member"
+        file: "src/content/pages/founding.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - { label: "Perks heading", name: "perksHeading", widget: "string" }
+          - label: "Perks"
+            name: "perks"
+            widget: "list"
+            summary: "{{fields.strong}}"
+            fields:
+              - { label: "Perk (bold part)", name: "strong", widget: "string" }
+              - { label: "Explanation", name: "rest", widget: "string" }
+          - { label: "Urgency line", name: "scarcity", widget: "string" }
+          - { label: "Privacy note under the perks", name: "formNote", widget: "text" }
+          - { label: "Form heading", name: "joinHeading", widget: "string" }
+
+      - name: "policies"
+        label: "Policies"
+        file: "src/content/pages/policies.json"
+        fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - label: "Policy sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Points", name: "items", widget: "list", field: { label: "Point", name: "point", widget: "text" } }
 
   - name: "pricing"
     label: "Pricing"
@@ -59,6 +461,19 @@ collections:
         label: "Price Tables & Pricing FAQ"
         file: "src/content/pricing.json"
         fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
           - label: "Price tables"
             name: "tables"
             widget: "list"
@@ -97,7 +512,6 @@ collections:
             widget: "list"
             allow_add: false
             summary: "{{fields.name}}"
-            hint: "Class photos are managed by your developer; everything written about a class is editable here."
             fields:
               - { label: "Slug (do not change — it is the page address)", name: "slug", widget: "string" }
               - { label: "Name", name: "name", widget: "string" }
@@ -106,6 +520,8 @@ collections:
               - { label: "Capacity", name: "capacity", widget: "string" }
               - { label: "Price", name: "price", widget: "string" }
               - { label: "One-line description (cards)", name: "short", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo alt text", name: "imageAlt", widget: "string" }
               - { label: "Browser-tab title (SEO)", name: "seoTitle", widget: "string" }
               - { label: "Search result description (SEO)", name: "seoDescription", widget: "text" }
               - { label: "Intro paragraphs", name: "intro", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
@@ -119,6 +535,25 @@ collections:
         label: "FAQ Page"
         file: "src/content/faq.json"
         fields:
+          - label: "SEO"
+            name: "seo"
+            widget: "object"
+            fields:
+              - { label: "Browser-tab title", name: "title", widget: "string" }
+              - { label: "Search result description", name: "description", widget: "text" }
+          - label: "Top of page"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Intro", name: "intro", widget: "string" }
+          - label: "Still have questions box"
+            name: "still"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
           - label: "Sections"
             name: "sections"
             widget: "list"

@@ -22,16 +22,16 @@ const offerSchema = {
 };
 ---
 <Base
-  title="Pilates Prices Limassol | Drop-In, Packages & Private | KLUB"
-  description="Clear, simple Pilates pricing in Limassol. Drop-in €20. Intro pack €32. Monthly packages from €120. Private 1-to-1 sessions from €70 per session. No hidden fees."
+  title={pricing.seo.title}
+  description={pricing.seo.description}
   ogImage="/images/og/pricing.jpg"
   schema={offerSchema}
 >
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Pricing</span>
-      <h1>Simple, Honest Pricing</h1>
-      <p>All prices in euro. What you see is what you pay — no joining fees, no surprises.</p>
+      <span class="eyebrow">{pricing.hero.eyebrow}</span>
+      <h1>{pricing.hero.heading}</h1>
+      <p>{pricing.hero.intro}</p>
     </div>
   </section>
 

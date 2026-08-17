@@ -1,4 +1,17 @@
 {
+  "seo": {
+    "title": "Pilates FAQ Limassol | First Class, What to Wear, Parking | KLUB",
+    "description": "Everything you need to know before your first Pilates class in Limassol: what to wear, grip socks, class sizes, pregnancy Pilates, back pain, parking and more."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "heading": "Your Questions, Answered",
+    "intro": "Everything people ask before their first class — and a few things they wish they'd asked."
+  },
+  "still": {
+    "heading": "Still have questions?",
+    "text": "Message us — we typically reply within 30 minutes during business hours."
+  },
   "sections": [
     {
       "title": "Getting Started",
