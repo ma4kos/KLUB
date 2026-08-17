@@ -1,21 +1,21 @@
 {
   "seo": {
-    "title": "Founding Member | Early Access & Exclusive Rates | KLUB Limassol",
-    "description": "Join the KLUB founding member list for early access to bookings, exclusive founding rates and priority class selection before our September 2026 Limassol opening."
+    "title": "Founding Member | Early Access & Exclusive Benefits | KLUB Limassol",
+    "description": "Join the KLUB founding member list before our September 2026 Limassol opening. Founding members get a free week of unlimited Pilates and 20% off their first package."
   },
   "hero": {
-    "eyebrow": "Founding Member",
+    "eyebrow": "Early Access",
     "heading": "Be Part of the Founding Circle",
-    "intro": "The people who join before we open get the best of KLUB, permanently."
+    "intro": "Be among the first to experience KLUB before our official opening. As a founding member you'll receive exclusive early-access benefits that welcome you into the community from day one — be part of something exceptional from the very beginning."
   },
-  "perksHeading": "What founding members get",
+  "perksHeading": "Your early-access benefits",
   "perks": [
-    { "strong": "Exclusive founding rates", "rest": "locked in before public pricing, kept as long as you stay." },
+    { "strong": "One free week of unlimited Pilates", "rest": "move without limits — unlimited access to every class in your first week, so you can experience all of KLUB." },
+    { "strong": "20% off your first purchase", "rest": "a thank-you for joining early: 20% off your first membership or class package." },
     { "strong": "First access to bookings", "rest": "choose your class times before slots open to anyone else." },
-    { "strong": "Opening week priority", "rest": "guaranteed spots in launch week classes." },
     { "strong": "The address first", "rest": "location, hours and every announcement before they're public." }
   ],
-  "scarcity": "Founding membership closes when we open in September 2026. After that, it's gone for good.",
+  "scarcity": "A limited opportunity — founding-member benefits are available to a select number of members only, and registration is open until 25 August 2026. Once we reach capacity or that date passes, early access closes for good.",
   "formNote": "We never share your details. You'll receive a couple of emails before opening, then only our weekly timetable — unsubscribe anytime.",
-  "joinHeading": "Join the list"
+  "joinHeading": "Reserve your invitation"
 }

@@ -40,6 +40,8 @@ collections:
           - { label: "Instagram URL", name: "instagram", widget: "string" }
           - { label: "Instagram handle", name: "instagramHandle", widget: "string" }
           - { label: "Facebook URL", name: "facebook", widget: "string" }
+          - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+          - { label: "TikTok handle", name: "tiktokHandle", widget: "string", required: false }
           - { label: "Opening label", name: "openingLabel", widget: "string" }
           - label: "Announcement banner"
             name: "banner"
