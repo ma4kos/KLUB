@@ -63,8 +63,8 @@ collections:
           - { label: "Headline", name: "heroHeading", widget: "text", hint: "*word* = italic accent. Press Enter for a second line." }
           - { label: "Intro paragraph", name: "heroLede", widget: "text" }
           - { label: "Hero video", name: "heroVideo", widget: "file", hint: "Short muted mp4 loop." }
-          - { label: "Hero video poster (still shown while loading)", name: "heroPoster", widget: "image" }
-          - { label: "Small hero photo", name: "heroMiniImage", widget: "image" }
+          - { label: "Hero video poster (still shown while loading)", name: "heroPoster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
+          - { label: "Small hero photo", name: "heroMiniImage", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
           - { label: "Small hero photo — alt text", name: "heroMiniAlt", widget: "string" }
           - { label: "Scrolling ribbon lines", name: "marquee", widget: "list", field: { label: "Line", name: "line", widget: "string" } }
           - label: "Story section (three films)"
@@ -81,7 +81,7 @@ collections:
                 summary: "{{fields.label}}"
                 fields:
                   - { label: "Video", name: "video", widget: "file" }
-                  - { label: "Poster", name: "poster", widget: "image" }
+                  - { label: "Poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
                   - { label: "Caption line 1", name: "label", widget: "string" }
                   - { label: "Caption line 2", name: "sublabel", widget: "string" }
           - label: "Numbers row"
@@ -101,7 +101,7 @@ collections:
               - { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "p", widget: "text" } }
               - { label: "Pull quote", name: "pullQuote", widget: "string" }
               - { label: "Button label", name: "buttonLabel", widget: "string" }
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
               - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Classes section heading"
             name: "classesHead"
@@ -118,7 +118,7 @@ collections:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Text", name: "lede", widget: "text" }
               - { label: "Button label", name: "buttonLabel", widget: "string" }
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
               - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Pricing preview"
             name: "pricingTeaser"
@@ -141,7 +141,7 @@ collections:
             fields:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
               - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Founding circle section"
             name: "founding"
@@ -168,7 +168,7 @@ collections:
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
               - { label: "Intro", name: "lede", widget: "text" }
               - { label: "Video", name: "video", widget: "file" }
-              - { label: "Video poster", name: "poster", widget: "image" }
+              - { label: "Video poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
           - label: "Numbers row"
             name: "stats"
             widget: "list"
@@ -189,11 +189,11 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Story", name: "body", widget: "text" }
               - { label: "Media type", name: "mediaType", widget: "select", options: ["image", "video"] }
-              - { label: "Photo (if image)", name: "image", widget: "image", required: false }
+              - { label: "Photo (if image)", name: "image", widget: "image", required: false, hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty." }
               - { label: "Photo alt text", name: "imageAlt", widget: "string", required: false }
               - { label: "Wide photo?", name: "wide", widget: "boolean", required: false }
               - { label: "Video (if video)", name: "video", widget: "file", required: false }
-              - { label: "Video poster", name: "poster", widget: "image", required: false }
+              - { label: "Video poster", name: "poster", widget: "image", required: false, hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty." }
           - { label: "Credentials — eyebrow", name: "qualsEyebrow", widget: "string" }
           - { label: "Credentials — heading", name: "qualsHeading", widget: "string" }
           - label: "Credentials"
@@ -218,7 +218,7 @@ collections:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Video", name: "video", widget: "file" }
-              - { label: "Video poster", name: "poster", widget: "image" }
+              - { label: "Video poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
           - label: "Bottom call-to-action"
             name: "cta"
             widget: "object"
@@ -256,7 +256,7 @@ collections:
                 widget: "list"
                 allow_add: false
                 fields:
-                  - { label: "Photo", name: "image", widget: "image" }
+                  - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
                   - { label: "Alt text", name: "alt", widget: "string" }
           - label: "What We Believe section"
             name: "beliefs"
@@ -331,7 +331,7 @@ collections:
             name: "gallery"
             widget: "list"
             fields:
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
               - { label: "Alt text", name: "alt", widget: "string" }
           - label: "Info cards"
             name: "infoCards"
@@ -522,7 +522,7 @@ collections:
               - { label: "Capacity", name: "capacity", widget: "string" }
               - { label: "Price", name: "price", widget: "string" }
               - { label: "One-line description (cards)", name: "short", widget: "string" }
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
               - { label: "Photo alt text", name: "imageAlt", widget: "string" }
               - { label: "Browser-tab title (SEO)", name: "seoTitle", widget: "string" }
               - { label: "Search result description (SEO)", name: "seoDescription", widget: "text" }
