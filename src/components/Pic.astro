@@ -1,6 +1,6 @@
 ---
 interface Props {
-  src: string;          // .jpg path under /public — a .webp sibling is served first
+  src: string;          // raster path under /public; a .webp sibling is served first for curated .jpg
   alt: string;
   width?: number;
   height?: number;
@@ -8,9 +8,17 @@ interface Props {
   class?: string;
 }
 const { src, alt, width, height, loading = 'lazy', class: cls } = Astro.props;
-const webp = src.replace(/\.jpg$/, '.webp');
+// Only the curated .jpg images (not CMS uploads) have a hand-made .webp sibling on
+// disk. For anything else — CMS uploads under /images/uploads/, or .png/.jpeg/.webp
+// files — skip the <source> and let the <img> render directly. A <source> has no
+// automatic fallback to <img>, so pointing it at a non-existent .webp would show a
+// broken image; this guard means an editor upload can never do that.
+const webp =
+  !src.includes('/images/uploads/') && /\.jpg$/i.test(src)
+    ? src.replace(/\.jpg$/i, '.webp')
+    : null;
 ---
 <picture>
-  <source srcset={webp} type="image/webp" />
+  {webp && <source srcset={webp} type="image/webp" />}
   <img src={src} alt={alt} width={width} height={height} loading={loading} decoding="async" class={cls} />
 </picture>

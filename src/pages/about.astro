@@ -21,12 +21,11 @@ import page from '../content/pages/about.json';
         <p>{page.space.afterQuote}</p>
       </div>
       <div class="stack">
-        <div class="arch">
-          <Pic src={page.space.images[0].image} alt={page.space.images[0].alt} width={367} height={346} />
-        </div>
-        <div class="arch">
-          <Pic src={page.space.images[1].image} alt={page.space.images[1].alt} width={285} height={431} />
-        </div>
+        {page.space.images.map((img, i) => (
+          <div class="arch">
+            <Pic src={img.image} alt={img.alt} width={i === 0 ? 367 : 285} height={i === 0 ? 346 : 431} />
+          </div>
+        ))}
       </div>
     </div>
   </section>

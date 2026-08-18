@@ -44,7 +44,7 @@ const offerSchema = {
             <p class="blurb">{t.blurb}</p>
             <table class="price-table">
               <thead>
-                <tr><th>Package</th><th>Price</th><th>{t.cols[0]}</th><th>{t.cols[1]}</th></tr>
+                <tr><th>Package</th><th>Price</th><th>{t.cols?.[0] ?? ''}</th><th>{t.cols?.[1] ?? ''}</th></tr>
               </thead>
               <tbody>
                 {t.rows.map((r) => (
