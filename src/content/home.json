@@ -61,9 +61,9 @@
     "heading": "Transparent *pricing*",
     "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
     "cards": [
-      { "eyebrow": "Drop-In", "price": "€20", "note": "Try any group class" },
-      { "eyebrow": "Intro Pack", "price": "€32", "note": "Your first two reformer classes" },
-      { "eyebrow": "Private Session", "price": "€80", "note": "1-to-1 personal training" }
+      { "eyebrow": "First Class", "price": "€20", "note": "New to reformer — your intro class" },
+      { "eyebrow": "Drop-In", "price": "€32", "note": "One class, whenever suits" },
+      { "eyebrow": "Private", "price": "€100", "note": "1-to-1 personal session" }
     ]
   },
   "location": {

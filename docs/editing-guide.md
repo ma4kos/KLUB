@@ -112,9 +112,17 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
 **Video** let you upload a short video clip.
 - Click the field, choose **Upload**, pick the file from your computer, and
   select it.
+- **Any format, any size.** JPG, PNG and WebP all work. You don't need to resize
+  or crop first — the site automatically fits every photo neatly into its frame
+  (it crops to *fill*, never stretches or squashes it). Around 1200 pixels on the
+  longest side is plenty; bigger is fine, it just makes a larger file. Every
+  Photo field shows a little tooltip reminding you of this.
+- **Orientation tip:** most photo frames on the site are tall (portrait), so a
+  portrait photo fills them best. A very wide photo still works, it's just
+  cropped a little top and bottom to fit.
 - Always fill in the **"alt text"** box next to a photo when there is one — it's
   a short description of the picture (helps visually-impaired visitors and
-  Google). Example: "Reformer studio interior with arched windows".
+  Google). Example: "Reformer studio interior with arched niches".
 - Use good-quality images. The current photos are placeholders cropped from
   Instagram; replacing them with proper high-resolution photography is on the
   pre-launch list.
@@ -144,6 +152,31 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
 | Change the timetable | Pages → Timetable |
 | Add a question to the FAQ | FAQ → FAQ Page |
 | Update Izzy's bio | Pages → Meet Izzy |
+
+---
+
+## Where your prices and content came from
+
+This site was built fresh, but not from a blank page. Your existing KLUB website
+(the Wix "Keep Living Under Balance" site) already had a few real, current
+details, so we carried those across so nothing was lost and everything stays
+consistent:
+
+- **Your prices** were taken from the pricing page on that Wix site. (That page
+  existed but wasn't in the Wix menu, so it was easy to miss.) They now live on
+  the **Pricing** page here — and unlike before, Pricing *is* in the menu and
+  footer, so visitors can actually find it. Every price is editable under
+  **Pricing** in the panel.
+- **The founding-member offer** — a free week of unlimited Pilates plus 20% off
+  your first purchase — came from your "Early Access Benefits" page. Editable
+  under **Pages → Founding Member**.
+- **The studio policies** — grip socks, the 10-minute rule, cancellations — came
+  from your "KLUB Policies" page. Editable under **Pages → Policies**.
+- **Your socials** now include TikTok, alongside Instagram and Facebook.
+
+If any price or detail is out of date, just change it in the panel — you don't
+need a developer. And when you have proper studio photography, upload it into any
+Photo field (see section 6) — it will fit automatically.
 
 ---
 

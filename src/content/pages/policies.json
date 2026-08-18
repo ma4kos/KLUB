@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Studio Policies | Cancellations, Grip Socks & Arrival | KLUB",
-    "description": "KLUB Limassol studio policies: 12-hour cancellation notice, grip socks required, 10-minute late arrival rule, class pack expiry and privacy. Read before your first class."
+    "description": "KLUB Limassol studio policies: first-visit tips, grip socks required, the 12-hour cancellation rule, the 10-minute late policy, class-pack expiry, health, liability and privacy."
   },
   "hero": {
     "eyebrow": "Policies",
@@ -10,9 +10,16 @@
   },
   "sections": [
     {
+      "title": "First Time at KLUB",
+      "items": [
+        "New to the reformer? We recommend starting with Reformer Fundamentals, and arriving 10 minutes early so we can introduce you to the equipment and answer any questions.",
+        "Grip socks are required — you can buy a pair at reception if you forget yours."
+      ]
+    },
+    {
       "title": "Grip Socks",
       "items": [
-        "Grip socks are required in every class — for hygiene and for safety on the reformer.",
+        "Grip socks are required in every class — for hygiene and for safety on the reformer. No socks, no entry.",
         "Forgot yours? Pairs are available for purchase at reception."
       ]
     },
@@ -20,7 +27,7 @@
       "title": "Arrival & Late Policy",
       "items": [
         "Please arrive 5–10 minutes early, and 10 minutes early for your very first visit.",
-        "Entry closes 10 minutes after class starts. The warm-up is part of keeping you safe — missing it means missing the class.",
+        "For safety, the studio is locked 10 minutes after class starts — late entry may not be permitted once class has begun.",
         "If you miss the cut-off, message us and we'll help you rebook."
       ]
     },
@@ -28,24 +35,24 @@
       "title": "Cancellation & No-Show",
       "items": [
         "Cancel at least 12 hours before class and your credit is returned automatically.",
-        "Cancellations inside 12 hours, and no-shows, are charged in full — in a class of six, your spot matters.",
-        "Genuine emergencies happen. Talk to us."
+        "Classes cancelled inside 12 hours, and no-shows, result in a loss of credit — in a class of six, your spot matters.",
+        "Credits are not extendable. Genuine emergencies happen — talk to us."
       ]
     },
     {
       "title": "Class Pack Expiry",
       "items": [
-        "5-class Flexi Packs are valid for 2 months from purchase.",
-        "10-class Flexi Packs are valid for 3 months from purchase.",
-        "Monthly memberships renew each month; unused classes don't roll over."
+        "Monthly packs (4, 8 or 12 classes) are valid for one month.",
+        "Flexi packs (10 or 20 classes) are valid for three months from purchase.",
+        "Credits are not extendable and unused classes don't roll over."
       ]
     },
     {
       "title": "Health & Safety",
       "items": [
         "Tell us about injuries, pregnancy or health conditions before your first class — it stays confidential and helps us keep you safe.",
-        "Our instructors are fully certified and insured, including pre/post-natal qualification.",
-        "Equipment is cleaned between every class."
+        "Our instructors are fully certified and insured, including pre/post-natal qualification, and equipment is cleaned between every class.",
+        "Classes are attended at your own risk; KLUB cannot be held liable for injuries sustained in the studio."
       ]
     },
     {
