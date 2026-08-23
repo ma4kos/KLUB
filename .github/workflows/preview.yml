@@ -1,13 +1,9 @@
-# Deploys a shareable preview of the site to GitHub Pages on every push,
-# by publishing the built site to the gh-pages branch.
-# Production hosting is Netlify (see netlify.toml) — this is the pre-launch preview.
+# PREVIEW DEPLOYS DISABLED (2026-08-17) — site intentionally taken offline
+# while content is reworked. To re-publish: restore the `on: push` triggers
+# from this file's git history and push, or run this workflow manually.
 name: Deploy preview to GitHub Pages
 
 on:
-  push:
-    branches:
-      - claude/izzy-pilates-website-w61t75
-      - main
   workflow_dispatch:
 
 permissions:
