@@ -110,7 +110,7 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Intro", name: "lede", widget: "string" }
-          - label: "Meet Izzy section"
+          - label: "Your Instructors section"
             name: "izzy"
             widget: "object"
             fields:
@@ -150,9 +150,9 @@ collections:
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
 
-      - name: "izzy"
-        label: "Meet Izzy"
-        file: "src/content/pages/izzy.json"
+      - name: "instructors"
+        label: "Our Instructors"
+        file: "src/content/pages/instructors.json"
         fields:
           - label: "SEO"
             name: "seo"
@@ -210,7 +210,7 @@ collections:
             fields:
               - { label: "Quote text", name: "text", widget: "text" }
               - { label: "Attribution", name: "by", widget: "string" }
-          - label: "PILATIZ section"
+          - label: "Follow the journey section"
             name: "pilatiz"
             widget: "object"
             fields:

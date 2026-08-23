@@ -3,30 +3,11 @@ import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import ArchVideo from '../components/ArchVideo.astro';
 import { whatsappLink, bookLink } from '../site';
-import page from '../content/pages/izzy.json';
+import page from '../content/pages/instructors.json';
 import { inline } from '../lib/inline';
-
-const izzySchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Elizabeth "Izzy" Nicolaou',
-  jobTitle: 'Founder & Lead Pilates Instructor',
-  worksFor: { '@type': 'Organization', name: 'KLUB Pilates Studio' },
-  alumniOf: 'Royal Academy of Dance',
-  knowsLanguage: ['English', 'Greek'],
-  sameAs: [
-    'https://www.instagram.com/pilateswithizzy',
-    'https://www.instagram.com/pilatizstudio',
-    'https://www.facebook.com/share/1HEgcu8Aio/',
-  ],
-};
+import { SITE } from '../site';
 ---
-<Base
-  title={page.seo.title}
-  description={page.seo.description}
-  ogImage="/images/og/izzy.jpg"
-  schema={izzySchema}
->
+<Base title={page.seo.title} description={page.seo.description}>
   <!-- Profile hero -->
   <section class="p-hero">
     <div class="container p-grid">
@@ -35,8 +16,8 @@ const izzySchema = {
         <h1 class="rise rise-d1" set:html={inline(page.hero.heading)} />
         <p class="lede rise rise-d2">{page.hero.lede}</p>
         <div class="btn-row rise rise-d3">
-          <a class="btn btn--primary" href={bookLink()}>Book a class with Izzy</a>
-          <a class="btn btn--ghost" href="https://www.instagram.com/pilateswithizzy" rel="noopener">@pilateswithizzy</a>
+          <a class="btn btn--primary" href={bookLink()}>Book a Class</a>
+          <a class="btn btn--ghost" href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a>
         </div>
       </div>
       <div class="p-media rise rise-d2">
@@ -122,8 +103,8 @@ const izzySchema = {
         <h2 set:html={inline(page.pilatiz.heading)} />
         <p>{page.pilatiz.text}</p>
         <div class="btn-row">
-          <a class="btn btn--accent" href="https://www.instagram.com/pilatizstudio" rel="noopener">Visit PILATIZ</a>
-          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about Izzy and KLUB.')} rel="noopener">Ask a Question</a>
+          <a class="btn btn--accent" href={SITE.instagram} rel="noopener">Follow {SITE.instagramHandle}</a>
+          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about KLUB.')} rel="noopener">Ask a Question</a>
         </div>
       </div>
     </div>
