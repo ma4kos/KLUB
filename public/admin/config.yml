@@ -211,7 +211,7 @@ collections:
               - { label: "Quote text", name: "text", widget: "text" }
               - { label: "Attribution", name: "by", widget: "string" }
           - label: "Follow the journey section"
-            name: "pilatiz"
+            name: "follow"
             widget: "object"
             fields:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
