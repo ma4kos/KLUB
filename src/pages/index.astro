@@ -18,23 +18,27 @@ import { inline } from '../lib/inline';
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow rise">{home.heroEyebrow}</span>
-        <h1 class="hero-caps rise rise-d1" set:html={inline(home.heroHeading)} />
+        <h1 class="hero-caps" set:html={inline(home.heroHeading)} />
         <p class="lede rise rise-d2">{home.heroLede}</p>
         <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href={bookLink()} data-cta="hero-book">{primaryCta()}</a>
-          <a class="btn btn--ghost" href="/about/" data-cta="hero-philosophy">Our Philosophy</a>
+          <a class="btn btn--ghost" href="/about/" data-cta="hero-philosophy">{home.heroSecondaryLabel}</a>
         </div>
+        <p class="cta-note rise rise-d4">{home.bookNote}</p>
       </div>
-      <div class="hero-media rise rise-d2">
+      <div class="hero-media">
         <video
           class="hero-video"
-          src={home.heroVideo}
           poster={home.heroPoster}
-          autoplay
+          data-src={home.heroVideo}
+          preload="none"
           muted
           loop
           playsinline
-          aria-label="Inside the KLUB Pilates studio in Limassol"
+          disablepictureinpicture
+          width="1080"
+          height="1350"
+          aria-hidden="true"
         ></video>
       </div>
     </div>
@@ -45,8 +49,8 @@ import { inline } from '../lib/inline';
   <!-- 01 · The Klub (about) -->
   <section class="section section--white" data-section="the-klub">
     <div class="container split">
-      <div class="arch reveal">
-        <Pic src={home.about.image} alt={home.about.alt} width={467} height={431} />
+      <div class="wide-frame about-media reveal">
+        <Pic src={home.about.image} alt={home.about.alt} width={1100} height={676} />
       </div>
       <div class="reveal reveal-d1">
         <div class="chapter">
@@ -85,7 +89,7 @@ import { inline } from '../lib/inline';
         {CLASSES.map((c, i) => (
           <a class:list={['class-row reveal', `reveal-d${i % 4 === 0 ? 0 : i % 4}`]} href={`/classes/${c.slug}/`} data-cta={`class-${c.slug}`}>
             <div class="row-thumb">
-              <Pic src={c.image} alt={c.imageAlt} width={200} height={150} />
+              <Pic src={c.image} alt={c.imageAlt} width={264} height={198} />
             </div>
             <div class="row-body">
               <h3>{c.name}</h3>
@@ -96,7 +100,7 @@ import { inline } from '../lib/inline';
         ))}
       </div>
       <div class="rows-cta reveal">
-        <a class="btn btn--ghost" href="/classes/" data-cta="classes-all">Explore All Classes</a>
+        <a class="btn btn--ghost" href="/classes/" data-cta="classes-all">{home.classesHead.buttonLabel}</a>
       </div>
     </div>
   </section>
@@ -113,18 +117,30 @@ import { inline } from '../lib/inline';
           </div>
         </div>
         <p>{home.pricingTeaser.text}</p>
+        <ul class="includes">
+          {home.pricingTeaser.includes.map((it) => <li>{it}</li>)}
+        </ul>
         <div class="btn-row">
-          <a class="btn btn--primary" href={bookLink()} data-cta="start-here-book">{primaryCta()}</a>
-          <a class="btn btn--ghost" href="/pricing/" data-cta="start-here-pricing">View Full Price List</a>
+          <a class="btn btn--ghost" href="/pricing/" data-cta="start-here-pricing">{home.pricingTeaser.listLabel}</a>
         </div>
       </div>
-      <div class="grid price-teaser reveal reveal-d1">
-        {home.pricingTeaser.cards.map((c) => (
-          <div class="card card--pad center">
-            <span class="eyebrow">{c.eyebrow}</span>
-            <p class="big-price">{c.price}</p>
-            <p>{c.note}</p>
-          </div>
+      <div class="price-teaser reveal reveal-d1">
+        {home.pricingTeaser.cards.map((c, i) => (
+          i === 0 ? (
+            <div class="card card--pad center price-card--intro">
+              <span class="eyebrow">{c.eyebrow}</span>
+              <p class="big-price">{c.price}</p>
+              <p>{c.note}</p>
+              <a class="btn btn--primary" href={bookLink()} data-cta="intro-card-book">{primaryCta()}</a>
+              <p class="cta-note">{home.bookNote}</p>
+            </div>
+          ) : (
+            <div class="card card--pad center price-card--sm">
+              <span class="eyebrow">{c.eyebrow}</span>
+              <p class="big-price">{c.price}</p>
+              <p>{c.note}</p>
+            </div>
+          )
         ))}
       </div>
     </div>
@@ -164,10 +180,10 @@ import { inline } from '../lib/inline';
           </div>
         </div>
         <p class="lede">{home.izzy.lede}</p>
-        <a class="btn btn--primary" href="/instructors/" data-cta="instructors-meet">{home.izzy.buttonLabel}</a>
+        <a class="btn btn--ghost" href="/instructors/" data-cta="instructors-meet">{home.izzy.buttonLabel}</a>
       </div>
-      <div class="arch instructor-teaser reveal reveal-d1">
-        <Pic src={home.izzy.image} alt={home.izzy.alt} width={480} height={620} />
+      <div class="wide-frame community-photo reveal reveal-d1">
+        <Pic src={home.izzy.image} alt={home.izzy.alt} width={700} height={430} />
       </div>
     </div>
   </section>
@@ -175,8 +191,8 @@ import { inline } from '../lib/inline';
   <!-- 06 · Find us (location) -->
   <section class="section" data-section="location">
     <div class="container split">
-      <div class="arch reveal">
-        <Pic src={home.location.image} alt={home.location.alt} width={358} height={294} />
+      <div class="arch location-media reveal">
+        <Pic src={home.location.image} alt={home.location.alt} width={716} height={588} />
       </div>
       <div class="reveal reveal-d1">
         <div class="chapter">
@@ -188,11 +204,11 @@ import { inline } from '../lib/inline';
         </div>
         <p>
           {SITE.addressLocality}, {SITE.addressCountry}.<br />
-          <em>{SITE.addressNote}</em>
+          <span class="note">{SITE.addressNote}</span>
         </p>
         <div class="btn-row">
-          <a class="btn btn--ghost" href="/location/" data-cta="location-directions">Location &amp; Directions</a>
-          <a class="btn btn--accent" href={whatsappLink('Hi KLUB! Where exactly are you located?')} rel="noopener" data-cta="location-message">Message Us</a>
+          <a class="btn btn--ghost" href="/location/" data-cta="location-directions">{home.location.directionsLabel}</a>
+          <a class="btn btn--accent" href={whatsappLink('Hi KLUB! Where exactly are you located?')} rel="noopener" data-cta="location-message">{home.location.messageLabel}</a>
         </div>
       </div>
     </div>
@@ -205,11 +221,12 @@ import { inline } from '../lib/inline';
         <div class="chapter chapter--dark">
           <span class="chapter-no" aria-hidden="true">07</span>
           <div>
+            <span class="eyebrow">{home.founding.eyebrow}</span>
             <h2 set:html={inline(home.founding.heading)} />
           </div>
         </div>
         <p>{home.founding.text}</p>
-        <a class="btn btn--ghost-light" href={bookLink()} data-cta="closing-book">{primaryCta()}</a>
+        <a class="btn btn--light" href={bookLink()} data-cta="closing-book">{primaryCta()}</a>
       </div>
       <div class="reveal reveal-d1">
         <FoundingForm compact source="home" />
@@ -222,25 +239,34 @@ import { inline } from '../lib/inline';
   .hero { padding: clamp(48px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow: hidden; }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1.08fr 0.92fr;
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
   }
   /* Tracked-out caps hero — the editorial treatment from the layout concepts.
-     Uppercase + letter-spacing via CSS so screen readers still hear words. */
+     Uppercase + letter-spacing via CSS so screen readers still hear words.
+     Line breaks come from the CMS heading; no width cap fights them. */
   .hero-caps {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
+    margin-right: -0.1em;
     font-size: clamp(38px, 5.5vw, 68px);
-    line-height: 1.14;
-    max-width: 12ch;
+    line-height: 1.08;
   }
   .hero-copy .lede { max-width: 46ch; }
-  .hero-media { max-width: 360px; justify-self: center; width: 100%; }
+  .cta-note {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    margin: 12px 0 0;
+  }
+  .hero-media { justify-self: stretch; width: 100%; }
   .hero-video {
     display: block;
     width: 100%;
-    aspect-ratio: 9 / 16;
+    height: auto;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     border-radius: var(--radius-card);
     border: 1px solid var(--line);
@@ -249,17 +275,19 @@ import { inline } from '../lib/inline';
   }
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-media { max-width: 300px; margin-top: 12px; }
+    .hero-media { max-width: 340px; margin-top: 12px; justify-self: center; }
   }
 
-  /* Numbered chapter headers — the scroll's narrative spine */
+  /* Numbered chapter headers — the scroll's narrative spine.
+     Tabular numerals + a fixed ch gutter keep all seven numbers on one axis. */
   .chapter { display: flex; gap: clamp(16px, 2.5vw, 28px); align-items: flex-start; margin-bottom: 20px; }
   .chapter-no {
     font: 400 clamp(38px, 4.5vw, 58px)/1 var(--serif);
+    font-variant-numeric: tabular-nums;
     color: var(--umber);
     opacity: 0.35;
-    padding-top: 2px;
-    min-width: 1.6em;
+    padding-top: 6px;
+    min-width: 2.2ch;
   }
   .chapter--dark .chapter-no { color: var(--sand); opacity: 0.5; }
   .chapter h2 { margin-bottom: 0.35em; }
@@ -279,7 +307,8 @@ import { inline } from '../lib/inline';
     text-decoration: none;
     color: var(--ink);
   }
-  .row-thumb { width: 132px; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); }
+  .row-thumb { width: 132px; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); transform: translateZ(0); }
+  .row-body { min-width: 0; }
   .row-thumb :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
   .class-row:hover .row-thumb :global(img) { transform: scale(1.06); }
   .row-body h3 { margin-bottom: 4px; }
@@ -296,13 +325,39 @@ import { inline } from '../lib/inline';
   }
   .rows-cta { margin-top: 28px; }
 
-  .price-teaser { grid-template-columns: 1fr; gap: 16px; }
-  .big-price { font-family: var(--serif); font-size: 44px; margin: 0; }
-  .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
+  /* Intro-offer bullet list beside the cards */
+  .includes { list-style: none; padding: 0; margin: 0 0 20px; }
+  .includes li {
+    padding: 8px 0 8px 26px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .includes li::before { content: "✓"; position: absolute; left: 2px; color: var(--umber); }
+
+  /* Featured intro offer: the €20 card leads and carries the booking action */
+  .price-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-self: center;
+  }
+  .price-card--intro { grid-column: 1 / -1; border-color: var(--umber); }
+  .price-card--intro .btn { margin-top: 14px; }
+  .price-card--intro .cta-note { margin: 10px auto 0; }
+  .big-price { font-family: var(--serif); font-size: 44px; line-height: 1.05; margin: 0; }
+  .price-card--intro .big-price { font-size: 56px; }
+  .price-card--sm .big-price { font-size: 34px; }
+  .price-teaser .card p:last-of-type { color: var(--ink-soft); font-size: 14px; margin: 0; }
+  .price-teaser .card .cta-note { font-size: 12px; }
+  @media (max-width: 600px) {
+    .price-teaser { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; width: 100%; }
+  }
 
   /* Studio gallery — framed shots in a row, per the Option 1 concept */
   .exp-head { margin-bottom: clamp(32px, 5vw, 48px); }
-  .exp-head .btn { margin-top: 18px; }
+  .exp-head .btn { margin-top: 32px; }
   .exp-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -320,7 +375,50 @@ import { inline } from '../lib/inline';
     .exp-shot { aspect-ratio: 3 / 2; }
   }
 
-  .instructor-teaser { max-width: 420px; justify-self: center; }
+  /* Wide rounded photo frame (per the Option 1 concept's rectangular imagery) */
+  .wide-frame {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    aspect-ratio: 8 / 5;
+  }
+  .wide-frame :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .community-photo { aspect-ratio: 2 / 1; align-self: center; }
+
+  /* Keep every chapter numeral on one left axis: on desktop, chapters whose
+     media sits first in the source get the media pushed to the right column. */
+  @media (min-width: 821px) {
+    .about-media { order: 2; }
+    .location-media { order: 2; }
+  }
+  .location-media { aspect-ratio: 358 / 294; }
+  .location-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .note { font-style: normal; color: var(--ink-soft); }
 
   .stat b :global(small) { font-size: 0.55em; }
 </style>
+
+<script>
+  // Load + play the hero film only when it can add value: motion allowed,
+  // no data-saver, and a viewport wide enough to show it meaningfully.
+  // Deferred past window load + idle so it never competes with the poster
+  // (the LCP) or the fonts. Re-checked on viewport growth (tablet rotation).
+  const v = document.querySelector('.hero-video') as HTMLVideoElement | null;
+  const wide = window.matchMedia('(min-width: 861px)');
+  function initHeroVideo() {
+    if (!v || !v.dataset.src || v.src) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = (navigator as any).connection?.saveData === true;
+    if (reduce || saveData || !wide.matches) return;
+    v.src = v.dataset.src;
+    const p = v.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  }
+  function whenIdle(fn: () => void) {
+    if ('requestIdleCallback' in window) (window as any).requestIdleCallback(fn, { timeout: 3000 });
+    else setTimeout(fn, 1500);
+  }
+  if (document.readyState === 'complete') whenIdle(initHeroVideo);
+  else window.addEventListener('load', () => whenIdle(initHeroVideo), { once: true });
+  wide.addEventListener?.('change', () => whenIdle(initHeroVideo));
+</script>

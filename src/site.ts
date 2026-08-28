@@ -36,3 +36,9 @@ export function bookLink() {
 export function primaryCta() {
   return SITE.ctaLabel || 'Book Your First Class — €20';
 }
+
+// Compact variant for tight surfaces (the slim desktop header below 1100px):
+// keeps the price anchor without crowding the nav.
+export function ctaCompact() {
+  return SITE.ctaCompact || 'Book · €20';
+}

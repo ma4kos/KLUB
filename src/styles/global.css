@@ -46,7 +46,7 @@
   --sand: #E8DFD3;
   --ink: #1A1714;           /* warm black */
   --ink-soft: #5C544C;      /* taupe */
-  --ink-faint: #9A9088;     /* warm grey */
+  --ink-faint: #6B6259;     /* warm grey — AA contrast against --bg (≈5.3:1) */
   --umber: #7A6A55;
   --umber-deep: #5C4F3D;
   --good: #3F7256;
@@ -105,6 +105,13 @@ a:hover { color: var(--umber-deep); }
 }
 .skip-link:focus { left: 0; }
 
+/* Visible keyboard focus everywhere, tuned per background */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--umber);
+  outline-offset: 3px;
+}
+.section--dark :where(a, button):focus-visible { outline-color: var(--sand); }
+
 /* Layout helpers */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 4vw, 32px); }
 .section { padding: var(--section-y) 0; }
@@ -146,6 +153,9 @@ a:hover { color: var(--umber-deep); }
 
 .btn--primary { background: var(--ink); color: #fff; }
 .btn--primary:hover { background: #3A3530; color: #fff; }
+/* Solid light button for dark sections — same weight as primary */
+.btn--light { background: #fff; color: var(--ink); }
+.btn--light:hover { background: var(--sand); color: var(--ink); }
 .btn--ghost { background: transparent; border-color: var(--ink); color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: #fff; }
 .btn--ghost-light { background: transparent; border-color: #fff; color: #fff; }
@@ -344,8 +354,12 @@ html.js .reveal.in { opacity: 1; transform: none; }
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .marquee__track { animation: none; }
+  .class-row:hover .row-thumb img { transform: none !important; }
+  .class-row:hover .row-arrow { transform: none !important; }
 }
 
 /* Arch-framed video */

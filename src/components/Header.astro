@@ -1,5 +1,5 @@
 ---
-import { bookLink } from '../site';
+import { bookLink, primaryCta, ctaCompact } from '../site';
 const links = [
   { href: '/classes/', label: 'Classes' },
   { href: '/pricing/', label: 'Pricing' },
@@ -21,7 +21,9 @@ const isActive = (href: string) => path.startsWith(href);
       ))}
     </nav>
 
-    <a href={bookLink()} class="btn btn--primary btn--sm book-cta" data-cta="header-book">Book Now</a>
+    <a href={bookLink()} class="btn btn--primary btn--sm book-cta" data-cta="header-book">
+      <span class="cta-full">{primaryCta()}</span><span class="cta-short">{ctaCompact()}</span>
+    </a>
 
     <button class="hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
@@ -32,7 +34,7 @@ const isActive = (href: string) => path.startsWith(href);
     {links.map((l) => <a href={l.href}>{l.label}</a>)}
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
-    <a href={bookLink()} class="btn btn--primary" data-cta="mobile-nav-book">Book Now</a>
+    <a href={bookLink()} class="btn btn--primary" data-cta="mobile-nav-book">{primaryCta()}</a>
   </nav>
 </header>
 
@@ -45,6 +47,12 @@ const isActive = (href: string) => path.startsWith(href);
     border-bottom: 1px solid var(--line);
   }
   .inner { display: flex; align-items: center; gap: 28px; height: 72px; }
+  /* Full priced label on wide screens; compact priced label when the nav tightens */
+  .cta-short { display: none; }
+  @media (max-width: 1100px) {
+    .cta-full { display: none; }
+    .cta-short { display: inline; }
+  }
   .logo {
     font-family: var(--serif);
     font-size: 26px;
