@@ -24,10 +24,9 @@ numbered chapters on warm linen/white/sand backgrounds, matching the concept's o
 
 Deliberate choices:
 
-- **Real media only.** The hero video and every photo are from the KLUB studio /
-  @klubstudios — no stock, no AI-generated footage. The earlier placeholder videos are
-  no longer used on the homepage (the instructors page still carries some — flagged as
-  a follow-up).
+- **Real media only, site-wide.** The hero video and every photo are from the KLUB
+  studio / @klubstudios — no stock, no AI-generated footage. All placeholder videos
+  have been deleted from the project; the only video file is the real Instagram clip.
 - **Text sits on solid backgrounds, photos live in frames** — best readability on
   phones, and it works with today's photography.
 - **The founding-member capture stays** (chapter 07). Pre-launch, an email on

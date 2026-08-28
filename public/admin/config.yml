@@ -166,8 +166,8 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
               - { label: "Intro", name: "lede", widget: "text" }
-              - { label: "Video", name: "video", widget: "file" }
-              - { label: "Video poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
+              - { label: "Photo", name: "image", widget: "image", hint: "Real studio photography only. JPG, PNG or WebP — cropped automatically to fit its frame." }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Numbers row"
             name: "stats"
             widget: "list"
