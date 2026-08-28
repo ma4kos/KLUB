@@ -1,6 +1,6 @@
 {
-  "heroEyebrow": "Limassol City Center · Opening September 2026",
-  "heroHeading": "Intentional *movement.*\nMindful *strength.*",
+  "heroEyebrow": "Pilates Studio · Limassol City Center · Opening September 2026",
+  "heroHeading": "Keep\nliving\nunder\n*balance.*",
   "heroLede": "Premium reformer Pilates in the heart of Limassol — small groups of six, private 1-to-1 sessions, and a space that feels like an exhale.",
   "heroVideo": "/videos/studio-tour.mp4",
   "heroPoster": "/videos/studio-tour-poster.jpg",
@@ -72,8 +72,8 @@
   },
   "classesHead": {
     "eyebrow": "Classes",
-    "heading": "Find *your* class",
-    "lede": "Four ways to move, from your first step to your strongest self."
+    "heading": "Find *your* balance",
+    "lede": "Different classes. Different focus. One goal: the best version of you."
   },
   "izzy": {
     "eyebrow": "Your Instructors",
@@ -85,7 +85,7 @@
   },
   "pricingTeaser": {
     "eyebrow": "Pricing",
-    "heading": "Transparent *pricing*",
+    "heading": "Start *here*",
     "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
     "cards": [
       {
@@ -104,6 +104,14 @@
         "note": "1-to-1 personal session"
       }
     ]
+  },
+  "experience": {
+    "eyebrow": "The KLUB Experience",
+    "heading": "Thoughtful design. *Premium equipment.*",
+    "text": "Warm plaster, arched doorways, soft light and serious reformers — a space designed to focus on you.",
+    "buttonLabel": "Take a Look",
+    "image": "/images/klub-reformers.jpg",
+    "alt": "Row of reformer Pilates machines in the warm, softly lit KLUB studio in Limassol"
   },
   "location": {
     "eyebrow": "Find Us",

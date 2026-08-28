@@ -34,6 +34,9 @@ collections:
           - { label: "WhatsApp number", name: "whatsappNumber", widget: "string", required: false, hint: "Digits only, international format, no + (e.g. 35799123456). Once set, the chat button switches from Instagram to WhatsApp." }
           - { label: "Phone (as displayed)", name: "phoneDisplay", widget: "string", required: false, hint: "e.g. +357 99 123 456" }
           - { label: "Online booking link", name: "bookingUrl", widget: "string", required: false, hint: "Paste the Wix Bookings URL here when it exists — every Book button on the site will point to it automatically." }
+          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The one primary button repeated across the site (hero, mobile bar, closing section) — e.g. 'Book Your First Class — €20'. Change the price here once and it updates everywhere." }
+          - { label: "Google Analytics 4 ID", name: "ga4Id", widget: "string", required: false, hint: "Looks like G-XXXXXXXXXX. Leave empty = no tracking script loads at all. Before turning this on in production, add a cookie/consent notice (see docs/handover-for-alex.md)." }
+          - { label: "Microsoft Clarity ID", name: "clarityId", widget: "string", required: false, hint: "The short project id from clarity.microsoft.com (free heatmaps + session recordings). Leave empty = nothing loads." }
           - { label: "Street address", name: "streetAddress", widget: "string", required: false, hint: "Leave empty until announced." }
           - { label: "Area", name: "addressLocality", widget: "string" }
           - { label: "Address note", name: "addressNote", widget: "string", hint: "Shown wherever the address would appear, until the street address is filled in." }
@@ -135,6 +138,16 @@ collections:
                   - { label: "Label", name: "eyebrow", widget: "string" }
                   - { label: "Price", name: "price", widget: "string" }
                   - { label: "Note", name: "note", widget: "string" }
+          - label: "The KLUB Experience section (full-width photo)"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Full-width photo", name: "image", widget: "image", hint: "Shown edge-to-edge — use the widest, highest-resolution interior shot available (1600px+ across is ideal)." }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Location section"
             name: "location"
             widget: "object"
