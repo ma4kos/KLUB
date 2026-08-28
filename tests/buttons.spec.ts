@@ -71,12 +71,17 @@ for (const path of PAGES) {
     expect(bookAnchors.length, `no Book buttons found on ${path}`).toBeGreaterThan(0);
     for (const a of bookAnchors) {
       expect(a.href, `Book button "${a.text}" has no href on ${path}`).toBeTruthy();
-      // bookingUrl is currently empty, so Book routes to the /book/ page.
-      // Strip any origin in case an absolute URL is ever emitted.
-      const pathPart = (a.href ?? '').replace(/^https?:\/\/[^/]+/, '');
-      expect(pathPart, `Book button "${a.text}" -> "${a.href}" on ${path}`).toMatch(
-        /\/book\/$/
+      // Book buttons follow bookLink(): the live booking system when
+      // studio.json bookingUrl is set, otherwise the /book/ page.
+      const href = a.href ?? '';
+      const isLiveBooking = href.startsWith(
+        'https://www.keeplivingunderbalance.com/reformer-experiences'
       );
+      const pathPart = href.replace(/^https?:\/\/[^/]+/, '');
+      expect(
+        isLiveBooking || /\/book\/$/.test(pathPart),
+        `Book button "${a.text}" -> "${href}" on ${path}`
+      ).toBeTruthy();
     }
   });
 }

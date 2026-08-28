@@ -7,8 +7,8 @@
     "eyebrow": "The Team",
     "heading": "Our *Instructors*",
     "lede": "Classically trained. Internationally certified. Experienced in some of the world's best studios — and the reason your form is about to get very, very good.",
-    "video": "/videos/cyprus-pool.mp4",
-    "poster": "/videos/cyprus-pool-poster.jpg"
+    "image": "/images/arch-entrance.jpg",
+    "alt": "Arched entrance of the KLUB Pilates studio in Limassol with a glowing circular logo"
   },
   "stats": [
     { "big": "Certified", "small": "reformer & mat instructors, comprehensively trained" },
@@ -34,27 +34,27 @@
       "era": "The refinement",
       "title": "Experience from world-class studios",
       "body": "Our instructors have taught reformer Pilates in some of the region's most beautiful studios, training clients of every level — athletes, beginners, mothers, executives. It's where classical technique meets contemporary studio culture: teaching that is exacting, warm, and impossible to get lost in.",
-      "mediaType": "video",
-      "video": "/videos/dubai-studio.mp4",
-      "poster": "/videos/dubai-studio-poster.jpg"
+      "mediaType": "image",
+      "image": "/images/instructor-dubai-teaching.jpg",
+      "imageAlt": "Instructor guiding a reformer Pilates class in an arched, softly lit studio"
     },
     {
       "place": "The Method",
       "era": "The approach",
       "title": "Movement broken down until it clicks",
       "body": "Thousands of hours of teaching — in studios and on camera — shape how we coach: every movement explained, every rep watched, every exercise adapted to the body in front of us. Classes are built on classical foundations and delivered with a contemporary flow.",
-      "mediaType": "video",
-      "video": "/videos/online-studio.mp4",
-      "poster": "/videos/online-studio-poster.jpg"
+      "mediaType": "image",
+      "image": "/images/mat-studio.jpg",
+      "imageAlt": "Bright mat Pilates studio space with soft natural light"
     },
     {
       "place": "Limassol",
       "era": "The home",
       "title": "Bringing that standard to Cyprus",
       "body": "KLUB is the studio we always wanted to walk into: bright, calm, seriously equipped, and small enough that every client is known by name. London's discipline, Dubai's polish, the island's soul — all under one roof in Limassol city center. The reformers are already on the floor.",
-      "mediaType": "video",
-      "video": "/videos/studio-reformers.mp4",
-      "poster": "/videos/studio-reformers-poster.jpg"
+      "mediaType": "image",
+      "image": "/images/klub-reformers.jpg",
+      "imageAlt": "Row of reformer Pilates machines on the floor of the KLUB studio in Limassol"
     }
   ],
   "qualsEyebrow": "Credentials",
@@ -76,8 +76,8 @@
     "eyebrow": "Can't wait for opening day?",
     "heading": "Follow the *journey*",
     "text": "The studio is taking shape week by week. Follow @klubstudios for previews of the space, the equipment and the classes — and be the first to know when the timetable goes live.",
-    "video": "/videos/mat-home.mp4",
-    "poster": "/videos/mat-home-poster.jpg"
+    "video": "/videos/klub-studio-instagram.mp4",
+    "poster": "/videos/klub-studio-instagram-poster.jpg"
   },
   "cta": {
     "heading": "Your first class is *€20*",

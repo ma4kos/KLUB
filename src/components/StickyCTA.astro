@@ -1,0 +1,50 @@
+---
+// Mobile-only sticky booking bar. The header's Book button is hidden at
+// <=900px, so this keeps the primary CTA one thumb-tap away on the devices
+// most bookings come from. Appears after the visitor scrolls past the hero.
+import { bookLink, primaryCta } from '../site';
+---
+<div class="sticky-cta" id="sticky-cta">
+  <a class="btn btn--primary" href={bookLink()} data-cta="sticky-book">{primaryCta()}</a>
+</div>
+
+<style>
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    transform: translateY(110%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sticky-cta.show { transform: none; }
+  .sticky-cta .btn { display: block; text-align: center; width: 100%; }
+
+  @media (max-width: 900px) {
+    .sticky-cta { display: block; }
+    /* Lift the floating chat button clear of the bar */
+    :global(.float-chat) { bottom: 84px !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: none; }
+  }
+</style>
+
+<script>
+  const bar = document.getElementById('sticky-cta');
+  let shown = false;
+  function onScroll() {
+    const past = window.scrollY > 420;
+    if (past !== shown) {
+      shown = past;
+      bar?.classList.toggle('show', shown);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

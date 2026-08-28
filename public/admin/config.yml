@@ -34,6 +34,9 @@ collections:
           - { label: "WhatsApp number", name: "whatsappNumber", widget: "string", required: false, hint: "Digits only, international format, no + (e.g. 35799123456). Once set, the chat button switches from Instagram to WhatsApp." }
           - { label: "Phone (as displayed)", name: "phoneDisplay", widget: "string", required: false, hint: "e.g. +357 99 123 456" }
           - { label: "Online booking link", name: "bookingUrl", widget: "string", required: false, hint: "Paste the Wix Bookings URL here when it exists — every Book button on the site will point to it automatically." }
+          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The one primary button repeated across the site (hero, mobile bar, closing section) — e.g. 'Book Your First Class — €20'. Change the price here once and it updates everywhere." }
+          - { label: "Google Analytics 4 ID", name: "ga4Id", widget: "string", required: false, hint: "Looks like G-XXXXXXXXXX. Leave empty = no tracking script loads at all. Before turning this on in production, add a cookie/consent notice (see docs/handover-for-alex.md)." }
+          - { label: "Microsoft Clarity ID", name: "clarityId", widget: "string", required: false, hint: "The short project id from clarity.microsoft.com (free heatmaps + session recordings). Leave empty = nothing loads." }
           - { label: "Street address", name: "streetAddress", widget: "string", required: false, hint: "Leave empty until announced." }
           - { label: "Area", name: "addressLocality", widget: "string" }
           - { label: "Address note", name: "addressNote", widget: "string", hint: "Shown wherever the address would appear, until the street address is filled in." }
@@ -62,28 +65,9 @@ collections:
           - { label: "Line above the headline", name: "heroEyebrow", widget: "string" }
           - { label: "Headline", name: "heroHeading", widget: "text", hint: "*word* = italic accent. Press Enter for a second line." }
           - { label: "Intro paragraph", name: "heroLede", widget: "text" }
-          - { label: "Hero video", name: "heroVideo", widget: "file", hint: "Short muted mp4 loop." }
+          - { label: "Hero video", name: "heroVideo", widget: "file", hint: "Short muted mp4 loop — use real studio footage (e.g. saved from Instagram)." }
           - { label: "Hero video poster (still shown while loading)", name: "heroPoster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
-          - { label: "Small hero photo", name: "heroMiniImage", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
-          - { label: "Small hero photo — alt text", name: "heroMiniAlt", widget: "string" }
           - { label: "Scrolling ribbon lines", name: "marquee", widget: "list", field: { label: "Line", name: "line", widget: "string" } }
-          - label: "Story section (three films)"
-            name: "story"
-            widget: "object"
-            fields:
-              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "text" }
-              - { label: "Intro", name: "lede", widget: "text" }
-              - label: "The three films"
-                name: "triptych"
-                widget: "list"
-                allow_add: false
-                summary: "{{fields.label}}"
-                fields:
-                  - { label: "Video", name: "video", widget: "file" }
-                  - { label: "Poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
-                  - { label: "Caption line 1", name: "label", widget: "string" }
-                  - { label: "Caption line 2", name: "sublabel", widget: "string" }
           - label: "Numbers row"
             name: "stats"
             widget: "list"
@@ -135,6 +119,21 @@ collections:
                   - { label: "Label", name: "eyebrow", widget: "string" }
                   - { label: "Price", name: "price", widget: "string" }
                   - { label: "Note", name: "note", widget: "string" }
+          - label: "The KLUB Experience section (studio gallery)"
+            name: "experience"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - label: "Gallery photos"
+                name: "gallery"
+                widget: "list"
+                summary: "{{fields.image}}"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image", hint: "Real studio photography only. JPG, PNG or WebP — cropped automatically to fit its frame." }
+                  - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Location section"
             name: "location"
             widget: "object"
@@ -167,8 +166,8 @@ collections:
               - { label: "Eyebrow", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
               - { label: "Intro", name: "lede", widget: "text" }
-              - { label: "Video", name: "video", widget: "file" }
-              - { label: "Video poster", name: "poster", widget: "image", hint: "JPG, PNG or WebP — any size works, it's automatically cropped to fit its frame. About 1200px on the longest side is plenty; larger is fine, it's just a bigger file." }
+              - { label: "Photo", name: "image", widget: "image", hint: "Real studio photography only. JPG, PNG or WebP — cropped automatically to fit its frame." }
+              - { label: "Photo alt text", name: "alt", widget: "string" }
           - label: "Numbers row"
             name: "stats"
             widget: "list"

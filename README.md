@@ -58,12 +58,15 @@ Settings) or directly in the file. When confirmed, fill in:
 - `streetAddress` — the exact street address. Appears in the footer, location page and
   LocalBusiness schema.
 - `bookingUrl` — the live booking system URL, when it exists.
+- `ga4Id` / `clarityId` — paste the GA4 Measurement ID and/or Microsoft Clarity project
+  ID to switch on analytics (nothing loads while empty). Event dictionary and setup
+  steps in `docs/handover-for-alex.md`.
 
 Other launch tasks (from the PRD checklist):
 
 - [ ] Create & verify the Google Business Profile (start early — postal verification is slow)
 - [ ] Replace the planned timetable in `src/pages/timetable.astro` with the live booking embed
-- [ ] Add GA4 + Search Console verification
+- [ ] Add GA4 + Search Console verification (GA4/Clarity: paste IDs in CMS → Studio Settings; add a cookie-consent notice before enabling in production)
 - [ ] Add real high-res photography (current images are cropped from Instagram at modest resolution)
 - [ ] Confirm final pricing (CMS → Pricing, or `src/content/pricing.json`)
 

@@ -30,3 +30,9 @@ export function whatsappLink(message = "Hi KLUB! I'd like to book a class. Can y
 export function bookLink() {
   return SITE.bookingUrl || '/book/';
 }
+
+// The one primary CTA label, repeated verbatim wherever the main Book action
+// appears (hero, sticky bar, closing section) — editable once in the CMS.
+export function primaryCta() {
+  return SITE.ctaLabel || 'Book Your First Class — €20';
+}

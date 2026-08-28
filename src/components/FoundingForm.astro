@@ -51,7 +51,7 @@ const { compact = false, source = 'founding-page' } = Astro.props;
     <label for="ff-consent">Keep me posted about KLUB's opening and founding-member offers, and I accept the privacy policy.</label>
   </div>
   <p id="ff-consent-note" class="consent-note"><a href="/policies/">Read the privacy policy</a></p>
-  <button class="btn btn--accent" type="submit">Join the List</button>
+  <button class="btn btn--accent" type="submit" data-cta={`founding-submit-${source}`}>Join the List</button>
   <p class="form-note">We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.</p>
 </form>
 
