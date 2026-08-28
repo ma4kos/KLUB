@@ -5,6 +5,14 @@ current KLUB site, brand system and pre-launch constraints. Concept images live 
 this folder: [`2026-08-homepage-options-1-2-3.jpg`](./2026-08-homepage-options-1-2-3.jpg)
 and [`2026-08-homepage-developed-comp.jpg`](./2026-08-homepage-developed-comp.jpg).*
 
+> **Context (28 Aug):** the concepts were sent over by Alex (Izzy's partner) on 27 Aug
+> asking for feedback. His stated goal is a hard "book now" CTA; his stated worry is
+> losing per-page analytics granularity on a long single-page layout. Some facts in the
+> mocks that differ from this repo (pricing, class lineup, the Mesa Geitonia address)
+> may therefore be *their newer real data* rather than placeholder — they need
+> confirming with Alex/Izzy, not silently corrected either way. The analytics and CTA
+> questions are answered in the feedback sent back to Alex (summarised in the PR thread).
+
 ## Verdict, up front
 
 **Option 1 (Editorial / Minimal / Architectural) is the right base direction**, developed
@@ -100,19 +108,20 @@ membership cards → FAQ accordion) and a full sitemap footer. Good long-term ho
   the single conversion that matters before opening. The comp has no founding/pre-launch
   capture at all — that must be reinstated whatever the layout.
 
-## Content red flags in the mockups (do not adopt)
+## Content discrepancies in the mockups (confirm before adopting)
 
-The concepts contain invented placeholder content. If any concept is implemented, the
-copy/data comes from `src/content/*.json`, not the mock:
+Several facts in the concepts differ from the repo's content (which was synced from the
+live KLUB site). Each one is either AI placeholder **or** newer information from
+Alex/Izzy — confirm which before any of it ships, in either direction:
 
-| In the mockups | Reality in the repo |
+| In the mockups | In the repo (synced from the live site) |
 |---|---|
 | Intro offer "3 classes for €39" | Intro **class €20**; 3-class intro **€55** (`pricing.json`) |
 | "KLUB Pass — 8 classes €136" | 8-class pack **€176** |
 | "Unlimited €148/month" | KLUB+ Unlimited **€280/month** |
-| Classes: Reformer / **Mat** / **Sculpt** / Private | Reformer **Fundamentals / Flow / Power** / Private Sessions — no Mat or Sculpt classes exist (`classes.json`) |
-| Address "Archiepiskopou Leontiou A', Mesa Geitonia 4006" | Street address is deliberately unannounced (`studio.json`); Mesa Geitonia also isn't "city center", which the brand claims everywhere |
-| Live weekly schedule with Book buttons | No booking system yet; timetable is a planned grid |
+| Classes: Reformer / **Mat** / **Sculpt** / Private | Reformer **Fundamentals / Flow / Power** / Private Sessions — no Mat or Sculpt in the catalogue (`classes.json`); are Mat/Sculpt planned formats? |
+| Address "Archiepiskopou Leontiou A', Mesa Geitonia 4006" | Street address unannounced (`studio.json`) — is this the confirmed address? Note Mesa Geitonia isn't "city center", which the brand claims everywhere |
+| Live weekly schedule with Book buttons | No booking system connected yet; timetable is a planned grid |
 | No opening date, no founding-member offer | "Opening September 2026" + founding capture are the site's core pre-launch message |
 
 The hero line itself — "Keep living under balance." — is legitimate (it's the brand
