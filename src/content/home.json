@@ -18,18 +18,45 @@
   "story": {
     "eyebrow": "The KLUB Standard",
     "heading": "The world's best Pilates,\n*brought home to Cyprus*",
-    "lede": "Our founder trained and taught in the studios of London and Dubai — and built her online studio from the island. KLUB brings all of it home to Limassol.",
+    "lede": "Our instructors trained and taught in the studios of London and Dubai. KLUB brings that standard home to Limassol.",
     "triptych": [
-      { "video": "/videos/dubai-studio.mp4", "poster": "/videos/dubai-studio-poster.jpg", "label": "Refined abroad", "sublabel": "Teaching in Dubai's studios" },
-      { "video": "/videos/cyprus-pool.mp4", "poster": "/videos/cyprus-pool-poster.jpg", "label": "Rooted in Cyprus", "sublabel": "Movement under the Limassol sun" },
-      { "video": "/videos/studio-lounge.mp4", "poster": "/videos/studio-lounge-poster.jpg", "label": "Home in Limassol", "sublabel": "The KLUB studio, ready for you" }
+      {
+        "video": "/videos/dubai-studio.mp4",
+        "poster": "/videos/dubai-studio-poster.jpg",
+        "label": "Refined abroad",
+        "sublabel": "Teaching in Dubai's studios"
+      },
+      {
+        "video": "/videos/cyprus-pool.mp4",
+        "poster": "/videos/cyprus-pool-poster.jpg",
+        "label": "Rooted in Cyprus",
+        "sublabel": "Movement under the Limassol sun"
+      },
+      {
+        "video": "/videos/studio-lounge.mp4",
+        "poster": "/videos/studio-lounge-poster.jpg",
+        "label": "Home in Limassol",
+        "sublabel": "The KLUB studio, ready for you"
+      }
     ]
   },
   "stats": [
-    { "big": "6", "small": "people max per class — you're seen, every rep" },
-    { "big": "50~′~", "small": "minutes of focused, full-body work" },
-    { "big": "3", "small": "cities of training behind every class — London, Dubai, Cyprus" },
-    { "big": "€20", "small": "your first class. No commitment, all welcome" }
+    {
+      "big": "6",
+      "small": "people max per class — you're seen, every rep"
+    },
+    {
+      "big": "50~′~",
+      "small": "minutes of focused, full-body work"
+    },
+    {
+      "big": "3",
+      "small": "cities of training behind every class — London, Dubai, Cyprus"
+    },
+    {
+      "big": "€20",
+      "small": "your first class. No commitment, all welcome"
+    }
   ],
   "about": {
     "eyebrow": "About KLUB",
@@ -49,21 +76,33 @@
     "lede": "Four ways to move, from your first step to your strongest self."
   },
   "izzy": {
-    "eyebrow": "Your Instructor",
-    "heading": "Meet *Izzy*",
-    "lede": "Royal Academy of Dance graduate. Certified reformer and mat Pilates instructor. Pre/post-natal qualified. From London stages to Dubai studios — now bringing it all home to Limassol.",
-    "buttonLabel": "Her Story",
-    "image": "/images/izzy-dubai-teaching.jpg",
-    "alt": "Izzy Nicolaou guiding a reformer Pilates class in an arched, softly lit Dubai studio"
+    "eyebrow": "Your Instructors",
+    "heading": "Expert *guidance*",
+    "lede": "Classically trained, internationally certified instructors — reformer and mat qualified, pre/post-natal certified, with teaching experience from London and Dubai's best studios. Now bringing that standard to Limassol.",
+    "buttonLabel": "Meet the Team",
+    "image": "/images/instructor-dubai-teaching.jpg",
+    "alt": "Instructor guiding a reformer Pilates class in an arched, softly lit studio"
   },
   "pricingTeaser": {
     "eyebrow": "Pricing",
     "heading": "Transparent *pricing*",
     "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
     "cards": [
-      { "eyebrow": "First Class", "price": "€20", "note": "New to reformer — your intro class" },
-      { "eyebrow": "Drop-In", "price": "€32", "note": "One class, whenever suits" },
-      { "eyebrow": "Private", "price": "€100", "note": "1-to-1 personal session" }
+      {
+        "eyebrow": "First Class",
+        "price": "€20",
+        "note": "New to reformer — your intro class"
+      },
+      {
+        "eyebrow": "Drop-In",
+        "price": "€32",
+        "note": "One class, whenever suits"
+      },
+      {
+        "eyebrow": "Private",
+        "price": "€100",
+        "note": "1-to-1 personal session"
+      }
     ]
   },
   "location": {

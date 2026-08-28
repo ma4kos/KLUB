@@ -1,0 +1,86 @@
+{
+  "seo": {
+    "title": "Our Instructors | Certified Reformer Pilates Team | KLUB Limassol",
+    "description": "The KLUB teaching team: internationally certified reformer Pilates instructors with classical dance foundations, trained and experienced in London and Dubai studios. Pre/post-natal qualified."
+  },
+  "hero": {
+    "eyebrow": "The Team",
+    "heading": "Our *Instructors*",
+    "lede": "Classically trained. Internationally certified. Experienced in some of the world's best studios — and the reason your form is about to get very, very good.",
+    "video": "/videos/cyprus-pool.mp4",
+    "poster": "/videos/cyprus-pool-poster.jpg"
+  },
+  "stats": [
+    { "big": "Certified", "small": "reformer & mat instructors, comprehensively trained" },
+    { "big": "3", "small": "cities of teaching experience — London, Dubai, Cyprus" },
+    { "big": "Pre/Post", "small": "natal qualified — every stage, safely" },
+    { "big": "1000s", "small": "of classes taught, in studios and online" }
+  ],
+  "journeyEyebrow": "The Standard",
+  "journeyHeading": "London. Dubai. *Home.*",
+  "journey": [
+    {
+      "place": "London",
+      "era": "The foundation",
+      "title": "Trained where movement is a language",
+      "body": "Our teaching is built on classical dance education at degree level — training from one of the world's most respected movement traditions. Years of classical discipline teach what most fitness certifications never do: how bodies actually learn to move, and how to teach with precision and patience.",
+      "mediaType": "image",
+      "image": "/images/instructor-mat-wide.jpg",
+      "imageAlt": "Instructor moving through a mat Pilates sequence in warm Mediterranean light",
+      "wide": true
+    },
+    {
+      "place": "Dubai",
+      "era": "The refinement",
+      "title": "Experience from world-class studios",
+      "body": "Our instructors have taught reformer Pilates in some of the region's most beautiful studios, training clients of every level — athletes, beginners, mothers, executives. It's where classical technique meets contemporary studio culture: teaching that is exacting, warm, and impossible to get lost in.",
+      "mediaType": "video",
+      "video": "/videos/dubai-studio.mp4",
+      "poster": "/videos/dubai-studio-poster.jpg"
+    },
+    {
+      "place": "The Method",
+      "era": "The approach",
+      "title": "Movement broken down until it clicks",
+      "body": "Thousands of hours of teaching — in studios and on camera — shape how we coach: every movement explained, every rep watched, every exercise adapted to the body in front of us. Classes are built on classical foundations and delivered with a contemporary flow.",
+      "mediaType": "video",
+      "video": "/videos/online-studio.mp4",
+      "poster": "/videos/online-studio-poster.jpg"
+    },
+    {
+      "place": "Limassol",
+      "era": "The home",
+      "title": "Bringing that standard to Cyprus",
+      "body": "KLUB is the studio we always wanted to walk into: bright, calm, seriously equipped, and small enough that every client is known by name. London's discipline, Dubai's polish, the island's soul — all under one roof in Limassol city center. The reformers are already on the floor.",
+      "mediaType": "video",
+      "video": "/videos/studio-reformers.mp4",
+      "poster": "/videos/studio-reformers-poster.jpg"
+    }
+  ],
+  "qualsEyebrow": "Credentials",
+  "qualsHeading": "Qualified is an *understatement*",
+  "quals": [
+    { "t": "Classical Dance Education", "s": "Degree-level training in teaching movement" },
+    { "t": "Certified Reformer Pilates Instructors", "s": "Comprehensive apparatus training" },
+    { "t": "Certified Mat Pilates Instructors", "s": "Classical foundations, contemporary method" },
+    { "t": "Pre & Post-Natal Qualified", "s": "Safe movement through pregnancy and recovery" },
+    { "t": "International Teaching Experience", "s": "London · Dubai · Cyprus" },
+    { "t": "Small-Group Specialists", "s": "Six people max — every rep is seen and corrected" }
+  ],
+  "langsLine": "Classes taught in English · Our team also speaks Greek · Fully certified and insured",
+  "quote": {
+    "text": "Pilates gives dancers strength without bulk, control without tension. It does the same for every body that walks in — you just have to *start*.",
+    "by": "— The KLUB teaching philosophy"
+  },
+  "follow": {
+    "eyebrow": "Can't wait for opening day?",
+    "heading": "Follow the *journey*",
+    "text": "The studio is taking shape week by week. Follow @klubstudios for previews of the space, the equipment and the classes — and be the first to know when the timetable goes live.",
+    "video": "/videos/mat-home.mp4",
+    "poster": "/videos/mat-home-poster.jpg"
+  },
+  "cta": {
+    "heading": "Your first class is *€20*",
+    "text": "Six people, fifty minutes, instructors who see every rep."
+  }
+}
