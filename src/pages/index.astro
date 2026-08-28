@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
-import ArchVideo from '../components/ArchVideo.astro';
 import Marquee from '../components/Marquee.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { CLASSES } from '../data/classes';
@@ -23,14 +22,20 @@ import { inline } from '../lib/inline';
         <p class="lede rise rise-d2">{home.heroLede}</p>
         <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href={bookLink()} data-cta="hero-book">{primaryCta()}</a>
-          <a class="btn btn--ghost" href="/timetable/" data-cta="hero-timetable">View Timetable</a>
+          <a class="btn btn--ghost" href="/about/" data-cta="hero-philosophy">Our Philosophy</a>
         </div>
       </div>
       <div class="hero-media rise rise-d2">
-        <ArchVideo src={home.heroVideo} poster={home.heroPoster} class="hero-film" eager />
-        <div class="hero-mini arch">
-          <Pic src={home.heroMiniImage} alt={home.heroMiniAlt} width={322} height={431} loading="eager" />
-        </div>
+        <video
+          class="hero-video"
+          src={home.heroVideo}
+          poster={home.heroPoster}
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-label="Inside the KLUB Pilates studio in Limassol"
+        ></video>
       </div>
     </div>
   </section>
@@ -56,26 +61,7 @@ import { inline } from '../lib/inline';
         <a class="btn btn--ghost" href="/about/" data-cta="about-more">{home.about.buttonLabel}</a>
       </div>
     </div>
-  </section>
-
-  <!-- 02 · The standard (world to island story) -->
-  <section class="section" data-section="the-standard">
     <div class="container">
-      <div class="chapter story-head reveal">
-        <span class="chapter-no" aria-hidden="true">02</span>
-        <div>
-          <span class="eyebrow">{home.story.eyebrow}</span>
-          <h2 set:html={inline(home.story.heading)} />
-          <p class="lede">{home.story.lede}</p>
-        </div>
-      </div>
-      <div class="triptych">
-        {home.story.triptych.map((t, i) => (
-          <div class:list={['reveal', { 'reveal-d1': i === 1, 'reveal-d2': i === 2 }]}>
-            <ArchVideo src={t.video} poster={t.poster} label={t.label} sublabel={t.sublabel} />
-          </div>
-        ))}
-      </div>
       <div class="stat-row story-stats reveal">
         {home.stats.map((s) => (
           <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
@@ -84,11 +70,11 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 03 · Find your balance (classes as editorial rows) -->
-  <section class="section section--white" data-section="classes">
+  <!-- 02 · Find your balance (classes as editorial rows) -->
+  <section class="section" data-section="classes">
     <div class="container">
       <div class="chapter reveal">
-        <span class="chapter-no" aria-hidden="true">03</span>
+        <span class="chapter-no" aria-hidden="true">02</span>
         <div>
           <span class="eyebrow">{home.classesHead.eyebrow}</span>
           <h2 set:html={inline(home.classesHead.heading)} />
@@ -115,12 +101,12 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 04 · Start here (intro offer / pricing preview) -->
-  <section class="section" data-section="start-here">
+  <!-- 03 · Start here (intro offer / pricing preview) -->
+  <section class="section section--white" data-section="start-here">
     <div class="container split">
       <div class="reveal">
         <div class="chapter">
-          <span class="chapter-no" aria-hidden="true">04</span>
+          <span class="chapter-no" aria-hidden="true">03</span>
           <div>
             <span class="eyebrow">{home.pricingTeaser.eyebrow}</span>
             <h2 set:html={inline(home.pricingTeaser.heading)} />
@@ -144,11 +130,11 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 05 · The KLUB experience (full-bleed moment) -->
-  <section class="section section--white exp" data-section="experience">
+  <!-- 04 · The KLUB experience (studio gallery) -->
+  <section class="section" data-section="experience">
     <div class="container">
-      <div class="chapter reveal">
-        <span class="chapter-no" aria-hidden="true">05</span>
+      <div class="chapter exp-head reveal">
+        <span class="chapter-no" aria-hidden="true">04</span>
         <div>
           <span class="eyebrow">{home.experience.eyebrow}</span>
           <h2 set:html={inline(home.experience.heading)} />
@@ -156,18 +142,22 @@ import { inline } from '../lib/inline';
           <a class="btn btn--ghost" href="/about/" data-cta="experience-look">{home.experience.buttonLabel}</a>
         </div>
       </div>
-    </div>
-    <div class="exp-bleed reveal">
-      <Pic src={home.experience.image} alt={home.experience.alt} width={1600} height={900} />
+      <div class="exp-gallery">
+        {home.experience.gallery.map((g, i) => (
+          <div class:list={['exp-shot reveal', `reveal-d${i}`]}>
+            <Pic src={g.image} alt={g.alt} width={640} height={480} />
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- 06 · Move with us (instructors) -->
+  <!-- 05 · Move with us (instructors) -->
   <section class="section section--sand" data-section="instructors">
     <div class="container split">
       <div class="reveal">
         <div class="chapter">
-          <span class="chapter-no" aria-hidden="true">06</span>
+          <span class="chapter-no" aria-hidden="true">05</span>
           <div>
             <span class="eyebrow">{home.izzy.eyebrow}</span>
             <h2 set:html={inline(home.izzy.heading)} />
@@ -182,7 +172,7 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 07 · Find us (location) -->
+  <!-- 06 · Find us (location) -->
   <section class="section" data-section="location">
     <div class="container split">
       <div class="arch reveal">
@@ -190,7 +180,7 @@ import { inline } from '../lib/inline';
       </div>
       <div class="reveal reveal-d1">
         <div class="chapter">
-          <span class="chapter-no" aria-hidden="true">07</span>
+          <span class="chapter-no" aria-hidden="true">06</span>
           <div>
             <span class="eyebrow">{home.location.eyebrow}</span>
             <h2 set:html={inline(home.location.heading)} />
@@ -208,12 +198,12 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 08 · Keep living under balance (founding member / closing CTA) -->
+  <!-- 07 · Keep living under balance (founding member / closing CTA) -->
   <section class="section section--dark" data-section="founding">
     <div class="container split">
       <div class="reveal">
         <div class="chapter chapter--dark">
-          <span class="chapter-no" aria-hidden="true">08</span>
+          <span class="chapter-no" aria-hidden="true">07</span>
           <div>
             <h2 set:html={inline(home.founding.heading)} />
           </div>
@@ -246,19 +236,20 @@ import { inline } from '../lib/inline';
     max-width: 12ch;
   }
   .hero-copy .lede { max-width: 46ch; }
-  .hero-media { position: relative; max-width: 400px; justify-self: center; width: 100%; }
-  .hero-media :global(.hero-film) { width: 82%; margin-left: auto; }
-  .hero-mini {
-    position: absolute;
-    left: -6%;
-    bottom: -8%;
-    width: 44%;
-    box-shadow: 0 24px 48px -24px rgba(26, 23, 20, 0.35);
+  .hero-media { max-width: 360px; justify-self: center; width: 100%; }
+  .hero-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--line);
     background: var(--sand);
+    box-shadow: 0 24px 48px -24px rgba(26, 23, 20, 0.28);
   }
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-media { max-width: 320px; margin-top: 12px; }
+    .hero-media { max-width: 300px; margin-top: 12px; }
   }
 
   /* Numbered chapter headers — the scroll's narrative spine */
@@ -274,18 +265,6 @@ import { inline } from '../lib/inline';
   .chapter h2 { margin-bottom: 0.35em; }
   .chapter .lede { margin-bottom: 0; }
 
-  .story-head { max-width: 780px; margin-bottom: 48px; }
-  .triptych {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(20px, 3.5vw, 44px);
-    align-items: end;
-  }
-  .triptych > div:nth-child(2) { transform: translateY(-24px); }
-  @media (max-width: 780px) {
-    .triptych { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-    .triptych > div:nth-child(2) { transform: none; }
-  }
   .story-stats { margin-top: clamp(48px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: 40px; }
 
   /* Classes as editorial rows (thumbnail · name · descriptor · arrow) */
@@ -321,12 +300,25 @@ import { inline } from '../lib/inline';
   .big-price { font-family: var(--serif); font-size: 44px; margin: 0; }
   .price-teaser p:last-child { color: var(--ink-soft); font-size: 14px; margin: 0; }
 
-  /* Full-bleed experience moment — the one immersive accent */
-  .exp { padding-bottom: 0; }
-  .exp .chapter { margin-bottom: clamp(32px, 5vw, 48px); }
-  .exp .chapter .btn { margin-top: 18px; }
-  .exp-bleed { width: 100%; height: clamp(320px, 58vh, 640px); overflow: hidden; }
-  .exp-bleed :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  /* Studio gallery — framed shots in a row, per the Option 1 concept */
+  .exp-head { margin-bottom: clamp(32px, 5vw, 48px); }
+  .exp-head .btn { margin-top: 18px; }
+  .exp-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  .exp-shot {
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--line);
+    aspect-ratio: 4 / 3;
+  }
+  .exp-shot :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 720px) {
+    .exp-gallery { grid-template-columns: 1fr; }
+    .exp-shot { aspect-ratio: 3 / 2; }
+  }
 
   .instructor-teaser { max-width: 420px; justify-self: center; }
 

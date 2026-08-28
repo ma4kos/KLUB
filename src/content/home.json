@@ -1,11 +1,9 @@
 {
   "heroEyebrow": "Pilates Studio · Limassol City Center · Opening September 2026",
   "heroHeading": "Keep\nliving\nunder\n*balance.*",
-  "heroLede": "Premium reformer Pilates in the heart of Limassol — small groups of six, private 1-to-1 sessions, and a space that feels like an exhale.",
-  "heroVideo": "/videos/studio-tour.mp4",
-  "heroPoster": "/videos/studio-tour-poster.jpg",
-  "heroMiniImage": "/images/arch-entrance.jpg",
-  "heroMiniAlt": "Arched entrance of KLUB Pilates studio in Limassol with a glowing circular KLUB logo and olive tree",
+  "heroLede": "Pilates for strength, control and balance inside the studio and beyond it.",
+  "heroVideo": "/videos/klub-studio-instagram.mp4",
+  "heroPoster": "/videos/klub-studio-instagram-poster.jpg",
   "marquee": [
     "Reformer Pilates",
     "*Limassol City Center*",
@@ -15,31 +13,6 @@
     "Pre & post-natal certified",
     "Opening *September 2026*"
   ],
-  "story": {
-    "eyebrow": "The KLUB Standard",
-    "heading": "The world's best Pilates,\n*brought home to Cyprus*",
-    "lede": "Our instructors trained and taught in the studios of London and Dubai. KLUB brings that standard home to Limassol.",
-    "triptych": [
-      {
-        "video": "/videos/dubai-studio.mp4",
-        "poster": "/videos/dubai-studio-poster.jpg",
-        "label": "Refined abroad",
-        "sublabel": "Teaching in Dubai's studios"
-      },
-      {
-        "video": "/videos/cyprus-pool.mp4",
-        "poster": "/videos/cyprus-pool-poster.jpg",
-        "label": "Rooted in Cyprus",
-        "sublabel": "Movement under the Limassol sun"
-      },
-      {
-        "video": "/videos/studio-lounge.mp4",
-        "poster": "/videos/studio-lounge-poster.jpg",
-        "label": "Home in Limassol",
-        "sublabel": "The KLUB studio, ready for you"
-      }
-    ]
-  },
   "stats": [
     {
       "big": "6",
@@ -67,8 +40,8 @@
     ],
     "pullQuote": "Chill vibes are found here.",
     "buttonLabel": "Step Inside",
-    "image": "/images/reception.jpg",
-    "alt": "Warm minimalist reception area at KLUB Pilates Limassol with stone desk, soft seating and natural textures"
+    "image": "/images/interior-arch.jpg",
+    "alt": "Arched doorway and warm minimalist interior at KLUB Pilates studio in Limassol"
   },
   "classesHead": {
     "eyebrow": "Classes",
@@ -110,8 +83,20 @@
     "heading": "Thoughtful design. *Premium equipment.*",
     "text": "Warm plaster, arched doorways, soft light and serious reformers — a space designed to focus on you.",
     "buttonLabel": "Take a Look",
-    "image": "/images/klub-reformers.jpg",
-    "alt": "Row of reformer Pilates machines in the warm, softly lit KLUB studio in Limassol"
+    "gallery": [
+      {
+        "image": "/images/reception.jpg",
+        "alt": "Warm minimalist reception area at KLUB Pilates Limassol with stone desk and soft seating"
+      },
+      {
+        "image": "/images/klub-reformers.jpg",
+        "alt": "Row of reformer Pilates machines in the warm, softly lit KLUB studio in Limassol"
+      },
+      {
+        "image": "/images/klub-window-reformer.jpg",
+        "alt": "KLUB studio window with backlit sign, bonsai tree and a reformer in the foreground"
+      }
+    ]
   },
   "location": {
     "eyebrow": "Find Us",

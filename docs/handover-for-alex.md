@@ -7,28 +7,30 @@ that spec and the same decisions survive the rebuild.*
 
 ## 1. The layout
 
-The homepage now follows the editorial numbered-chapter layout from the concepts you
-sent (the "Option 1" direction): a tracked-out caps hero — **KEEP LIVING UNDER
-BALANCE.** — then eight numbered chapters on warm linen/white/sand backgrounds:
+The homepage follows the editorial numbered-chapter layout from the Option 1 concept
+you sent: a tracked-out caps hero — **KEEP LIVING UNDER BALANCE.** — then seven
+numbered chapters on warm linen/white/sand backgrounds, matching the concept's order:
 
 | # | Chapter | What it does |
 |---|---|---|
-| — | Hero | Headline, one-line pitch, primary Book button + timetable link |
-| 01 | The Klub | What KLUB is, in two paragraphs |
-| 02 | The Standard | The London/Dubai→Limassol story + the numbers row |
-| 03 | Find Your Balance | The four classes as tappable rows (photo · name · one-liner · arrow) |
-| 04 | Start Here | Intro pricing cards (€20 first class / €32 drop-in / €100 private) + Book button |
-| 05 | The KLUB Experience | The one full-screen photo moment (the "Option 2" accent) |
-| 06 | Move With Us | Instructors / community teaser |
-| 07 | Find Us | Location (address auto-appears site-wide once set in the admin panel) |
-| 08 | Keep Living Under Balance | Closing: founding-member signup + Book button |
+| — | Hero | Headline, your one-line pitch, primary Book button + real studio video (from @klubstudios) |
+| 01 | The Klub | What KLUB is + the numbers row |
+| 02 | Find Your Balance | The four classes as tappable rows (photo · name · one-liner · arrow) |
+| 03 | Start Here | Intro pricing cards (€20 first class / €32 drop-in / €100 private) + Book button |
+| 04 | The KLUB Experience | Studio photo gallery (real interiors) |
+| 05 | Move With Us | Instructors / community teaser |
+| 06 | Find Us | Location (address auto-appears site-wide once set in the admin panel) |
+| 07 | Keep Living Under Balance | Closing: founding-member signup + Book button |
 
 Deliberate choices:
 
+- **Real media only.** The hero video and every photo are from the KLUB studio /
+  @klubstudios — no stock, no AI-generated footage. The earlier placeholder videos are
+  no longer used on the homepage (the instructors page still carries some — flagged as
+  a follow-up).
 - **Text sits on solid backgrounds, photos live in frames** — best readability on
-  phones, and it works with today's photography. One full-bleed moment (05), not seven:
-  when everything is dramatic, nothing is.
-- **The founding-member capture stays** (chapter 08). Until the doors open, an email on
+  phones, and it works with today's photography.
+- **The founding-member capture stays** (chapter 07). Pre-launch, an email on
   the list is worth more than a page view. Don't remove it in any redesign before launch.
 - **All text/photos are editable without code** at `/admin/` (the Homepage entry).
   The spaced-out caps are done with CSS letter-spacing — never type literal spaces
@@ -38,17 +40,17 @@ Deliberate choices:
 
 One primary action, repeated — never competing:
 
-- **One label everywhere**: "Book Your First Class — €20" (hero, chapter 04, chapter 08,
+- **One label everywhere**: "Book Your First Class — €20" (hero, chapter 03, chapter 07,
   mobile sticky bar). A priced offer converts better than a generic "book now". Edit it
   once in `/admin/` → Studio Settings → *Main booking button text* and it changes
   everywhere — e.g. when the price changes or after launch ("Book a Class").
 - **Sticky mobile bar**: on phones, a booking bar slides in once you scroll past the
   hero and stays one thumb-tap away for the whole page. Desktop keeps the Book button
   pinned in the header.
-- **Every Book button on the site already points at one switch**: paste your live
-  booking URL (Wix Bookings or anything else) into `/admin/` → Studio Settings →
-  *Online booking link*, and every button flips from the pre-launch page to real
-  booking. No code.
+- **Every Book button already points at your live booking page** —
+  `https://www.keeplivingunderbalance.com/reformer-experiences` — via one switch in
+  `/admin/` → Studio Settings → *Online booking link*. Change that one field (e.g. to a
+  new booking system later) and every button on the site follows. No code.
 - **Next-level (when the booking system exists):** make each class row / timetable slot
   deep-link into the booking flow with that class pre-selected. That's the single
   biggest conversion upgrade available.
@@ -120,20 +122,22 @@ LAYOUT — editorial, minimal, architectural:
 - Hero: uppercase letter-spaced headline "Keep living under balance." (use CSS
   letter-spacing, never literal spaces), one-line intro, primary button.
 - Then numbered chapters (01, 02, …) each with a large faint serif number:
-  01 about the studio · 02 credibility story + stats row · 03 the four classes as
-  horizontal rows (thumbnail, name, one-line description, arrow) · 04 intro pricing
-  cards · 05 ONE full-bleed photo section (the only full-screen image) · 06 team ·
-  07 location · 08 dark closing section with email signup + book button.
-- Photos framed inside sections everywhere except chapter 05. Mobile-first: chapters
-  stack, no horizontal scrolling.
+  01 about the studio + stats row · 02 the four classes as horizontal rows
+  (thumbnail, name, one-line description, arrow) · 03 intro pricing cards ·
+  04 studio photo gallery · 05 team · 06 location · 07 dark closing section with
+  email signup + book button.
+- Photos framed inside sections. Mobile-first: chapters stack, no horizontal
+  scrolling. Use ONLY real KLUB photography/video (studio shots, @klubstudios
+  content) — no stock or AI-generated imagery.
 
 CTA RULES:
 - ONE primary CTA label used verbatim everywhere: "Book Your First Class — €20"
-  (hero, chapter 04, chapter 08). All Book buttons point to one configurable
-  booking URL.
+  (hero, chapter 03, chapter 07). All Book buttons point to one configurable
+  booking URL — currently
+  https://www.keeplivingunderbalance.com/reformer-experiences
 - Sticky header with a compact "Book Now" button on desktop; on mobile a sticky
   bottom bar with the primary CTA that appears after scrolling past the hero.
-- Before launch, chapter 08 is a founding-member email signup — do not remove it.
+- Before launch, chapter 07 is a founding-member email signup — do not remove it.
 
 TRACKING (GA4, event-based):
 - Give every CTA a data-cta id (hero-book, sticky-book, class-<slug>, closing-book…).
