@@ -1,0 +1,63 @@
+# Copilot review + auto-merge
+#
+# Policy (requested by the repo owner, Aug 2026): every non-draft pull request
+# gets a GitHub Copilot code review requested automatically; once Copilot has
+# submitted its review (anything except "changes requested") and all checks on
+# the PR are green, the PR is merged automatically.
+#
+# Requirements: Copilot code review must be available on this repository.
+# To pause the policy, disable or delete this workflow file.
+
+name: Copilot review & auto-merge
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  request-copilot-review:
+    if: github.event_name == 'pull_request' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a Copilot review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/requested_reviewers" \
+            -f 'reviewers[]=copilot-pull-request-reviewer[bot]' \
+            && echo "Copilot review requested" \
+            || echo "::warning::Could not request a Copilot review (is Copilot code review enabled for this repo?)"
+
+  auto-merge:
+    # Exact-login + Bot-type match so an account-name collision can never
+    # trigger a merge. Copilot code review submits "commented" reviews (it
+    # rarely approves), so per the repo owner's policy any Copilot review
+    # except "changes requested" clears the gate — checks must still pass.
+    if: >-
+      github.event_name == 'pull_request_review' &&
+      github.event.review.user.login == 'copilot-pull-request-reviewer[bot]' &&
+      github.event.review.user.type == 'Bot' &&
+      github.event.review.state != 'changes_requested' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for checks, then merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          # Wait for every other check on the PR head to finish; fails if any fail.
+          gh pr checks "$PR" --repo "${{ github.repository }}" --watch --fail-fast || {
+            echo "::warning::Checks failed or pending — not merging PR #$PR"
+            exit 0
+          }
+          gh pr merge "$PR" --repo "${{ github.repository }}" --merge \
+            && echo "PR #$PR merged after Copilot review" \
+            || echo "::warning::Merge failed for PR #$PR (conflict or protection rule?)"

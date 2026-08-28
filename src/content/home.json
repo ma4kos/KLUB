@@ -2,8 +2,10 @@
   "heroEyebrow": "Pilates Studio · Limassol City Center · Opening September 2026",
   "heroHeading": "Keep\nliving\nunder\n*balance.*",
   "heroLede": "Pilates for strength, control and balance inside the studio and beyond it.",
+  "heroSecondaryLabel": "Our Philosophy",
+  "bookNote": "€20 intro class · Free cancellation up to 12 hours before",
   "heroVideo": "/videos/klub-studio-instagram.mp4",
-  "heroPoster": "/videos/klub-studio-instagram-poster.jpg",
+  "heroPoster": "/videos/klub-studio-instagram-poster.webp",
   "marquee": [
     "Reformer Pilates",
     "*Limassol City Center*",
@@ -40,26 +42,33 @@
     ],
     "pullQuote": "Chill vibes are found here.",
     "buttonLabel": "Step Inside",
-    "image": "/images/interior-arch.jpg",
-    "alt": "Arched doorway and warm minimalist interior at KLUB Pilates studio in Limassol"
+    "image": "/images/alex-corridor-k.jpg",
+    "alt": "Warm corridor at KLUB Pilates studio with a potted plant, soft light and a glowing K sign on the wall"
   },
   "classesHead": {
     "eyebrow": "Classes",
     "heading": "Find *your* balance",
-    "lede": "Different classes. Different focus. One goal: the best version of you."
+    "lede": "Different classes. Different focus. One goal: the best version of you.",
+    "buttonLabel": "Explore All Classes"
   },
   "izzy": {
-    "eyebrow": "Your Instructors",
-    "heading": "Expert *guidance*",
-    "lede": "Classically trained, internationally certified instructors — reformer and mat qualified, pre/post-natal certified, with teaching experience from London and Dubai's best studios. Now bringing that standard to Limassol.",
+    "eyebrow": "Community",
+    "heading": "Move *with us*",
+    "lede": "A community that motivates, inspires and grows together — guided by classically trained, internationally certified instructors with experience from London and Dubai's best studios.",
     "buttonLabel": "Meet the Team",
-    "image": "/images/instructor-dubai-teaching.jpg",
-    "alt": "Instructor guiding a reformer Pilates class in an arched, softly lit studio"
+    "image": "/images/alex-team-sofa.jpg",
+    "alt": "Five KLUB instructors in black activewear sitting together on a cream sofa, talking and laughing"
   },
   "pricingTeaser": {
     "eyebrow": "Pricing",
     "heading": "Start *here*",
     "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
+    "listLabel": "View Full Price List",
+    "includes": [
+      "Valid for 7 days",
+      "All levels welcome",
+      "New clients only"
+    ],
     "cards": [
       {
         "eyebrow": "First Class",
@@ -85,12 +94,12 @@
     "buttonLabel": "Take a Look",
     "gallery": [
       {
-        "image": "/images/reception.jpg",
-        "alt": "Warm minimalist reception area at KLUB Pilates Limassol with stone desk and soft seating"
+        "image": "/images/alex-reception.jpg",
+        "alt": "Minimalist plaster reception desk at KLUB with warm underlighting and potted plants"
       },
       {
-        "image": "/images/klub-reformers.jpg",
-        "alt": "Row of reformer Pilates machines in the warm, softly lit KLUB studio in Limassol"
+        "image": "/images/alex-hero-room.jpg",
+        "alt": "Sunlit KLUB studio room with black reformer machines, sheer curtains and plants"
       },
       {
         "image": "/images/klub-window-reformer.jpg",
@@ -101,10 +110,13 @@
   "location": {
     "eyebrow": "Find Us",
     "heading": "In the heart *of Limassol*",
+    "directionsLabel": "Location & Directions",
+    "messageLabel": "Message Us",
     "image": "/images/street-sign.jpg",
     "alt": "Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
   },
   "founding": {
+    "eyebrow": "Founding Circle",
     "heading": "Be part of the *founding circle*",
     "text": "Join before we open for exclusive founding member rates and first access to bookings. Early members choose their class times before anyone else."
   }

@@ -3,17 +3,33 @@ interface Props { items: string[] }
 const { items } = Astro.props;
 const strip = items;
 ---
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    {[0, 1].map(() => (
-      <>
-        {strip.map((t, i) => (
-          <>
-            <span set:html={t} />
-            <span><em>·</em></span>
-          </>
-        ))}
-      </>
-    ))}
+<div class="marquee">
+  <div class="marquee__viewport" aria-hidden="true">
+    <div class="marquee__track">
+      {[0, 1].map(() => (
+        <>
+          {strip.map((t, i) => (
+            <>
+              <span set:html={t} />
+              <span><em>·</em></span>
+            </>
+          ))}
+        </>
+      ))}
+    </div>
   </div>
+  <button class="marquee__pause" type="button" aria-pressed="false" aria-label="Pause scrolling text">❚❚</button>
 </div>
+
+<script>
+  // Keyboard/touch-operable pause for the auto-scrolling band (WCAG 2.2.2).
+  document.querySelectorAll('.marquee').forEach((m) => {
+    const b = m.querySelector('.marquee__pause');
+    b?.addEventListener('click', () => {
+      const paused = m.classList.toggle('marquee--paused');
+      b.setAttribute('aria-pressed', String(paused));
+      b.setAttribute('aria-label', paused ? 'Resume scrolling text' : 'Pause scrolling text');
+      b.textContent = paused ? '▶' : '❚❚';
+    });
+  });
+</script>
