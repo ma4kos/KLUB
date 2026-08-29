@@ -97,10 +97,36 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       REPO: ${{ github.repository }}
       COPILOT: copilot-pull-request-reviewer[bot]
+      REF_NAME: ${{ github.ref_name }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
       - name: Merge every pull request that has cleared the gate
         run: |
           set -uo pipefail
+
+          # The sweep runs from the default branch only.
+          #
+          # `workflow_dispatch` lets anyone with push access pick the ref to
+          # run from, and the workflow file executed is the one ON that ref —
+          # so without this, pushing a branch with an edited copy of this file
+          # and dispatching it would run arbitrary code holding a
+          # contents:write token that can merge to main. (`schedule` always
+          # runs the default branch, so this only constrains dispatch.)
+          #
+          # Checked HERE, in the step, rather than in the job's `if:`. A false
+          # `if:` skips the job silently and green — which is precisely the
+          # failure this whole workflow exists to fix, and it would look
+          # identical to a sweep that simply found nothing to do. An unset
+          # DEFAULT_BRANCH is treated the same way: refuse and say so, rather
+          # than quietly comparing against an empty string forever.
+          if [ -z "${DEFAULT_BRANCH:-}" ]; then
+            echo "::error::Could not read the repository's default branch; refusing to sweep."
+            exit 1
+          fi
+          if [ "$REF_NAME" != "$DEFAULT_BRANCH" ]; then
+            echo "::error::The merge sweep only runs from $DEFAULT_BRANCH; this run is on $REF_NAME."
+            exit 1
+          fi
 
           # Which pull requests to LOOK AT. Nothing this returns is trusted
           # for the merge decision itself — see the re-read inside the loop —
