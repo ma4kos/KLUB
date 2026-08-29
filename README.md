@@ -81,9 +81,12 @@ Settings) or directly in the file. When confirmed, fill in:
 - `streetAddress` — the exact street address. Appears in the footer, location page and
   LocalBusiness schema.
 - `bookingUrl` — the live booking system URL, when it exists.
-- `openingHours` — **placeholder values, confirm with Izzy before launch.** Currently
-  Mo–Fr 07:00–20:00 and Sa 09:00–12:00. These go straight to Google as the studio's
-  opening hours (`openingHoursSpecification` in the LocalBusiness schema).
+- `openingHours` — **deliberately empty until Izzy confirms the real hours.** Whatever
+  is entered here goes straight to Google as the studio's opening hours
+  (`openingHoursSpecification` in the LocalBusiness schema), so a guess would send
+  customers to a closed door. While the list is empty the schema block is omitted
+  entirely, which is the correct state: absent beats wrong. Add the rows in the CMS
+  (Studio Settings → Opening hours) once the timetable is set.
 - `ga4Id` / `clarityId` — paste the GA4 Measurement ID and/or Microsoft Clarity project
   ID to switch on analytics (nothing loads while empty). Event dictionary and setup
   steps in `docs/handover-for-alex.md`.
