@@ -71,10 +71,12 @@ A few fields do clever things across the whole site when you fill them in.
 They live in **Studio Settings → Contact, Socials & Banner**.
 
 ### Online booking link
-When your online booking system (Wix Bookings) is ready, paste its web address
-into **"Online booking link"**. The moment you do, **every "Book" button on the
-whole website** starts pointing at it automatically. Until then, Book buttons
-lead to the pre-launch "Book" page. You only set this in one place.
+This is **already set** — every "Book" button on the website currently sends
+people to your existing booking page at `keeplivingunderbalance.com`. When a new
+booking system is ready, replace the web address in **"Online booking link"** and
+**every "Book" button on the whole website** follows it automatically. You only
+set this in one place. If you ever clear the box, the buttons fall back to the
+pre-launch "Book" page on this site.
 
 ### WhatsApp number
 Type your WhatsApp Business number into **"WhatsApp number"** — digits only, no
@@ -185,7 +187,7 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
 | I want to… | Go to… |
 | --- | --- |
 | Change the opening message at the top | Studio Settings → Announcement banner |
-| Add the real booking link | Studio Settings → Online booking link |
+| Change where Book buttons go | Studio Settings → Online booking link |
 | Switch the chat button to WhatsApp | Studio Settings → WhatsApp number |
 | Update a class price | Pricing → Price Tables, **or** Classes (per-class price) |
 | Fix a typo on the homepage | Pages → Homepage |

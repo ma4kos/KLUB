@@ -32,9 +32,10 @@ class descriptions and the entire FAQ. Everything editable lives in `src/content
 each save is a git commit, and the site rebuilds automatically.
 
 The panel's built-in preview pane is disabled (`editor.preview: false`) — it renders
-field values with none of the site's CSS, which misleads more than it helps. Each entry
-instead carries a `preview_path` so the toolbar's **View Live** link opens that entry's
-real page.
+field values with none of the site's CSS, which misleads more than it helps. Every page
+entry instead carries a `preview_path`, so the toolbar's **View Live** link opens that
+entry's real page. Studio Settings has no page of its own, and the Homepage entry is the
+site root, so those two fall back to the site root.
 
 Guardrails worth knowing about when editing `config.yml`:
 

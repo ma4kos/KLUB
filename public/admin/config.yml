@@ -58,7 +58,7 @@ collections:
             required: false
             hint: "Paste the Wix Bookings URL here when it exists — every Book button on the site will point to it automatically."
             pattern: ['^$|^https://.+', 'Must start with https:// — paste the whole address from your browser']
-          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The one primary button repeated across the site (hero, mobile bar, closing section) — e.g. 'Book Your First Class — €20'. Change the price here once and it updates everywhere." }
+          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The main Book button, repeated on the homepage hero, price card, closing section and the phone bar. If you change the price in this text, change it in 'Compact booking button text' below as well, and check the homepage price cards and the Pricing page — those are separate." }
           - { label: "Compact booking button text", name: "ctaCompact", widget: "string", hint: "Short priced variant used in the slim header on narrower screens — e.g. 'Book · €20'." }
           - label: "Google Analytics 4 ID"
             name: "ga4Id"
@@ -713,7 +713,7 @@ collections:
                   - label: "Price"
                     name: "price"
                     widget: "string"
-                    pattern: ['^€[0-9]+$', 'Use a plain euro amount like €32 — no words']
+                    pattern: ['^\s*€\s*[0-9]+([.,][0-9]{2})?\s*$', 'A plain euro amount like €32 or €12.50 — digits only, no words']
                     hint: "This exact figure is also sent to Google as the price of this package, so it must be a bare amount."
                   - { label: "Per class/session", name: "per", widget: "string" }
                   - { label: "Note", name: "note", widget: "string" }

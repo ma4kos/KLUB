@@ -28,6 +28,7 @@ const CONFIG = path.join(ROOT, 'public/admin/config.yml');
 type Field = {
   name?: string;
   widget?: string;
+  required?: boolean;
   fields?: Field[];
   field?: Field;
   types?: Field[];
@@ -71,27 +72,83 @@ test('every declared collection file exists on disk and parses as JSON', () => {
   }
 });
 
+/**
+ * Compare the declared field tree against the real data tree, at EVERY level.
+ *
+ * A top-level-only comparison is not enough: Decap rebuilds nested objects and
+ * list items from their declared sub-fields too, so an undeclared key nested
+ * inside `home.about` is deleted on save exactly like a top-level one. This
+ * walks both trees together and reports dotted paths.
+ *
+ * Returns { orphans, missing } — orphans are data keys with no field (deleted
+ * on save); missing are fields with no data (form opens empty, save writes the
+ * blank back over whatever the page expected).
+ */
+function diffTree(
+  fields: Field[] | undefined,
+  data: unknown,
+  at: string,
+  acc: { orphans: string[]; missing: string[] }
+): void {
+  if (!Array.isArray(fields)) return;
+  if (data === null || typeof data !== 'object' || Array.isArray(data)) return;
+
+  const record = data as Record<string, unknown>;
+  const named = fields.filter((f) => typeof f.name === 'string');
+  const declared = new Set(named.map((f) => f.name as string));
+
+  for (const key of Object.keys(record)) {
+    if (!declared.has(key)) acc.orphans.push(at ? `${at}.${key}` : key);
+  }
+
+  for (const field of named) {
+    const name = field.name as string;
+    const path = at ? `${at}.${name}` : name;
+    if (!(name in record)) {
+      // An optional field is allowed to be absent — that is what optional
+      // means, and Decap writing a blank back over nothing loses nothing.
+      // A REQUIRED field with no data is the real defect: the form opens
+      // empty and the first save writes that blank over what the page needs.
+      if (field.required !== false) acc.missing.push(path);
+      continue;
+    }
+    const value = record[name];
+
+    // Nested object: recurse straight into its sub-fields.
+    if (field.widget === 'object') {
+      diffTree(field.fields, value, path, acc);
+      continue;
+    }
+
+    // List of objects: every item shares one declared shape, so check each.
+    // A list declared with a single `field` (or with none at all) holds
+    // scalars — there are no keys to compare.
+    if (field.widget === 'list' && Array.isArray(field.fields) && Array.isArray(value)) {
+      value.forEach((item, i) => diffTree(field.fields, item, `${path}[${i}]`, acc));
+    }
+  }
+}
+
 for (const entry of fileEntries) {
   const label = `${entry.collection}/${entry.name ?? entry.file}`;
 
-  test(`${label}: no JSON key is missing a CMS field`, () => {
+  test(`${label}: no JSON key at any depth is missing a CMS field`, () => {
     const data = JSON.parse(readFileSync(entry.abs, 'utf8'));
-    const declared = new Set((entry.fields ?? []).map((f) => f.name));
-    const orphans = Object.keys(data).filter((k) => !declared.has(k));
+    const acc = { orphans: [] as string[], missing: [] as string[] };
+    diffTree(entry.fields, data, '', acc);
     expect(
-      orphans,
-      `${entry.file}: Decap rewrites the whole file from declared fields, so these keys are DELETED on the next save: ${orphans.join(', ')}`
+      acc.orphans,
+      `${entry.file}: Decap rewrites the whole file from its declared fields, so these keys are DELETED the first time an editor presses Save: ${acc.orphans.join(', ')}`
     ).toEqual([]);
   });
 
-  test(`${label}: no CMS field is missing its data`, () => {
+  test(`${label}: no CMS field at any depth is missing its data`, () => {
     const data = JSON.parse(readFileSync(entry.abs, 'utf8'));
-    const missing = (entry.fields ?? [])
-      .map((f) => f.name)
-      .filter((name) => name !== undefined && !(name in data));
+    const acc = { orphans: [] as string[], missing: [] as string[] };
+    diffTree(entry.fields, data, '', acc);
     expect(
-      missing,
-      `${entry.file}: declared in config.yml but absent from the JSON, so the CMS form opens empty and the first save wipes whatever the page expected: ${missing.join(', ')}`
+      acc.missing,
+      `${entry.file}: declared in config.yml but absent from the JSON, so the CMS form opens empty and the first save writes that blank over whatever the page expected: ${acc.missing.join(', ')}`
     ).toEqual([]);
   });
 }

@@ -10,7 +10,7 @@ import page from '../content/pages/location.json';
       <span class="eyebrow">{page.hero.eyebrow}</span>
       <h1>{page.hero.heading}</h1>
       <p>
-        {SITE.streetAddress ? <>{SITE.streetAddress}, </> : null}{SITE.addressLocality}, {SITE.addressCountry}{!SITE.streetAddress && <> — {SITE.addressNote}</>}
+        {SITE.streetAddress ? <>{SITE.streetAddress}, </> : null}{SITE.addressLocality}, {SITE.addressCountry}{!SITE.streetAddress && <> — {SITE.addressNote.toLowerCase()}</>}
       </p>
     </div>
   </section>
