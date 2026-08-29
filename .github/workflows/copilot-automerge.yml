@@ -94,13 +94,19 @@ jobs:
             exit 0
           fi
 
-          while IFS=$'\t' read -r pr sha; do
+          # Read the candidate list on FD 3, not stdin. Every command in this
+          # loop inherits the loop's stdin, so any one of them that reads it
+          # would swallow the remaining candidates and silently leave later
+          # pull requests unmerged. FD 3 makes that impossible.
+          while IFS=$'\t' read -r pr sha <&3; do
             [ -n "$pr" ] || continue
             echo "::group::PR #$pr ($sha)"
 
             # Copilot must have reviewed THIS commit. Its code review submits
             # "COMMENTED" reviews far more often than "APPROVED", so per the
             # owner's policy anything except CHANGES_REQUESTED clears the gate.
+            #
+            # Two traps live in this one call, and both let a merge through.
             #
             # `--paginate` runs the jq program ONCE PER PAGE and concatenates
             # the output, so the reduction to a single review must happen in
@@ -115,10 +121,21 @@ jobs:
             # last line is the latest one. (The `candidates` query above is
             # safe under the same flag because it emits one line per pull
             # request and concatenating the pages is exactly what is wanted.)
-            state=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
+            #
+            # And the read must fail CLOSED. `--paginate` emits the pages it
+            # already fetched before erroring, so piping straight into
+            # `tail -n 1` would take the last line of a PARTIAL list and
+            # discard the non-zero status with it — a COMMENTED review on
+            # page 1 clearing the gate while an unread page 2 held the
+            # CHANGES_REQUESTED. Capturing first lets the status be checked.
+            if ! reviews=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
               --jq ".[]
                     | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")
-                    | .state" | tail -n 1)
+                    | .state"); then
+              echo "Holding: could not read the reviews for #$pr."
+              echo "::endgroup::"; continue
+            fi
+            state=$(printf '%s\n' "$reviews" | tail -n 1)
 
             if [ -z "$state" ]; then
               echo "Waiting: Copilot has not reviewed $sha yet."
@@ -152,4 +169,4 @@ jobs:
               && echo "PR #$pr merged after Copilot review" \
               || echo "::warning::Merge failed for PR #$pr (protection rule, or it moved under us)"
             echo "::endgroup::"
-          done <<< "$candidates"
+          done 3<<< "$candidates"
