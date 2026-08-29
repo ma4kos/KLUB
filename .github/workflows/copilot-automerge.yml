@@ -102,7 +102,13 @@ jobs:
     steps:
       - name: Merge every pull request that has cleared the gate
         run: |
-          set -uo pipefail
+          # -e explicitly, not merely inherited. Actions supplies `bash -e {0}`
+          # today, so this changes nothing right now — but this script merges
+          # to the default branch with a write token, and its error handling
+          # should not silently depend on a runner default this file does not
+          # control. The comments below reason about -e; this makes the thing
+          # they reason about actually present in the file.
+          set -euo pipefail
 
           # The sweep runs from the default branch only.
           #
@@ -132,14 +138,11 @@ jobs:
           # for the merge decision itself — see the re-read inside the loop —
           # so it yields numbers only.
           #
-          # Checked explicitly so the failure is NAMED. Actions runs `run:`
-          # steps as `bash -e {0}` and `set -uo pipefail` above does not clear
-          # that -e, so an unchecked `candidates=$(...)` would already abort
-          # the step rather than sail on — but it would abort with no
-          # explanation, and the distinction that matters here (an API failure
-          # versus a genuinely empty list, which must exit 0) would be lost.
-          # Checking it also stops the behaviour depending on the runner's
-          # default shell, which is not something this file controls.
+          # Checked explicitly so the failure is NAMED. With -e set above an
+          # unchecked `candidates=$(...)` would already abort the step rather
+          # than sail on, but it would abort with no explanation — and the
+          # distinction that matters here, an API failure versus a genuinely
+          # empty list (which must exit 0), would be lost either way.
           if ! candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
             --jq ".[]
                   | select(.draft == false)
@@ -231,11 +234,10 @@ jobs:
             # The read is also captured before it is reduced, so a failure is
             # caught here by name. `--paginate` emits the pages it already
             # fetched before erroring, so `gh ... | tail -n 1` would take the
-            # last line of a PARTIAL list. Under `bash -e` with pipefail that
-            # pipeline aborts the step, so it is not silently wrong today —
-            # but it dies anonymously mid-sweep, and it would become silently
-            # wrong under a shell without -e. Holding this one pull request,
-            # by name, is the right behaviour either way.
+            # last line of a PARTIAL list. With -e and pipefail that pipeline
+            # aborts the step, so it is not silently wrong — but it dies
+            # anonymously mid-sweep, naming neither the pull request nor the
+            # cause. Holding this one pull request, by name, is better.
             if ! reviews=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
               --jq ".[]
                     | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")
