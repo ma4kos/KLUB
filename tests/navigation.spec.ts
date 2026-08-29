@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { skipUnlessDesktop, skipUnlessMobile } from './helpers';
+import studio from '../src/content/studio.json' with { type: 'json' };
 
 /**
  * Header, footer and mobile-menu navigation.
@@ -6,23 +8,26 @@ import { test, expect } from '@playwright/test';
  * Header markup (from dist/index.html):
  *   <nav class="desktop-nav" aria-label="Primary"> Classes | Pricing |
  *     Timetable | Instructors | FAQ | Location </nav>
- *   <a class="book-cta" href="/book/">Book Now</a>
+ *   <a class="btn btn--primary btn--sm book-cta" data-cta="header-book"
+ *      href="{studio.bookingUrl || '/book/'}">
  *   <button id="nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
  *   <nav class="mobile-nav" id="mobile-nav" hidden> ...same links + About,
- *     Contact, Book Now </nav>
+ *     Contact, and a Book button (data-cta="mobile-nav-book") </nav>
  *
- * The desktop nav and book-cta are display:none below 900px (CSS media query),
- * so those checks run on the desktop-chromium project only. The hamburger is
- * display:none above 900px, so its checks run on mobile-safari only.
+ * The Book buttons follow bookLink() in src/site.ts: the studio's live booking
+ * system when studio.json `bookingUrl` is set, otherwise the /book/ page. It is
+ * currently set to an EXTERNAL host, so these tests assert the href attribute
+ * and never click it — a real click would navigate CI off-site.
+ *
+ * The desktop nav and book-cta are display:none at/below 900px and the
+ * hamburger is display:none above it, so the two describe blocks gate on the
+ * project's viewport WIDTH (see helpers.ts) — never on a project name.
  */
 
+const expectedBook = studio.bookingUrl || '/book/';
+
 test.describe('desktop header navigation', () => {
-  test.beforeEach(() => {
-    test.skip(
-      test.info().project.name !== 'desktop-chromium',
-      'desktop nav is hidden below 900px'
-    );
-  });
+  test.beforeEach(() => skipUnlessDesktop());
 
   const navLinks = [
     { name: 'Classes', path: '/classes/' },
@@ -42,10 +47,11 @@ test.describe('desktop header navigation', () => {
     });
   }
 
-  test('header "Book Now" CTA navigates to /book/', async ({ page }) => {
+  test('header Book CTA points at the booking destination from the CMS', async ({ page }) => {
     await page.goto('/');
-    await page.locator('a.book-cta').click();
-    await expect(page).toHaveURL(/\/book\/$/);
+    const cta = page.locator('a.book-cta');
+    await expect(cta).toHaveCount(1);
+    await expect(cta).toHaveAttribute('href', expectedBook);
   });
 });
 
@@ -71,12 +77,7 @@ test.describe('footer links', () => {
 });
 
 test.describe('mobile menu', () => {
-  test.beforeEach(() => {
-    test.skip(
-      test.info().project.name !== 'mobile-safari',
-      'hamburger only shows below 900px'
-    );
-  });
+  test.beforeEach(() => skipUnlessMobile());
 
   test('hamburger opens the mobile nav and its links navigate', async ({ page }) => {
     await page.goto('/');
@@ -96,5 +97,12 @@ test.describe('mobile menu', () => {
     // A link inside the opened menu works.
     await mobileNav.getByRole('link', { name: 'Pricing', exact: true }).click();
     await expect(page).toHaveURL(/\/pricing\/$/);
+  });
+
+  test('mobile menu Book button points at the booking destination from the CMS', async ({ page }) => {
+    await page.goto('/');
+    const cta = page.locator('[data-cta="mobile-nav-book"]');
+    await expect(cta).toHaveCount(1);
+    await expect(cta).toHaveAttribute('href', expectedBook);
   });
 });

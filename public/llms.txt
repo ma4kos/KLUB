@@ -1,8 +1,8 @@
 # KLUB Pilates Studio (Keep Living Under Balance)
 
 KLUB is a premium reformer Pilates studio in Limassol city center, Cyprus,
-opening September 2026. Small-group reformer classes and private 1-to-1
-sessions, taught in English and Greek by founder Izzy Nicolaou.
+opening September 2026. Small-group reformer classes (max 6 people) and
+private 1-to-1 sessions, taught in English by our instructor team.
 Canonical site: https://klub.cy
 
 ## What we offer
@@ -11,18 +11,19 @@ Canonical site: https://klub.cy
 - Beginner-friendly; new-to-Pilates intro offer
 
 ## Prices (EUR)
-- Drop-in class: €20
-- Intro pack (2 classes): €32
-- Monthly: 4 classes €120, 8 classes €200, Unlimited €280
-- Flexi packs: 5 classes €110, 10 classes €200
-- Private 1-to-1: single session €80, 5-session pack €375, 10-session pack €700
+- Single intro class (new to KLUB): €20
+- Drop-in class: €32
+- Intro offer, 3 classes: €55
+- Monthly packs: 4 classes €96, 8 classes €176, 12 classes €240, KLUB+ Unlimited €280
+- Flexi packs: 10 classes €280, 20 classes €520
+- Private 1-to-1: single session €100, 5 sessions €450, 10 sessions €800
 
 ## Key pages
 - Home: https://klub.cy/
 - Classes: https://klub.cy/classes/
 - Pricing: https://klub.cy/pricing/
 - Timetable: https://klub.cy/timetable/
-- Instructor (Izzy Nicolaou): https://klub.cy/instructors/
+- Instructors: https://klub.cy/instructors/
 - Location: https://klub.cy/location/
 - Frequently asked questions: https://klub.cy/faq/
 - Book a class: https://klub.cy/book/

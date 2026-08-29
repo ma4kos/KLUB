@@ -19,15 +19,37 @@ Any static host works. Recommended: **Netlify** (the founding-member and contact
 use Netlify Forms and start working automatically there) or Vercel/Cloudflare Pages
 (swap the form `action` for a Formspree endpoint if not on Netlify).
 
-Set the production domain in `astro.config.mjs` (`site`) — currently `https://klub-cy.com`.
+Set the production domain in `astro.config.mjs` (`site`) — currently `https://klub.cy`.
+Changing it needs three coordinated edits: `astro.config.mjs` (`site`), `src/site.ts`
+(`url`) and `public/admin/config.yml` (`site_url`, which drives the CMS "View Live" links).
 
 ## Editing content — the CMS at `/admin/`
 
 The site has a built-in editing panel ([Decap CMS](https://decapcms.org), free and
-open-source) at **`/admin/`**. Non-developers can edit — with a live preview and no
-code — the studio contact details, announcement banner, homepage intro, price tables,
+open-source) at **`/admin/`**. Non-developers can edit — with no code — the studio
+contact details, opening hours, announcement banner, homepage intro, price tables,
 class descriptions and the entire FAQ. Everything editable lives in `src/content/*.json`;
 each save is a git commit, and the site rebuilds automatically.
+
+The panel's built-in preview pane is disabled (`editor.preview: false`) — it renders
+field values with none of the site's CSS, which misleads more than it helps. Each entry
+instead carries a `preview_path` so the toolbar's **View Live** link opens that entry's
+real page.
+
+Guardrails worth knowing about when editing `config.yml`:
+
+- **Decap rewrites each managed JSON file from the declared fields on every save**, so a
+  key with no field is silently deleted and a field with no data is written back empty.
+  Both halves of any content change must land together; `tests/cms-config.spec.ts` guards this.
+- Four fixed-length lists (`home.stats`, `instructors.stats`, `about.space.images`,
+  `classes.classes`) plus the pricing column headings carry `allow_add: false`,
+  `allow_remove: false` and `min`/`max`. Deleting `classes[3]` would destroy
+  `/classes/private-sessions/`, which the timetable links to.
+- Eleven fields carry a `pattern` with a plain-English error message; the booking URL is
+  the important one, since `src/site.ts` returns it raw into every Book `href`.
+- Every image field caps uploads at 5 MB and every video field at 20 MB
+  (`media_library.config.max_file_size`) — Decap has no global default for this, so the
+  limit must be repeated per field. Uploads go into git history permanently via Git Gateway.
 
 **Special field — "Online booking link"**: paste the live booking URL (e.g. Wix
 Bookings) into Studio Settings and every Book button across the site points to it
@@ -58,6 +80,9 @@ Settings) or directly in the file. When confirmed, fill in:
 - `streetAddress` — the exact street address. Appears in the footer, location page and
   LocalBusiness schema.
 - `bookingUrl` — the live booking system URL, when it exists.
+- `openingHours` — **placeholder values, confirm with Izzy before launch.** Currently
+  Mo–Fr 07:00–20:00 and Sa 09:00–12:00. These go straight to Google as the studio's
+  opening hours (`openingHoursSpecification` in the LocalBusiness schema).
 - `ga4Id` / `clarityId` — paste the GA4 Measurement ID and/or Microsoft Clarity project
   ID to switch on analytics (nothing loads while empty). Event dictionary and setup
   steps in `docs/handover-for-alex.md`.

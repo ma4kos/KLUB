@@ -1,18 +1,15 @@
 import { test, expect } from '@playwright/test';
+import { NAV_BREAKPOINT, skipUnlessMobile } from './helpers';
 
 /**
- * Mobile layout checks. These run on the mobile-safari (iPhone 13, 390px)
- * project only. At <=900px the CSS media query hides the desktop nav and the
- * header book-cta and shows the hamburger.
+ * Mobile layout checks. These run in every project whose viewport is at or
+ * below the 900px header breakpoint (iPhone SE, iPhone 13, Pixel 7, iPad Mini
+ * portrait) — gated on the width, not on a project name, so renaming or adding
+ * a device can never silently switch them off.
  */
 
-test.describe('responsive (mobile)', () => {
-  test.beforeEach(() => {
-    test.skip(
-      test.info().project.name !== 'mobile-safari',
-      'mobile-only layout checks'
-    );
-  });
+test.describe(`responsive (<= ${NAV_BREAKPOINT}px)`, () => {
+  test.beforeEach(() => skipUnlessMobile());
 
   test('nav collapses to a hamburger menu', async ({ page }) => {
     await page.goto('/');

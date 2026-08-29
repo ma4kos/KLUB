@@ -9,6 +9,10 @@
     "intro": "Questions, bookings, or just curious? We're quick to reply."
   },
   "formHeading": "Send a message",
+  "success": {
+    "heading": "Thanks — message sent",
+    "text": "We've received your message and will reply within business hours. Need us sooner?"
+  },
   "directHeading": "Direct lines",
   "messageNote": "fastest response, usually within 30 minutes during business hours.",
   "instagramNote": "studio updates, class previews and opening news."

@@ -31,8 +31,8 @@ const courseSchema = {
         </div>
         {c.intro.map((p) => <p>{p}</p>)}
         <div class="btn-row">
-          <a class="btn btn--primary" href={bookLink()}>Book this class</a>
-          <a class="btn btn--ghost" href="/timetable/">View in timetable</a>
+          <a class="btn btn--primary" href={bookLink()} data-cta={`class-book-${c.slug}`}>Book this class</a>
+          <a class="btn btn--ghost" href="/timetable/" data-cta={`class-timetable-${c.slug}`}>View in timetable</a>
         </div>
       </div>
       <div class="arch detail-img">
@@ -62,10 +62,10 @@ const courseSchema = {
         your own or pick up a pair at the studio. Arrive 10 minutes early for your first visit.
       </p>
       <p>
-        Questions before you book? <a href="/faq/">Read the FAQ</a> or
-        <a href={whatsappLink(`Hi KLUB! I have a question about ${c.name}.`)} rel="noopener">message us</a>.
+        Questions before you book? <a href="/faq/" data-cta={`class-faq-${c.slug}`}>Read the FAQ</a> or
+        <a href={whatsappLink(`Hi KLUB! I have a question about ${c.name}.`)} rel="noopener" data-cta={`class-message-${c.slug}`}>message us</a>.
       </p>
-      <a class="btn btn--accent" href="/pricing/">See pricing</a>
+      <a class="btn btn--accent" href="/pricing/" data-cta={`class-pricing-${c.slug}`}>See pricing</a>
     </div>
   </section>
 </Base>

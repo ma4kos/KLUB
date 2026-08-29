@@ -16,6 +16,20 @@
   "tiktok": "https://www.tiktok.com/@klubstudios",
   "tiktokHandle": "@klubstudios",
   "openingLabel": "Opening September 2026",
+  "openingHours": [
+    { "days": "Mo,Tu,We,Th,Fr", "opens": "07:00", "closes": "20:00" },
+    { "days": "Sa", "opens": "09:00", "closes": "12:00" }
+  ],
+  "foundingForm": {
+    "interestOptions": [
+      "Small-group reformer classes",
+      "Private 1-to-1 sessions",
+      "Pre/post-natal Pilates",
+      "I'm new to Pilates",
+      "Just curious"
+    ],
+    "submitLabel": "Join the List"
+  },
   "banner": {
     "enabled": true,
     "text": "We're opening September 2026 — join our Founding Member list for early access and exclusive rates.",

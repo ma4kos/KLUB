@@ -3,22 +3,43 @@
 // On other hosts, point the action at a Formspree endpoint instead.
 // `source` is captured as a hidden field so each signup shows which page it came
 // from (home, book, timetable, founding-page) in the Netlify dashboard.
-interface Props { compact?: boolean; source?: string }
-const { compact = false, source = 'founding-page' } = Astro.props;
+// `redirect` is the page Netlify returns to after a successful POST — it defaults
+// to the page the form is on, so a visitor who signs up from the homepage stays
+// on the homepage and sees this component's own confirmation panel instead of
+// being dumped on the founding-member sales page.
+import studio from '../content/studio.json';
+
+interface Props { compact?: boolean; source?: string; redirect?: string }
+const { compact = false, source = 'founding-page', redirect = Astro.url.pathname } = Astro.props;
+
+// Read defensively: these CMS fields are optional, so the form still renders if
+// they are ever cleared or absent.
+const interestOptions = studio.foundingForm?.interestOptions ?? [
+  'Small-group reformer classes',
+  'Private 1-to-1 sessions',
+  'Pre/post-natal Pilates',
+  "I'm new to Pilates",
+  'Just curious',
+];
+const submitLabel = studio.foundingForm?.submitLabel ?? 'Join the List';
 ---
+<div class="founding-block">
+<div class="founding-form-wrap">
 <form
   class="founding-form"
   name="founding-member"
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
-  action="/founding-member/?success=true"
+  action={`${redirect}?success=true`}
 >
   <input type="hidden" name="form-name" value="founding-member" />
   <input type="hidden" name="source" value={source} />
   <p hidden><label>Don't fill this in: <input name="bot-field" /></label></p>
 
-  {!compact && (
+  {compact ? (
+    <input type="hidden" name="name" value="" />
+  ) : (
     <div class="field">
       <label for="ff-name">Name</label>
       <input id="ff-name" type="text" name="name" autocomplete="name" required />
@@ -28,7 +49,15 @@ const { compact = false, source = 'founding-page' } = Astro.props;
     <label for="ff-email">Email</label>
     <input id="ff-email" type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
   </div>
-  {!compact && (
+  {compact ? (
+    /* Netlify registers one field schema per form name, so the compact variant
+       declares the same fields as the full one — otherwise homepage signups
+       would arrive with three columns missing. */
+    <>
+      <input type="hidden" name="phone" value="" />
+      <input type="hidden" name="interest" value="" />
+    </>
+  ) : (
     <>
       <div class="field">
         <label for="ff-phone">Phone / WhatsApp (optional)</label>
@@ -37,11 +66,7 @@ const { compact = false, source = 'founding-page' } = Astro.props;
       <div class="field">
         <label for="ff-interest">What interests you most?</label>
         <select id="ff-interest" name="interest">
-          <option>Small-group reformer classes</option>
-          <option>Private 1-to-1 sessions</option>
-          <option>Pre/post-natal Pilates</option>
-          <option>I'm new to Pilates</option>
-          <option>Just curious</option>
+          {interestOptions.map((o) => <option>{o}</option>)}
         </select>
       </div>
     </>
@@ -51,9 +76,15 @@ const { compact = false, source = 'founding-page' } = Astro.props;
     <label for="ff-consent">Keep me posted about KLUB's opening and founding-member offers, and I accept the privacy policy.</label>
   </div>
   <p id="ff-consent-note" class="consent-note"><a href="/policies/">Read the privacy policy</a></p>
-  <button class="btn btn--accent" type="submit" data-cta={`founding-submit-${source}`}>Join the List</button>
+  <button class="btn btn--accent" type="submit" data-cta={`founding-submit-${source}`}>{submitLabel}</button>
   <p class="form-note">We respect your inbox. A couple of emails before opening, then only what's useful. Unsubscribe anytime.</p>
 </form>
+</div>
+<div class="founding-form-success form-success" role="status" hidden>
+  <h2>You're on the list</h2>
+  <p>Thanks for joining the KLUB founding circle. Keep an eye on your inbox — founding members get early access and exclusive rates before we open.</p>
+</div>
+</div>
 
 <style>
   .founding-form { max-width: 480px; }
@@ -66,4 +97,34 @@ const { compact = false, source = 'founding-page' } = Astro.props;
   .consent label { cursor: pointer; }
   .consent-note { margin: 2px 0 4px 28px; font-size: 13px; color: inherit; }
   .consent-note a { color: inherit; text-decoration: underline; }
+  .founding-form-success[hidden] { display: none; }
+  .founding-form-success { max-width: 480px; }
+  .founding-form-success h2 { margin-top: 0; }
 </style>
+
+<script is:inline>
+  // Runs inline, right after the markup, so a returning signup never sees the
+  // form flash before the confirmation. Every instance carries its own panel, so
+  // a signup from any page lands back on that page and confirms in place.
+  (function () {
+    if (new URLSearchParams(location.search).get('success') !== 'true') return;
+    var blocks = document.querySelectorAll('.founding-block');
+    for (var i = 0; i < blocks.length; i++) {
+      var wrap = blocks[i].querySelector('.founding-form-wrap');
+      var ok = blocks[i].querySelector('.founding-form-success');
+      if (wrap && ok) {
+        wrap.hidden = true;
+        ok.hidden = false;
+      }
+    }
+    // Scroll to the first confirmation that is actually visible (on
+    // /founding-member/ the page may wrap this block in its own success panel).
+    for (var j = 0; j < blocks.length; j++) {
+      var panel = blocks[j].querySelector('.founding-form-success');
+      if (panel && panel.offsetParent !== null) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        break;
+      }
+    }
+  })();
+</script>

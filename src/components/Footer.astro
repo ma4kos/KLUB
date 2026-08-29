@@ -21,6 +21,9 @@ const year = new Date().getFullYear();
         <a href="/pricing/">Pricing</a>
         <a href="/timetable/">Timetable</a>
         <a href="/instructors/">Instructors</a>
+        {/* Book Now follows the CMS booking URL; "Ways to book" keeps the on-site
+            /book/ page reachable (it is in the sitemap and carries a signup form). */}
+        <a href="/book/">Ways to book</a>
         <a href={bookLink()}>Book Now</a>
       </nav>
       <nav aria-label="Information">

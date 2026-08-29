@@ -2,7 +2,10 @@
 //   *word*  -> <span class="ital">word</span>  (the serif italic accent)
 //   newline -> <br />
 //   the studio email -> a mailto link
-// Everything else is HTML-escaped, so CMS content can never inject markup.
+// Everything else is HTML-escaped, so CMS text passed through inline() can never
+// inject markup. This guarantee covers inline() output only — any other raw
+// (set:html) output path must do its own escaping. The JSON-LD in
+// src/layouts/Base.astro does, via its own ld() helper.
 import studio from '../content/studio.json';
 
 const esc = (s: string) =>

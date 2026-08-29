@@ -105,5 +105,7 @@ const isActive = (href: string) => path.startsWith(href);
     const open = nav?.hasAttribute('hidden');
     if (open) { nav?.removeAttribute('hidden'); toggle.setAttribute('aria-expanded', 'true'); }
     else { nav?.setAttribute('hidden', ''); toggle.setAttribute('aria-expanded', 'false'); }
+    // Keep the label in step with the state — it said "Open menu" while open.
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
 </script>

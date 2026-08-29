@@ -1,22 +1,35 @@
 ---
 import { BANNER } from '../site';
+
+// The dismissal key is derived from the banner's own content, so when the studio
+// edits the announcement in the CMS it becomes a new banner that everyone sees
+// again — a single fixed key would have made this a once-per-visitor-forever
+// feature, which is the opposite of a reusable announcement bar.
+const key =
+  'klub-banner-' +
+  [...((BANNER.text || '') + (BANNER.linkUrl || ''))]
+    .reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7)
+    .toString(36);
 ---
 {BANNER.enabled && (
-<div class="banner" id="klub-banner">
+<div class="banner" id="klub-banner" data-key={key}>
   <p>
     {BANNER.text}
-    <a href={BANNER.linkUrl}>{BANNER.linkText}</a>
+    {BANNER.linkUrl && BANNER.linkText && <a href={BANNER.linkUrl}>{BANNER.linkText}</a>}
   </p>
   <button type="button" aria-label="Dismiss announcement" id="klub-banner-close">&times;</button>
 </div>
 )}
 <script is:inline>
-  // Runs before first paint: hide the banner synchronously if previously dismissed,
-  // so returning visitors get no layout shift. Storage can throw in strict
-  // privacy modes — in that case the banner just stays visible.
+  // Runs before first paint: hide the banner synchronously if this exact
+  // announcement was previously dismissed, so returning visitors get no layout
+  // shift. Storage can throw in strict privacy modes — in that case the banner
+  // just stays visible.
   try {
-    if (localStorage.getItem('klub-banner-dismissed') === '1') {
-      document.getElementById('klub-banner')?.setAttribute('hidden', '');
+    var klubBanner = document.getElementById('klub-banner');
+    var klubBannerKey = klubBanner && klubBanner.dataset.key;
+    if (klubBannerKey && localStorage.getItem(klubBannerKey) === '1') {
+      klubBanner.setAttribute('hidden', '');
     }
   } catch {}
 </script>
@@ -46,9 +59,17 @@ import { BANNER } from '../site';
 
 <script>
   document.getElementById('klub-banner-close')?.addEventListener('click', () => {
-    document.getElementById('klub-banner')?.setAttribute('hidden', '');
+    const banner = document.getElementById('klub-banner');
+    banner?.setAttribute('hidden', '');
+    const key = banner?.dataset.key;
+    if (!key) return;
     try {
-      localStorage.setItem('klub-banner-dismissed', '1');
+      localStorage.setItem(key, '1');
+      // Sweep dismissals of older announcements so storage does not grow with
+      // every banner the studio publishes.
+      Object.keys(localStorage)
+        .filter((k) => k.startsWith('klub-banner-') && k !== key)
+        .forEach((k) => localStorage.removeItem(k));
     } catch {}
   });
 </script>

@@ -11,6 +11,7 @@
   "noticePill": "Opening September 2026",
   "noticeText": "This is our planned launch schedule. Online booking opens shortly before we do — founding members get first access to every slot.",
   "slotCaption": "50 min · max 6",
+  "privateClassSlug": "private-sessions",
   "days": [
     {
       "day": "Monday–Friday",
@@ -32,7 +33,7 @@
     {
       "day": "By appointment",
       "slots": [
-        { "time": "Flexible", "name": "Private 1-to-1 Sessions" }
+        { "time": "Flexible", "name": "Private 1-to-1 Sessions", "caption": "By appointment · 1-to-1" }
       ]
     }
   ],

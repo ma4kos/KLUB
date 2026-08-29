@@ -3,17 +3,18 @@ import Base from '../../layouts/Base.astro';
 import Pic from '../../components/Pic.astro';
 import { CLASS_DETAILS } from '../../data/classDetails';
 import { whatsappLink, bookLink } from '../../site';
+import page from '../../content/pages/classes-index.json';
 ---
 <Base
-  title="Pilates Classes in Limassol | Reformer, Flow & Private | KLUB"
-  description="Small-group reformer Pilates classes and private 1-to-1 sessions in Limassol city center. All levels welcome. Classes taught in English. Book your first class for €20."
+  title={page.seo.title}
+  description={page.seo.description}
   ogImage="/images/og/classes.jpg"
 >
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Classes</span>
-      <h1>Our Classes</h1>
-      <p>Four ways to move. One space to grow.</p>
+      <span class="eyebrow">{page.hero.eyebrow}</span>
+      <h1>{page.hero.heading}</h1>
+      <p>{page.hero.intro}</p>
     </div>
   </section>
 
@@ -34,17 +35,17 @@ import { whatsappLink, bookLink } from '../../site';
             </div>
             <p>{c.intro[0]}</p>
             <div class="btn-row">
-              <a class="btn btn--primary btn--sm" href={`/classes/${c.slug}/`}>About this class</a>
-              <a class="btn btn--ghost btn--sm" href={bookLink()}>Book</a>
+              <a class="btn btn--primary btn--sm" href={`/classes/${c.slug}/`} data-cta={`classcard-detail-${c.slug}`}>{page.detailLabel}</a>
+              <a class="btn btn--ghost btn--sm" href={bookLink()} data-cta={`classcard-book-${c.slug}`}>{page.bookLabel}</a>
             </div>
           </div>
         </article>
       ))}
 
       <p class="center closing">
-        Not sure which class is right for you?
-        <a href="/faq/">Read our FAQ</a> or
-        <a href={whatsappLink("Hi KLUB! I'm not sure which class suits me — can you help?")} rel="noopener">message us</a>
+        {page.closingText}
+        <a href="/faq/" data-cta="classes-closing-faq">Read our FAQ</a> or
+        <a href={whatsappLink("Hi KLUB! I'm not sure which class suits me — can you help?")} rel="noopener" data-cta="classes-closing-message">message us</a>
         — we'll point you to the right starting place.
       </p>
     </div>
