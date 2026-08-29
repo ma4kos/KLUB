@@ -43,6 +43,14 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # Naming any permission sets every unnamed one to `none`, so these two are
+  # not redundant: `gh pr checks` reads the status-check rollup, which is check
+  # runs (checks) plus legacy commit statuses (statuses) — and this repo has
+  # both, since Netlify still posts commit statuses. Without them the check
+  # gate below can never pass and the sweep would silently merge nothing,
+  # forever. Read-only, and the narrowest scopes that make the gate work.
+  checks: read
+  statuses: read
 
 jobs:
   request-copilot-review:
@@ -93,14 +101,14 @@ jobs:
           # for the merge decision itself — see the re-read inside the loop —
           # so it yields numbers only.
           #
-          # This read must fail LOUDLY, not quietly. There is no `set -e`, so
-          # an unchecked command substitution turns a transient API, auth or
-          # rate-limit error into an empty string — indistinguishable from
-          # "no open pull requests", and the job would exit 0 having printed
-          # a reassuring message that is simply false. Nothing else watches
-          # this workflow, so a policy that had stopped working could sit dead
-          # for weeks with every run green. Failing the job puts a red mark in
-          # the Actions tab, which is the only signal there is.
+          # Checked explicitly so the failure is NAMED. Actions runs `run:`
+          # steps as `bash -e {0}` and `set -uo pipefail` above does not clear
+          # that -e, so an unchecked `candidates=$(...)` would already abort
+          # the step rather than sail on — but it would abort with no
+          # explanation, and the distinction that matters here (an API failure
+          # versus a genuinely empty list, which must exit 0) would be lost.
+          # Checking it also stops the behaviour depending on the runner's
+          # default shell, which is not something this file controls.
           if ! candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
             --jq ".[]
                   | select(.draft == false)
@@ -166,8 +174,6 @@ jobs:
             # "COMMENTED" reviews far more often than "APPROVED", so per the
             # owner's policy anything except CHANGES_REQUESTED clears the gate.
             #
-            # Two traps live in this one call, and both let a merge through.
-            #
             # `--paginate` runs the jq program ONCE PER PAGE and concatenates
             # the output, so the reduction to a single review must happen in
             # the shell, not in jq. An earlier version ended the jq program
@@ -182,12 +188,14 @@ jobs:
             # safe under the same flag because it emits one line per pull
             # request and concatenating the pages is exactly what is wanted.)
             #
-            # And the read must fail CLOSED. `--paginate` emits the pages it
-            # already fetched before erroring, so piping straight into
-            # `tail -n 1` would take the last line of a PARTIAL list and
-            # discard the non-zero status with it — a COMMENTED review on
-            # page 1 clearing the gate while an unread page 2 held the
-            # CHANGES_REQUESTED. Capturing first lets the status be checked.
+            # The read is also captured before it is reduced, so a failure is
+            # caught here by name. `--paginate` emits the pages it already
+            # fetched before erroring, so `gh ... | tail -n 1` would take the
+            # last line of a PARTIAL list. Under `bash -e` with pipefail that
+            # pipeline aborts the step, so it is not silently wrong today —
+            # but it dies anonymously mid-sweep, and it would become silently
+            # wrong under a shell without -e. Holding this one pull request,
+            # by name, is the right behaviour either way.
             if ! reviews=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
               --jq ".[]
                     | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")
@@ -219,7 +227,8 @@ jobs:
 
             # Checked here rather than trusted from mergeable_state, which
             # reports "clean" when no branch protection makes a check required.
-            # gh exits non-zero on any failing or still-pending check.
+            # gh exits non-zero on any failing or still-pending check. Needs
+            # the checks/statuses read scopes granted above.
             if ! gh pr checks "$pr" --repo "$REPO"; then
               echo "Holding: checks are failing or still running."
               echo "::endgroup::"; continue
