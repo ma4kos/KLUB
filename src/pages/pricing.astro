@@ -7,16 +7,29 @@ const tables = pricing.tables;
 
 const faqs = pricing.faqs;
 
+// "€32" -> "32", "€12,50" and "€12.50" -> "12.50", anything else -> "".
+// Mirrors the CMS validation pattern on the price field so the schema can
+// never disagree with what an editor is allowed to type.
+const priceNumber = (raw: unknown): string => {
+  const m = String(raw).match(/^\s*€\s*([0-9]+)(?:[.,]([0-9]{2}))?\s*$/);
+  if (!m) return '';
+  return m[2] ? `${m[1]}.${m[2]}` : m[1];
+};
+
 const offerSchema = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
   name: 'KLUB Pilates Pricing',
-  // Only rows whose price yields a bare number belong in the catalog — a row
-  // priced in words ("From €55", "—") would emit an invalid Offer and Google
-  // rejects the whole catalog, so it is dropped rather than guessed at.
+  // Only rows whose price is exactly a euro amount belong in the catalog — a
+  // row priced in words ("From €55", "—") would emit a wrong or invalid Offer
+  // and Google rejects the whole catalog, so it is dropped rather than guessed
+  // at. The shape mirrors the CMS pattern on the price field, which allows a
+  // comma OR a dot as the decimal separator: stripping non-digits instead
+  // would turn "€12,50" into 1250 and publish a 100x wrong price, and would
+  // silently accept "From €55" as 55 despite the rule above.
   itemListElement: tables.flatMap((t) =>
     t.rows
-      .map((r) => ({ ...r, num: String(r.price).replace(/[^0-9.]/g, '') }))
+      .map((r) => ({ ...r, num: priceNumber(r.price) }))
       .filter((r) => r.num)
       .map((r) => ({
         '@type': 'Offer',

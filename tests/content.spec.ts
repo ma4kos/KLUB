@@ -122,6 +122,19 @@ test('inline() renders CMS emphasis and escapes everything else', async () => {
   expect(hostile).toContain('&lt;script&gt;');
   expect(hostile).not.toContain('<script');
 
-  // The studio email is linkified from studio.json.
-  expect(inline(`Write to ${studio.email}`)).toContain(`href="mailto:${studio.email}"`);
+  // The studio email is linkified from studio.json. The href is
+  // percent-encoded (encodeURIComponent) so that an address containing ? & or
+  // # — all of which the CMS email pattern permits — cannot inject headers
+  // into the visitor's mail client. The visible text stays human-readable.
+  const linked = inline(`Write to ${studio.email}`);
+  expect(linked).toContain(`href="mailto:${encodeURIComponent(studio.email)}"`);
+  expect(linked).toContain(`>${studio.email}</a>`);
+
+  // Quotes are escaped: without this an address like
+  // `x" onmouseover="alert(1)@example.com` would break out of the href
+  // attribute. Asserted on the escaper's real behaviour, not on studio.json,
+  // so the guarantee holds whatever the studio's address becomes.
+  const quoted = inline('say "hello"');
+  expect(quoted).toBe('say &quot;hello&quot;');
+  expect(quoted).not.toContain('"hello"');
 });

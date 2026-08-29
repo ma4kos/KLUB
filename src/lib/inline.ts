@@ -31,10 +31,14 @@ export function inline(s: string): string {
     // Match the already-escaped form of the address, since `out` is escaped.
     const escapedEmail = esc(studio.email);
     const emailPattern = escapedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // encodeURI keeps the href a valid URL; the visible text stays escaped.
+    // encodeURIComponent, not encodeURI: encodeURI leaves ? & # = intact, and
+    // the CMS email pattern permits them, so an address like
+    // `x?subject=Hi&cc=someone@example.com` would inject headers into the
+    // visitor's mail client. Percent-encoding the whole address is valid in a
+    // mailto: URI (RFC 6068) and every mail client handles %40.
     // A function replacement is used so `$&`, `$'` etc. inside the address are
     // treated as literal text rather than replacement patterns.
-    const anchor = `<a href="mailto:${esc(encodeURI(studio.email))}">${escapedEmail}</a>`;
+    const anchor = `<a href="mailto:${esc(encodeURIComponent(studio.email))}">${escapedEmail}</a>`;
     out = out.replace(new RegExp(emailPattern, 'g'), () => anchor);
   }
   return out;
