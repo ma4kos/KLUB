@@ -20,25 +20,57 @@ const { title, description, ogImage = '/images/og/default.jpg', preloadImage, sc
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImageAbs = new URL(ogImage, SITE.url).href;
 
+// JSON-LD is written with set:html (raw output) and every schema is built from
+// free-text CMS fields — FAQ answers, price-row names, class descriptions,
+// contact details. JSON.stringify does NOT escape `<`, so a stray `</script>`
+// in the CMS would close the tag and inject markup. Escaping the three markup
+// characters as \uXXXX is still valid JSON and parses identically for Google.
+const ld = (o: object) =>
+  JSON.stringify(o).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
+
+// studio.json stores days the short way an editor can read ("Mo,Tu,We,Th,Fr").
+// schema.org's DayOfWeek enumeration wants full names, so expand them here;
+// anything unrecognised is passed through so "Monday" also works.
+const DAY_NAMES: Record<string, string> = {
+  Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday',
+  Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday',
+};
+
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'ExerciseGym',
   name: SITE.name,
-  image: new URL('/images/reception.jpg', SITE.url).href,
+  image: new URL('/images/alex-reception.jpg', SITE.url).href,
   url: SITE.url,
   email: SITE.email,
   ...(SITE.phoneDisplay ? { telephone: SITE.phoneDisplay } : {}),
   address: {
     '@type': 'PostalAddress',
     ...(SITE.streetAddress ? { streetAddress: SITE.streetAddress } : {}),
-    addressLocality: 'Limassol',
+    addressLocality: SITE.addressLocality,
     addressRegion: 'Limassol District',
     addressCountry: 'CY',
   },
   priceRange: '€€',
   currenciesAccepted: 'EUR',
   areaServed: 'Limassol',
-  sameAs: [SITE.instagram],
+  sameAs: [SITE.instagram, SITE.facebook, SITE.tiktok].filter(Boolean),
+  // Opening hours come from the CMS (studio.json). Emitted only when present so
+  // the schema stays valid if the field is ever cleared.
+  ...(Array.isArray(SITE.openingHours) && SITE.openingHours.length
+    ? {
+        openingHoursSpecification: SITE.openingHours.map((d) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: d.days
+            .split(',')
+            .map((t) => t.trim())
+            .filter(Boolean)
+            .map((t) => DAY_NAMES[t] ?? t),
+          opens: d.opens,
+          closes: d.closes,
+        })),
+      }
+    : {}),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Pilates Classes',
@@ -87,8 +119,8 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
   <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
 
-  <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
-  {extraSchemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  <script type="application/ld+json" set:html={ld(localBusiness)} />
+  {extraSchemas.map((s) => <script type="application/ld+json" set:html={ld(s)} />)}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

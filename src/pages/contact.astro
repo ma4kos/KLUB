@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, mailtoLink } from '../site';
 import page from '../content/pages/contact.json';
 ---
 <Base title={page.seo.title} description={page.seo.description}>
@@ -42,12 +42,12 @@ import page from '../content/pages/contact.json';
             <label for="c-msg">Message</label>
             <textarea id="c-msg" name="message" rows="5" required></textarea>
           </div>
-          <button class="btn btn--primary" type="submit">Send Message</button>
-          <p class="form-note">We use your details only to reply to you. See our <a href="/policies/">privacy policy</a>.</p>
+          <button class="btn btn--primary" type="submit" data-cta="contact-send">Send Message</button>
+          <p class="form-note">We use your details only to reply to you. See our <a href="/policies/" data-cta="contact-privacy">privacy policy</a>.</p>
         </form>
         <div id="contact-success" class="card card--pad form-success" role="status" hidden>
-          <h2>Thanks — message sent</h2>
-          <p>We've received your message and will reply within business hours. Need us sooner? <a href={whatsappLink()} rel="noopener">Message us on Instagram</a>.</p>
+          <h2>{page.success.heading}</h2>
+          <p>{page.success.text} <a href={whatsappLink()} rel="noopener" data-cta="contact-success-message">Message us{SITE.whatsappNumber ? ' on WhatsApp' : ' on Instagram'}</a>.</p>
         </div>
       </div>
 
@@ -55,19 +55,23 @@ import page from '../content/pages/contact.json';
         <h2>{page.directHeading}</h2>
         <div class="line">
           <h3>Instant message</h3>
-          <p><a href={whatsappLink()} rel="noopener">Message KLUB</a> — {page.messageNote}</p>
+          <p><a href={whatsappLink()} rel="noopener" data-cta="contact-direct-message">Message KLUB</a> — {page.messageNote}</p>
         </div>
         <div class="line">
           <h3>Email</h3>
-          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+          <p><a href={mailtoLink()} data-cta="contact-direct-email">{SITE.email}</a></p>
         </div>
         <div class="line">
           <h3>Instagram</h3>
-          <p><a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a> — {page.instagramNote}</p>
+          <p><a href={SITE.instagram} rel="noopener" data-cta="contact-direct-ig">{SITE.instagramHandle}</a> — {page.instagramNote}</p>
         </div>
         <div class="line">
           <h3>Visit</h3>
-          <p>{SITE.addressLocality}, {SITE.addressCountry}<br /><em>{SITE.addressNote}</em></p>
+          <p>
+            {SITE.streetAddress ? <>{SITE.streetAddress}<br /></> : null}
+            {SITE.addressLocality}, {SITE.addressCountry}
+            {!SITE.streetAddress && <><br /><span class="note">{SITE.addressNote}</span></>}
+          </p>
         </div>
       </div>
     </div>

@@ -9,8 +9,8 @@ import home from '../content/home.json';
 import { inline } from '../lib/inline';
 ---
 <Base
-  title="KLUB | Pilates Reformer Studio in Limassol City Center"
-  description="Premium reformer Pilates in Limassol city center — small-group classes and private 1-to-1 sessions. New here? Try a €20 intro class. Opening September 2026."
+  title={home.seo.title}
+  description={home.seo.description}
   preloadImage={home.heroPoster}
 >
   <!-- Hero -->
@@ -201,8 +201,9 @@ import { inline } from '../lib/inline';
           </div>
         </div>
         <p>
-          {SITE.addressLocality}, {SITE.addressCountry}.<br />
-          <span class="note">{SITE.addressNote}</span>
+          {SITE.streetAddress ? <>{SITE.streetAddress}<br /></> : null}
+          {SITE.addressLocality}, {SITE.addressCountry}.
+          {!SITE.streetAddress && <><br /><span class="note">{SITE.addressNote}</span></>}
         </p>
         <div class="btn-row">
           <a class="btn btn--ghost" href="/location/" data-cta="location-directions">{home.location.directionsLabel}</a>

@@ -1,0 +1,107 @@
+# Browser test suite — runs the Playwright matrix against a locally built site.
+#
+# The suite builds the site itself (see playwright.config.ts `webServer`), so it
+# never depends on a deploy being reachable — deploy previews on this project are
+# password-protected and would return HTTP 401 to every request.
+#
+# This check gates the auto-merge policy in copilot-automerge.yml: a red run
+# blocks the merge.
+
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  playwright:
+    name: Playwright (${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        # Split the matrix so a failure names the surface that broke.
+        include:
+          - shard: desktop
+            projects: --project=desktop-chrome --project=desktop-firefox --project=desktop-safari
+          - shard: mobile-tablet
+            projects: --project=mobile-safari --project=mobile-safari-small --project=mobile-chrome --project=tablet-portrait --project=tablet-landscape
+          - shard: breakpoints
+            projects: --project=breakpoints
+          - shard: checks
+            # Device-independent: CMS config safety, assets/links, analytics
+            # contract, content integrity. One run each.
+            projects: --project=checks
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run tests
+        run: npx playwright test ${{ matrix.projects }}
+
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.shard }}
+          path: playwright-report/
+          retention-days: 7
+
+  # Accessibility — NON-BLOCKING while the axe findings are triaged. It reports
+  # its result but `continue-on-error` keeps it from gating a merge. Remove that
+  # line (and this comment) once the suite is clean and the bar is real.
+  a11y:
+    name: Accessibility (axe, non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility checks
+        run: npx playwright test --project=a11y
+
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-a11y
+          path: playwright-report/
+          retention-days: 7

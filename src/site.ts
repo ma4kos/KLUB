@@ -17,6 +17,17 @@ export const SITE = {
 
 export const BANNER = studio.banner;
 
+// The email address is CMS-editable and its validation pattern only forbids
+// `@` and whitespace, so it can legally contain `?`, `&`, `#` and `=`. Dropped
+// straight into a mailto: href those become headers — an address like
+// `x?subject=Hi&cc=someone@example.com` would pre-fill a visitor's mail client
+// with attacker-chosen fields. Percent-encoding the address neutralises that;
+// `%40` is valid in a mailto: URI (RFC 6068) and every mail client resolves it.
+// Use this everywhere instead of interpolating SITE.email into a href.
+export function mailtoLink(email = SITE.email) {
+  return `mailto:${encodeURIComponent(email)}`;
+}
+
 export function whatsappLink(message = "Hi KLUB! I'd like to book a class. Can you help me?") {
   if (SITE.whatsappNumber) {
     return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;

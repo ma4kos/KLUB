@@ -16,8 +16,8 @@ import { SITE } from '../site';
         <h1 class="rise rise-d1" set:html={inline(page.hero.heading)} />
         <p class="lede rise rise-d2">{page.hero.lede}</p>
         <div class="btn-row rise rise-d3">
-          <a class="btn btn--primary" href={bookLink()}>Book a Class</a>
-          <a class="btn btn--ghost" href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a>
+          <a class="btn btn--primary" href={bookLink()} data-cta="instructors-hero-book">Book a Class</a>
+          <a class="btn btn--ghost" href={SITE.instagram} rel="noopener" data-cta="instructors-hero-ig">{SITE.instagramHandle}</a>
         </div>
       </div>
       <div class="p-media rise rise-d2">
@@ -103,8 +103,8 @@ import { SITE } from '../site';
         <h2 set:html={inline(page.follow.heading)} />
         <p>{page.follow.text}</p>
         <div class="btn-row">
-          <a class="btn btn--accent" href={SITE.instagram} rel="noopener">Follow {SITE.instagramHandle}</a>
-          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about KLUB.')} rel="noopener">Ask a Question</a>
+          <a class="btn btn--accent" href={SITE.instagram} rel="noopener" data-cta="instructors-follow-ig">Follow {SITE.instagramHandle}</a>
+          <a class="btn btn--ghost" href={whatsappLink('Hi! I have a question about KLUB.')} rel="noopener" data-cta="instructors-ask">Ask a Question</a>
         </div>
       </div>
     </div>
@@ -116,8 +116,8 @@ import { SITE } from '../site';
       <h2 class="reveal" set:html={inline(page.cta.heading)} />
       <p class="reveal reveal-d1">{page.cta.text}</p>
       <div class="btn-row center-row reveal reveal-d2">
-        <a class="btn btn--accent" href={bookLink()}>Book Now</a>
-        <a class="btn btn--ghost-light" href="/founding-member/">Join the Founding Circle</a>
+        <a class="btn btn--accent" href={bookLink()} data-cta="instructors-cta-book">Book Now</a>
+        <a class="btn btn--ghost-light" href="/founding-member/" data-cta="instructors-cta-founding">Join the Founding Circle</a>
       </div>
     </div>
   </section>

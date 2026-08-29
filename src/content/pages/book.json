@@ -17,5 +17,6 @@
     "text": "Want to lock in a class the human way? Message us with your preferred class and time and we'll confirm within a few hours.",
     "buttonLabel": "Message to Reserve"
   },
-  "privateHeading": "Private sessions"
+  "privateHeading": "Private sessions",
+  "recommendedClassSlug": "reformer-fundamentals"
 }

@@ -14,12 +14,14 @@ const { src, poster, label, sublabel, eager = false, class: cls } = Astro.props;
 ---
 <figure class:list={['arch-film', cls]}>
   <div class="arch-video">
+    {/* The film is decorative — the figcaption carries the meaning — so it is
+        hidden from assistive tech. The injected pause button stays exposed. */}
     {eager ? (
-      <video autoplay muted loop playsinline preload="metadata" poster={poster}>
+      <video autoplay muted loop playsinline preload="metadata" poster={poster} aria-hidden="true">
         <source src={src} type="video/mp4" />
       </video>
     ) : (
-      <video muted loop playsinline preload="none" poster={poster} data-src={src}></video>
+      <video muted loop playsinline preload="none" poster={poster} data-src={src} aria-hidden="true"></video>
     )}
   </div>
   {label && (
@@ -65,6 +67,42 @@ const { src, poster, label, sublabel, eager = false, class: cls } = Astro.props;
     document.querySelectorAll('.arch-video video[data-src]')
   ) as HTMLVideoElement[];
 
+  // WCAG 2.2.2: anything that moves for more than five seconds needs a control.
+  // Mirrors the hero film's toggle on the homepage; shares its .video-toggle CSS
+  // from src/styles/global.css.
+  const addToggle = (v: HTMLVideoElement) => {
+    const frame = v.parentElement;
+    if (!frame || frame.querySelector('.video-toggle')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'video-toggle';
+    const sync = () => {
+      const playing = !v.paused;
+      btn.setAttribute('aria-label', playing ? 'Pause film' : 'Play film');
+      btn.textContent = playing ? '❚❚' : '▶';
+    };
+    btn.addEventListener('click', () => {
+      if (v.paused) {
+        const p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      } else {
+        v.pause();
+      }
+      sync();
+    });
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    frame.appendChild(btn);
+    sync();
+  };
+
+  // Eager (autoplaying) films need the same control the moment the page loads.
+  if (!reduce) {
+    document
+      .querySelectorAll('.arch-video video[autoplay]')
+      .forEach((v) => addToggle(v as HTMLVideoElement));
+  }
+
   const activate = (v: HTMLVideoElement) => {
     if (v.dataset.loaded) return;
     v.dataset.loaded = '1';
@@ -73,6 +111,7 @@ const { src, poster, label, sublabel, eager = false, class: cls } = Astro.props;
     if (!reduce) {
       const p = v.play();
       if (p && typeof p.catch === 'function') p.catch(() => {});
+      addToggle(v);
     }
   };
 

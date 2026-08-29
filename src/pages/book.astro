@@ -3,6 +3,11 @@ import Base from '../layouts/Base.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { whatsappLink } from '../site';
 import page from '../content/pages/book.json';
+import { CLASSES } from '../data/classes';
+
+// Name and link come from the same source, so an editor changing the
+// recommended class in the CMS can never leave the label pointing elsewhere.
+const recommended = CLASSES.find((c) => c.slug === page.recommendedClassSlug) ?? CLASSES[0];
 ---
 <Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
@@ -24,15 +29,15 @@ import page from '../content/pages/book.json';
         <div class="card card--pad option">
           <h3>{page.reserve.heading}</h3>
           <p>{page.reserve.text}</p>
-          <a class="btn btn--accent btn--sm" href={whatsappLink("Hi KLUB! I'd like to reserve a spot. My preferred class and time:")} rel="noopener">{page.reserve.buttonLabel}</a>
+          <a class="btn btn--accent btn--sm" href={whatsappLink("Hi KLUB! I'd like to reserve a spot. My preferred class and time:")} rel="noopener" data-cta="book-reserve">{page.reserve.buttonLabel}</a>
         </div>
         <div class="card card--pad option">
           <h3>Not sure where to start?</h3>
-          <p>New to the reformer? Start with <a href="/classes/reformer-fundamentals/">Reformer Fundamentals</a> or read the <a href="/faq/">FAQ</a> — it answers everything from what to wear to how sore you'll be.</p>
+          <p>New to the reformer? Start with <a href={`/classes/${recommended.slug}/`} data-cta="book-recommended-class">{recommended.name}</a> or read the <a href="/faq/" data-cta="book-faq">FAQ</a> — it answers everything from what to wear to how sore you'll be.</p>
         </div>
         <div class="card card--pad option">
           <h3>{page.privateHeading}</h3>
-          <p>1-to-1 sessions can be arranged before general booking opens — ideal for pre/post-natal training or injury recovery. <a href={whatsappLink("Hi KLUB! I'm interested in a private 1-to-1 session.")} rel="noopener">Ask about availability</a>.</p>
+          <p>1-to-1 sessions can be arranged before general booking opens — ideal for pre/post-natal training or injury recovery. <a href={whatsappLink("Hi KLUB! I'm interested in a private 1-to-1 session.")} rel="noopener" data-cta="book-private-ask">Ask about availability</a>.</p>
         </div>
       </div>
     </div>

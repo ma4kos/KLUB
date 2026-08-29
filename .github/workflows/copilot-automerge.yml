@@ -22,7 +22,14 @@ permissions:
 
 jobs:
   request-copilot-review:
-    if: github.event_name == 'pull_request' && github.event.pull_request.draft == false
+    # `cms/` is the branch prefix Decap CMS hard-codes for editorial-workflow
+    # drafts. Excluding it here means a draft Izzy is still writing can never be
+    # reviewed-and-merged behind her back — the precondition for ever turning
+    # editorial_workflow on in public/admin/config.yml.
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false &&
+      !startsWith(github.event.pull_request.head.ref, 'cms/')
     runs-on: ubuntu-latest
     steps:
       - name: Request a Copilot review
@@ -40,12 +47,18 @@ jobs:
     # trigger a merge. Copilot code review submits "commented" reviews (it
     # rarely approves), so per the repo owner's policy any Copilot review
     # except "changes requested" clears the gate — checks must still pass.
+    # The fork check is a security boundary, not a nicety: `pull_request_review`
+    # runs in the BASE repo context with the full contents:write token even when
+    # the pull request comes from a fork, so without it anyone could open a fork
+    # PR and have it merged to main with no human involvement.
     if: >-
       github.event_name == 'pull_request_review' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
       github.event.review.user.login == 'copilot-pull-request-reviewer[bot]' &&
       github.event.review.user.type == 'Bot' &&
       github.event.review.state != 'changes_requested' &&
-      github.event.pull_request.draft == false
+      github.event.pull_request.draft == false &&
+      !startsWith(github.event.pull_request.head.ref, 'cms/')
     runs-on: ubuntu-latest
     steps:
       - name: Wait for checks, then merge

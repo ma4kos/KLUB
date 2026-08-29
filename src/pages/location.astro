@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, mailtoLink } from '../site';
 import page from '../content/pages/location.json';
 ---
 <Base title={page.seo.title} description={page.seo.description}>
@@ -10,7 +10,7 @@ import page from '../content/pages/location.json';
       <span class="eyebrow">{page.hero.eyebrow}</span>
       <h1>{page.hero.heading}</h1>
       <p>
-        {SITE.addressLocality}, {SITE.addressCountry} — {SITE.addressNote.toLowerCase()}
+        {SITE.streetAddress ? <>{SITE.streetAddress}, </> : null}{SITE.addressLocality}, {SITE.addressCountry}{!SITE.streetAddress && <> — {SITE.addressNote.toLowerCase()}</>}
       </p>
     </div>
   </section>
@@ -33,9 +33,9 @@ import page from '../content/pages/location.json';
         <div class="card card--pad">
           <h3>Contact</h3>
           <p>
-            <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
-            <a href={SITE.instagram} rel="noopener">{SITE.instagramHandle}</a><br />
-            <a href={whatsappLink('Hi KLUB! Can you send me directions to the studio?')} rel="noopener">Message us for directions</a>
+            <a href={mailtoLink()} data-cta="location-email">{SITE.email}</a><br />
+            <a href={SITE.instagram} rel="noopener" data-cta="location-ig">{SITE.instagramHandle}</a><br />
+            <a href={whatsappLink('Hi KLUB! Can you send me directions to the studio?')} rel="noopener" data-cta="location-directions-message">Message us for directions</a>
           </p>
         </div>
       </div>
@@ -43,7 +43,7 @@ import page from '../content/pages/location.json';
       <div class="card card--pad center announce">
         <h2>{page.announce.heading}</h2>
         <p>{page.announce.text}</p>
-        <a class="btn btn--accent" href="/founding-member/">{page.announce.buttonLabel}</a>
+        <a class="btn btn--accent" href="/founding-member/" data-cta="location-founding">{page.announce.buttonLabel}</a>
       </div>
     </div>
   </section>

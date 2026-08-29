@@ -7,17 +7,36 @@ const tables = pricing.tables;
 
 const faqs = pricing.faqs;
 
+// "€32" -> "32", "€12,50" and "€12.50" -> "12.50", anything else -> "".
+// Mirrors the CMS validation pattern on the price field so the schema can
+// never disagree with what an editor is allowed to type.
+const priceNumber = (raw: unknown): string => {
+  const m = String(raw).match(/^\s*€\s*([0-9]+)(?:[.,]([0-9]{2}))?\s*$/);
+  if (!m) return '';
+  return m[2] ? `${m[1]}.${m[2]}` : m[1];
+};
+
 const offerSchema = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
   name: 'KLUB Pilates Pricing',
+  // Only rows whose price is exactly a euro amount belong in the catalog — a
+  // row priced in words ("From €55", "—") would emit a wrong or invalid Offer
+  // and Google rejects the whole catalog, so it is dropped rather than guessed
+  // at. The shape mirrors the CMS pattern on the price field, which allows a
+  // comma OR a dot as the decimal separator: stripping non-digits instead
+  // would turn "€12,50" into 1250 and publish a 100x wrong price, and would
+  // silently accept "From €55" as 55 despite the rule above.
   itemListElement: tables.flatMap((t) =>
-    t.rows.map((r) => ({
-      '@type': 'Offer',
-      name: r.name,
-      price: r.price.replace('€', ''),
-      priceCurrency: 'EUR',
-    }))
+    t.rows
+      .map((r) => ({ ...r, num: priceNumber(r.price) }))
+      .filter((r) => r.num)
+      .map((r) => ({
+        '@type': 'Offer',
+        name: r.name,
+        price: r.num,
+        priceCurrency: 'EUR',
+      }))
   ),
 };
 ---
@@ -42,28 +61,33 @@ const offerSchema = {
           <div class="card card--pad">
             <h2>{t.title}</h2>
             <p class="blurb">{t.blurb}</p>
-            <table class="price-table">
-              <thead>
-                <tr><th>Package</th><th>Price</th><th>{t.cols?.[0] ?? ''}</th><th>{t.cols?.[1] ?? ''}</th></tr>
-              </thead>
-              <tbody>
-                {t.rows.map((r) => (
-                  <tr>
-                    <td>{r.name}</td>
-                    <td class="price">{r.price}</td>
-                    <td>{r.per}</td>
-                    <td>{r.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <a class="btn btn--primary btn--sm" href={bookLink()}>Book Now</a>
+            <!-- A scrollable region must be reachable by keyboard and carry an
+                 accessible name, or the rows past the fold are unreachable
+                 without a mouse (axe: scrollable-region-focusable). -->
+            <div class="table-scroll" tabindex="0" role="region" aria-label={`${t.title} prices`}>
+              <table class="price-table">
+                <thead>
+                  <tr><th>Package</th><th>Price</th><th>{t.cols?.[0] ?? ''}</th><th>{t.cols?.[1] ?? ''}</th></tr>
+                </thead>
+                <tbody>
+                  {t.rows.map((r) => (
+                    <tr>
+                      <td>{r.name}</td>
+                      <td class="price">{r.price}</td>
+                      <td>{r.per}</td>
+                      <td>{r.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <a class="btn btn--primary btn--sm" href={bookLink()} data-cta={`pricing-book-${t.title.toLowerCase().replace(/\W+/g, '-')}`}>Book Now</a>
           </div>
         ))}
       </div>
 
       <p class="terms">
-        {pricing.termsText} <a href="/policies/">read our full policies</a>.
+        {pricing.termsText} <a href="/policies/" data-cta="pricing-policies">read our full policies</a>.
       </p>
     </div>
   </section>
@@ -80,7 +104,7 @@ const offerSchema = {
         ))}
       </div>
       <p class="center" style="margin-top: 28px;">
-        Anything else? <a href={whatsappLink('Hi KLUB! I have a question about pricing.')} rel="noopener">Message us</a> —
+        Anything else? <a href={whatsappLink('Hi KLUB! I have a question about pricing.')} rel="noopener" data-cta="pricing-message">Message us</a> —
         we usually reply within half an hour.
       </p>
     </div>

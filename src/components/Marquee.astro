@@ -1,4 +1,7 @@
 ---
+// `items` is rendered with set:html, so it is TRUSTED PRE-ESCAPED HTML.
+// Callers must pass inline(...) output (which escapes everything except the
+// *word* / ~text~ emphasis it generates) — never a raw CMS string.
 interface Props { items: string[] }
 const { items } = Astro.props;
 const strip = items;

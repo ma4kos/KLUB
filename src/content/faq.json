@@ -63,7 +63,7 @@
         },
         {
           "q": "Can I book a private 1-to-1 session?",
-          "a": "Yes — we are one of the few city-center studios offering true private sessions. They run by appointment and start from €70 per session in packs."
+          "a": "Yes — we are one of the few city-center studios offering true private sessions. They run by appointment and start from €80 per session in packs."
         },
         {
           "q": "How do I book?",
@@ -150,11 +150,11 @@
       "items": [
         {
           "q": "How much does a class cost?",
-          "a": "A drop-in class is €20. Packs bring the per-class price down to as low as €20 for groups, and monthly memberships run from €120. The intro pack gives newcomers two classes for €32. Full details are on our pricing page."
+          "a": "A single intro class is €20 and a drop-in is €32. Packs bring the per-class price down to as low as €18, and monthly packs start at €96 for four classes. The intro offer is three classes for €55. Full details are on our pricing page."
         },
         {
           "q": "Do class packs expire?",
-          "a": "Flexi packs are valid for 2 months (5 classes) or 3 months (10 classes). Monthly memberships renew monthly."
+          "a": "Flexi packs (10 or 20 classes) are valid for three months. Monthly packs (4, 8 or 12 classes) are valid for one month."
         },
         {
           "q": "Can I share my pack with someone else?",

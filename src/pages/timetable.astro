@@ -3,6 +3,13 @@ import Base from '../layouts/Base.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { whatsappLink } from '../site';
 import page from '../content/pages/timetable.json';
+
+// Most slots share the page-level caption; a slot may override it with its own
+// (the private 1-to-1 slot is not "50 min · max 6"). Blank falls back too.
+const days = page.days.map((d) => ({
+  ...d,
+  slots: d.slots.map((s) => ({ ...s, caption: ('caption' in s && s.caption) || page.slotCaption })),
+}));
 ---
 <Base title={page.seo.title} description={page.seo.description}>
   <section class="page-hero">
@@ -20,7 +27,7 @@ import page from '../content/pages/timetable.json';
         <p>{page.noticeText}</p>
       </div>
 
-      {page.days.map((d) => (
+      {days.map((d) => (
         <div class="day">
           <h2>{d.day}</h2>
           <div class="slots">
@@ -28,7 +35,7 @@ import page from '../content/pages/timetable.json';
               <div class="card slot">
                 <span class="time">{s.time}</span>
                 <span class="name">{s.name}</span>
-                <span class="cap">{page.slotCaption}</span>
+                <span class="cap">{s.caption}</span>
               </div>
             ))}
           </div>
@@ -36,8 +43,8 @@ import page from '../content/pages/timetable.json';
       ))}
 
       <p class="foot-note">
-        Can't find a time that works? <a href="/classes/private-sessions/">Private sessions</a> are
-        available by appointment — <a href={whatsappLink('Hi KLUB! Can I arrange a private session time?')} rel="noopener">message us</a> to arrange one.
+        Can't find a time that works? <a href={`/classes/${page.privateClassSlug}/`} data-cta="timetable-private-class">Private sessions</a> are
+        available by appointment — <a href={whatsappLink('Hi KLUB! Can I arrange a private session time?')} rel="noopener" data-cta="timetable-message">message us</a> to arrange one.
       </p>
     </div>
   </section>
