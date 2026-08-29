@@ -69,6 +69,17 @@ jobs:
   auto-merge:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    # One sweep at a time. A slow run (many pull requests, a rate-limited API)
+    # can outlast the 15-minute cron and overlap the next one, with both
+    # deciding the same pull request is mergeable and racing to merge it. The
+    # loser fails harmlessly, but the logs stop being trustworthy. Deliberately
+    # scoped to this job rather than the workflow, so review requests on
+    # different pull requests still run in parallel; and deliberately NOT
+    # cancel-in-progress, since cancelling a sweep midway through its list is
+    # worse than making the next one wait.
+    concurrency:
+      group: copilot-auto-merge-sweep
+      cancel-in-progress: false
     env:
       GH_TOKEN: ${{ github.token }}
       REPO: ${{ github.repository }}
@@ -82,12 +93,24 @@ jobs:
           # nicety: this job holds a contents:write token, so without it anyone
           # could open a pull request from a fork and have it merged to main
           # with no human involved.
-          candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
+          #
+          # This read must fail LOUDLY, not quietly. There is no `set -e`, so
+          # an unchecked command substitution turns a transient API, auth or
+          # rate-limit error into an empty string — indistinguishable from
+          # "no open pull requests", and the job would exit 0 having printed
+          # a reassuring message that is simply false. Nothing else watches
+          # this workflow, so a policy that had stopped working could sit dead
+          # for weeks with every run green. Failing the job puts a red mark in
+          # the Actions tab, which is the only signal there is.
+          if ! candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
             --jq ".[]
                   | select(.draft == false)
                   | select(.head.repo.full_name == \"$REPO\")
                   | select(.head.ref | startswith(\"cms/\") | not)
-                  | [.number, .head.sha] | @tsv")
+                  | [.number, .head.sha] | @tsv"); then
+            echo "::error::Could not list open pull requests; the sweep did nothing this run."
+            exit 1
+          fi
 
           if [ -z "$candidates" ]; then
             echo "No open pull requests are eligible."
@@ -151,7 +174,13 @@ jobs:
             # false on a real conflict; both hold. `tostring` rather than
             # `// "null"`, because jq's alternative operator treats false as
             # empty and would report a genuine conflict as "still computing".
-            mergeable=$(gh api "repos/$REPO/pulls/$pr" --jq '.mergeable | tostring')
+            # Checked like the review read above: unchecked, a failed call
+            # yields an empty string and the hold below would report the
+            # uninformative "mergeable=" rather than naming the real problem.
+            if ! mergeable=$(gh api "repos/$REPO/pulls/$pr" --jq '.mergeable | tostring'); then
+              echo "Holding: could not read the mergeable state of #$pr."
+              echo "::endgroup::"; continue
+            fi
             if [ "$mergeable" != "true" ]; then
               echo "Holding: mergeable=$mergeable (false = conflict, null = still being computed)."
               echo "::endgroup::"; continue
