@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, mailtoLink } from '../site';
 import page from '../content/pages/location.json';
 ---
 <Base title={page.seo.title} description={page.seo.description}>
@@ -33,7 +33,7 @@ import page from '../content/pages/location.json';
         <div class="card card--pad">
           <h3>Contact</h3>
           <p>
-            <a href={`mailto:${SITE.email}`} data-cta="location-email">{SITE.email}</a><br />
+            <a href={mailtoLink()} data-cta="location-email">{SITE.email}</a><br />
             <a href={SITE.instagram} rel="noopener" data-cta="location-ig">{SITE.instagramHandle}</a><br />
             <a href={whatsappLink('Hi KLUB! Can you send me directions to the studio?')} rel="noopener" data-cta="location-directions-message">Message us for directions</a>
           </p>

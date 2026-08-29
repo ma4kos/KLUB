@@ -1,5 +1,5 @@
 ---
-import { SITE, whatsappLink, bookLink } from '../site';
+import { SITE, whatsappLink, bookLink, mailtoLink } from '../site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -43,7 +43,7 @@ const year = new Date().getFullYear();
         </p>
         {SITE.phoneDisplay && <p><a href={`tel:${SITE.phoneDisplay.replace(/\s/g, '')}`}>{SITE.phoneDisplay}</a></p>}
         <p><a href={whatsappLink()} rel="noopener">Message us{SITE.whatsappNumber ? ' on WhatsApp' : ' on Instagram'}</a></p>
-        <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        <p><a href={mailtoLink()}>{SITE.email}</a></p>
         <p class="opening">{SITE.openingLabel}</p>
       </div>
     </div>

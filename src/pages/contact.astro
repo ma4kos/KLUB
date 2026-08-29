@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, whatsappLink } from '../site';
+import { SITE, whatsappLink, mailtoLink } from '../site';
 import page from '../content/pages/contact.json';
 ---
 <Base title={page.seo.title} description={page.seo.description}>
@@ -59,7 +59,7 @@ import page from '../content/pages/contact.json';
         </div>
         <div class="line">
           <h3>Email</h3>
-          <p><a href={`mailto:${SITE.email}`} data-cta="contact-direct-email">{SITE.email}</a></p>
+          <p><a href={mailtoLink()} data-cta="contact-direct-email">{SITE.email}</a></p>
         </div>
         <div class="line">
           <h3>Instagram</h3>
