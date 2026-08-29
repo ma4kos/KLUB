@@ -27,19 +27,15 @@ const WIDTHS = [
 
 /**
  * Rules knowingly deferred. Add an entry ONLY with a reason and an owner,
- * never just to make a run go green.
+ * never just to make a run go green — a disabled rule is disabled site-wide
+ * and masks every future instance, not just the one you meant to defer.
  *
- * scrollable-region-focusable — REAL, unfixed, one-line fix, not in this
- *   workstream's files. At 390px the two widest pricing tables scroll inside
- *   the `.table-scroll` wrapper added to src/pages/pricing.astro (the fix for
- *   the 320/768px horizontal-overflow bug). A mouse user drags it; a keyboard
- *   user cannot reach it at all, so the Flexi Packs and Private 1-to-1 prices
- *   are unreadable without a pointer. Fix: `tabindex="0"` plus
- *   `role="region"` and an `aria-label` on that wrapper in pricing.astro. Once
- *   that lands, delete this entry — the rule is disabled site-wide while it is
- *   here, so it is also masking any future scrollable region.
+ * Empty on purpose. `scrollable-region-focusable` lived here while the
+ * `.table-scroll` wrapper on src/pages/pricing.astro was unreachable by
+ * keyboard; that wrapper now carries tabindex="0", role="region" and an
+ * aria-label, so the rule is enforced again.
  */
-const DEFERRED_RULES: string[] = ['scrollable-region-focusable'];
+const DEFERRED_RULES: string[] = [];
 
 /**
  * Reduced motion, so axe measures a settled page.

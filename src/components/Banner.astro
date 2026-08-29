@@ -5,9 +5,13 @@ import { BANNER } from '../site';
 // edits the announcement in the CMS it becomes a new banner that everyone sees
 // again — a single fixed key would have made this a once-per-visitor-forever
 // feature, which is the opposite of a reusable announcement bar.
+// Hash every visible part of the banner, so ANY content change re-shows it to
+// people who dismissed the previous one. linkText counts: rewording the call to
+// action ("Join now" -> "Claim your spot") is a content change a visitor who
+// dismissed the old banner should still see.
 const key =
   'klub-banner-' +
-  [...((BANNER.text || '') + (BANNER.linkUrl || ''))]
+  [...((BANNER.text || '') + (BANNER.linkText || '') + (BANNER.linkUrl || ''))]
     .reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7)
     .toString(36);
 ---

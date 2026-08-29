@@ -71,8 +71,12 @@ test('every price in llms.txt still exists in the pricing table', async ({ reque
   expect(res.ok(), `llms.txt returned ${res.status()}`).toBeTruthy();
   const body = await res.text();
 
-  const inPricing = new Set(JSON.stringify(pricing).match(/€\d+/g) ?? []);
-  const quoted = Array.from(new Set(body.match(/€\d+/g) ?? []));
+  // Match decimals too: the CMS price pattern allows "€12,50" and "€12.50", and
+  // a whole-euro-only regex would read both as "€12" and let real drift pass.
+  const PRICE = /€\s*\d+(?:[.,]\d{2})?/g;
+  const normalise = (s: string) => s.replace(/\s+/g, '').replace(',', '.');
+  const inPricing = new Set((JSON.stringify(pricing).match(PRICE) ?? []).map(normalise));
+  const quoted = Array.from(new Set((body.match(PRICE) ?? []).map(normalise)));
   expect(quoted.length, 'llms.txt quotes no prices at all').toBeGreaterThan(0);
 
   const drifted = quoted.filter((amount) => !inPricing.has(amount));

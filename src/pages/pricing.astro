@@ -61,7 +61,10 @@ const offerSchema = {
           <div class="card card--pad">
             <h2>{t.title}</h2>
             <p class="blurb">{t.blurb}</p>
-            <div class="table-scroll">
+            <!-- A scrollable region must be reachable by keyboard and carry an
+                 accessible name, or the rows past the fold are unreachable
+                 without a mouse (axe: scrollable-region-focusable). -->
+            <div class="table-scroll" tabindex="0" role="region" aria-label={`${t.title} prices`}>
               <table class="price-table">
                 <thead>
                   <tr><th>Package</th><th>Price</th><th>{t.cols?.[0] ?? ''}</th><th>{t.cols?.[1] ?? ''}</th></tr>
