@@ -143,6 +143,7 @@ jobs:
           if ! candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
             --jq ".[]
                   | select(.draft == false)
+                  | select(.base.ref == \"$DEFAULT_BRANCH\")
                   | select(.head.repo.full_name == \"$REPO\")
                   | select(.head.ref | startswith(\"cms/\") | not)
                   | .number"); then
@@ -182,22 +183,30 @@ jobs:
                     (.mergeable | tostring),
                     (.draft | tostring),
                     (.head.repo.full_name // ""),
-                    .head.ref'); then
+                    .head.ref,
+                    .base.ref'); then
               echo "Holding: could not read #$pr."
               echo "::endgroup::"; continue
             fi
             mapfile -t f <<< "$meta"
             sha=${f[0]-}; mergeable=${f[1]-}; draft=${f[2]-}
-            head_repo=${f[3]-}; head_ref=${f[4]-}
-            echo "head is $sha"
+            head_repo=${f[3]-}; head_ref=${f[4]-}; base_ref=${f[5]-}
+            echo "head is $sha, base is $base_ref"
 
             # Re-applied to current state, not the listing's. The same-repo
             # test is the security boundary: this job holds a contents:write
             # token, so without it a fork pull request could be merged to main
             # with nobody involved. An empty head_repo (deleted fork) fails it.
+            #
+            # base_ref is checked here as well as in the listing because a pull
+            # request can be RETARGETED at any moment, including mid-sweep —
+            # the same reason the head SHA is re-read. Without it the sweep
+            # would happily merge a stacked pull request into its parent
+            # feature branch, which is not what this policy says it does.
             case "$head_ref" in cms/*) is_cms=true ;; *) is_cms=false ;; esac
-            if [ "$head_repo" != "$REPO" ] || [ "$draft" != "false" ] || [ "$is_cms" = true ]; then
-              echo "Holding: no longer eligible (repo=$head_repo draft=$draft ref=$head_ref)."
+            if [ "$head_repo" != "$REPO" ] || [ "$draft" != "false" ] || [ "$is_cms" = true ] \
+               || [ "$base_ref" != "$DEFAULT_BRANCH" ]; then
+              echo "Holding: no longer eligible (repo=$head_repo draft=$draft head=$head_ref base=$base_ref)."
               echo "::endgroup::"; continue
             fi
 
