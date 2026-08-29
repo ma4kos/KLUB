@@ -2,23 +2,55 @@
 #
 # Policy (requested by the repo owner, Aug 2026): every non-draft pull request
 # gets a GitHub Copilot code review requested automatically; once Copilot has
-# submitted its review (anything except "changes requested") and all checks on
-# the PR are green, the PR is merged automatically.
+# reviewed the CURRENT head commit without requesting changes and every check
+# is green, the pull request is merged automatically.
 #
-# Requirements: Copilot code review must be available on this repository.
+# WHY THIS IS A SCHEDULED SWEEP AND NOT A `pull_request_review` TRIGGER
+# --------------------------------------------------------------------
+# The first version of this workflow listened for `pull_request_review` and
+# merged when the review author was Copilot. It never once fired. GitHub holds
+# workflow runs whose TRIGGERING ACTOR is a bot in the `action_required` state,
+# waiting for a human to press "Approve and run" in the Actions tab — so on
+# every Copilot review the run was created and immediately parked, and the
+# job's `if` was never even evaluated (see runs 33251617022 and 33252437250,
+# both `action_required`, both triggered by Copilot). The runs that did execute
+# were the ones triggered by a human review comment, and those correctly
+# skipped because the review author was not Copilot. The policy was
+# unreachable by construction, and every merge under it was in fact completed
+# by hand.
+#
+# A `schedule` run is triggered by the repository itself, so it is never
+# parked. It also lets the gate be checked properly rather than trusted from an
+# event payload: the sweep re-reads the pull request's CURRENT head and merges
+# only that exact commit. The event-driven version did neither, so a review of
+# an old commit could have merged code Copilot never saw.
+#
 # To pause the policy, disable or delete this workflow file.
 
 name: Copilot review & auto-merge
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review]
-  pull_request_review:
-    types: [submitted]
+    # `synchronize` (a push to an open PR) is here on purpose: the sweep below
+    # only merges when Copilot has reviewed the current head, so without a
+    # re-request every review-and-fix cycle would leave the PR permanently
+    # un-mergeable by the policy. The cost is one Copilot review per push.
+    types: [opened, reopened, ready_for_review, synchronize]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
+  # Naming any permission sets every unnamed one to `none`, so these two are
+  # not redundant: `gh pr checks` reads the status-check rollup, which is check
+  # runs (checks) plus legacy commit statuses (statuses) — and this repo has
+  # both, since Netlify still posts commit statuses. Without them the check
+  # gate below can never pass and the sweep would silently merge nothing,
+  # forever. Read-only, and the narrowest scopes that make the gate work.
+  checks: read
+  statuses: read
 
 jobs:
   request-copilot-review:
@@ -43,34 +75,218 @@ jobs:
             || echo "::warning::Could not request a Copilot review (is Copilot code review enabled for this repo?)"
 
   auto-merge:
-    # Exact-login + Bot-type match so an account-name collision can never
-    # trigger a merge. Copilot code review submits "commented" reviews (it
-    # rarely approves), so per the repo owner's policy any Copilot review
-    # except "changes requested" clears the gate — checks must still pass.
-    # The fork check is a security boundary, not a nicety: `pull_request_review`
-    # runs in the BASE repo context with the full contents:write token even when
-    # the pull request comes from a fork, so without it anyone could open a fork
-    # PR and have it merged to main with no human involvement.
-    if: >-
-      github.event_name == 'pull_request_review' &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.review.user.login == 'copilot-pull-request-reviewer[bot]' &&
-      github.event.review.user.type == 'Bot' &&
-      github.event.review.state != 'changes_requested' &&
-      github.event.pull_request.draft == false &&
-      !startsWith(github.event.pull_request.head.ref, 'cms/')
+    # Named events, not `!= 'pull_request'`. This job merges to main with a
+    # write token, so its trigger list should be a thing someone has to opt
+    # into deliberately: under the old deny-list, adding any trigger to this
+    # workflow later — a `push`, an `issue_comment` — would have silently
+    # started running the merge sweep on it.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    # One sweep at a time. A slow run (many pull requests, a rate-limited API)
+    # can outlast the 15-minute cron and overlap the next one, with both
+    # deciding the same pull request is mergeable and racing to merge it. The
+    # loser fails harmlessly, but the logs stop being trustworthy. Deliberately
+    # scoped to this job rather than the workflow, so review requests on
+    # different pull requests still run in parallel; and deliberately NOT
+    # cancel-in-progress, since cancelling a sweep midway through its list is
+    # worse than making the next one wait.
+    concurrency:
+      group: copilot-auto-merge-sweep
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      COPILOT: copilot-pull-request-reviewer[bot]
+      REF_NAME: ${{ github.ref_name }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
-      - name: Wait for checks, then merge
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
+      - name: Merge every pull request that has cleared the gate
         run: |
-          # Wait for every other check on the PR head to finish; fails if any fail.
-          gh pr checks "$PR" --repo "${{ github.repository }}" --watch --fail-fast || {
-            echo "::warning::Checks failed or pending — not merging PR #$PR"
+          # -e explicitly, not merely inherited. Actions supplies `bash -e {0}`
+          # today, so this changes nothing right now — but this script merges
+          # to the default branch with a write token, and its error handling
+          # should not silently depend on a runner default this file does not
+          # control. The comments below reason about -e; this makes the thing
+          # they reason about actually present in the file.
+          set -euo pipefail
+
+          # The sweep runs from the default branch only.
+          #
+          # `workflow_dispatch` lets anyone with push access pick the ref to
+          # run from, and the workflow file executed is the one ON that ref —
+          # so without this, pushing a branch with an edited copy of this file
+          # and dispatching it would run arbitrary code holding a
+          # contents:write token that can merge to main. (`schedule` always
+          # runs the default branch, so this only constrains dispatch.)
+          #
+          # Checked HERE, in the step, rather than in the job's `if:`. A false
+          # `if:` skips the job silently and green — which is precisely the
+          # failure this whole workflow exists to fix, and it would look
+          # identical to a sweep that simply found nothing to do. An unset
+          # DEFAULT_BRANCH is treated the same way: refuse and say so, rather
+          # than quietly comparing against an empty string forever.
+          if [ -z "${DEFAULT_BRANCH:-}" ]; then
+            echo "::error::Could not read the repository's default branch; refusing to sweep."
+            exit 1
+          fi
+          if [ "$REF_NAME" != "$DEFAULT_BRANCH" ]; then
+            echo "::error::The merge sweep only runs from $DEFAULT_BRANCH; this run is on $REF_NAME."
+            exit 1
+          fi
+
+          # Which pull requests to LOOK AT. Nothing this returns is trusted
+          # for the merge decision itself — see the re-read inside the loop —
+          # so it yields numbers only.
+          #
+          # Checked explicitly so the failure is NAMED. With -e set above an
+          # unchecked `candidates=$(...)` would already abort the step rather
+          # than sail on, but it would abort with no explanation — and the
+          # distinction that matters here, an API failure versus a genuinely
+          # empty list (which must exit 0), would be lost either way.
+          if ! candidates=$(gh api "repos/$REPO/pulls?state=open&per_page=100" --paginate \
+            --jq ".[]
+                  | select(.draft == false)
+                  | select(.base.ref == \"$DEFAULT_BRANCH\")
+                  | select(.head.repo.full_name == \"$REPO\")
+                  | select(.head.ref | startswith(\"cms/\") | not)
+                  | .number"); then
+            echo "::error::Could not list open pull requests; the sweep did nothing this run."
+            exit 1
+          fi
+
+          if [ -z "$candidates" ]; then
+            echo "No open pull requests are eligible."
             exit 0
-          }
-          gh pr merge "$PR" --repo "${{ github.repository }}" --merge \
-            && echo "PR #$PR merged after Copilot review" \
-            || echo "::warning::Merge failed for PR #$PR (conflict or protection rule?)"
+          fi
+
+          # Read the candidate list on FD 3, not stdin. Every command in this
+          # loop inherits the loop's stdin, so any one of them that reads it
+          # would swallow the remaining candidates and silently leave later
+          # pull requests unmerged. FD 3 makes that impossible.
+          while read -r pr <&3; do
+            [ -n "$pr" ] || continue
+            echo "::group::PR #$pr"
+
+            # Re-read every fact this decision rests on, fresh. The sweep can
+            # take minutes and a pull request can change underneath it. The
+            # head SHA especially must not come from the listing: the gate
+            # below would then pass on the reviewed commit while the merge
+            # took whatever the head had since become — merging code Copilot
+            # never saw.
+            #
+            # One value per LINE, not @tsv. head.repo is null when a fork has
+            # been deleted, so that field can legitimately be empty — and tab
+            # is an IFS *whitespace* character, so `read` collapses a run of
+            # them into one delimiter and every field after the empty one
+            # shifts up by one, putting the branch name where the repository
+            # name belongs. A branch name cannot contain a newline, so
+            # splitting on lines cannot collapse.
+            if ! meta=$(gh api "repos/$REPO/pulls/$pr" \
+              --jq '.head.sha,
+                    (.mergeable | tostring),
+                    (.draft | tostring),
+                    (.head.repo.full_name // ""),
+                    .head.ref,
+                    .base.ref'); then
+              echo "Holding: could not read #$pr."
+              echo "::endgroup::"; continue
+            fi
+            mapfile -t f <<< "$meta"
+            sha=${f[0]-}; mergeable=${f[1]-}; draft=${f[2]-}
+            head_repo=${f[3]-}; head_ref=${f[4]-}; base_ref=${f[5]-}
+            echo "head is $sha, base is $base_ref"
+
+            # Re-applied to current state, not the listing's. The same-repo
+            # test is the security boundary: this job holds a contents:write
+            # token, so without it a fork pull request could be merged to main
+            # with nobody involved. An empty head_repo (deleted fork) fails it.
+            #
+            # base_ref is checked here as well as in the listing because a pull
+            # request can be RETARGETED at any moment, including mid-sweep —
+            # the same reason the head SHA is re-read. Without it the sweep
+            # would happily merge a stacked pull request into its parent
+            # feature branch, which is not what this policy says it does.
+            case "$head_ref" in cms/*) is_cms=true ;; *) is_cms=false ;; esac
+            if [ "$head_repo" != "$REPO" ] || [ "$draft" != "false" ] || [ "$is_cms" = true ] \
+               || [ "$base_ref" != "$DEFAULT_BRANCH" ]; then
+              echo "Holding: no longer eligible (repo=$head_repo draft=$draft head=$head_ref base=$base_ref)."
+              echo "::endgroup::"; continue
+            fi
+
+            # Copilot must have reviewed THIS commit. Its code review submits
+            # "COMMENTED" reviews far more often than "APPROVED", so per the
+            # owner's policy anything except CHANGES_REQUESTED clears the gate.
+            #
+            # `--paginate` runs the jq program ONCE PER PAGE and concatenates
+            # the output, so the reduction to a single review must happen in
+            # the shell, not in jq. An earlier version ended the jq program
+            # with `| last | .state`, which yields one line per page: with a
+            # COMMENTED review on page 1 and a CHANGES_REQUESTED on page 2,
+            # `state` became the two-line string "COMMENTED\nCHANGES_REQUESTED",
+            # which is not equal to "CHANGES_REQUESTED" — so the branch below
+            # fell through and merged a pull request Copilot had asked for
+            # changes on. Reviews come back oldest-first within and across
+            # pages, so emitting one state per matching review and taking the
+            # last line is the latest one. (The `candidates` query above is
+            # safe under the same flag because it emits one line per pull
+            # request and concatenating the pages is exactly what is wanted.)
+            #
+            # The read is also captured before it is reduced, so a failure is
+            # caught here by name. `--paginate` emits the pages it already
+            # fetched before erroring, so `gh ... | tail -n 1` would take the
+            # last line of a PARTIAL list. With -e and pipefail that pipeline
+            # aborts the step, so it is not silently wrong — but it dies
+            # anonymously mid-sweep, naming neither the pull request nor the
+            # cause. Holding this one pull request, by name, is better.
+            if ! reviews=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
+              --jq ".[]
+                    | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")
+                    | .state"); then
+              echo "Holding: could not read the reviews for #$pr."
+              echo "::endgroup::"; continue
+            fi
+            state=$(printf '%s\n' "$reviews" | tail -n 1)
+
+            if [ -z "$state" ]; then
+              echo "Waiting: Copilot has not reviewed $sha yet."
+              echo "::endgroup::"; continue
+            fi
+            if [ "$state" = "CHANGES_REQUESTED" ]; then
+              echo "Holding: Copilot requested changes on $sha."
+              echo "::endgroup::"; continue
+            fi
+            echo "Copilot review on $sha: $state"
+
+            # Read with the rest of the metadata above. `mergeable` is null
+            # while GitHub computes the merge commit and false on a real
+            # conflict; both hold. `tostring` rather than `// "null"`, because
+            # jq's alternative operator treats false as empty and would report
+            # a genuine conflict as "still computing".
+            if [ "$mergeable" != "true" ]; then
+              echo "Holding: mergeable=$mergeable (false = conflict, null = still being computed)."
+              echo "::endgroup::"; continue
+            fi
+
+            # Checked here rather than trusted from mergeable_state, which
+            # reports "clean" when no branch protection makes a check required.
+            # gh exits non-zero on any failing or still-pending check. Needs
+            # the checks/statuses read scopes granted above.
+            if ! gh pr checks "$pr" --repo "$REPO"; then
+              echo "Holding: checks are failing or still running."
+              echo "::endgroup::"; continue
+            fi
+
+            # --match-head-commit is what actually closes the race. Every
+            # check above ran against $sha, but they all take time, and a
+            # plain `gh pr merge` merges whatever the head is at the instant
+            # it runs — so a push landing mid-sweep would be merged unread.
+            # This passes the SHA through to the merge API's `sha` parameter,
+            # which refuses the merge if the head has moved. Re-reading the
+            # head above narrows the window; only this removes it. A refusal
+            # is the correct outcome: the next sweep picks the pull request
+            # up again once Copilot has reviewed the new head.
+            gh pr merge "$pr" --repo "$REPO" --merge --match-head-commit "$sha" \
+              && echo "PR #$pr merged at $sha after Copilot review" \
+              || echo "::warning::Did not merge #$pr — the head moved past $sha, or a protection rule refused it."
+            echo "::endgroup::"
+          done 3<<< "$candidates"
