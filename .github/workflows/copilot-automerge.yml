@@ -21,8 +21,8 @@
 #
 # A `schedule` run is triggered by the repository itself, so it is never
 # parked. It also lets the gate be checked properly rather than trusted from an
-# event payload: the sweep requires Copilot's review to sit on the pull
-# request's CURRENT head SHA. The event-driven version did not, so a review of
+# event payload: the sweep re-reads the pull request's CURRENT head and merges
+# only that exact commit. The event-driven version did neither, so a review of
 # an old commit could have merged code Copilot never saw.
 #
 # To pause the policy, disable or delete this workflow file.
@@ -89,10 +89,9 @@ jobs:
         run: |
           set -uo pipefail
 
-          # Candidates. The same-repo filter is a security boundary, not a
-          # nicety: this job holds a contents:write token, so without it anyone
-          # could open a pull request from a fork and have it merged to main
-          # with no human involved.
+          # Which pull requests to LOOK AT. Nothing this returns is trusted
+          # for the merge decision itself — see the re-read inside the loop —
+          # so it yields numbers only.
           #
           # This read must fail LOUDLY, not quietly. There is no `set -e`, so
           # an unchecked command substitution turns a transient API, auth or
@@ -107,7 +106,7 @@ jobs:
                   | select(.draft == false)
                   | select(.head.repo.full_name == \"$REPO\")
                   | select(.head.ref | startswith(\"cms/\") | not)
-                  | [.number, .head.sha] | @tsv"); then
+                  | .number"); then
             echo "::error::Could not list open pull requests; the sweep did nothing this run."
             exit 1
           fi
@@ -121,9 +120,47 @@ jobs:
           # loop inherits the loop's stdin, so any one of them that reads it
           # would swallow the remaining candidates and silently leave later
           # pull requests unmerged. FD 3 makes that impossible.
-          while IFS=$'\t' read -r pr sha <&3; do
+          while read -r pr <&3; do
             [ -n "$pr" ] || continue
-            echo "::group::PR #$pr ($sha)"
+            echo "::group::PR #$pr"
+
+            # Re-read every fact this decision rests on, fresh. The sweep can
+            # take minutes and a pull request can change underneath it. The
+            # head SHA especially must not come from the listing: the gate
+            # below would then pass on the reviewed commit while the merge
+            # took whatever the head had since become — merging code Copilot
+            # never saw.
+            #
+            # One value per LINE, not @tsv. head.repo is null when a fork has
+            # been deleted, so that field can legitimately be empty — and tab
+            # is an IFS *whitespace* character, so `read` collapses a run of
+            # them into one delimiter and every field after the empty one
+            # shifts up by one, putting the branch name where the repository
+            # name belongs. A branch name cannot contain a newline, so
+            # splitting on lines cannot collapse.
+            if ! meta=$(gh api "repos/$REPO/pulls/$pr" \
+              --jq '.head.sha,
+                    (.mergeable | tostring),
+                    (.draft | tostring),
+                    (.head.repo.full_name // ""),
+                    .head.ref'); then
+              echo "Holding: could not read #$pr."
+              echo "::endgroup::"; continue
+            fi
+            mapfile -t f <<< "$meta"
+            sha=${f[0]-}; mergeable=${f[1]-}; draft=${f[2]-}
+            head_repo=${f[3]-}; head_ref=${f[4]-}
+            echo "head is $sha"
+
+            # Re-applied to current state, not the listing's. The same-repo
+            # test is the security boundary: this job holds a contents:write
+            # token, so without it a fork pull request could be merged to main
+            # with nobody involved. An empty head_repo (deleted fork) fails it.
+            case "$head_ref" in cms/*) is_cms=true ;; *) is_cms=false ;; esac
+            if [ "$head_repo" != "$REPO" ] || [ "$draft" != "false" ] || [ "$is_cms" = true ]; then
+              echo "Holding: no longer eligible (repo=$head_repo draft=$draft ref=$head_ref)."
+              echo "::endgroup::"; continue
+            fi
 
             # Copilot must have reviewed THIS commit. Its code review submits
             # "COMMENTED" reviews far more often than "APPROVED", so per the
@@ -170,17 +207,11 @@ jobs:
             fi
             echo "Copilot review on $sha: $state"
 
-            # `mergeable` is null while GitHub computes the merge commit and
-            # false on a real conflict; both hold. `tostring` rather than
-            # `// "null"`, because jq's alternative operator treats false as
-            # empty and would report a genuine conflict as "still computing".
-            # Checked like the review read above: unchecked, a failed call
-            # yields an empty string and the hold below would report the
-            # uninformative "mergeable=" rather than naming the real problem.
-            if ! mergeable=$(gh api "repos/$REPO/pulls/$pr" --jq '.mergeable | tostring'); then
-              echo "Holding: could not read the mergeable state of #$pr."
-              echo "::endgroup::"; continue
-            fi
+            # Read with the rest of the metadata above. `mergeable` is null
+            # while GitHub computes the merge commit and false on a real
+            # conflict; both hold. `tostring` rather than `// "null"`, because
+            # jq's alternative operator treats false as empty and would report
+            # a genuine conflict as "still computing".
             if [ "$mergeable" != "true" ]; then
               echo "Holding: mergeable=$mergeable (false = conflict, null = still being computed)."
               echo "::endgroup::"; continue
@@ -194,8 +225,17 @@ jobs:
               echo "::endgroup::"; continue
             fi
 
-            gh pr merge "$pr" --repo "$REPO" --merge \
-              && echo "PR #$pr merged after Copilot review" \
-              || echo "::warning::Merge failed for PR #$pr (protection rule, or it moved under us)"
+            # --match-head-commit is what actually closes the race. Every
+            # check above ran against $sha, but they all take time, and a
+            # plain `gh pr merge` merges whatever the head is at the instant
+            # it runs — so a push landing mid-sweep would be merged unread.
+            # This passes the SHA through to the merge API's `sha` parameter,
+            # which refuses the merge if the head has moved. Re-reading the
+            # head above narrows the window; only this removes it. A refusal
+            # is the correct outcome: the next sweep picks the pull request
+            # up again once Copilot has reviewed the new head.
+            gh pr merge "$pr" --repo "$REPO" --merge --match-head-commit "$sha" \
+              && echo "PR #$pr merged at $sha after Copilot review" \
+              || echo "::warning::Did not merge #$pr — the head moved past $sha, or a protection rule refused it."
             echo "::endgroup::"
           done 3<<< "$candidates"
