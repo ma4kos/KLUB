@@ -75,7 +75,12 @@ jobs:
             || echo "::warning::Could not request a Copilot review (is Copilot code review enabled for this repo?)"
 
   auto-merge:
-    if: github.event_name != 'pull_request'
+    # Named events, not `!= 'pull_request'`. This job merges to main with a
+    # write token, so its trigger list should be a thing someone has to opt
+    # into deliberately: under the old deny-list, adding any trigger to this
+    # workflow later — a `push`, an `issue_comment` — would have silently
+    # started running the merge sweep on it.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     # One sweep at a time. A slow run (many pull requests, a rate-limited API)
     # can outlast the 15-minute cron and overlap the next one, with both
