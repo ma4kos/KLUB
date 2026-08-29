@@ -101,9 +101,24 @@ jobs:
             # Copilot must have reviewed THIS commit. Its code review submits
             # "COMMENTED" reviews far more often than "APPROVED", so per the
             # owner's policy anything except CHANGES_REQUESTED clears the gate.
+            #
+            # `--paginate` runs the jq program ONCE PER PAGE and concatenates
+            # the output, so the reduction to a single review must happen in
+            # the shell, not in jq. An earlier version ended the jq program
+            # with `| last | .state`, which yields one line per page: with a
+            # COMMENTED review on page 1 and a CHANGES_REQUESTED on page 2,
+            # `state` became the two-line string "COMMENTED\nCHANGES_REQUESTED",
+            # which is not equal to "CHANGES_REQUESTED" — so the branch below
+            # fell through and merged a pull request Copilot had asked for
+            # changes on. Reviews come back oldest-first within and across
+            # pages, so emitting one state per matching review and taking the
+            # last line is the latest one. (The `candidates` query above is
+            # safe under the same flag because it emits one line per pull
+            # request and concatenating the pages is exactly what is wanted.)
             state=$(gh api "repos/$REPO/pulls/$pr/reviews" --paginate \
-              --jq "[.[] | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")]
-                    | last | .state // empty")
+              --jq ".[]
+                    | select(.user.login == \"$COPILOT\" and .user.type == \"Bot\" and .commit_id == \"$sha\")
+                    | .state" | tail -n 1)
 
             if [ -z "$state" ]; then
               echo "Waiting: Copilot has not reviewed $sha yet."
