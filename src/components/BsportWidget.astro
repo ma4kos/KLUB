@@ -17,6 +17,12 @@ const widgetId = SITE.bsportWidgetId || '';
     </div>
     <script is:inline define:vars={{ companyId, widgetId }}>
       (function () {
+        // Automated browsers (Playwright/CI) don't mount the third-party
+        // widget: its script fetches translations and schedule data with
+        // URLs the test server can't answer, which would fail every
+        // asset/network assertion for reasons no editor can cause or fix.
+        // Real visitors are unaffected (navigator.webdriver is false).
+        if (navigator.webdriver) return;
         if (!document.getElementById('bsport-widget-cdn')) {
           var s = document.createElement('script');
           s.id = 'bsport-widget-cdn';
