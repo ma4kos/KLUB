@@ -122,13 +122,19 @@ test('the mobile menu closes with Escape', async ({ page }) => {
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 });
 
-test('the marquee can be paused from the keyboard', async ({ page }) => {
+test('any marquee on the page can be paused from the keyboard', async ({ page }) => {
+  // The Option-1 homepage has no marquee, but the component pattern may come
+  // back on any page — if a moving marquee exists it MUST carry a keyboard-
+  // reachable pause control (WCAG 2.2.2). Zero marquees passes trivially.
   await page.goto('/', { waitUntil: 'load' });
 
+  const marquees = await page.locator('.marquee').count();
   const pause = page.locator('.marquee__pause');
-  await expect(pause, 'the moving marquee has no pause control (WCAG 2.2.2)').toHaveCount(1);
-  await expect(pause).toHaveAttribute('aria-label', /pause/i);
+  await expect(pause, 'a moving marquee has no pause control (WCAG 2.2.2)').toHaveCount(marquees);
 
-  await pause.focus();
-  await expect(pause, 'the pause control cannot be reached by keyboard').toBeFocused();
+  if (marquees > 0) {
+    await expect(pause.first()).toHaveAttribute('aria-label', /pause/i);
+    await pause.first().focus();
+    await expect(pause.first(), 'the pause control cannot be reached by keyboard').toBeFocused();
+  }
 });

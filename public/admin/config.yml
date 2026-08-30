@@ -70,8 +70,8 @@ collections:
             required: false
             hint: "The bsport widget number (currently 868966), from bsport's Backoffice → Marketing → Widget. Both IDs must be set for the calendar to show."
             pattern: ['^$|^[0-9]{1,12}$', 'Digits only, e.g. 868966, or leave empty']
-          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The main Book button, repeated on the homepage hero, price card, closing section and the phone bar. If you change the price in this text, change it in 'Compact booking button text' below as well, and check the homepage price cards and the Pricing page — those are separate." }
-          - { label: "Compact booking button text", name: "ctaCompact", widget: "string", hint: "Short priced variant used in the slim header on narrower screens — e.g. 'Book · €20'." }
+          - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The main Book button, repeated on the homepage hero and the phone bar — e.g. 'Book Your First Class'." }
+          - { label: "Compact booking button text", name: "ctaCompact", widget: "string", hint: "Short variant used in the header — e.g. 'Book a Class'." }
           - label: "Google Analytics 4 ID"
             name: "ga4Id"
             widget: "string"
@@ -139,7 +139,7 @@ collections:
       - name: "home"
         label: "Homepage"
         file: "src/content/home.json"
-        description: "Everything on the front page, top to bottom — hero, numbers row, about, classes, pricing preview, gallery, location and founding circle."
+        description: "Everything on the front page, top to bottom — hero, the seven numbered chapters (The Klub, classes, intro offer, experience, community, location, closing) per the Option-1 layout."
         fields:
           - label: "Google & browser tab"
             name: "seo"
@@ -147,46 +147,24 @@ collections:
             fields:
               - { label: "Browser-tab title", name: "title", widget: "string" }
               - { label: "Search result description", name: "description", widget: "text" }
-          - { label: "Line above the headline", name: "heroEyebrow", widget: "string" }
-          - { label: "Headline", name: "heroHeading", widget: "text", hint: "*word* = italic accent. Press Enter for a second line." }
+          - { label: "Headline", name: "heroHeading", widget: "text", hint: "Shown in spaced-out capitals. Press Enter for each new line." }
           - { label: "Intro paragraph", name: "heroLede", widget: "text" }
           - { label: "Second hero button text", name: "heroSecondaryLabel", widget: "string" }
-          - { label: "Reassurance line under Book buttons", name: "bookNote", widget: "string", hint: "Short trust line shown under the hero Book button and inside the featured price card." }
-          - label: "Hero video"
-            name: "heroVideo"
-            widget: "file"
-            hint: "Short muted mp4 loop — max 20000 kB. Use real studio footage (e.g. saved from Instagram)."
-            media_library:
-              config:
-                max_file_size: 20000000
-          - label: "Hero video poster (still shown while loading)"
-            name: "heroPoster"
+          - label: "Hero photo (top of the homepage)"
+            name: "heroImage"
             widget: "image"
             hint: "JPG, PNG or WebP — max 5000 kB. Any size works, it's automatically cropped to fit its frame; about 1200px on the longest side is plenty. If you are uploading straight from an iPhone, set Settings → Camera → Formats → Most Compatible first. A .HEIC file will not display on the website."
             media_library:
               config:
                 max_file_size: 5000000
-          - { label: "Scrolling ribbon lines", name: "marquee", widget: "list", field: { label: "Line", name: "line", widget: "string", hint: "*word* = italic accent" } }
-          - label: "Numbers row"
-            name: "stats"
-            widget: "list"
-            allow_add: false
-            allow_remove: false
-            min: 4
-            max: 4
-            summary: "{{fields.big}}"
-            fields:
-              - { label: "Big number", name: "big", widget: "string", hint: "~text~ renders smaller — e.g. 50~′~ shows the minutes mark at half size. *word* = italic accent." }
-              - { label: "Caption", name: "small", widget: "string" }
-          - label: "About section"
+          - { label: "Describe the hero photo", name: "heroAlt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
+          - label: "01 · The Klub"
             name: "about"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
-              - { label: "Paragraphs", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "p", widget: "text" } }
-              - { label: "Large quote in the middle of the section", name: "pullQuote", widget: "string" }
-              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Link text", name: "buttonLabel", widget: "string" }
               - label: "Photo"
                 name: "image"
                 widget: "image"
@@ -195,22 +173,21 @@ collections:
                   config:
                     max_file_size: 5000000
               - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
-          - label: "Classes section heading"
+          - label: "02 · Classes section heading"
             name: "classesHead"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
               - { label: "Intro paragraph", name: "lede", widget: "string" }
-              - { label: "Button text", name: "buttonLabel", widget: "string" }
-          - label: "Your Instructors section"
-            name: "izzy"
+              - { label: "Link text", name: "buttonLabel", widget: "string" }
+          - label: "03 · Start Here (intro offer)"
+            name: "intro"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
-              - { label: "Intro paragraph", name: "lede", widget: "text" }
-              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Offer line", name: "offer", widget: "string", hint: "e.g. '3 Classes for €55'. Keep this in step with the Pricing page — a test checks they agree." }
+              - { label: "Offer bullet points", name: "includes", widget: "list", field: { label: "Point", name: "point", widget: "string" } }
+              - { label: "Button text", name: "buttonLabel", widget: "string" }
               - label: "Photo"
                 name: "image"
                 widget: "image"
@@ -219,32 +196,13 @@ collections:
                   config:
                     max_file_size: 5000000
               - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
-          - label: "Pricing preview"
-            name: "pricingTeaser"
-            widget: "object"
-            fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
-              - { label: "Text", name: "text", widget: "text" }
-              - { label: "Price-list button text", name: "listLabel", widget: "string" }
-              - { label: "Intro offer bullet points", name: "includes", widget: "list", field: { label: "Point", name: "point", widget: "string" } }
-              - label: "Price cards"
-                hint: "The FIRST card is featured large with the booking button inside it — keep the intro offer first. Keep these in step with the Pricing page."
-                name: "cards"
-                widget: "list"
-                summary: "{{fields.eyebrow}} — {{fields.price}}"
-                fields:
-                  - { label: "Label", name: "eyebrow", widget: "string" }
-                  - { label: "Price", name: "price", widget: "string" }
-                  - { label: "Note", name: "note", widget: "string" }
-          - label: "The KLUB Experience section (studio gallery)"
+          - label: "04 · The KLUB Experience"
             name: "experience"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
               - { label: "Text", name: "text", widget: "text" }
-              - { label: "Button label", name: "buttonLabel", widget: "string" }
+              - { label: "Link text", name: "buttonLabel", widget: "string" }
               - label: "Gallery photos"
                 name: "gallery"
                 widget: "list"
@@ -258,14 +216,14 @@ collections:
                       config:
                         max_file_size: 5000000
                   - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
-          - label: "Location section"
-            name: "location"
+          - label: "05 · Move With Us (community)"
+            name: "community"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
-              - { label: "Directions button text", name: "directionsLabel", widget: "string" }
-              - { label: "Message button text", name: "messageLabel", widget: "string" }
+              - { label: "Intro paragraph", name: "lede", widget: "text" }
+              - { label: "Location line", name: "locationLine", widget: "string", hint: "Small link under the intro, e.g. 'Limassol, Cyprus'." }
+              - { label: "Link text", name: "buttonLabel", widget: "string" }
               - label: "Photo"
                 name: "image"
                 widget: "image"
@@ -274,13 +232,43 @@ collections:
                   config:
                     max_file_size: 5000000
               - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
-          - label: "Founding circle section"
-            name: "founding"
+          - label: "06 · Find Us (location)"
+            name: "location"
             widget: "object"
             fields:
-              - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string", hint: "*word* = italic accent" }
-              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Directions button text", name: "directionsLabel", widget: "string" }
+              - { label: "Message button text", name: "messageLabel", widget: "string" }
+              - label: "Parking notes"
+                name: "parking"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                hint: "JPG, PNG or WebP — max 5000 kB. Any size works, it's automatically cropped to fit its frame; about 1200px on the longest side is plenty. If you are uploading straight from an iPhone, set Settings → Camera → Formats → Most Compatible first. A .HEIC file will not display on the website."
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
+          - label: "07 · Closing section"
+            name: "closing"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "text", hint: "Shown in spaced-out capitals. Press Enter for each new line." }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Book button text", name: "buttonLabel", widget: "string" }
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                hint: "JPG, PNG or WebP — max 5000 kB. Any size works, it's automatically cropped to fit its frame; about 1200px on the longest side is plenty. If you are uploading straight from an iPhone, set Settings → Camera → Formats → Most Compatible first. A .HEIC file will not display on the website."
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
 
       - name: "classes-index"
         label: "Classes Page"

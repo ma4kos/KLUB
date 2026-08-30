@@ -6,8 +6,9 @@ import studio from '../src/content/studio.json' with { type: 'json' };
  * Header, footer and mobile-menu navigation.
  *
  * Header markup (from dist/index.html):
- *   <nav class="desktop-nav" aria-label="Primary"> Classes | Pricing |
- *     Timetable | Instructors | FAQ | Location </nav>
+ *   <nav class="desktop-nav" aria-label="Primary"> Classes | Schedule |
+ *     Memberships | About | Location </nav>  (Alex's Option-1 nav — Schedule
+ *     is the live bsport calendar on /book/, Memberships is /pricing/)
  *   <a class="btn btn--primary btn--sm book-cta" data-cta="header-book"
  *      href="{studio.bookingUrl || '/book/'}">
  *   <button id="nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
@@ -31,10 +32,9 @@ test.describe('desktop header navigation', () => {
 
   const navLinks = [
     { name: 'Classes', path: '/classes/' },
-    { name: 'Pricing', path: '/pricing/' },
-    { name: 'Timetable', path: '/timetable/' },
-    { name: 'Instructors', path: '/instructors/' },
-    { name: 'FAQ', path: '/faq/' },
+    { name: 'Schedule', path: '/book/' },
+    { name: 'Memberships', path: '/pricing/' },
+    { name: 'About', path: '/about/' },
     { name: 'Location', path: '/location/' },
   ];
 
@@ -95,7 +95,7 @@ test.describe('mobile menu', () => {
     await expect(mobileNav).toBeVisible();
 
     // A link inside the opened menu works.
-    await mobileNav.getByRole('link', { name: 'Pricing', exact: true }).click();
+    await mobileNav.getByRole('link', { name: 'Memberships', exact: true }).click();
     await expect(page).toHaveURL(/\/pricing\/$/);
   });
 

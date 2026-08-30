@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { ROUTES } from './routes';
 import studio from '../src/content/studio.json' with { type: 'json' };
+import home from '../src/content/home.json' with { type: 'json' };
 
 /**
  * Call-to-action / Book button integrity.
@@ -84,10 +85,19 @@ test('the homepage carries each primary Book CTA exactly once, with the CMS labe
   const label = studio.ctaLabel;
   const compact = studio.ctaCompact;
 
-  for (const id of ['hero-book', 'intro-card-book', 'sticky-book', 'closing-book']) {
+  // The Option-1 homepage gives each booking moment its own label: the hero
+  // and sticky bar carry the CMS ctaLabel; the intro offer and the closing
+  // chapter carry their own CMS-edited labels from home.json.
+  const expected: Array<{ id: string; text: string }> = [
+    { id: 'hero-book', text: label },
+    { id: 'sticky-book', text: label },
+    { id: 'intro-claim', text: home.intro.buttonLabel },
+    { id: 'closing-book', text: home.closing.buttonLabel },
+  ];
+  for (const { id, text } of expected) {
     const cta = page.locator(`[data-cta="${id}"]`);
     await expect(cta, `data-cta="${id}" should appear exactly once on the homepage`).toHaveCount(1);
-    await expect(cta, `data-cta="${id}" should carry the CMS ctaLabel`).toHaveText(label);
+    await expect(cta, `data-cta="${id}" should carry its CMS label`).toContainText(text);
     await expect(cta).toHaveAttribute('href', EXPECTED_BOOK);
   }
 

@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
-import Marquee from '../components/Marquee.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { CLASSES } from '../data/classes';
 import { SITE, whatsappLink, bookLink, primaryCta } from '../site';
@@ -11,180 +10,132 @@ import { inline } from '../lib/inline';
 <Base
   title={home.seo.title}
   description={home.seo.description}
-  preloadImage={home.heroPoster}
+  preloadImage={home.heroImage}
 >
-  <!-- Hero -->
+  <!-- Hero — tracked-out caps beside the studio photo, per Alex's Option 1 -->
   <section class="hero" data-section="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow rise">{home.heroEyebrow}</span>
         <h1 class="hero-caps" set:html={inline(home.heroHeading)} />
         <p class="lede rise rise-d2">{home.heroLede}</p>
         <div class="btn-row rise rise-d3">
           <a class="btn btn--primary" href={bookLink()} data-cta="hero-book">{primaryCta()}</a>
-          <a class="btn btn--ghost" href="/about/" data-cta="hero-philosophy">{home.heroSecondaryLabel}</a>
+          <a class="btn btn--ghost" href="/about/" data-cta="hero-philosophy">{home.heroSecondaryLabel} →</a>
         </div>
-        <p class="cta-note rise rise-d4">{home.bookNote}</p>
       </div>
-      <div class="hero-media">
-        <video
-          class="hero-video"
-          poster={home.heroPoster}
-          data-src={home.heroVideo}
-          preload="none"
-          muted
-          loop
-          playsinline
-          disablepictureinpicture
-          width="1080"
-          height="1350"
-          aria-hidden="true"
-        ></video>
+      <div class="hero-media rise rise-d1">
+        <Pic src={home.heroImage} alt={home.heroAlt} width={1168} height={1347} loading="eager" />
       </div>
     </div>
   </section>
 
-  <Marquee items={home.marquee.map((m) => inline(m))} />
-
-  <!-- 01 · The Klub (about) -->
+  <!-- 01 · The Klub -->
   <section class="section section--white" data-section="the-klub">
     <div class="container split">
       <div class="reveal">
         <div class="chapter">
           <span class="chapter-no" aria-hidden="true">01</span>
           <div>
-            <span class="eyebrow">{home.about.eyebrow}</span>
             <h2 set:html={inline(home.about.heading)} />
           </div>
         </div>
-        {home.about.paragraphs.map((p) => <p>{p}</p>)}
-        <p class="pull-quote">{home.about.pullQuote}</p>
-        <a class="btn btn--ghost" href="/about/" data-cta="about-more">{home.about.buttonLabel}</a>
+        <p class="chapter-text">{home.about.text}</p>
+        <a class="link-arrow" href="/about/" data-cta="about-more">{home.about.buttonLabel} →</a>
       </div>
       <div class="wide-frame about-media reveal reveal-d1">
-        <Pic src={home.about.image} alt={home.about.alt} width={1100} height={676} />
-      </div>
-    </div>
-    <div class="container">
-      <div class="stat-row story-stats reveal">
-        {home.stats.map((s) => (
-          <div class="stat"><b set:html={inline(s.big)} /><span>{s.small}</span></div>
-        ))}
+        <Pic src={home.about.image} alt={home.about.alt} width={1649} height={954} />
       </div>
     </div>
   </section>
 
-  <!-- 02 · Find your balance (classes as editorial rows) -->
+  <!-- 02 · Find your balance (the four classes as cards) -->
   <section class="section" data-section="classes">
-    <div class="container">
-      <div class="chapter reveal">
-        <span class="chapter-no" aria-hidden="true">02</span>
-        <div>
-          <span class="eyebrow">{home.classesHead.eyebrow}</span>
-          <h2 set:html={inline(home.classesHead.heading)} />
-          <p class="lede">{home.classesHead.lede}</p>
+    <div class="container split split--heads">
+      <div class="reveal">
+        <div class="chapter">
+          <span class="chapter-no" aria-hidden="true">02</span>
+          <div>
+            <h2 set:html={inline(home.classesHead.heading)} />
+          </div>
         </div>
+        <p class="chapter-text">{home.classesHead.lede}</p>
+        <a class="link-arrow" href="/classes/" data-cta="classes-all">{home.classesHead.buttonLabel} →</a>
       </div>
-      <div class="class-rows">
+      <div class="class-cards">
         {CLASSES.map((c, i) => (
-          <a class:list={['class-row reveal', i % 4 ? `reveal-d${i % 4}` : '']} href={`/classes/${c.slug}/`} data-cta={`class-${c.slug}`}>
-            <div class="row-thumb">
-              <Pic src={c.image} alt="" width={264} height={198} />
+          <a class:list={['class-card reveal', i ? `reveal-d${i}` : '']} href={`/classes/${c.slug}/`} data-cta={`class-${c.slug}`}>
+            <div class="card-thumb">
+              <Pic src={c.image} alt="" width={520} height={390} />
             </div>
-            <div class="row-body">
-              <h3>{c.name}</h3>
-              <p>{c.short}</p>
-            </div>
-            <span class="row-arrow" aria-hidden="true">→</span>
+            <h3>{c.name}</h3>
+            <p>{c.short}</p>
           </a>
         ))}
       </div>
-      <div class="rows-cta reveal">
-        <a class="btn btn--ghost" href="/classes/" data-cta="classes-all">{home.classesHead.buttonLabel}</a>
-      </div>
     </div>
   </section>
 
-  <!-- 03 · Start here (intro offer / pricing preview) -->
+  <!-- 03 · Start here (intro offer) -->
   <section class="section section--white" data-section="start-here">
     <div class="container split">
       <div class="reveal">
         <div class="chapter">
           <span class="chapter-no" aria-hidden="true">03</span>
           <div>
-            <span class="eyebrow">{home.pricingTeaser.eyebrow}</span>
-            <h2 set:html={inline(home.pricingTeaser.heading)} />
+            <h2 set:html={inline(home.intro.heading)} />
           </div>
         </div>
-        <p>{home.pricingTeaser.text}</p>
+        <p class="offer-line">{home.intro.offer}</p>
         <ul class="includes">
-          {home.pricingTeaser.includes.map((it) => <li>{it}</li>)}
+          {home.intro.includes.map((it) => <li>{it}</li>)}
         </ul>
+        <a class="btn btn--primary" href={bookLink()} data-cta="intro-claim">{home.intro.buttonLabel}</a>
       </div>
-      <div class="teaser-col reveal reveal-d1">
-        <div class="price-teaser">
-          {home.pricingTeaser.cards.map((c, i) => (
-            i === 0 ? (
-              <div class="card card--pad center price-card--intro">
-                <span class="eyebrow">{c.eyebrow}</span>
-                <p class="big-price">{c.price}</p>
-                <p class="card-note">{c.note}</p>
-                <a class="btn btn--primary" href={bookLink()} data-cta="intro-card-book">{primaryCta()}</a>
-              </div>
-            ) : (
-              <div class="card card--pad center price-card--sm">
-                <span class="eyebrow">{c.eyebrow}</span>
-                <p class="big-price">{c.price}</p>
-                <p class="card-note">{c.note}</p>
-              </div>
-            )
-          ))}
-        </div>
-        <div class="btn-row teaser-more">
-          <a class="btn btn--ghost" href="/pricing/" data-cta="start-here-pricing">{home.pricingTeaser.listLabel}</a>
-        </div>
+      <div class="wide-frame offer-media reveal reveal-d1">
+        <Pic src={home.intro.image} alt={home.intro.alt} width={1708} height={920} />
       </div>
     </div>
   </section>
 
-  <!-- 04 · The KLUB experience (studio gallery) -->
+  <!-- 04 · The KLUB experience (two framed studio shots) -->
   <section class="section" data-section="experience">
-    <div class="container">
-      <div class="chapter exp-head reveal">
-        <span class="chapter-no" aria-hidden="true">04</span>
-        <div>
-          <span class="eyebrow">{home.experience.eyebrow}</span>
-          <h2 set:html={inline(home.experience.heading)} />
-          <p class="lede">{home.experience.text}</p>
-          <a class="btn btn--ghost" href="/about/" data-cta="experience-look">{home.experience.buttonLabel}</a>
+    <div class="container split split--heads">
+      <div class="reveal">
+        <div class="chapter">
+          <span class="chapter-no" aria-hidden="true">04</span>
+          <div>
+            <h2 set:html={inline(home.experience.heading)} />
+          </div>
         </div>
+        <p class="chapter-text">{home.experience.text}</p>
+        <a class="link-arrow" href="/about/" data-cta="experience-look">{home.experience.buttonLabel} →</a>
       </div>
       <div class="exp-gallery">
         {home.experience.gallery.map((g, i) => (
           <div class:list={['exp-shot reveal', i ? `reveal-d${i}` : '']}>
-            <Pic src={g.image} alt={g.alt} width={640} height={480} />
+            <Pic src={g.image} alt={g.alt} width={640} height={520} />
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 05 · Move with us (instructors) -->
+  <!-- 05 · Move with us (community / team) -->
   <section class="section section--sand" data-section="instructors">
-    <div class="container split">
-      <div class="reveal">
-        <div class="chapter">
-          <span class="chapter-no" aria-hidden="true">05</span>
-          <div>
-            <span class="eyebrow">{home.izzy.eyebrow}</span>
-            <h2 set:html={inline(home.izzy.heading)} />
-          </div>
+    <div class="container">
+      <div class="chapter reveal">
+        <span class="chapter-no" aria-hidden="true">05</span>
+        <div>
+          <h2 set:html={inline(home.community.heading)} />
+          <p class="chapter-text">
+            {home.community.lede}<br />
+            <a class="quiet-link" href="/location/">{home.community.locationLine} →</a>
+          </p>
+          <a class="link-arrow" href="/instructors/" data-cta="instructors-meet">{home.community.buttonLabel} →</a>
         </div>
-        <p class="lede">{home.izzy.lede}</p>
-        <a class="btn btn--ghost" href="/instructors/" data-cta="instructors-meet">{home.izzy.buttonLabel}</a>
       </div>
       <div class="wide-frame community-photo reveal reveal-d1">
-        <Pic src={home.izzy.image} alt={home.izzy.alt} width={1400} height={502} />
+        <Pic src={home.community.image} alt={home.community.alt} width={2038} height={771} />
       </div>
     </div>
   </section>
@@ -196,15 +147,22 @@ import { inline } from '../lib/inline';
         <div class="chapter">
           <span class="chapter-no" aria-hidden="true">06</span>
           <div>
-            <span class="eyebrow">{home.location.eyebrow}</span>
             <h2 set:html={inline(home.location.heading)} />
           </div>
         </div>
-        <p>
-          {SITE.streetAddress ? <>{SITE.streetAddress}<br /></> : null}
+        <p class="chapter-text">
+          {SITE.streetAddress ? <>{SITE.streetAddress},<br /></> : null}
           {SITE.addressLocality}, {SITE.addressCountry}.
           {!SITE.streetAddress && <><br /><span class="note">{SITE.addressNote}</span></>}
         </p>
+        <div class="parking-row">
+          {home.location.parking.map((p) => (
+            <div class="parking-item">
+              <span class="parking-p" aria-hidden="true">P</span>
+              <span><b>{p.label}</b><br />{p.note}</span>
+            </div>
+          ))}
+        </div>
         <div class="btn-row">
           <a class="btn btn--ghost" href="/location/" data-cta="location-directions">{home.location.directionsLabel}</a>
           <a class="btn btn--accent" href={whatsappLink('Hi KLUB! Where exactly are you located?')} rel="noopener" data-cta="location-message">{home.location.messageLabel}</a>
@@ -216,24 +174,25 @@ import { inline } from '../lib/inline';
     </div>
   </section>
 
-  <!-- 07 · Keep living under balance (founding member / closing CTA) -->
+  <!-- 07 · Keep living under balance (closing CTA + founding capture) -->
   <section class="section section--dark" data-section="founding">
     <div class="container split">
       <div class="reveal">
         <div class="chapter chapter--dark">
           <span class="chapter-no" aria-hidden="true">07</span>
           <div>
-            <span class="eyebrow">{home.founding.eyebrow}</span>
-            <h2 set:html={inline(home.founding.heading)} />
+            <h2 class="closing-caps" set:html={inline(home.closing.heading)} />
           </div>
         </div>
-        <p>{home.founding.text}</p>
-        <a class="btn btn--light" href={bookLink()} data-cta="closing-book">{primaryCta()}</a>
-        <p class="cta-note cta-note--dark">{home.bookNote}</p>
+        <p class="chapter-text">{home.closing.text}</p>
+        <a class="btn btn--light" href={bookLink()} data-cta="closing-book">{home.closing.buttonLabel} →</a>
       </div>
-      <div class="reveal reveal-d1">
-        <FoundingForm compact source="home" />
+      <div class="wide-frame closing-media reveal reveal-d1">
+        <Pic src={home.closing.image} alt={home.closing.alt} width={1572} height={1001} />
       </div>
+    </div>
+    <div class="container closing-signup reveal">
+      <FoundingForm compact source="home" />
     </div>
   </section>
 </Base>
@@ -242,54 +201,27 @@ import { inline } from '../lib/inline';
   .hero { padding: clamp(48px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow: hidden; }
   .hero-grid {
     display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
+    grid-template-columns: 0.92fr 1.08fr;
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
   }
-  /* Tracked-out caps hero — the editorial treatment from the layout concepts.
+  /* Tracked-out caps hero — the editorial treatment from Alex's Option 1.
      Uppercase + letter-spacing via CSS so screen readers still hear words.
      Line breaks come from the CMS heading; no width cap fights them. */
   .hero-caps {
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-right: -0.1em;
-    font-size: clamp(38px, 5.5vw, 68px);
-    line-height: 1.08;
+    letter-spacing: 0.14em;
+    margin-right: -0.14em;
+    font-size: clamp(38px, 5.2vw, 64px);
+    line-height: 1.12;
   }
-  .hero-copy .lede { max-width: 46ch; }
-  .cta-note {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 42ch;
-    margin: 12px 0 0;
-  }
-  .cta-note--dark { color: var(--sand); opacity: 0.85; }
-  .hero-media { justify-self: stretch; width: 100%; position: relative; }
-  /* Pause/play toggle, injected by the script only when the film plays */
-  .hero-media :global(.video-toggle) {
-    position: absolute;
-    right: 12px;
-    bottom: 12px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--ink);
-    font-size: 10px;
-    line-height: 1;
-    cursor: pointer;
-    opacity: 0.55;
-    transition: opacity 0.2s ease;
-  }
-  .hero-media :global(.video-toggle:hover),
-  .hero-media :global(.video-toggle:focus-visible) { opacity: 1; }
-  .hero-video {
+  .hero-copy .lede { max-width: 34ch; }
+  .hero-media { justify-self: stretch; width: 100%; }
+  .hero-media :global(img) {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1168 / 1347;
     object-fit: cover;
     border-radius: var(--radius-card);
     border: 1px solid var(--line);
@@ -298,7 +230,7 @@ import { inline } from '../lib/inline';
   }
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-media { max-width: 340px; margin-top: 12px; justify-self: center; }
+    .hero-media { margin-top: 12px; }
   }
 
   /* Numbered chapter headers — the scroll's narrative spine.
@@ -315,50 +247,62 @@ import { inline } from '../lib/inline';
   .chapter--dark .chapter-no { color: var(--sand); opacity: 0.5; }
   .section--sand .chapter-no { opacity: 0.45; }
   .chapter h2 { margin-bottom: 0.35em; }
-  .chapter .lede { margin-bottom: 0; }
+  .chapter-text { margin: 0 0 18px; max-width: 38ch; color: var(--ink-soft); }
 
-  .story-stats { margin-top: clamp(48px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: 40px; }
-
-  /* Classes as editorial rows (thumbnail · name · descriptor · arrow) */
-  .class-rows { margin-top: 40px; border-top: 1px solid var(--line); }
-  .class-row {
-    display: grid;
-    grid-template-columns: 132px 1fr auto;
-    gap: clamp(18px, 3vw, 36px);
-    align-items: center;
-    padding: 20px 4px;
-    border-bottom: 1px solid var(--line);
-    text-decoration: none;
+  /* Understated arrow links (READ MORE →, EXPLORE CLASSES →) per the mock */
+  .link-arrow {
+    display: inline-block;
+    font: 500 13px/1.4 var(--sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
   }
-  .row-thumb { width: 132px; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--radius-sm); transform: translateZ(0); }
-  .row-body { min-width: 0; }
-  .row-thumb :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-  .class-row:hover .row-thumb :global(img) { transform: scale(1.06); }
-  .row-body h3 { margin-bottom: 4px; }
-  .row-body p { margin: 0; font-size: 14px; color: var(--ink-soft); max-width: 52ch; }
-  .row-arrow {
-    font-size: 22px;
-    color: var(--umber);
-    transition: transform 0.25s ease;
-  }
-  .class-row:hover .row-arrow { transform: translateX(6px); }
-  /* Keyboard parity with the hover affordances */
-  .class-row:focus-visible {
-    outline: 2px solid var(--umber);
-    outline-offset: 4px;
-    border-radius: var(--radius-sm);
-  }
-  .class-row:focus-visible .row-thumb :global(img) { transform: scale(1.06); }
-  .class-row:focus-visible .row-arrow { transform: translateX(6px); }
-  @media (max-width: 600px) {
-    .class-row { grid-template-columns: 88px 1fr auto; gap: 14px; }
-    .row-thumb { width: 88px; }
-  }
-  .rows-cta { margin-top: 28px; }
+  .link-arrow:hover { color: var(--umber); border-color: var(--umber); }
+  .quiet-link { color: var(--ink-soft); text-decoration: none; }
+  .quiet-link:hover { color: var(--umber); }
 
-  /* Intro-offer bullet list beside the cards */
-  .includes { list-style: none; padding: 0; margin: 0 0 20px; }
+  /* The four classes as photo cards (photo · caps name · descriptor) */
+  .split--heads { align-items: start; }
+  .class-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2vw, 22px);
+  }
+  .class-card { text-decoration: none; color: var(--ink); display: block; }
+  .card-thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+    transform: translateZ(0);
+  }
+  .card-thumb :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .class-card:hover .card-thumb :global(img),
+  .class-card:focus-visible .card-thumb :global(img) { transform: scale(1.05); }
+  .class-card h3 {
+    font: 500 14px/1.4 var(--sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .class-card p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+  .class-card:focus-visible { outline: 2px solid var(--umber); outline-offset: 4px; border-radius: var(--radius-sm); }
+  @media (max-width: 600px) {
+    .class-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+  }
+
+  /* Intro offer — big line + checklist + one button, photo alongside */
+  .offer-line {
+    font: 500 15px/1.4 var(--sans);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+  .includes { list-style: none; padding: 0; margin: 0 0 24px; max-width: 340px; }
   .includes li {
     padding: 8px 0 8px 26px;
     border-bottom: 1px solid var(--line);
@@ -368,33 +312,14 @@ import { inline } from '../lib/inline';
   }
   .includes li::before { content: "✓"; position: absolute; left: 2px; color: var(--umber); }
   .includes li:last-child { border-bottom: none; }
+  .about-media { aspect-ratio: 1649 / 954; align-self: center; }
+  .offer-media { aspect-ratio: 1708 / 920; align-self: center; }
 
-  /* Featured intro offer: the €20 card leads and carries the booking action */
-  .teaser-col { align-self: center; }
-  .price-teaser {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .price-card--intro { grid-column: 1 / -1; border-color: var(--umber); }
-  .price-card--intro .btn { margin-top: 14px; }
-  .big-price { font-family: var(--serif); font-size: 44px; line-height: 1.05; margin: 0; }
-  .price-card--intro .big-price { font-size: 56px; }
-  .price-card--sm .big-price { font-size: 34px; }
-  .card-note { color: var(--ink-soft); font-size: 14px; margin: 0; }
-  .teaser-more { margin-top: 18px; justify-content: center; }
-  @media (max-width: 600px) {
-    .teaser-col { max-width: 380px; margin-inline: auto; width: 100%; }
-    .price-teaser { grid-template-columns: 1fr; }
-  }
-
-  /* Studio gallery — framed shots in a row, per the Option 1 concept */
-  .exp-head { margin-bottom: clamp(32px, 5vw, 48px); }
-  .exp-head .btn { margin-top: 32px; }
+  /* Two framed studio shots, per the mock's 04 */
   .exp-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(16px, 2.5vw, 28px);
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2vw, 22px);
   }
   .exp-shot {
     overflow: hidden;
@@ -417,82 +342,33 @@ import { inline } from '../lib/inline';
   }
   .wide-frame :global(img) { width: 100%; height: 100%; object-fit: cover; }
   /* Match the panorama source's own ratio so no one is cropped out */
-  .community-photo { aspect-ratio: 1400 / 502; align-self: center; }
+  .community-photo { aspect-ratio: 2038 / 771; margin-top: 8px; }
 
-  /* Copy precedes media in the source for every chapter, so all seven
-     numerals share one left axis on desktop AND every chapter stacks
-     heading-first on mobile. */
+  /* Parking badges, per the mock's 06 */
+  .parking-row { display: flex; gap: 28px; margin: 0 0 22px; }
+  .parking-item { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-soft); }
+  .parking-item b { color: var(--ink); font-weight: 600; }
+  .parking-p {
+    font: 400 30px/1 var(--serif);
+    color: var(--umber);
+    border: 1px solid var(--umber);
+    border-radius: 6px;
+    padding: 4px 9px 6px;
+  }
+
   .location-media { aspect-ratio: 358 / 294; }
   .location-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .note { font-style: normal; color: var(--ink-soft); }
 
-  .stat b :global(small) { font-size: 0.55em; }
+  /* 07 closing — the caps headline again, small and dark, per the mock */
+  .closing-media { aspect-ratio: 1572 / 1001; align-self: center; }
+  .closing-signup { max-width: 640px; margin-top: clamp(32px, 5vw, 48px); }
+  .closing-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-right: -0.14em;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.18;
+  }
+  .section--dark .chapter-text { color: var(--sand); opacity: 0.85; }
 </style>
-
-<script>
-  // Load + play the hero film only when it can add value: motion allowed,
-  // no data-saver / slow connection, and a viewport wide enough to matter.
-  // Deferred past window load + idle so it never competes with the poster
-  // (the LCP) or the fonts. Re-synced when the viewport or the user's
-  // motion preference changes, and a visible pause toggle is injected the
-  // moment the film actually plays (WCAG 2.2.2). An explicit user pause is
-  // never overridden by a media-query change.
-  const media = document.querySelector('.hero-media') as HTMLElement | null;
-  const v = media?.querySelector('.hero-video') as HTMLVideoElement | null;
-  const wide = window.matchMedia('(min-width: 861px)');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let userPaused = false;
-  let toggle: HTMLButtonElement | null = null;
-
-  function setToggleState() {
-    if (!toggle || !v) return;
-    const playing = !v.paused;
-    toggle.setAttribute('aria-label', playing ? 'Pause background film' : 'Play background film');
-    toggle.textContent = playing ? '❚❚' : '▶';
-  }
-  function ensureToggle() {
-    if (toggle || !media || !v) return;
-    toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'video-toggle';
-    toggle.addEventListener('click', () => {
-      if (!v) return;
-      if (v.paused) {
-        userPaused = false;
-        v.play().catch(() => {});
-      } else {
-        userPaused = true;
-        v.pause();
-      }
-      setToggleState();
-    });
-    media.appendChild(toggle);
-    setToggleState();
-  }
-  function allowed() {
-    const conn = (navigator as any).connection;
-    const slow = conn?.saveData === true || ['slow-2g', '2g', '3g'].includes(conn?.effectiveType);
-    return wide.matches && !reduce.matches && !slow;
-  }
-  function sync() {
-    if (!v || !v.dataset.src) return;
-    if (allowed() && !userPaused) {
-      if (!v.getAttribute('src')) v.src = v.dataset.src;
-      const p = v.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-      ensureToggle();
-      setToggleState();
-    } else if (v.getAttribute('src') && !v.paused) {
-      v.pause();
-      setToggleState();
-    }
-  }
-  function whenIdle(fn: () => void) {
-    if ('requestIdleCallback' in window) (window as any).requestIdleCallback(fn, { timeout: 3000 });
-    else setTimeout(fn, 1500);
-  }
-  if (document.readyState === 'complete') whenIdle(sync);
-  else window.addEventListener('load', () => whenIdle(sync), { once: true });
-  wide.addEventListener?.('change', sync);
-  reduce.addEventListener?.('change', sync);
-</script>

@@ -83,7 +83,10 @@ test.describe('breakpoint sweep', () => {
         expect(hamburgerVisible, `hamburger should be hidden at ${width}px`).toBe(false);
       }
 
-      // 4. The header booking button always exists and always carries a price.
+      // 4. The header booking button always exists, and the full/compact label
+      // swap happens at the CTA breakpoint with a readable label either way.
+      // (The labels deliberately carry no price since the Option-1 redesign —
+      // both are CMS-edited, so assert non-empty text rather than a € sign.)
       const headerCta = page.locator('a[data-cta="header-book"]');
       await expect(headerCta).toHaveCount(1);
       const full = page.locator('a[data-cta="header-book"] .cta-full');
@@ -94,9 +97,9 @@ test.describe('breakpoint sweep', () => {
         await expect(shown, `wrong header CTA label variant at ${width}px`).toBeVisible();
         await expect(hidden).toBeHidden();
         expect(
-          (await shown.innerText()).includes('€'),
-          `header CTA lost its price at ${width}px`
-        ).toBe(true);
+          (await shown.innerText()).trim().length,
+          `header CTA label is empty at ${width}px`
+        ).toBeGreaterThan(0);
       }
     });
   }
