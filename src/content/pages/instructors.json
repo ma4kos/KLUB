@@ -57,6 +57,8 @@
       "title": "Movement broken down until it clicks",
       "body": "Thousands of hours of teaching — in studios and on camera — shape how we coach: every movement explained, every rep watched, every exercise adapted to the body in front of us. Classes are built on classical foundations and delivered with a contemporary flow.",
       "mediaType": "video",
+      "image": "/images/mat-studio.jpg",
+      "imageAlt": "Bright mat Pilates studio space with soft natural light",
       "video": "/videos/klub-reformer-method.mp4",
       "poster": "/videos/klub-reformer-method-poster.jpg"
     },
