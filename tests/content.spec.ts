@@ -29,41 +29,32 @@ const rowNamed = (name: string): Row => {
   return row;
 };
 
-/** Which pricing row each homepage teaser card is quoting. */
-const TEASER_SOURCES = ['Single Intro Class', 'Drop-In (1 credit)', 'Single Session'];
+/** The pricing row the homepage "Start Here" offer is quoting. */
+const OFFER_SOURCE = 'Intro Offer (3 credits)';
 
-test('the homepage pricing teaser still matches the pricing table', () => {
-  const cards = home.pricingTeaser.cards;
+test('the homepage intro offer still matches the pricing table', () => {
+  const row = rowNamed(OFFER_SOURCE);
   expect(
-    cards.length,
-    'the homepage teaser no longer has three cards — update TEASER_SOURCES to match'
-  ).toBe(TEASER_SOURCES.length);
-
-  cards.forEach((card, i) => {
-    const row = rowNamed(TEASER_SOURCES[i]);
-    expect(
-      card.price,
-      `homepage teaser card "${card.eyebrow}" says ${card.price} but pricing.json says "${row.name}" costs ${row.price}`
-    ).toBe(row.price);
-  });
+    home.intro.offer,
+    `the homepage offer line "${home.intro.offer}" does not quote the ${row.price} price of pricing.json's "${row.name}" — an editor changed one without the other`
+  ).toContain(row.price);
 });
 
-test('the intro price is consistent everywhere it is repeated', () => {
-  const intro = rowNamed('Single Intro Class').price; // "€20"
+test('any price a CTA label quotes still exists in the pricing table', () => {
+  // The Option-1 labels carry no price today, but the CMS lets an editor put
+  // one back — if they do, it must be a price the pricing table actually has.
+  const PRICE = /€\s*\d+(?:[.,]\d{2})?/g;
+  const normalise = (s: string) => s.replace(/\s+/g, '').replace(',', '.');
+  const inPricing = new Set((JSON.stringify(pricing).match(PRICE) ?? []).map(normalise));
 
-  expect(studio.ctaLabel, `ctaLabel does not mention the ${intro} intro price`).toContain(intro);
-  expect(studio.ctaCompact, `ctaCompact does not mention the ${intro} intro price`).toContain(intro);
-  expect(home.bookNote, `the hero book note does not mention the ${intro} intro price`).toContain(
-    intro
-  );
-
-  const stat = home.stats.find((s) => s.big === intro);
-  expect(
-    stat,
-    `no homepage stat shows the ${intro} intro price any more — stats: ${home.stats
-      .map((s) => s.big)
-      .join(', ')}`
-  ).toBeTruthy();
+  for (const label of [studio.ctaLabel, studio.ctaCompact, home.intro.offer]) {
+    for (const amount of (label.match(PRICE) ?? []).map(normalise)) {
+      expect(
+        inPricing.has(amount),
+        `"${label}" quotes ${amount}, which appears nowhere in pricing.json`
+      ).toBeTruthy();
+    }
+  }
 });
 
 test('every price in llms.txt still exists in the pricing table', async ({ request }) => {

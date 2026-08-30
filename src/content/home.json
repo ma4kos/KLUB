@@ -3,98 +3,38 @@
     "title": "KLUB | Pilates Reformer Studio in Limassol City Center",
     "description": "Premium reformer Pilates in Limassol city center — small-group classes and private 1-to-1 sessions. New here? Try a €20 intro class. Opening September 2026."
   },
-  "heroEyebrow": "Pilates Studio · Limassol City Center · Opening September 2026",
-  "heroHeading": "Keep\nliving\nunder\n*balance.*",
+  "heroHeading": "Keep\nliving\nunder\nbalance.",
   "heroLede": "Pilates for strength, control and balance inside the studio and beyond it.",
   "heroSecondaryLabel": "Our Philosophy",
-  "bookNote": "€20 intro class · Free cancellation up to 12 hours before",
-  "heroVideo": "/videos/klub-reformer-hero.mp4",
-  "heroPoster": "/videos/klub-reformer-hero-poster.jpg",
-  "marquee": [
-    "Reformer Pilates",
-    "*Limassol City Center*",
-    "Small groups of six",
-    "Classes in *English*",
-    "Private 1-to-1",
-    "Pre & post-natal certified",
-    "Opening *September 2026*"
-  ],
-  "stats": [
-    {
-      "big": "6",
-      "small": "people max per class — you're seen, every rep"
-    },
-    {
-      "big": "50~′~",
-      "small": "minutes of focused, full-body work"
-    },
-    {
-      "big": "3",
-      "small": "cities of training behind every class — London, Dubai, Cyprus"
-    },
-    {
-      "big": "€20",
-      "small": "your first class. No commitment, all welcome"
-    }
-  ],
+  "heroImage": "/images/alex-hero-room.jpg",
+  "heroAlt": "Sunlit KLUB studio room with black reformer machines, sheer curtains and a potted plant",
   "about": {
-    "eyebrow": "About KLUB",
-    "heading": "A space built *for balance*",
-    "paragraphs": [
-      "KLUB stands for Keep Living Under Balance. Warm plaster walls, arched doorways, soft light and calm proportions — a studio designed to slow you down the moment you walk in.",
-      "On the floor it's serious equipment and small groups: reformer classes capped at six, so your instructor sees every rep — your alignment, your pace, your progress."
-    ],
-    "pullQuote": "Chill vibes are found here.",
-    "buttonLabel": "Step Inside",
+    "heading": "The *Klub*",
+    "text": "More than a workout. A space to strengthen your body, calm your mind and support your life in balance.",
+    "buttonLabel": "Read More",
     "image": "/images/alex-corridor-k.jpg",
-    "alt": "Warm corridor at KLUB Pilates studio with a potted plant, soft light and a glowing K sign on the wall"
+    "alt": "Warm corridor at KLUB Pilates studio with a potted plant, soft light and arched doorways"
   },
   "classesHead": {
-    "eyebrow": "Classes",
-    "heading": "Find *your* balance",
+    "heading": "Find *Your* Balance",
     "lede": "Different classes. Different focus. One goal: the best version of you.",
-    "buttonLabel": "Explore All Classes"
+    "buttonLabel": "Explore Classes"
   },
-  "izzy": {
-    "eyebrow": "Community",
-    "heading": "Move *with us*",
-    "lede": "A community that motivates, inspires and grows together — guided by classically trained, internationally certified instructors with experience from London and Dubai's best studios.",
-    "buttonLabel": "Meet the Team",
-    "image": "/images/alex-team-sofa.jpg",
-    "alt": "Five KLUB instructors in black activewear sitting together on a cream sofa, talking and laughing"
-  },
-  "pricingTeaser": {
-    "eyebrow": "Pricing",
-    "heading": "Start *here*",
-    "text": "No hidden fees. No complicated tiers. Just clear options that fit how you want to move.",
-    "listLabel": "View Full Price List",
+  "intro": {
+    "heading": "Start *Here*",
+    "offer": "3 Classes for €55",
     "includes": [
-      "Valid for 7 days",
-      "All levels welcome",
+      "Valid for 2 weeks",
+      "All classes",
       "New clients only"
     ],
-    "cards": [
-      {
-        "eyebrow": "First Class",
-        "price": "€20",
-        "note": "New to reformer — your intro class"
-      },
-      {
-        "eyebrow": "Drop-In",
-        "price": "€32",
-        "note": "One class, whenever suits"
-      },
-      {
-        "eyebrow": "Private",
-        "price": "€100",
-        "note": "1-to-1 personal session"
-      }
-    ]
+    "buttonLabel": "Claim Your Intro Offer",
+    "image": "/images/alex-woman-reformer.jpg",
+    "alt": "Instructor mid-movement on a reformer beside a warm floor lamp and sheer curtains"
   },
   "experience": {
-    "eyebrow": "The KLUB Experience",
-    "heading": "Thoughtful design. *Premium equipment.*",
-    "text": "Warm plaster, arched doorways, soft light and serious reformers — a space designed to focus on you.",
+    "heading": "The KLUB *Experience*",
+    "text": "Thoughtful design. Premium equipment. A space to focus on you.",
     "buttonLabel": "Take a Look",
     "gallery": [
       {
@@ -102,26 +42,39 @@
         "alt": "Minimalist plaster reception desk at KLUB with warm underlighting and potted plants"
       },
       {
-        "image": "/images/alex-hero-room.jpg",
-        "alt": "Sunlit KLUB studio room with black reformer machines, sheer curtains and plants"
-      },
-      {
-        "image": "/images/klub-window-reformer.jpg",
-        "alt": "KLUB studio window with backlit sign, bonsai tree and a reformer in the foreground"
+        "image": "/images/alex-lounge.jpg",
+        "alt": "KLUB studio room with a row of reformers, warm lamps and a cream lounge sofa"
       }
     ]
   },
+  "community": {
+    "heading": "Move *With Us*",
+    "lede": "A community that motivates, inspires and grows together.",
+    "locationLine": "Limassol, Cyprus",
+    "buttonLabel": "Meet the Team",
+    "image": "/images/alex-team-sofa.jpg",
+    "alt": "Five KLUB instructors in black activewear sitting together on a cream sofa, talking and laughing"
+  },
   "location": {
-    "eyebrow": "Find Us",
-    "heading": "In the heart *of Limassol*",
+    "heading": "Find *Us*",
     "directionsLabel": "Location & Directions",
     "messageLabel": "Message Us",
+    "parking": [
+      {
+        "label": "Parking 1",
+        "note": "Behind the building"
+      },
+      {
+        "label": "Parking 2",
+        "note": "Next to the building"
+      }
+    ],
     "image": "/images/street-sign.jpg",
     "alt": "Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
   },
-  "founding": {
-    "eyebrow": "Founding Circle",
-    "heading": "Be part of the *founding circle*",
-    "text": "Join before we open for exclusive founding member rates and first access to bookings. Early members choose their class times before anyone else."
+  "closing": {
+    "heading": "Keep\nliving\nunder\nbalance.",
+    "text": "Your body. Your mind. Your time.",
+    "buttonLabel": "Book Your Class"
   }
 }

@@ -1,11 +1,13 @@
 ---
 import { bookLink, primaryCta, ctaCompact } from '../site';
+// Alex's Option-1 nav. "Schedule" is the live bsport calendar on /book/
+// (the static /timetable/ page is retired from navigation — the real
+// schedule lives in bsport); "Memberships" is the pricing page.
 const links = [
   { href: '/classes/', label: 'Classes' },
-  { href: '/pricing/', label: 'Pricing' },
-  { href: '/timetable/', label: 'Timetable' },
-  { href: '/instructors/', label: 'Instructors' },
-  { href: '/faq/', label: 'FAQ' },
+  { href: '/book/', label: 'Schedule' },
+  { href: '/pricing/', label: 'Memberships' },
+  { href: '/about/', label: 'About' },
   { href: '/location/', label: 'Location' },
 ];
 const path = Astro.url.pathname;
@@ -32,7 +34,8 @@ const isActive = (href: string) => path.startsWith(href);
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
     {links.map((l) => <a href={l.href}>{l.label}</a>)}
-    <a href="/about/">About</a>
+    <a href="/instructors/">Instructors</a>
+    <a href="/faq/">FAQ</a>
     <a href="/contact/">Contact</a>
     <a href={bookLink()} class="btn btn--primary" data-cta="mobile-nav-book">{primaryCta()}</a>
   </nav>

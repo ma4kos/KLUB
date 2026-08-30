@@ -309,7 +309,7 @@ input:focus, select:focus, textarea:focus {
 .page-hero p { color: var(--ink-soft); font-size: 18px; }
 
 /* ============================================================
-   Lush layer — grain, reveals, marquee, arch video
+   Lush layer — grain, reveals, arch video
    ============================================================ */
 
 /* Film grain over the whole page, very subtle */
@@ -348,69 +348,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .rise-d3 { animation-delay: 0.38s; }
 .rise-d4 { animation-delay: 0.52s; }
 
-/* Marquee band */
-.marquee {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 14px 0;
-  background: var(--card);
-}
-.marquee--paused .marquee__track { animation-play-state: paused; }
-/* Opaque control so the scrolling text never shows through it; a soft fade
-   on its left edge keeps text legible as it slides underneath. */
-.marquee__pause {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--card);
-  color: var(--ink-faint);
-  font-size: 9px;
-  line-height: 1;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-.marquee__pause::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  bottom: -15px;
-  left: -22px;
-  width: 20px;
-  background: linear-gradient(to right, transparent, var(--card));
-  pointer-events: none;
-}
-.marquee__pause:hover,
-.marquee__pause:focus-visible { color: var(--ink); border-color: var(--umber); }
-.marquee__track {
-  display: inline-block;
-  animation: marquee 36s linear infinite;
-}
-.marquee span {
-  font-family: var(--serif);
-  font-size: clamp(18px, 2.2vw, 26px);
-  letter-spacing: 0.04em;
-  color: var(--ink);
-  padding: 0 18px;
-}
-.marquee span em { font-style: italic; color: var(--umber); }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.marquee:hover .marquee__track,
-.marquee:focus-within .marquee__track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
-  .marquee__track { animation: none; }
-  .class-row:hover .row-thumb img { transform: none !important; }
-  .class-row:hover .row-arrow { transform: none !important; }
+  .class-card:hover .card-thumb img { transform: none !important; }
 }
 
 /* Arch-framed video */

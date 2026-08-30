@@ -18,12 +18,11 @@ const year = new Date().getFullYear();
       <nav aria-label="Explore">
         <h2 class="footer-head">Explore</h2>
         <a href="/classes/">Classes</a>
-        <a href="/pricing/">Pricing</a>
-        <a href="/timetable/">Timetable</a>
+        {/* The live schedule is the bsport calendar on /book/ — the static
+            /timetable/ page is retired from navigation. */}
+        <a href="/book/">Schedule</a>
+        <a href="/pricing/">Memberships</a>
         <a href="/instructors/">Instructors</a>
-        {/* Book Now follows the CMS booking URL; "Ways to book" keeps the on-site
-            /book/ page reachable (it is in the sitemap and carries a signup form). */}
-        <a href="/book/">Ways to book</a>
         <a href={bookLink()}>Book Now</a>
       </nav>
       <nav aria-label="Information">
