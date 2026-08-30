@@ -1,15 +1,15 @@
 {
   "classes": [
     {
-      "slug": "reformer-fundamentals",
-      "name": "Reformer Fundamentals",
+      "slug": "foundations-reformer",
+      "name": "Foundations Reformer",
       "level": "Beginner-friendly",
       "duration": "50 min",
       "capacity": "Max 6 people",
       "price": "From €20",
       "short": "Perfect for beginners. Learn the machine, master the basics, build confidence.",
-      "seoTitle": "Reformer Fundamentals Class | Beginner Pilates Limassol | KLUB",
-      "seoDescription": "Never tried reformer Pilates? Our Fundamentals class in Limassol teaches you the machine from zero. 50 minutes, max 6 people, taught in English. First class €20.",
+      "seoTitle": "Foundations Reformer Class | Beginner Pilates Limassol | KLUB",
+      "seoDescription": "Never tried reformer Pilates? Foundations Reformer at KLUB Limassol teaches you the machine from zero. 50 minutes, small group, taught in English. First class €20.",
       "intro": [
         "If you have never stepped onto a reformer — or it has been a while — this is where you start. Fundamentals is a slow, deliberate introduction to the machine: the carriage, the springs, the straps, and how your body works with each of them.",
         "Your instructor walks the room the whole time. With six people maximum, nobody gets lost in the back row. You will leave knowing the foundational movements that every other class builds on — and why your core feels like it just woke up."
@@ -25,61 +25,61 @@
         "Anyone returning to movement after a break or injury",
         "Experienced movers who want to refine their technique"
       ],
-      "image": "/images/equipment-wall.jpg",
-      "imageAlt": "Black reformer Pilates springs and equipment displayed in arched niches at KLUB studio Limassol"
+      "image": "/images/klub-class-foundations.jpg",
+      "imageAlt": "Client working through a seated arm series on a reformer at KLUB Limassol"
     },
     {
-      "slug": "reformer-flow",
-      "name": "Reformer Flow",
-      "level": "All levels",
-      "duration": "50 min",
-      "capacity": "Max 6 people",
-      "price": "From €20",
-      "short": "Smooth, continuous movement for those ready to build stamina and grace.",
-      "seoTitle": "Reformer Flow Class | Dynamic Pilates Limassol | KLUB",
-      "seoDescription": "Reformer Flow at KLUB Limassol: 50 minutes of smooth, breath-led sequences that build stamina, coordination and control. Small groups of six, taught in English.",
-      "intro": [
-        "Flow is where the reformer starts to feel like dancing. Movements link into continuous, breath-led sequences — one exercise melting into the next — so you build stamina and coordination without ever feeling rushed.",
-        "Rooted in classical technique and shaped by our instructors' dance training, Flow rewards you for showing up regularly: the choreography becomes familiar, and then it becomes yours."
-      ],
-      "expect": [
-        "Continuous sequences with minimal stops",
-        "Breath-led pacing that builds endurance",
-        "Full-body work: legs, core, arms, back",
-        "Options to add or reduce intensity every round"
-      ],
-      "goodFor": [
-        "Anyone comfortable with reformer basics",
-        "Those who love rhythm and momentum in a workout",
-        "Building lean, functional strength week over week"
-      ],
-      "image": "/images/studio-room.jpg",
-      "imageAlt": "Softly lit reformer Pilates studio room with sheer curtains and equipment shelving at KLUB Limassol"
-    },
-    {
-      "slug": "reformer-power",
-      "name": "Reformer Power",
+      "slug": "signature-reformer",
+      "name": "Signature Reformer",
       "level": "Intermediate–advanced",
       "duration": "50 min",
       "capacity": "Max 6 people",
       "price": "From €20",
-      "short": "Intensified resistance, dynamic sequences. For the experienced mover.",
-      "seoTitle": "Reformer Power Class | Advanced Pilates Limassol | KLUB",
-      "seoDescription": "Reformer Power at KLUB Limassol: higher resistance, faster transitions and dynamic sequences for experienced movers. 50 minutes, max 6 people. Book your spot.",
+      "short": "The full KLUB class — dynamic, flowing reformer work for movers who know the machine.",
+      "seoTitle": "Signature Reformer Class | Dynamic Pilates Limassol | KLUB",
+      "seoDescription": "Signature Reformer at KLUB Limassol: 50 minutes of dynamic, breath-led reformer sequences for intermediate and advanced movers. Small groups, taught in English.",
       "intro": [
-        "Power is our strongest class. Heavier springs, quicker transitions, longer holds — designed for movers who know the reformer and want to be challenged by it.",
-        "Expect to work close to your edge, safely. The group stays capped at six, so intensity never comes at the cost of technique."
+        "The Signature is the class KLUB is built around. Movements link into continuous, breath-led sequences — one exercise melting into the next — with the pace, resistance and layered progressions that reward movers who already know the reformer.",
+        "Rooted in classical technique and shaped by our instructors’ dance training, it builds stamina, coordination and control week over week: the choreography becomes familiar, and then it becomes yours."
       ],
       "expect": [
-        "Increased spring resistance and tempo",
-        "Dynamic sequences including jumpboard and plank series",
-        "Progressions layered through the class",
-        "A proper burn — and a proper cool-down"
+        "Continuous sequences with minimal stops",
+        "Progressions layered through the class — take the challenge or keep the base",
+        "Full-body work: legs, core, arms, back",
+        "A proper burn, and a proper cool-down"
       ],
       "goodFor": [
-        "Experienced reformer clients ready to progress",
-        "Athletes cross-training for strength and control",
-        "Regulars who have outgrown Flow and want more"
+        "Movers comfortable with reformer basics",
+        "Those who love rhythm and momentum in a workout",
+        "Building lean, functional strength week over week"
+      ],
+      "image": "/images/klub-class-signature.jpg",
+      "imageAlt": "Dynamic reformer extension during the Signature Reformer class at KLUB Limassol"
+    },
+    {
+      "slug": "mat-pilates",
+      "name": "Mat Pilates",
+      "level": "All levels",
+      "duration": "50 min",
+      "capacity": "Max 6 people",
+      "price": "From €20",
+      "short": "Classical Pilates on the mat — deep core work, mobility and control, no machine needed.",
+      "seoTitle": "Mat Pilates Class | Core Strength & Mobility Limassol | KLUB",
+      "seoDescription": "Mat Pilates at KLUB Limassol: 50 minutes of classical mat work for deep core strength, mobility and control. All levels welcome, small groups, taught in English.",
+      "intro": [
+        "Mat Pilates is where the method began — just you, the mat, and gravity. No springs to help and none to hide behind, which is exactly why mat work builds such honest, deep core strength.",
+        "Expect classical sequences taught with precision: articulation through the spine, control in every transition, and options at every level. It sharpens everything you do on the reformer — and stands alone as a complete practice."
+      ],
+      "expect": [
+        "Classical mat sequences, taught step by step",
+        "Deep core, spine mobility and posture work",
+        "Small props (bands, balls, rings) to challenge or support",
+        "Options for every level, every round"
+      ],
+      "goodFor": [
+        "Anyone — no reformer experience needed",
+        "Building a strong, honest core foundation",
+        "Complementing your reformer practice"
       ],
       "image": "/images/mat-studio.jpg",
       "imageAlt": "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"

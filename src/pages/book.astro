@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import BsportWidget from '../components/BsportWidget.astro';
 import FoundingForm from '../components/FoundingForm.astro';
 import { whatsappLink } from '../site';
 import page from '../content/pages/book.json';
@@ -19,6 +20,14 @@ const recommended = CLASSES.find((c) => c.slug === page.recommendedClassSlug) ??
   </section>
 
   <section class="section--white" style="padding-block: var(--section-y);">
+    <div class="container booking">
+      <h2>{page.live.heading}</h2>
+      <p class="live-note">{page.live.text}</p>
+      <BsportWidget />
+    </div>
+  </section>
+
+  <section class="section" style="padding-block: var(--section-y);">
     <div class="container grid grid--2" style="align-items: start;">
       <div class="card card--pad">
         <h2>{page.firstAccess.heading}</h2>
@@ -45,6 +54,8 @@ const recommended = CLASSES.find((c) => c.slug === page.recommendedClassSlug) ??
 </Base>
 
 <style>
+  .booking h2 { margin-bottom: 6px; }
+  .live-note { color: var(--ink-soft); max-width: 62ch; margin-bottom: 22px; }
   .option { margin-bottom: 20px; }
   .option h3 { font-size: 20px; }
   .option p { color: var(--ink-soft); font-size: 15px; }

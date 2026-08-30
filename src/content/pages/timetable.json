@@ -16,18 +16,18 @@
     {
       "day": "Monday–Friday",
       "slots": [
-        { "time": "07:30", "name": "Reformer Flow" },
-        { "time": "09:00", "name": "Reformer Fundamentals" },
-        { "time": "13:00", "name": "Lunchtime Reformer Flow" },
-        { "time": "17:30", "name": "Reformer Power" },
-        { "time": "19:00", "name": "Reformer Flow" }
+        { "time": "07:30", "name": "Signature Reformer" },
+        { "time": "09:00", "name": "Foundations Reformer" },
+        { "time": "13:00", "name": "Lunchtime Signature Reformer" },
+        { "time": "17:30", "name": "Mat Pilates" },
+        { "time": "19:00", "name": "Signature Reformer" }
       ]
     },
     {
       "day": "Saturday",
       "slots": [
-        { "time": "09:00", "name": "Reformer Fundamentals" },
-        { "time": "10:30", "name": "Reformer Flow" }
+        { "time": "09:00", "name": "Foundations Reformer" },
+        { "time": "10:30", "name": "Signature Reformer" }
       ]
     },
     {

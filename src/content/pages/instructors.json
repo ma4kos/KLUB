@@ -11,10 +11,22 @@
     "alt": "Arched entrance of the KLUB Pilates studio in Limassol with a glowing circular logo"
   },
   "stats": [
-    { "big": "Certified", "small": "reformer & mat instructors, comprehensively trained" },
-    { "big": "3", "small": "cities of teaching experience — London, Dubai, Cyprus" },
-    { "big": "Pre/Post", "small": "natal qualified — every stage, safely" },
-    { "big": "1000s", "small": "of classes taught, in studios and online" }
+    {
+      "big": "Certified",
+      "small": "reformer & mat instructors, comprehensively trained"
+    },
+    {
+      "big": "3",
+      "small": "cities of teaching experience — London, Dubai, Cyprus"
+    },
+    {
+      "big": "Pre/Post",
+      "small": "natal qualified — every stage, safely"
+    },
+    {
+      "big": "1000s",
+      "small": "of classes taught, in studios and online"
+    }
   ],
   "journeyEyebrow": "The Standard",
   "journeyHeading": "London. Dubai. *Home.*",
@@ -44,9 +56,9 @@
       "era": "The approach",
       "title": "Movement broken down until it clicks",
       "body": "Thousands of hours of teaching — in studios and on camera — shape how we coach: every movement explained, every rep watched, every exercise adapted to the body in front of us. Classes are built on classical foundations and delivered with a contemporary flow.",
-      "mediaType": "image",
-      "image": "/images/mat-studio.jpg",
-      "imageAlt": "Bright mat Pilates studio space with soft natural light"
+      "mediaType": "video",
+      "video": "/videos/klub-reformer-method.mp4",
+      "poster": "/videos/klub-reformer-method-poster.jpg"
     },
     {
       "place": "Limassol",
@@ -61,12 +73,30 @@
   "qualsEyebrow": "Credentials",
   "qualsHeading": "Qualified is an *understatement*",
   "quals": [
-    { "t": "Classical Dance Education", "s": "Degree-level training in teaching movement" },
-    { "t": "Certified Reformer Pilates Instructors", "s": "Comprehensive apparatus training" },
-    { "t": "Certified Mat Pilates Instructors", "s": "Classical foundations, contemporary method" },
-    { "t": "Pre & Post-Natal Qualified", "s": "Safe movement through pregnancy and recovery" },
-    { "t": "International Teaching Experience", "s": "London · Dubai · Cyprus" },
-    { "t": "Small-Group Specialists", "s": "Six people max — every rep is seen and corrected" }
+    {
+      "t": "Classical Dance Education",
+      "s": "Degree-level training in teaching movement"
+    },
+    {
+      "t": "Certified Reformer Pilates Instructors",
+      "s": "Comprehensive apparatus training"
+    },
+    {
+      "t": "Certified Mat Pilates Instructors",
+      "s": "Classical foundations, contemporary method"
+    },
+    {
+      "t": "Pre & Post-Natal Qualified",
+      "s": "Safe movement through pregnancy and recovery"
+    },
+    {
+      "t": "International Teaching Experience",
+      "s": "London · Dubai · Cyprus"
+    },
+    {
+      "t": "Small-Group Specialists",
+      "s": "Six people max — every rep is seen and corrected"
+    }
   ],
   "langsLine": "Classes taught in English · Our team also speaks Greek · Fully certified and insured",
   "quote": {

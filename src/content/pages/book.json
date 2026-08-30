@@ -5,8 +5,8 @@
   },
   "hero": {
     "eyebrow": "Book",
-    "heading": "Booking Opens Soon",
-    "intro": "Online booking goes live shortly before we open in September 2026. Founding members book first."
+    "heading": "Book a Class",
+    "intro": "Pick your class straight from the live schedule below. New to KLUB? Your first class is €20 — start with Foundations Reformer."
   },
   "firstAccess": {
     "heading": "Get first access",
@@ -18,5 +18,9 @@
     "buttonLabel": "Message to Reserve"
   },
   "privateHeading": "Private sessions",
-  "recommendedClassSlug": "reformer-fundamentals"
+  "recommendedClassSlug": "foundations-reformer",
+  "live": {
+    "heading": "The live schedule",
+    "text": "Booking runs on bsport, our secure booking system — choose a class, pick a time and pay online. Your spot is confirmed instantly."
+  }
 }
