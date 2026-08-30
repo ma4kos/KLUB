@@ -261,6 +261,14 @@ collections:
               - { label: "Heading", name: "heading", widget: "text", hint: "Shown in spaced-out capitals. Press Enter for each new line." }
               - { label: "Text", name: "text", widget: "string" }
               - { label: "Book button text", name: "buttonLabel", widget: "string" }
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                hint: "JPG, PNG or WebP — max 5000 kB. Any size works, it's automatically cropped to fit its frame; about 1200px on the longest side is plenty. If you are uploading straight from an iPhone, set Settings → Camera → Formats → Most Compatible first. A .HEIC file will not display on the website."
+                media_library:
+                  config:
+                    max_file_size: 5000000
+              - { label: "Describe this photo", name: "alt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
 
       - name: "classes-index"
         label: "Classes Page"

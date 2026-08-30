@@ -25,8 +25,8 @@
         "Anyone returning to movement after a break or injury",
         "Experienced movers who want to refine their technique"
       ],
-      "image": "/images/klub-class-foundations.jpg",
-      "imageAlt": "Client working through a seated arm series on a reformer at KLUB Limassol"
+      "image": "/images/class-duo.jpg",
+      "imageAlt": "Two women training together with a medicine ball in warm studio light"
     },
     {
       "slug": "signature-reformer",
@@ -53,8 +53,8 @@
         "Those who love rhythm and momentum in a workout",
         "Building lean, functional strength week over week"
       ],
-      "image": "/images/klub-class-signature.jpg",
-      "imageAlt": "Dynamic reformer extension during the Signature Reformer class at KLUB Limassol"
+      "image": "/images/class-reformer.jpg",
+      "imageAlt": "Instructor in a foot-strap stretch on a reformer, coaching her form"
     },
     {
       "slug": "mat-pilates",
@@ -81,8 +81,8 @@
         "Building a strong, honest core foundation",
         "Complementing your reformer practice"
       ],
-      "image": "/images/mat-studio.jpg",
-      "imageAlt": "Open movement studio floor with mats and natural light at KLUB Pilates Limassol"
+      "image": "/images/class-mat.jpg",
+      "imageAlt": "Woman holding a long plank position on a mat against a warm plaster wall"
     },
     {
       "slug": "private-sessions",
@@ -110,8 +110,8 @@
         "Athletic conditioning and sport-specific goals",
         "Anyone who wants undivided attention"
       ],
-      "image": "/images/interior-arch.jpg",
-      "imageAlt": "Calm arched interior with warm lighting at KLUB Pilates studio in Limassol city center"
+      "image": "/images/class-private.jpg",
+      "imageAlt": "Instructor guiding a client one-to-one on a reformer"
     }
   ]
 }

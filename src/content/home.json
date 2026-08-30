@@ -6,14 +6,14 @@
   "heroHeading": "Keep\nliving\nunder\nbalance.",
   "heroLede": "Pilates for strength, control and balance inside the studio and beyond it.",
   "heroSecondaryLabel": "Our Philosophy",
-  "heroImage": "/images/alex-hero-room.jpg",
-  "heroAlt": "Sunlit KLUB studio room with black reformer machines, sheer curtains and a potted plant",
+  "heroImage": "/images/alex-hero-reformers.jpg",
+  "heroAlt": "Sunlit KLUB studio with black reformer machines, sheer curtains and potted plants",
   "about": {
     "heading": "The *Klub*",
     "text": "More than a workout. A space to strengthen your body, calm your mind and support your life in balance.",
     "buttonLabel": "Read More",
-    "image": "/images/alex-corridor-k.jpg",
-    "alt": "Warm corridor at KLUB Pilates studio with a potted plant, soft light and arched doorways"
+    "image": "/images/alex-corridor-kwall.jpg",
+    "alt": "Bright KLUB corridor with a potted plant and a glowing K on the plaster wall"
   },
   "classesHead": {
     "heading": "Find *Your* Balance",
@@ -29,7 +29,7 @@
       "New clients only"
     ],
     "buttonLabel": "Claim Your Intro Offer",
-    "image": "/images/alex-woman-reformer.jpg",
+    "image": "/images/alex-trainer-reformer.jpg",
     "alt": "Instructor mid-movement on a reformer beside a warm floor lamp and sheer curtains"
   },
   "experience": {
@@ -38,12 +38,12 @@
     "buttonLabel": "Take a Look",
     "gallery": [
       {
-        "image": "/images/alex-reception.jpg",
+        "image": "/images/alex-reception-desk.jpg",
         "alt": "Minimalist plaster reception desk at KLUB with warm underlighting and potted plants"
       },
       {
-        "image": "/images/alex-lounge.jpg",
-        "alt": "KLUB studio room with a row of reformers, warm lamps and a cream lounge sofa"
+        "image": "/images/alex-lounge-sofa.jpg",
+        "alt": "KLUB lounge corner with a cream sofa, floor lamp and soft evening light"
       }
     ]
   },
@@ -52,8 +52,8 @@
     "lede": "A community that motivates, inspires and grows together.",
     "locationLine": "Limassol, Cyprus",
     "buttonLabel": "Meet the Team",
-    "image": "/images/alex-team-sofa.jpg",
-    "alt": "Five KLUB instructors in black activewear sitting together on a cream sofa, talking and laughing"
+    "image": "/images/alex-team-bench.jpg",
+    "alt": "Five KLUB instructors in black activewear sitting together, talking and laughing"
   },
   "location": {
     "heading": "Find *Us*",
@@ -75,6 +75,8 @@
   "closing": {
     "heading": "Keep\nliving\nunder\nbalance.",
     "text": "Your body. Your mind. Your time.",
-    "buttonLabel": "Book Your Class"
+    "buttonLabel": "Book Your Class",
+    "image": "/images/alex-closing-reformer.jpg",
+    "alt": "A single black reformer machine in the KLUB studio at dusk beside a small plant"
   }
 }

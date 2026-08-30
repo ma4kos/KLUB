@@ -24,7 +24,7 @@ import { inline } from '../lib/inline';
         </div>
       </div>
       <div class="hero-media rise rise-d1">
-        <Pic src={home.heroImage} alt={home.heroAlt} width={1056} height={992} loading="eager" />
+        <Pic src={home.heroImage} alt={home.heroAlt} width={1168} height={1347} loading="eager" />
       </div>
     </div>
   </section>
@@ -43,7 +43,7 @@ import { inline } from '../lib/inline';
         <a class="link-arrow" href="/about/" data-cta="about-more">{home.about.buttonLabel} →</a>
       </div>
       <div class="wide-frame about-media reveal reveal-d1">
-        <Pic src={home.about.image} alt={home.about.alt} width={1100} height={676} />
+        <Pic src={home.about.image} alt={home.about.alt} width={1649} height={954} />
       </div>
     </div>
   </section>
@@ -92,7 +92,7 @@ import { inline } from '../lib/inline';
         <a class="btn btn--primary" href={bookLink()} data-cta="intro-claim">{home.intro.buttonLabel}</a>
       </div>
       <div class="wide-frame offer-media reveal reveal-d1">
-        <Pic src={home.intro.image} alt={home.intro.alt} width={1400} height={732} />
+        <Pic src={home.intro.image} alt={home.intro.alt} width={1708} height={920} />
       </div>
     </div>
   </section>
@@ -135,7 +135,7 @@ import { inline } from '../lib/inline';
         </div>
       </div>
       <div class="wide-frame community-photo reveal reveal-d1">
-        <Pic src={home.community.image} alt={home.community.alt} width={1400} height={502} />
+        <Pic src={home.community.image} alt={home.community.alt} width={2038} height={771} />
       </div>
     </div>
   </section>
@@ -187,9 +187,12 @@ import { inline } from '../lib/inline';
         <p class="chapter-text">{home.closing.text}</p>
         <a class="btn btn--light" href={bookLink()} data-cta="closing-book">{home.closing.buttonLabel} →</a>
       </div>
-      <div class="reveal reveal-d1">
-        <FoundingForm compact source="home" />
+      <div class="wide-frame closing-media reveal reveal-d1">
+        <Pic src={home.closing.image} alt={home.closing.alt} width={1572} height={1001} />
       </div>
+    </div>
+    <div class="container closing-signup reveal">
+      <FoundingForm compact source="home" />
     </div>
   </section>
 </Base>
@@ -218,7 +221,7 @@ import { inline } from '../lib/inline';
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1056 / 992;
+    aspect-ratio: 1168 / 1347;
     object-fit: cover;
     border-radius: var(--radius-card);
     border: 1px solid var(--line);
@@ -309,7 +312,8 @@ import { inline } from '../lib/inline';
   }
   .includes li::before { content: "✓"; position: absolute; left: 2px; color: var(--umber); }
   .includes li:last-child { border-bottom: none; }
-  .offer-media { aspect-ratio: 1400 / 732; align-self: center; }
+  .about-media { aspect-ratio: 1649 / 954; align-self: center; }
+  .offer-media { aspect-ratio: 1708 / 920; align-self: center; }
 
   /* Two framed studio shots, per the mock's 04 */
   .exp-gallery {
@@ -338,7 +342,7 @@ import { inline } from '../lib/inline';
   }
   .wide-frame :global(img) { width: 100%; height: 100%; object-fit: cover; }
   /* Match the panorama source's own ratio so no one is cropped out */
-  .community-photo { aspect-ratio: 1400 / 502; margin-top: 8px; }
+  .community-photo { aspect-ratio: 2038 / 771; margin-top: 8px; }
 
   /* Parking badges, per the mock's 06 */
   .parking-row { display: flex; gap: 28px; margin: 0 0 22px; }
@@ -357,6 +361,8 @@ import { inline } from '../lib/inline';
   .note { font-style: normal; color: var(--ink-soft); }
 
   /* 07 closing — the caps headline again, small and dark, per the mock */
+  .closing-media { aspect-ratio: 1572 / 1001; align-self: center; }
+  .closing-signup { max-width: 640px; margin-top: clamp(32px, 5vw, 48px); }
   .closing-caps {
     text-transform: uppercase;
     letter-spacing: 0.14em;
