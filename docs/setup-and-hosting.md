@@ -8,8 +8,10 @@ day-to-day content editing (non-technical), see
 - **Framework:** [Astro](https://astro.build) 5 — a fully static site (no server)
 - **Host:** Netlify (project `klub-cy`)
 - **Production branch:** `main`
-- **Production domain:** `klub.cy` (temporary address while DNS settles:
-  `klub-cy.netlify.app`)
+- **Production domain:** `www.keeplivingunderbalance.com` — the studio's
+  existing domain (currently still pointing at their old Wix site; the new site
+  is live at `klub-cy.netlify.app` until the DNS switch). `klub.cy` is
+  registered but awaiting nic.cy ownership approval — optional later addition.
 
 ---
 
@@ -56,22 +58,34 @@ couple of minutes.
 
 ## 3. Domain & HTTPS
 
-`klub.cy` is the primary custom domain; `www.klub.cy` redirects to it
-automatically (configured in Netlify → Domain management).
+The site's official (canonical) domain is **`www.keeplivingunderbalance.com`** —
+set in `astro.config.mjs` (`site`) and `src/site.ts` (`SITE.url`); a test
+enforces that the two agree. The domain currently points at the studio's old
+Wix site, so going live on it is a deliberate cut-over:
 
-**DNS records** to set at the registrar where `klub.cy` is registered
-(it is *not* in the Hostinger account):
+1. In Netlify → Domain management: **Add a domain** →
+   `www.keeplivingunderbalance.com` (add the apex `keeplivingunderbalance.com`
+   too, redirecting to `www`).
+2. At the domain's registrar, set the DNS records:
 
 ```
-# klub.cy (the apex/root)
+# keeplivingunderbalance.com (the apex/root)
 #   Preferred — if the registrar supports ALIAS / ANAME / "flattened CNAME":
-klub.cy       ALIAS   apex-loadbalancer.netlify.com
+keeplivingunderbalance.com       ALIAS   apex-loadbalancer.netlify.com
 #   Otherwise a plain A record:
-klub.cy       A       75.2.60.5
+keeplivingunderbalance.com       A       75.2.60.5
 
-# www.klub.cy
-www.klub.cy   CNAME   klub-cy.netlify.app
+# www (the primary host)
+www.keeplivingunderbalance.com   CNAME   klub-cy.netlify.app
 ```
+
+The moment those records propagate, the domain serves the new site and the old
+Wix site stops being reachable on it — so flip DNS only when everyone is ready.
+
+**`klub.cy`** (registered, awaiting nic.cy approval of the ownership transfer)
+can be added later the same way — as a redirect to the main domain at first, or
+promoted to primary by updating `astro.config.mjs` + `src/site.ts` and
+re-running the SEO tests. Nothing in the codebase assumes it exists.
 
 **HTTPS** provisions automatically (Let's Encrypt) once the DNS records point at
 Netlify — no action needed beyond the DNS. Until DNS resolves, Netlify shows the
@@ -95,14 +109,14 @@ Two Netlify services make the login work:
 
 **Inviting an editor:** Identity tab → Invite users → their email. They receive
 an invite, set a password, and land in the editor. The invite/confirmation links
-point at the primary domain (`klub.cy`), so invite editors **after** the domain
-is live. A small script in `src/layouts/Base.astro` forwards Identity's
+point at the site's current Netlify address, so editors can be invited now —
+no need to wait for any domain. A small script in `src/layouts/Base.astro` forwards Identity's
 `#invite_token` / `#recovery_token` / `#confirmation_token` links from the
 homepage to `/admin/` so signup completes in the right place.
 
 `config.yml` key points: `backend.name: git-gateway`, `backend.branch: main`,
 `local_backend: true` (for the local `decap-server` workflow), media uploads go
-to `public/images/uploads`, and `site_url: https://klub.cy`.
+to `public/images/uploads`, and `site_url: https://www.keeplivingunderbalance.com`.
 
 ---
 
@@ -172,18 +186,19 @@ edit publishes after the move.
 
 ---
 
-## 9. Current status — 2026-08-17
+## 9. Current status — 2026-08-30
 
 | Item | State |
 | --- | --- |
-| Site live at `klub-cy.netlify.app`, building from `main` | ✅ Done |
-| Custom domain `klub.cy` + `www` redirect added in Netlify | ✅ Done |
-| DNS records at the registrar / HTTPS certificate | ⏳ Pending (records above) |
-| Netlify Identity enabled, **invite-only**, email confirmation | ✅ Done |
+| Site live at `klub-cy.netlify.app`, building from `main` (password-protected) | ✅ Done |
+| Canonical domain in code = `www.keeplivingunderbalance.com` | ✅ Done |
+| Domain DNS cut-over (Wix → Netlify) | ⏳ When the studio is ready (§3) |
+| `klub.cy` | ⏳ Awaiting nic.cy ownership approval — optional later addition |
+| Netlify Identity enabled, **invite-only**, email confirmation | ⏳ Verify in Netlify UI (see editing/setup §4) |
 | Git Gateway enabled | ⏳ To do (one click, normal browser) |
-| Netlify Forms detection enabled | ✅ Done (registers on next deploy) |
-| Domain fix `klub-cy.com` → `klub.cy` in code | ⏳ In pull request #2 (held for review) |
-| Editors (Izzy, Alex) invited | ⏳ After domain is live |
+| Netlify Forms detection enabled | ✅ Done |
+| Editors (Izzy, Alex) invited | ⏳ Can be done now — invites use the Netlify address |
+| GA4 / Clarity IDs in CMS | ⏳ To do (plus consent banner before paid traffic) |
 
 The contact email `team@klub-cy.com` is intentionally left on the old domain
 until the email-hosting decision is made — do not change it as part of the
@@ -197,7 +212,7 @@ domain switch.
 | --- | --- |
 | A content edit didn't appear | Wait ~2 min for the Netlify build; check Netlify → Deploys |
 | Editor login fails | Git Gateway not enabled, or Identity not invite-confirmed; re-check §4 |
-| `klub.cy` doesn't load | DNS not propagated yet, or records incorrect (§3) |
+| The custom domain doesn't load the new site | DNS not switched/propagated yet, or records incorrect (§3) |
 | No HTTPS padlock | Certificate provisions only after DNS points at Netlify (§3) |
 | Form submissions missing | Confirm form detection is on and the form has the Netlify markup (§5) |
 | Preview site URLs look doubled (`/KLUB/KLUB/`) | That's the GitHub Pages preview only; production is fine (§6) |

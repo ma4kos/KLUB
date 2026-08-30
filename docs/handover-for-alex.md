@@ -46,10 +46,11 @@ One primary action, repeated — never competing:
 - **Sticky mobile bar**: on phones, a booking bar slides in once you scroll past the
   hero and stays one thumb-tap away for the whole page. Desktop keeps the Book button
   pinned in the header.
-- **Every Book button already points at your live booking page** —
-  `https://www.keeplivingunderbalance.com/reformer-experiences` — via one switch in
-  `/admin/` → Studio Settings → *Online booking link*. Change that one field (e.g. to a
-  new booking system later) and every button on the site follows. No code.
+- **Every Book button leads to the site's own /book/ page**, where your live bsport
+  calendar is embedded (see §5½) — people book without leaving the site. If you ever
+  want the buttons to point somewhere else instead, paste a web address into
+  `/admin/` → Studio Settings → *Online booking link* and every button on the site
+  follows. No code.
 - **Next-level (when the booking system exists):** make each class row / timetable slot
   deep-link into the booking flow with that class pre-selected. That's the single
   biggest conversion upgrade available.
@@ -132,8 +133,8 @@ LAYOUT — editorial, minimal, architectural:
 CTA RULES:
 - ONE primary CTA label used verbatim everywhere: "Book Your First Class — €20"
   (hero, chapter 03, chapter 07). All Book buttons point to one configurable
-  booking URL — currently
-  https://www.keeplivingunderbalance.com/reformer-experiences
+  booking destination — currently an on-site /book/ page with the studio's
+  bsport booking calendar embedded (company 6604, widget 868966).
 - Sticky header with a compact "Book Now" button on desktop; on mobile a sticky
   bottom bar with the primary CTA that appears after scrolling past the hero.
 - Before launch, chapter 07 is a founding-member email signup — do not remove it.
@@ -171,6 +172,22 @@ the exact same config as your current site.
 - The class pages now match your real bsport programme: Foundations Reformer,
   Signature Reformer, Mat Pilates, Private Sessions. If you rename a class in bsport,
   rename it in CMS → Classes too so the site and the calendar agree.
+
+## 5¾. The domain — keep what you have
+
+The plan is deliberately simple: **keep your existing domain,
+www.keeplivingunderbalance.com.** The new site is built with that as its official
+(canonical) address — it's what the sitemap, Google tags and structured data all say.
+
+- **Today** the new site is live at **https://klub-cy.netlify.app** (behind a shared
+  password while it's private). Your domain still points at the old Wix site.
+- **When you're ready to switch**, the domain's DNS is pointed at the new site
+  (one CNAME/A-record change at the domain registrar, plus adding the domain in the
+  Netlify dashboard) — visitors then see the new site at the same address they've
+  always used, and nothing else changes.
+- **klub.cy** is registered but still waiting on nic.cy to approve the ownership
+  transfer. Once through, it can be added as a second address (or promoted to the
+  main one) later — a small, reversible change. Nothing in the site assumes it.
 
 ---
 

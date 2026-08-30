@@ -3,7 +3,7 @@
 KLUB is a premium reformer Pilates studio in Limassol city center, Cyprus,
 opening September 2026. Small-group reformer classes (max 6 people) and
 private 1-to-1 sessions, taught in English by our instructor team.
-Canonical site: https://klub.cy
+Canonical site: https://www.keeplivingunderbalance.com
 
 ## What we offer
 - Small-group reformer Pilates classes: Reformer Fundamentals, Reformer Flow, Reformer Power
@@ -19,15 +19,15 @@ Canonical site: https://klub.cy
 - Private 1-to-1: single session €100, 5 sessions €450, 10 sessions €800
 
 ## Key pages
-- Home: https://klub.cy/
-- Classes: https://klub.cy/classes/
-- Pricing: https://klub.cy/pricing/
-- Timetable: https://klub.cy/timetable/
-- Instructors: https://klub.cy/instructors/
-- Location: https://klub.cy/location/
-- Frequently asked questions: https://klub.cy/faq/
-- Book a class: https://klub.cy/book/
-- Contact: https://klub.cy/contact/
+- Home: https://www.keeplivingunderbalance.com/
+- Classes: https://www.keeplivingunderbalance.com/classes/
+- Pricing: https://www.keeplivingunderbalance.com/pricing/
+- Timetable: https://www.keeplivingunderbalance.com/timetable/
+- Instructors: https://www.keeplivingunderbalance.com/instructors/
+- Location: https://www.keeplivingunderbalance.com/location/
+- Frequently asked questions: https://www.keeplivingunderbalance.com/faq/
+- Book a class: https://www.keeplivingunderbalance.com/book/
+- Contact: https://www.keeplivingunderbalance.com/contact/
 
 ## Location & opening
 Limassol city center, Cyprus. The full street address is announced before the

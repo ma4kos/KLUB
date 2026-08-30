@@ -19,7 +19,7 @@ Any static host works. Recommended: **Netlify** (the founding-member and contact
 use Netlify Forms and start working automatically there) or Vercel/Cloudflare Pages
 (swap the form `action` for a Formspree endpoint if not on Netlify).
 
-Set the production domain in `astro.config.mjs` (`site`) — currently `https://klub.cy`.
+Set the production domain in `astro.config.mjs` (`site`) — currently `https://www.keeplivingunderbalance.com` (the studio's existing domain; `klub.cy` can replace it later once its nic.cy registration completes — update `src/site.ts` at the same time, the SEO test checks they agree).
 Changing it needs three coordinated edits: `astro.config.mjs` (`site`), `src/site.ts`
 (`url`) and `public/admin/config.yml` (`site_url`, which drives the CMS "View Live" links).
 

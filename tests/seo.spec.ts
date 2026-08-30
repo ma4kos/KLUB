@@ -4,7 +4,7 @@ import { ROUTES } from './routes';
 /**
  * SEO / structured-data checks per page, plus site-level sitemap + robots.
  *
- * Canonical host: https://klub.cy, set once in astro.config.mjs and emitted
+ * Canonical host: https://www.keeplivingunderbalance.com, set once in astro.config.mjs and emitted
  * into every page's canonical link and og:url.
  *
  * JSON-LD: every block must parse. The previous version accepted "at least one
@@ -14,7 +14,7 @@ import { ROUTES } from './routes';
  */
 
 const OG_PROPERTIES = ['og:title', 'og:type', 'og:url', 'og:image', 'og:description'];
-const CANONICAL_HOST = /^https:\/\/klub\.cy\//;
+const CANONICAL_HOST = /^https:\/\/www\.keeplivingunderbalance\.com\//;
 
 for (const route of ROUTES) {
   test(`SEO on ${route}: OG tags, parseable JSON-LD, valid canonical`, async ({ page }) => {

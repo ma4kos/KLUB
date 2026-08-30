@@ -7,7 +7,7 @@ export const SITE = {
   name: 'KLUB Pilates Studio',
   shortName: 'KLUB',
   tagline: 'Intentional Movement. Mindful Strength. Real Connection.',
-  url: 'https://klub.cy',
+  url: 'https://www.keeplivingunderbalance.com',
   addressCountry: 'Cyprus',
   openingDate: '2026-09-01',
 

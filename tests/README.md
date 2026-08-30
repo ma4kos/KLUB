@@ -28,7 +28,7 @@ npm run test:fast   # same thing against http://localhost:4321
 | `forms.spec.ts` | The contact form and all four founding-member instances render, carry the Netlify `form-name` input and `bot-field` honeypot, declare one identical field schema, post back to their own page, refuse to submit without the consent box, and show their success panel only after a successful post. **Nothing is submitted to Netlify.** |
 | `responsive.spec.ts` | At/below 900px: the nav collapses to a hamburger, the document has no horizontal overflow, the hero renders. |
 | `breakpoints.spec.ts` | A 30-width sweep across every CSS breakpoint the stylesheets declare: no overflow, exactly one nav affordance, the header CTA keeps its price, the sticky bar appears only below 900px. |
-| `seo.spec.ts` | Per page: Open Graph tags, **every** JSON-LD block parses, canonical is `https://klub.cy`. Plus a valid `FAQPage` on `/faq/`, sitemap/robots, and that the sitemap and canonical agree on the domain. |
+| `seo.spec.ts` | Per page: Open Graph tags, **every** JSON-LD block parses, canonical is `https://www.keeplivingunderbalance.com`. Plus a valid `FAQPage` on `/faq/`, sitemap/robots, and that the sitemap and canonical agree on the domain. |
 | `cms-config.spec.ts` | The CMS safety net — see below. |
 | `assets.spec.ts` | Every image, video, font and script on all 17 pages loads; no image is undecodable (a HEIC upload); every internal link resolves; no sitemap page is an orphan. |
 | `analytics.spec.ts` | No third-party tracker loads and no cookie is set while the CMS analytics IDs are empty; `cta_click`, `book_click`, `section_view` and `scroll_depth` fire; every button carries a unique `data-cta`. |
