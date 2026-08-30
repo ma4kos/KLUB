@@ -23,7 +23,7 @@ local_backend: true
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
-site_url: "https://klub.cy"
+site_url: "https://www.keeplivingunderbalance.com"
 
 # The built-in preview pane has none of the site's own styling, so it shows a
 # misleading stack of bare fields. Turned off — use the "View Live" link on each

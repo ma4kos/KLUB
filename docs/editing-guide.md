@@ -8,20 +8,29 @@ two later.
 You don't need to understand anything technical to use this. If you can fill in
 an online form, you can edit the site.
 
+> **The site's address:** the site currently lives at
+> **https://klub-cy.netlify.app** — that's the address to use everywhere this
+> guide says "the website". When the studio's domain
+> (**www.keeplivingunderbalance.com**) is pointed at the new site, that address
+> works too and becomes the main one. (`klub.cy` is registered but still waiting
+> on nic.cy approval — it can be added later; nothing in this guide changes.)
+
 ---
 
 ## 1. Logging in the first time
 
-1. You'll get an email with the subject **"You've been invited to join klub.cy"**.
+1. You'll get an email inviting you to join the KLUB site.
 2. Open it and click the **Accept the invite** button.
 3. It takes you to the site and asks you to **choose a password**. Pick one and
-   confirm it. That's your account created.
-4. From then on, you log in at **https://klub.cy/admin/** with your email and
-   that password.
+   confirm it. That's your account created. (If the site asks for a site
+   password first, enter it — Markos will have shared it — then the
+   choose-a-password box appears.)
+4. From then on, you log in at **https://klub-cy.netlify.app/admin/** with your
+   email and that password.
 
-> **Tip:** bookmark **https://klub.cy/admin/** — that `/admin/` on the end is
-> the editing panel. The normal website (what visitors see) is just
-> **https://klub.cy**.
+> **Tip:** bookmark **https://klub-cy.netlify.app/admin/** — that `/admin/` on
+> the end is the editing panel. The normal website (what visitors see) is the
+> same address without it.
 
 If the invite email hasn't arrived, check spam. If it's still missing, ask
 Markos to re-send the invite.
@@ -32,7 +41,7 @@ Markos to re-send the invite.
 
 - You edit content in the panel, then press **Publish** (or Save).
 - **Every time you publish, the live website rebuilds itself automatically.**
-  The change appears on **https://klub.cy** about **1–2 minutes** later.
+  The change appears on the live site about **1–2 minutes** later.
 - To check your work, use the **View Live** link at the top of the entry you're
   editing — it opens that exact page on the real website. (There's deliberately
   no preview box inside the panel: it showed the words without any of the site's
@@ -54,7 +63,7 @@ When you log in you'll see these sections down the left side:
 | **Studio Settings** | Your contact details, social links, and the announcement bar at the very top of every page |
 | **Pages** | The words on each page — Homepage, Classes Page, Our Instructors, About, Timetable, Location, Contact, Book, Founding Member, Policies |
 | **Pricing** | The price tables and the pricing questions-and-answers |
-| **Classes** | The four class descriptions (Reformer Fundamentals, Flow, Power, Private Sessions) |
+| **Classes** | The four class descriptions (Foundations Reformer, Signature Reformer, Mat Pilates, Private Sessions) |
 | **FAQ** | The frequently-asked-questions page |
 
 Click a section, click the item inside it, make your change, then press
@@ -71,12 +80,20 @@ A few fields do clever things across the whole site when you fill them in.
 They live in **Studio Settings → Contact, Socials & Banner**.
 
 ### Online booking link
-This is **already set** — every "Book" button on the website currently sends
-people to your existing booking page at `keeplivingunderbalance.com`. When a new
-booking system is ready, replace the web address in **"Online booking link"** and
-**every "Book" button on the whole website** follows it automatically. You only
-set this in one place. If you ever clear the box, the buttons fall back to the
-pre-launch "Book" page on this site.
+This box is **deliberately empty** — with it empty, every "Book" button on the
+website leads to the site's own **Book a Class** page, which has your live
+bsport calendar built right into it (the same booking system you already use).
+That's the recommended setup: people book without ever leaving the site. If you
+ever want the buttons to go somewhere else instead (a different booking system,
+an external page), paste that web address here and **every "Book" button on the
+whole website** follows it automatically.
+
+### bsport company ID / bsport widget ID
+These two numbers connect the Book page's calendar to your bsport account
+(they're already filled in). Clear either box to hide the calendar; to change
+how the calendar looks, create a new widget in bsport's Backoffice → Marketing →
+Widget and paste its number into the widget ID box. If you rename a class in
+bsport, rename it under **Classes** here too so the site and calendar agree.
 
 ### WhatsApp number
 Type your WhatsApp Business number into **"WhatsApp number"** — digits only, no
@@ -163,9 +180,8 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
   Google). Example: "Reformer studio interior with arched niches". **If you
   change a photo, rewrite the description underneath it to match** — a
   description of the old picture is worse than none.
-- Use good-quality images. The current photos are placeholders cropped from
-  Instagram; replacing them with proper high-resolution photography is on the
-  pre-launch list.
+- Use good-quality images. The site currently uses real KLUB studio photography
+  and video throughout — keep that standard when you replace anything.
 
 ---
 
@@ -231,12 +247,12 @@ Photo field (see section 6) — it will fit automatically.
   check what you typed and tell you in plain English what they expect. Read the
   red line, fix the value, and Publish will work again. It's stopping you from
   breaking something, not misbehaving.
-- **A change didn't appear:** wait two minutes, then refresh
-  **https://klub.cy** (not the `/admin/` panel). The site rebuilds after every
-  publish and it takes a moment.
-- **You can't log in:** make sure you're at **https://klub.cy/admin/** and using
-  the password you set from the invite email. Ask Markos to re-send the invite
-  if needed.
+- **A change didn't appear:** wait two minutes, then refresh the live site (not
+  the `/admin/` panel). The site rebuilds after every publish and it takes a
+  moment.
+- **You can't log in:** make sure you're at the site address **with `/admin/`
+  on the end** and using the password you set from the invite email. Ask Markos
+  to re-send the invite if needed.
 - **Anything else:** contact Markos, or the developer notes are in the
   **Setup & hosting guide** (`docs/setup-and-hosting.md`) in the same folder.
 
