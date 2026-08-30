@@ -155,6 +155,25 @@ SEO:
   content. Use placeholder markers where content is missing.
 ```
 
+## 5½. Booking — bsport is wired in
+
+Your bsport calendar (the same booking system as keeplivingunderbalance.com) is now
+embedded natively on **/book/** — no Wix iframe, so it sizes itself and stops clipping.
+The embed uses your existing widget: company **6604**, widget **868966**, mounted with
+the exact same config as your current site.
+
+- Both IDs live in the **CMS → Studio Settings** ("bsport company ID" / "bsport widget ID").
+  Clear either to hide the calendar; create a new widget in bsport's Backoffice →
+  Marketing → Widget and paste its number to change the calendar's style.
+- Every Book button on the site leads to /book/, so a booking click is one step from
+  any page — and every one of those clicks is counted (`book_click` in the event list
+  below) once GA4 is on.
+- The class pages now match your real bsport programme: Foundations Reformer,
+  Signature Reformer, Mat Pilates, Private Sessions. If you rename a class in bsport,
+  rename it in CMS → Classes too so the site and the calendar agree.
+
+---
+
 ## 6. Where everything lives
 
 - Content (all editable at `/admin/`): `src/content/home.json`, `pricing.json`,
