@@ -58,6 +58,18 @@ collections:
             required: false
             hint: "Paste the Wix Bookings URL here when it exists — every Book button on the site will point to it automatically."
             pattern: ['^$|^https://.+', 'Must start with https:// — paste the whole address from your browser']
+          - label: "bsport company ID"
+            name: "bsportCompanyId"
+            widget: "string"
+            required: false
+            hint: "The studio's bsport company number (currently 6604). Powers the live booking calendar on the Book page. Clear it to hide the calendar."
+            pattern: ['^$|^[0-9]{1,10}$', 'Digits only, e.g. 6604, or leave empty']
+          - label: "bsport widget ID"
+            name: "bsportWidgetId"
+            widget: "string"
+            required: false
+            hint: "The bsport widget number (currently 868966), from bsport's Backoffice → Marketing → Widget. Both IDs must be set for the calendar to show."
+            pattern: ['^$|^[0-9]{1,12}$', 'Digits only, e.g. 868966, or leave empty']
           - { label: "Main booking button text", name: "ctaLabel", widget: "string", hint: "The main Book button, repeated on the homepage hero, price card, closing section and the phone bar. If you change the price in this text, change it in 'Compact booking button text' below as well, and check the homepage price cards and the Pricing page — those are separate." }
           - { label: "Compact booking button text", name: "ctaCompact", widget: "string", hint: "Short priced variant used in the slim header on narrower screens — e.g. 'Book · €20'." }
           - label: "Google Analytics 4 ID"
@@ -342,7 +354,7 @@ collections:
               - { label: "Years (e.g. 2018–2021)", name: "era", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Story", name: "body", widget: "text" }
-              - { label: "Media type", name: "mediaType", widget: "select", options: ["image"] }
+              - { label: "Media type", name: "mediaType", widget: "select", options: ["image", "video"], hint: "A chapter can show a photo or a short muted video loop. Fill the matching fields below." }
               - label: "Photo"
                 name: "image"
                 widget: "image"
@@ -352,6 +364,22 @@ collections:
                     max_file_size: 5000000
               - { label: "Describe this photo", name: "imageAlt", widget: "string", hint: "Describe this photo in one sentence for blind visitors and for Google. IMPORTANT: if you change the photo above, rewrite this to match." }
               - { label: "Wide photo?", name: "wide", widget: "boolean", required: false }
+              - label: "Video (if media type is video)"
+                name: "video"
+                widget: "file"
+                required: false
+                hint: "Short muted mp4 loop — max 20000 kB. Used only when Media type is video; the Photo above stays as the fallback."
+                media_library:
+                  config:
+                    max_file_size: 20000000
+              - label: "Video poster (if media type is video)"
+                name: "poster"
+                widget: "image"
+                required: false
+                hint: "The still shown while the video loads. JPG, PNG or WebP — max 5000 kB."
+                media_library:
+                  config:
+                    max_file_size: 5000000
           - { label: "Credentials — small line above the heading", name: "qualsEyebrow", widget: "string" }
           - { label: "Credentials — heading", name: "qualsHeading", widget: "string", hint: "*word* = italic accent" }
           - label: "Credentials"
@@ -488,7 +516,7 @@ collections:
                   - { label: "Time", name: "time", widget: "string" }
                   - { label: "Class", name: "name", widget: "string" }
                   - { label: "Caption for this slot only", name: "caption", widget: "string", required: false, hint: "Only fill this in when a slot differs from the caption above — e.g. private sessions." }
-          - { label: "Private sessions class page", name: "privateClassSlug", widget: "select", options: ["reformer-fundamentals", "reformer-flow", "reformer-power", "private-sessions"], hint: "Which class page the private-sessions row links to." }
+          - { label: "Private sessions class page", name: "privateClassSlug", widget: "select", options: ["foundations-reformer", "signature-reformer", "mat-pilates", "private-sessions"], hint: "Which class page the private-sessions row links to." }
           - label: "Bottom call-to-action"
             name: "cta"
             widget: "object"
@@ -576,7 +604,7 @@ collections:
         label: "Book"
         file: "src/content/pages/book.json"
         preview_path: "book"
-        description: "The pre-launch Book page. Once the Online booking link in Studio Settings is set, Book buttons go there instead — this page stays as the 'ways to book' explainer."
+        description: "The Book page, with the live bsport booking calendar. The calendar itself is controlled by the two bsport IDs in Studio Settings."
         fields:
           - label: "Google & browser tab"
             name: "seo"
@@ -591,6 +619,13 @@ collections:
               - { label: "Small line above the heading", name: "eyebrow", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Intro paragraph", name: "intro", widget: "text" }
+          - label: "Live schedule section"
+            name: "live"
+            widget: "object"
+            hint: "Sits directly above the booking calendar."
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
           - label: "First access card"
             name: "firstAccess"
             widget: "object"
@@ -605,7 +640,7 @@ collections:
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Button label", name: "buttonLabel", widget: "string" }
           - { label: "Private sessions card heading", name: "privateHeading", widget: "string" }
-          - { label: "Recommended class page", name: "recommendedClassSlug", widget: "select", options: ["reformer-fundamentals", "reformer-flow", "reformer-power", "private-sessions"], hint: "Which class page the 'new to reformer' link points at." }
+          - { label: "Recommended class page", name: "recommendedClassSlug", widget: "select", options: ["foundations-reformer", "signature-reformer", "mat-pilates", "private-sessions"], hint: "Which class page the 'new to reformer' link points at." }
 
       - name: "founding"
         label: "Founding Member"

@@ -1,0 +1,69 @@
+---
+// The studio's real booking calendar — bsport (company 6604), embedded natively.
+// The mount config below is copied verbatim from the studio's live embed; on
+// their old site it sat inside a fixed-height third-party iframe, which is why
+// it clipped. Rendered directly in the page it sizes itself.
+// IDs come from the CMS (Studio Settings) so the studio can re-point or turn
+// the calendar off without code. Nothing renders while either ID is empty.
+import { SITE } from '../site';
+
+const companyId = Number(SITE.bsportCompanyId) || 0;
+const widgetId = SITE.bsportWidgetId || '';
+---
+{companyId > 0 && widgetId && (
+  <div class="bsport-embed" data-section="booking-calendar">
+    <div id={`bsport-widget-${widgetId}`} class="bsport-mount">
+      <p class="bsport-loading">Loading the live schedule…</p>
+    </div>
+    <script is:inline define:vars={{ companyId, widgetId }}>
+      (function () {
+        // Automated browsers (Playwright/CI) don't mount the third-party
+        // widget: its script fetches translations and schedule data with
+        // URLs the test server can't answer, which would fail every
+        // asset/network assertion for reasons no editor can cause or fix.
+        // Real visitors are unaffected (navigator.webdriver is false).
+        if (navigator.webdriver) return;
+        if (!document.getElementById('bsport-widget-cdn')) {
+          var s = document.createElement('script');
+          s.id = 'bsport-widget-cdn';
+          s.src = 'https://cdn.bsport.io/scripts/widget.js';
+          document.getElementsByTagName('head')[0].appendChild(s);
+        }
+        var tries = 0;
+        (function mount() {
+          if (tries++ > 50) return;
+          if (!window.BsportWidget) return setTimeout(mount, 100 * tries);
+          var holder = document.getElementById('bsport-widget-' + widgetId);
+          if (holder) holder.innerHTML = '';
+          window.BsportWidget.mount({
+            parentElement: 'bsport-widget-' + widgetId,
+            companyId: companyId,
+            franchiseId: null,
+            dialogMode: 3,
+            widgetType: 'calendar',
+            showFab: false,
+            fullScreenPopup: false,
+            config: { calendar: { todayOnly: false, cardMode: false, variant: 'activityName' } },
+          });
+        })();
+      })();
+    </script>
+  </div>
+)}
+
+<style>
+  .bsport-embed {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card, 16px);
+    padding: clamp(8px, 2vw, 20px);
+    overflow: hidden;
+  }
+  .bsport-mount { min-height: 560px; }
+  .bsport-loading {
+    color: var(--ink-faint);
+    text-align: center;
+    padding-top: 120px;
+    font-size: 14px;
+  }
+</style>

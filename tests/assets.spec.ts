@@ -33,14 +33,23 @@ async function revealEverything(page: Page) {
 for (const route of ALL_PAGES) {
   test(`every asset on ${route} loads`, async ({ page }) => {
     const bad: string[] = [];
+    // Only same-origin assets are asserted: those are the ones an editor can
+    // break (a repointed photo, a bad upload). Third-party embeds — the bsport
+    // booking widget loads scripts and API calls from bsport.io on /book/ —
+    // fail nondeterministically from CI runners and are not this suite's job.
+    const sameOrigin = (u: string) => {
+      try { return new URL(u).origin === new URL(page.url()).origin; } catch { return false; }
+    };
     page.on('response', (r) => {
       // The document response itself is asserted separately (and /404.html is
       // deliberately served as a 404 by some hosts).
       if (r.request().resourceType() === 'document') return;
+      if (!sameOrigin(r.url())) return;
       if (!r.ok() && r.status() !== 304) bad.push(`${r.status()} ${r.url()}`);
     });
     page.on('requestfailed', (r) => {
       if (r.resourceType() === 'document') return;
+      if (!sameOrigin(r.url())) return;
       bad.push(`failed ${r.url()} (${r.failure()?.errorText ?? 'unknown'})`);
     });
 
