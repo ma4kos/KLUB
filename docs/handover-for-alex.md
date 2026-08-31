@@ -7,30 +7,37 @@ that spec and the same decisions survive the rebuild.*
 
 ## 1. The layout
 
-The homepage follows the editorial numbered-chapter layout from the Option 1 concept
-you sent: a tracked-out caps hero — **KEEP LIVING UNDER BALANCE.** — then seven
-numbered chapters on warm linen/white/sand backgrounds, matching the concept's order:
+The homepage is your Option 1 mock, section for section: a tracked-out caps hero —
+**KEEP LIVING UNDER BALANCE.** — beside the sunlit reformer-room photo, then seven
+numbered chapters in the mock's order, using the 12-photo image set extracted from
+your layout:
 
 | # | Chapter | What it does |
 |---|---|---|
-| — | Hero | Headline, your one-line pitch, primary Book button + real studio video (from @klubstudios) |
-| 01 | The Klub | What KLUB is + the numbers row |
-| 02 | Find Your Balance | The four classes as tappable rows (photo · name · one-liner · arrow) |
-| 03 | Start Here | Intro pricing cards (€20 first class / €32 drop-in / €100 private) + Book button |
-| 04 | The KLUB Experience | Studio photo gallery (real interiors) |
-| 05 | Move With Us | Instructors / community teaser |
-| 06 | Find Us | Location (address auto-appears site-wide once set in the admin panel) |
-| 07 | Keep Living Under Balance | Closing: founding-member signup + Book button |
+| — | Hero | Caps headline, your one-line pitch, Book Your First Class + Our Philosophy →, studio photo |
+| 01 | The Klub | "More than a workout…" + Read More → + the K-wall corridor photo |
+| 02 | Find Your Balance | The four classes as photo cards (photo · caps name · descriptor) |
+| 03 | Start Here | The intro offer (3 classes for €55) + ✓ checklist + Claim Your Intro Offer + trainer photo |
+| 04 | The KLUB Experience | Two framed shots (reception, lounge) + Take a Look → |
+| 05 | Move With Us | Community line + Meet the Team → + the team photo |
+| 06 | Find Us | Address + Parking 1/2 badges + directions/message buttons |
+| 07 | Keep Living Under Balance | Caps closing + "Your body. Your mind. Your time." + Book Your Class → + founding signup |
+
+Two knowing departures from the mock (facts, not design): the class cards show your
+real bsport programme — Foundations / Signature / Mat / Privates — because "Sculpt"
+isn't in your catalogue, and the intro offer quotes your real €55 3-class price (the
+mock's figure was placeholder; a test now pins this line to the pricing table).
+
+The header nav is the mock's too: **Classes · Schedule · Memberships · About ·
+Location** — Schedule opens the live bsport calendar on /book/; the old static
+timetable page is de-linked (your schedule lives in bsport).
 
 Deliberate choices:
 
-- **Real media only, site-wide.** The hero video and every photo are from the KLUB
-  studio / @klubstudios — no stock, no AI-generated footage. All placeholder videos
-  have been deleted from the project; the only video file is the real Instagram clip.
 - **Text sits on solid backgrounds, photos live in frames** — best readability on
   phones, and it works with today's photography.
-- **The founding-member capture stays** (chapter 07). Pre-launch, an email on
-  the list is worth more than a page view. Don't remove it in any redesign before launch.
+- **The founding-member capture stays** (beneath chapter 07's photo). Pre-launch, an
+  email on the list is worth more than a page view. Don't remove it before launch.
 - **All text/photos are editable without code** at `/admin/` (the Homepage entry).
   The spaced-out caps are done with CSS letter-spacing — never type literal spaces
   between letters, or screen readers spell the headline out letter by letter.
@@ -39,10 +46,12 @@ Deliberate choices:
 
 One primary action, repeated — never competing:
 
-- **One label everywhere**: "Book Your First Class — €20" (hero, chapter 03, chapter 07,
-  mobile sticky bar). A priced offer converts better than a generic "book now". Edit it
-  once in `/admin/` → Studio Settings → *Main booking button text* and it changes
-  everywhere — e.g. when the price changes or after launch ("Book a Class").
+- **One label, set once**: the hero and phone sticky bar say "Book Your First Class"
+  (per your mock; the header uses the compact "Book a Class"). Both live in `/admin/` →
+  Studio Settings. Tip for later: a priced label ("Book Your First Class — €20")
+  usually converts better — one CMS edit brings it back whenever you want to test it.
+  Chapter 03's button ("Claim Your Intro Offer") and 07's ("Book Your Class") have
+  their own fields under Homepage.
 - **Sticky mobile bar**: on phones, a booking bar slides in once you scroll past the
   hero and stays one thumb-tap away for the whole page. Desktop keeps the Book button
   pinned in the header.

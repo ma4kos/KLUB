@@ -143,9 +143,9 @@ dismissed the old one.
   elegant italic accent style. Typing `Meet *Izzy*` shows "Izzy" in the accent
   font. Great for one highlighted word in a heading.
 - **Half-size text:** wrap something in tildes to shrink it. `50~′~` shows the
-  minutes mark small next to a big "50" in the numbers row.
+  minutes mark small next to a big "50" in the numbers row on the Instructors page.
 - **Important:** these two tricks only work on fields whose little grey tooltip
-  says so — mostly headings and the numbers row. Anywhere else the asterisks and
+  says so — mostly headings and that numbers row. Anywhere else the asterisks and
   tildes just show on the page exactly as you typed them, so don't use them
   in ordinary paragraphs.
 - **Two-line headings:** press **Enter** inside a heading field to break it onto
@@ -190,9 +190,9 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
 - **The "Slug" field** on a class (it says "do not change — it is the page
   address"). Changing it breaks the link to that class page.
 - You can't add or remove classes from the editor (there are four, fixed), and
-  the panel has no delete button on them. Same for the four numbers in the
-  numbers row and the two photos in the About page's "The Space" section. Ask a
-  developer if you ever need a fifth class.
+  the panel has no delete button on them. Same for the numbers row on the
+  Instructors page and the two photos in the About page's "The Space" section.
+  Ask a developer if you ever need a fifth class.
 - The **contact email** (`team@klub-cy.com`) is deliberately on the old domain
   for now — leave it until the email inbox decision is made.
 
@@ -207,7 +207,7 @@ Fields marked **Photo** or **Image** let you upload a picture; fields marked
 | Switch the chat button to WhatsApp | Studio Settings → WhatsApp number |
 | Update a class price | Pricing → Price Tables, **or** Classes (per-class price) |
 | Fix a typo on the homepage | Pages → Homepage |
-| Change the timetable | Pages → Timetable |
+| Change the class schedule | You don't — the live calendar on the Book page mirrors bsport automatically. (The old Timetable page still exists under Pages → Timetable but is no longer linked from the menu.) |
 | Add a question to the FAQ | FAQ → FAQ Page |
 | Update the instructor bios | Pages → Our Instructors |
 | Change the studio's opening hours | Studio Settings → Opening hours |
