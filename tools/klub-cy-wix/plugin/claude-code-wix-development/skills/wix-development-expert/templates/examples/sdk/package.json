@@ -1,0 +1,16 @@
+{
+  "name": "wix-sdk-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@wix/data": "^1.0.502",
+    "@wix/sdk": "^1.21.5",
+    "@wix/stores": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

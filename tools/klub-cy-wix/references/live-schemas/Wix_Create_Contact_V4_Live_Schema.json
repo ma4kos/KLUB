@@ -1,0 +1,475 @@
+{
+  "docsUrl": "https://dev.wix.com/docs/api-reference/crm/members-contacts/contacts/contacts/contact-v4/create-contact",
+  "examples": [
+    {
+      "description": "Creates a contact with basic info, including a boolean indicating creation of a duplicate contact if one already exists",
+      "request": "curl -X POST \\\n  'https://www.wixapis.com/contacts/v4/contacts' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -H 'Content-Type: application/json' \\\n  --data-binary '{\n    \"info\": {\n      \"name\": {\n        \"first\": \"Some\",\n        \"last\": \"One\"\n      },\n      \"emails\": {\n        \"items\": [\n          {\n            \"tag\": \"MAIN\",\n            \"email\": \"email@example.com\"\n          }\n        ]\n      },\n      \"phones\": {\n        \"items\": [\n          {\n            \"tag\": \"HOME\",\n            \"countryCode\": \"IL\",\n            \"phone\": \"097495550\"\n          },\n          {\n            \"tag\": \"MOBILE\",\n            \"countryCode\": \"UA\",\n            \"phone\": \"0443955571\"\n          }\n        ]\n      },\n      \"addresses\": {\n        \"items\": [\n          {\n            \"tag\": \"HOME\",\n            \"address\": {\n              \"country\": \"US\",\n              \"subdivision\": \"US-ME\",\n              \"city\": \"Richmond\",\n              \"postalCode\": \"04357\",\n              \"addressLine\": \"1772  Fantages Way\",\n              \"addressLine2\": \"Apt 17\"\n            }\n          },\n          {\n            \"tag\": \"WORK\",\n            \"address\": {\n              \"country\": \"US\",\n              \"subdivision\": \"US-ME\",\n              \"city\": \"Richmond\",\n              \"postalCode\": \"04357\",\n              \"streetAddress\": {\n                \"number\": \"5\",\n                \"name\": \"Wingate\"\n              },\n              \"addressLine2\": \"the code to the building is: *1234\"\n            }\n          }\n        ]\n      },\n      \"company\": \"Wix\",\n      \"jobTitle\": \"Developer\",\n      \"birthdate\": \"1980-12-01\",\n      \"locale\": \"en-us\",\n      \"labelKeys\": {\n        \"items\": [\n          \"custom.label-a\"\n        ]\n      },\n      \"extendedFields\": {\n        \"items\": {\n          \"custom.color\": \"Blue\",\n          \"custom.number\": 12,\n          \"custom.date\": \"2020-01-01\",\n          \"custom.url\": \"http://domain.com\"\n        }\n      }\n    }\n  }'",
+      "response": "{\n  \"contact\": {\n    \"id\": \"8046df3c-7575-4098-a5ab-c91ad8f33c47\",\n    \"revision\": 1,\n    \"source\": {\n      \"sourceType\": \"WIX_APP\",\n      \"appId\": \"9da8bff7-68c9-49d4-8cfd-ba534fd34d68\"\n    },\n    \"createdDate\": \"2019-10-30T17:22:10.299Z\",\n    \"updatedDate\": \"2019-10-30T17:22:10.299Z\",\n    \"lastActivity\": {\n      \"activityDate\": \"2019-10-30T17:22:10.299Z\",\n      \"activityType\": \"CONTACT_CREATED\"\n    },\n    \"primaryInfo\": {\n      \"email\": \"email@example.com\",\n      \"phone\": \"097495550\"\n    },\n    \"info\": {\n      \"name\": {\n        \"first\": \"Some\",\n        \"last\": \"One\"\n      },\n      \"emails\": {\n        \"items\": [\n          {\n            \"id\": \"d8f0d88c-af92-4237-833f-56aaaa2b5168\",\n            \"tag\": \"MAIN\",\n            \"email\": \"email@example.com\",\n            \"primary\": true\n          }\n        ]\n      },\n      \"phones\": {\n        \"items\": [\n          {\n            \"id\": \"e5214c79-af80-4eff-87f2-408b0be4e710\",\n            \"tag\": \"HOME\",\n            \"countryCode\": \"IL\",\n            \"phone\": \"097495550\",\n            \"e164Phone\": \"+97297495550\",\n            \"primary\": true\n          },\n          {\n            \"id\": \"59323148-ecf2-4bbe-a7eb-c1b01f43845e\",\n            \"tag\": \"MOBILE\",\n            \"countryCode\": \"UA\",\n            \"phone\": \"0443955571\",\n            \"e164Phone\": \"+380443955571\",\n            \"primary\": false\n          }\n        ]\n      },\n      \"addresses\": {\n        \"items\": [\n          {\n            \"id\": \"3f8bba59-150f-4ee7-9c58-632cbdae222c\",\n            \"tag\": \"HOME\",\n            \"address\": {\n              \"country\": \"US\",\n              \"subdivision\": \"US-ME\",\n              \"city\": \"Richmond\",\n              \"postalCode\": \"04357\",\n              \"addressLine\": \"1772  Fantages Way\",\n              \"addressLine2\": \"Apt 17\"\n            }\n          },\n          {\n            \"id\": \"be0b1932-e081-46b0-8dfa-a9f2409fa3a8\",\n            \"tag\": \"WORK\",\n            \"address\": {\n              \"country\": \"US\",\n              \"subdivision\": \"US-ME\",\n              \"city\": \"Richmond\",\n              \"postalCode\": \"04357\",\n              \"streetAddress\": {\n                \"number\": \"5\",\n                \"name\": \"Wingate\"\n              },\n              \"addressLine2\": \"the code to the building is: *1234\"\n            }\n          }\n        ]\n      },\n      \"company\": \"Wix\",\n      \"jobTitle\": \"Developer\",\n      \"birthdate\": \"1980-12-01\",\n      \"locale\": \"en-us\",\n      \"labelKeys\": {\n        \"items\": [\n          \"custom.label-a\"\n        ]\n      },\n      \"extendedFields\": {\n        \"items\": {\n          \"custom.color\": \"Blue\",\n          \"custom.number\": 12,\n          \"custom.date\": \"2020-01-01\",\n          \"custom.url\": \"http://domain.com\",\n          \"emailSubscriptions.effectiveEmail\": \"email@example.com\",\n          \"emailSubscriptions.subscriptionStatus\": \"NOT_SET\",\n          \"contacts.displayByFirstName\": \"Some One\",\n          \"contacts.displayByLastName\": \"One Some\"\n        }\n      }\n    }\n  }\n}",
+      "title": "Create Contact"
+    }
+  ],
+  "httpMethod": "POST",
+  "operationId": "com.wixpress.contacts.core.api.v4.ContactsServiceV4.CreateContact",
+  "permissions": [
+    "CONTACTS.MODIFY"
+  ],
+  "publicUrl": "https://www.wixapis.com/contacts/v4/contacts",
+  "requestProperties": {
+    "allowDuplicates": {
+      "description": "Controls whether the call will succeed\nif the new contact information contains an email or a phone number already used by another contact.\n\nIf set to `true`,\nthe call will succeed even if an email address or phone number is used by another contact.\nIf set to `false`,\nthe call will fail if the given email address is used by another contact or,\nif the email address is not given and the given phone number is used by another contact.\n\nDefault: `false`",
+      "title": "allowDuplicates",
+      "type": "boolean"
+    },
+    "info": {
+      "properties": {
+        "addresses": {
+          "properties": {
+            "items": {
+              "description": "List of up to 50 addresses.",
+              "items": {
+                "properties": {
+                  "address": {
+                    "description": "Physical address",
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "addressLine": {
+                            "description": "Main address line, usually street and number, as free text.",
+                            "maxLength": 1000,
+                            "title": "addressLine",
+                            "type": "string"
+                          },
+                          "streetAddress": {
+                            "properties": {
+                              "name": {
+                                "description": "Street name.",
+                                "maxLength": 1000,
+                                "title": "name",
+                                "type": "string"
+                              },
+                              "number": {
+                                "description": "Street number.",
+                                "maxLength": 100,
+                                "title": "number",
+                                "type": "string"
+                              }
+                            },
+                            "title": "StreetAddress",
+                            "type": "object"
+                          }
+                        },
+                        "title": "street",
+                        "type": "object"
+                      }
+                    ],
+                    "properties": {
+                      "addressLine2": {
+                        "description": "Free text providing more detailed address information,\nsuch as apartment, suite, or floor.",
+                        "maxLength": 1000,
+                        "title": "addressLine2",
+                        "type": "string"
+                      },
+                      "city": {
+                        "description": "City name.",
+                        "maxLength": 1000,
+                        "title": "city",
+                        "type": "string"
+                      },
+                      "country": {
+                        "description": "2-letter country code in an\n[ISO-3166 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.",
+                        "format": "COUNTRY",
+                        "title": "country",
+                        "type": "string"
+                      },
+                      "postalCode": {
+                        "description": "Postal or zip code.",
+                        "maxLength": 100,
+                        "title": "postalCode",
+                        "type": "string"
+                      },
+                      "subdivision": {
+                        "description": "Code for a subdivision (such as state, prefecture, or province) in an\n[ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) format.",
+                        "maxLength": 100,
+                        "title": "subdivision",
+                        "type": "string"
+                      }
+                    },
+                    "title": "Address",
+                    "type": "object"
+                  },
+                  "id": {
+                    "description": "Street address ID.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "tag": {
+                    "enum": [
+                      {
+                        "value": "UNTAGGED"
+                      },
+                      {
+                        "value": "HOME"
+                      },
+                      {
+                        "value": "WORK"
+                      },
+                      {
+                        "value": "BILLING"
+                      },
+                      {
+                        "value": "SHIPPING"
+                      }
+                    ],
+                    "title": "AddressTag",
+                    "type": "string"
+                  }
+                },
+                "title": "ContactAddress",
+                "type": "object"
+              },
+              "maxItems": 50,
+              "title": "items",
+              "type": "array"
+            }
+          },
+          "title": "ContactAddressesWrapper",
+          "type": "object"
+        },
+        "birthdate": {
+          "description": "Birth date in `YYYY-MM-DD` format. For example, `2020-03-15`.",
+          "format": "LOCAL_DATE",
+          "title": "birthdate",
+          "type": "string"
+        },
+        "company": {
+          "description": "Contact's company name.",
+          "maxLength": 1000,
+          "title": "company",
+          "type": "string"
+        },
+        "emails": {
+          "properties": {
+            "items": {
+              "description": "List of up to 50 email addresses.",
+              "items": {
+                "properties": {
+                  "email": {
+                    "description": "Email address.",
+                    "maxLength": 320,
+                    "minLength": 1,
+                    "title": "email",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Email ID.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "primary": {
+                    "description": "Indicates whether this is the contact's primary email address.\nWhen changing `primary` to `true` for an email,\nthe contact's other emails become `false`.\nChanging the primary email of a contact also affects the subscription status to marketing emails that are decided based on the primary email.",
+                    "title": "primary",
+                    "type": "boolean"
+                  },
+                  "tag": {
+                    "enum": [
+                      {
+                        "value": "UNTAGGED"
+                      },
+                      {
+                        "value": "MAIN"
+                      },
+                      {
+                        "value": "HOME"
+                      },
+                      {
+                        "value": "WORK"
+                      }
+                    ],
+                    "title": "EmailTag",
+                    "type": "string"
+                  }
+                },
+                "title": "ContactEmail",
+                "type": "object"
+              },
+              "maxItems": 50,
+              "title": "items",
+              "type": "array"
+            }
+          },
+          "title": "ContactEmailsWrapper",
+          "type": "object"
+        },
+        "extendedFields": {
+          "properties": {
+            "items": {
+              "description": "Contact's extended fields,\nwhere each key is the field key,\nand each value is the field's value for the contact.\n\nTo view and manage extended fields, use the Extended Fields API.",
+              "format": "map",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "boolValue": {
+                          "title": "boolValue",
+                          "type": "boolean"
+                        },
+                        "listValue": {
+                          "properties": {
+                            "values": {
+                              "items": {
+                                "$circular": "google.protobuf.Value"
+                              },
+                              "title": "values",
+                              "type": "array"
+                            }
+                          },
+                          "title": "ListValue",
+                          "type": "object"
+                        },
+                        "nullValue": {
+                          "enum": [
+                            {
+                              "value": "NULL_VALUE"
+                            }
+                          ],
+                          "title": "NullValue",
+                          "type": "string"
+                        },
+                        "numberValue": {
+                          "title": "numberValue",
+                          "type": "number"
+                        },
+                        "stringValue": {
+                          "title": "stringValue",
+                          "type": "string"
+                        },
+                        "structValue": {
+                          "properties": {
+                            "fields": {
+                              "format": "map",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "$circular": "google.protobuf.Value"
+                                }
+                              },
+                              "title": "fields",
+                              "type": "object"
+                            }
+                          },
+                          "title": "Struct",
+                          "type": "object"
+                        }
+                      },
+                      "title": "kind",
+                      "type": "object"
+                    }
+                  ],
+                  "properties": {},
+                  "title": "Value",
+                  "type": "object"
+                }
+              },
+              "title": "items",
+              "type": "object"
+            }
+          },
+          "title": "ExtendedFieldsWrapper",
+          "type": "object"
+        },
+        "jobTitle": {
+          "description": "Contact's job title.",
+          "maxLength": 1000,
+          "title": "jobTitle",
+          "type": "string"
+        },
+        "labelKeys": {
+          "properties": {
+            "items": {
+              "description": "List of contact label keys.\n\nContact labels help categorize contacts. Label keys must exist to be added to the contact.\nContact labels can be created or retrieved with Find or Create Label or List Labels.",
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 2000,
+              "title": "items",
+              "type": "array"
+            }
+          },
+          "title": "LabelsWrapper",
+          "type": "object"
+        },
+        "locale": {
+          "description": "Locale in\n[IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) format.\nTypically, this is a lowercase 2-letter language code,\nfollowed by a hyphen, followed by an uppercase 2-letter country code.\nFor example, `en-US` for U.S. English, and `de-DE` for Germany German.",
+          "format": "LANGUAGE_TAG",
+          "title": "locale",
+          "type": "string"
+        },
+        "name": {
+          "properties": {
+            "first": {
+              "description": "Contact's first name.",
+              "maxLength": 1000,
+              "title": "first",
+              "type": "string"
+            },
+            "last": {
+              "description": "Contact's last name.",
+              "maxLength": 1000,
+              "title": "last",
+              "type": "string"
+            }
+          },
+          "title": "ContactName",
+          "type": "object"
+        },
+        "phones": {
+          "properties": {
+            "items": {
+              "description": "List of up to 50 phone numbers.",
+              "items": {
+                "properties": {
+                  "countryCode": {
+                    "description": "[ISO-3166 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.",
+                    "format": "COUNTRY",
+                    "title": "countryCode",
+                    "type": "string"
+                  },
+                  "e164Phone": {
+                    "description": "[ITU E.164-formatted](https://www.itu.int/rec/T-REC-E.164/)\nphone number.\nAutomatically generated using `phone` and `countryCode`, pending both values are valid.",
+                    "readOnly": true,
+                    "title": "e164Phone",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Phone ID.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "description": "Phone number.",
+                    "maxLength": 50,
+                    "minLength": 1,
+                    "title": "phone",
+                    "type": "string"
+                  },
+                  "primary": {
+                    "description": "Indicates whether this is the contact's primary phone number.\nWhen changing `primary` to `true` for a phone,\nthe contact's `primary` field for other phones becomes `false`.\nChanging the primary phone number also affects the subscription status to SMS messages that are decided based on the primary phone.",
+                    "title": "primary",
+                    "type": "boolean"
+                  },
+                  "tag": {
+                    "enum": [
+                      {
+                        "value": "UNTAGGED"
+                      },
+                      {
+                        "value": "MAIN"
+                      },
+                      {
+                        "value": "HOME"
+                      },
+                      {
+                        "value": "MOBILE"
+                      },
+                      {
+                        "value": "WORK"
+                      },
+                      {
+                        "value": "FAX"
+                      }
+                    ],
+                    "title": "PhoneTag",
+                    "type": "string"
+                  }
+                },
+                "title": "ContactPhone",
+                "type": "object"
+              },
+              "maxItems": 50,
+              "title": "items",
+              "type": "array"
+            }
+          },
+          "title": "ContactPhonesWrapper",
+          "type": "object"
+        },
+        "picture": {
+          "description": "TEST contact picture description",
+          "properties": {
+            "image": {
+              "properties": {
+                "altText": {
+                  "description": "Image alt text (optional).",
+                  "title": "altText",
+                  "type": "string"
+                },
+                "height": {
+                  "description": "Height of the original image.",
+                  "title": "height",
+                  "type": "integer"
+                },
+                "id": {
+                  "description": "WixMedia image ID.\nThis property is written by Wix when an image is uploaded to the Wix Media Manager.",
+                  "title": "id",
+                  "type": "string"
+                },
+                "url": {
+                  "description": "Image source: Either a Media Manager URL or external URL.",
+                  "title": "url",
+                  "type": "string"
+                },
+                "urlExpirationDate": {
+                  "description": "Image URL expiration date (optional).",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "urlExpirationDate",
+                  "type": "string"
+                },
+                "width": {
+                  "description": "Width of the original image.",
+                  "title": "width",
+                  "type": "integer"
+                }
+              },
+              "title": "Image",
+              "type": "object"
+            }
+          },
+          "title": "ContactPicture",
+          "type": "object"
+        }
+      },
+      "title": "ContactInfo",
+      "type": "object"
+    }
+  },
+  "requestRequired": true,
+  "required": [
+    "info"
+  ],
+  "response200": {
+    "description": "Contact.",
+    "properties": {
+      "contact": {
+        "$circular": "com.wixpress.contacts.core.api.v4.Contact",
+        "description": "Contact.",
+        "summary": "contact"
+      }
+    },
+    "title": "CreateContactResponse",
+    "type": "object"
+  },
+  "title": "Create Contact"
+}

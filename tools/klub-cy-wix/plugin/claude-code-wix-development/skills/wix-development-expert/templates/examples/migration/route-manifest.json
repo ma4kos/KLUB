@@ -1,0 +1,24 @@
+{
+  "canonicalHost": "https://www.keeplivingunderbalance.com",
+  "routes": [
+    "/",
+    "/about/",
+    "/book/",
+    "/classes/",
+    "/classes/foundations-reformer/",
+    "/classes/signature-reformer/",
+    "/classes/mat-pilates/",
+    "/classes/private-sessions/",
+    "/contact/",
+    "/faq/",
+    "/founding-member/",
+    "/instructors/",
+    "/location/",
+    "/policies/",
+    "/pricing/",
+    "/timetable/",
+    "/404.html"
+  ],
+  "redirects": [],
+  "rule": "Preserve every route exactly; add reviewed 301 redirects only for unavoidable differences."
+}

@@ -7,3 +7,8 @@ dist/
 test-results/
 playwright-report/
 /playwright/.cache/
+
+# KLUB-CY Wix migration kit (tools/klub-cy-wix): secrets and run state stay out of git
+.env.klub-cy.local
+.secrets/
+.klub-wix-migration/

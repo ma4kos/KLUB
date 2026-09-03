@@ -1,0 +1,481 @@
+[
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/operations/backups/create-backup",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/backups' \\\n-H \"Accept: application/json\" \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+        "response": "{\n  \"backup\": {\n    \"id\": \"8af59df8-4915-45d1-b4d3-a31592d9311c\",\n    \"requestedDate\": \"2022-07-27T13:14:59.903407Z\",\n    \"startedDate\": null,\n    \"finishedDate\": null,\n    \"deletedDate\": null,\n    \"sizeInBytes\": null,\n    \"status\": \"PENDING\",\n    \"type\": \"ON_DEMAND\"\n  }\n}",
+        "title": "Create a backup"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "com.wixpress.dstore.api.backup.v2.BackupService.CreateBackup",
+    "parameters": [],
+    "permissions": [
+      "WIX_DATA.CREATE_BACKUP"
+    ],
+    "publicUrl": "https://www.wixapis.com/wix-data/v2/backups",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {},
+            "title": "CreateBackupRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "backup": {
+            "$circular": "com.wixpress.dstore.api.backup.v2.Backup",
+            "description": "Details of the requested backup.",
+            "summary": "backup"
+          }
+        },
+        "title": "CreateBackupResponse",
+        "type": "object"
+      }
+    },
+    "title": "Create Backup"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/operations/backups/list-backups",
+    "examples": [
+      {
+        "request": "curl -X GET \\\n'https://www.wixapis.com/wix-data/v2/backups?status=READY\u0026type=ON_DEMAND\u0026paging.offset=0\u0026paging.limit=50' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+        "response": "{\n  \"backups\": [\n    {\n       \"id\": \"df941cc7-603e-4926-8034-8d8dc5025325\",\n       \"requestedDate\": \"2022-05-25T15:12:06.797Z\",\n       \"startedDate\": \"2022-05-25T15:12:07.025Z\",\n       \"finishedDate\": \"2022-05-25T15:12:07.354Z\",\n       \"deletedDate\": null,\n       \"sizeInBytes\": \"1584\",\n       \"status\": \"READY\",\n       \"type\": \"ON_DEMAND\"\n    },\n    {\n       \"id\": \"11384bcd-2106-416d-8ec6-19fbb7d92c20\",\n       \"requestedDate\": \"2022-05-25T15:10:56.394Z\",\n       \"startedDate\": \"2022-05-25T15:10:56.603Z\",\n       \"finishedDate\": \"2022-05-25T15:10:56.913Z\",\n       \"deletedDate\": null,\n       \"sizeInBytes\": \"1584\",\n       \"status\": \"READY\",\n       \"type\": \"ON_DEMAND\"\n    }\n  ],\n  \"pagingMetadata\": {\n    \"count\": 2,\n    \"offset\": 0\n  }\n}",
+        "title": "List backups with additional parameters"
+      },
+      {
+        "request": "curl -X GET \\\n'https://www.wixapis.com/wix-data/v2/backups' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+        "response": "{\n   \"backups\": [\n     {\n        \"id\": \"8c683199-dbd9-4591-883f-32b0298ecaf2\",\n        \"requestedDate\": \"2022-05-25T15:12:06.797Z\",\n        \"startedDate\": \"2022-05-25T15:12:07.025Z\",\n        \"finishedDate\": null,\n        \"deletedDate\": null,\n        \"sizeInBytes\": null,\n        \"status\": \"PENDING\",\n        \"type\": \"ON_DEMAND\"\n     },\n     {\n        \"id\": \"11384bcd-2106-416d-8ec6-19fbb7d92c20\",\n        \"requestedDate\": \"2022-05-25T15:10:56.394Z\",\n        \"startedDate\": \"2022-05-25T15:10:56.603Z\",\n        \"finishedDate\": \"2022-05-25T15:10:56.913Z\",\n        \"deletedDate\": null,\n        \"sizeInBytes\": \"1584\",\n        \"status\": \"READY\",\n        \"type\": \"ON_DEMAND\"\n     }\n   ],\n   \"pagingMetadata\": {\n     \"count\": 2,\n     \"offset\": 0\n   }\n}",
+        "title": "List all backups for a site"
+      }
+    ],
+    "httpMethod": "GET",
+    "operationId": "com.wixpress.dstore.api.backup.v2.BackupService.ListBackups",
+    "parameters": [
+      {
+        "description": "Statuses to filter by.\nIf provided, only backups with the specified statuses are listed.\nFor example, to list only completed backups, use `?status=READY`.\nTo list completed and pending backups, use `?status=READY\u0026status=PENDING`.\n\nDefault: No filtering",
+        "in": "query",
+        "name": "status",
+        "required": false,
+        "schema": {
+          "description": "Statuses to filter by.\nIf provided, only backups with the specified statuses are listed.\nFor example, to list only completed backups, use `?status=READY`.\nTo list completed and pending backups, use `?status=READY\u0026status=PENDING`.\n\nDefault: No filtering",
+          "enum": true,
+          "items": {
+            "enum": [
+              {
+                "description": "Backup creation is in progress.",
+                "value": "PENDING"
+              },
+              {
+                "description": "Backup has been created successfully and can be used for data restoration.",
+                "value": "READY"
+              },
+              {
+                "description": "Backup creation has failed.",
+                "value": "FAILED"
+              },
+              {
+                "description": "Backup has been deleted.",
+                "value": "DELETED"
+              },
+              {
+                "description": "Backup has been canceled.",
+                "value": "CANCELED"
+              }
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "status",
+          "type": "array"
+        }
+      },
+      {
+        "description": "Type to filter by. If provided, only backups of the specified type are listed.\n\nDefault: No filtering",
+        "in": "query",
+        "name": "type",
+        "required": false,
+        "schema": {
+          "description": "Type to filter by. If provided, only backups of the specified type are listed.\n\nDefault: No filtering",
+          "enum": true,
+          "items": {
+            "enum": [
+              {
+                "description": "Backup taken on demand.",
+                "value": "ON_DEMAND"
+              },
+              {
+                "description": "Backup taken automatically by the system on a regular schedule.",
+                "value": "AUTO"
+              }
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "maxItems": 10,
+          "title": "type",
+          "type": "array"
+        }
+      },
+      {
+        "description": "Paging preferences.",
+        "in": "query",
+        "name": "paging",
+        "required": false,
+        "schema": {
+          "description": "Paging preferences.",
+          "properties": {
+            "limit": {
+              "description": "Number of items to load.",
+              "format": "int32",
+              "minimum": 0,
+              "title": "limit",
+              "type": "integer"
+            },
+            "offset": {
+              "description": "Number of items to skip in the current sort order.",
+              "format": "int32",
+              "minimum": 0,
+              "title": "offset",
+              "type": "integer"
+            }
+          },
+          "summary": "paging",
+          "title": "Paging",
+          "type": "object"
+        }
+      }
+    ],
+    "permissions": [
+      "WIX_DATA.LIST_BACKUPS"
+    ],
+    "publicUrl": "https://www.wixapis.com/wix-data/v2/backups",
+    "responses": {
+      "200": {
+        "properties": {
+          "backups": {
+            "description": "Retrieved backups.",
+            "items": {
+              "properties": {
+                "collections": {
+                  "description": "IDs and display names of collections the backup contains.",
+                  "items": {
+                    "properties": {
+                      "displayName": {
+                        "description": "Collection display name.",
+                        "maxLength": 1000,
+                        "readOnly": true,
+                        "title": "displayName",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Collection ID.",
+                        "maxLength": 255,
+                        "readOnly": true,
+                        "title": "id",
+                        "type": "string"
+                      }
+                    },
+                    "title": "Collection",
+                    "type": "object"
+                  },
+                  "maxItems": 1000,
+                  "readOnly": true,
+                  "title": "collections",
+                  "type": "array"
+                },
+                "deletedDate": {
+                  "description": "Date and time the backup was deleted. Value is `null` if that backup hasn't been deleted.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "deletedDate",
+                  "type": "string"
+                },
+                "finishedDate": {
+                  "description": "Date and time the backup process finished. Value is `null` until the backup process is completed in the background.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "finishedDate",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "Backup ID.",
+                  "format": "GUID",
+                  "readOnly": true,
+                  "title": "id",
+                  "type": "string"
+                },
+                "requestedDate": {
+                  "description": "Date and time the backup was requested.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "requestedDate",
+                  "type": "string"
+                },
+                "sizeInBytes": {
+                  "description": "Backup size in bytes. Value is `null` until the backup process is completed.",
+                  "format": "int64",
+                  "readOnly": true,
+                  "title": "sizeInBytes",
+                  "type": "string"
+                },
+                "startedDate": {
+                  "description": "Date and time the backup commenced. Value is `null` until the backup process begins in the background.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "title": "startedDate",
+                  "type": "string"
+                },
+                "status": {
+                  "description": "Backup status.",
+                  "enum": [
+                    {
+                      "description": "Backup creation is in progress.",
+                      "value": "PENDING"
+                    },
+                    {
+                      "description": "Backup has been created successfully and can be used for data restoration.",
+                      "value": "READY"
+                    },
+                    {
+                      "description": "Backup creation has failed.",
+                      "value": "FAILED"
+                    },
+                    {
+                      "description": "Backup has been deleted.",
+                      "value": "DELETED"
+                    },
+                    {
+                      "description": "Backup has been canceled.",
+                      "value": "CANCELED"
+                    }
+                  ],
+                  "readOnly": true,
+                  "title": "status",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Type of backup, based on how it was triggered.",
+                  "enum": [
+                    {
+                      "description": "Backup taken on demand.",
+                      "value": "ON_DEMAND"
+                    },
+                    {
+                      "description": "Backup taken automatically by the system on a regular schedule.",
+                      "value": "AUTO"
+                    }
+                  ],
+                  "readOnly": true,
+                  "title": "type",
+                  "type": "string"
+                }
+              },
+              "title": "Backup",
+              "type": "object"
+            },
+            "maxItems": 1000,
+            "title": "backups",
+            "type": "array"
+          },
+          "pagingMetadata": {
+            "description": "Paging information.",
+            "properties": {
+              "count": {
+                "description": "Number of items returned in the response.",
+                "format": "int32",
+                "title": "count",
+                "type": "integer"
+              },
+              "offset": {
+                "description": "Offset that was requested.",
+                "format": "int32",
+                "title": "offset",
+                "type": "integer"
+              },
+              "tooManyToCount": {
+                "description": "Flag that indicates the server failed to calculate the `total` field.",
+                "title": "tooManyToCount",
+                "type": "boolean"
+              },
+              "total": {
+                "description": "Total number of items that match the query. Returned if offset paging is used and the `tooManyToCount` flag is not set.",
+                "format": "int32",
+                "title": "total",
+                "type": "integer"
+              }
+            },
+            "summary": "pagingMetadata",
+            "title": "PagingMetadataV2",
+            "type": "object"
+          }
+        },
+        "title": "ListBackupsResponse",
+        "type": "object"
+      }
+    },
+    "title": "List Backups"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/operations/backups/restore-backup",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/backups/bfab4dac-c835-4cf7-8b47-adbe1ca1ea34/restore' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+        "response": "{\n   \"restoration\": {\n     \"id\": \"0bd30197-2012-4c35-a4f0-a0d5ef7ecea0\",\n     \"requestedDate\": \"2022-05-26T07:17:02.209Z\",\n     \"startedDate\": null,\n     \"finishedDate\": null,\n     \"backup\": {\n       \"id\": \"bfab4dac-c835-4cf7-8b47-adbe1ca1ea34\",\n       \"requestedDate\": \"2022-05-25T15:10:56.394Z\",\n       \"startedDate\": \"2022-05-25T15:10:56.603Z\",\n       \"finishedDate\": \"2022-05-25T15:10:56.913Z\",\n       \"deletedDate\": null,\n       \"sizeInBytes\": \"1584\",\n       \"status\": \"READY\",\n       \"type\": \"ON_DEMAND\"\n     },\n     \"status\": \"PENDING\"\n   }\n}",
+        "title": "Restore data from a backup"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "com.wixpress.dstore.api.backup.v2.BackupService.RestoreBackup",
+    "parameters": [
+      {
+        "description": "ID of backup to be restored.",
+        "in": "path",
+        "name": "backupId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "permissions": [
+      "WIX_DATA.RESTORE_BACKUP"
+    ],
+    "publicUrl": "https://www.wixapis.com/wix-data/v2/backups/{backupId}/restore",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {},
+            "required": [],
+            "title": "RestoreBackupRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "restoration": {
+            "description": "Details of data restoration from backup.",
+            "properties": {
+              "backup": {
+                "$circular": "com.wixpress.dstore.api.backup.v2.Backup",
+                "description": "Details of the backup used for the restoration.",
+                "readOnly": true,
+                "summary": "backup"
+              },
+              "finishedDate": {
+                "description": "Date and time the restoration finished. Value is `null` until the restoration process is completed in the background.",
+                "format": "date-time",
+                "readOnly": true,
+                "title": "finishedDate",
+                "type": "string"
+              },
+              "id": {
+                "description": "Restoration ID.",
+                "format": "GUID",
+                "readOnly": true,
+                "title": "id",
+                "type": "string"
+              },
+              "requestedDate": {
+                "description": "Date and time the restoration was requested.",
+                "format": "date-time",
+                "readOnly": true,
+                "title": "requestedDate",
+                "type": "string"
+              },
+              "restorationCollections": {
+                "description": "Restored collections.",
+                "items": {
+                  "properties": {
+                    "dataCollectionId": {
+                      "description": "Collections to be restored.\n\nNote: If collections have a multi-reference relationship,\nthe preexisting references will be restored if at least one of those collections are restored.",
+                      "maxLength": 1000,
+                      "minLength": 1,
+                      "title": "dataCollectionId",
+                      "type": "string"
+                    },
+                    "restoreDestination": {
+                      "description": "Destination where to restore the collection.\nWhen not specified destination is taken from backup.",
+                      "properties": {
+                        "dataCollectionId": {
+                          "description": "Collection ID.",
+                          "maxLength": 255,
+                          "minLength": 1,
+                          "title": "dataCollectionId",
+                          "type": "string"
+                        },
+                        "displayName": {
+                          "description": "Collection's display name as shown in the CMS. If empty, `displayName` is taken from `backup.collections`.",
+                          "maxLength": 1000,
+                          "title": "displayName",
+                          "type": "string"
+                        }
+                      },
+                      "summary": "restoreDestination",
+                      "title": "RestoreDestination",
+                      "type": "object"
+                    }
+                  },
+                  "title": "RestorationCollection",
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "readOnly": true,
+                "title": "restorationCollections",
+                "type": "array"
+              },
+              "startedDate": {
+                "description": "Date and time the restoration commenced. Value is `null` until the restoration process begins in the background.",
+                "format": "date-time",
+                "readOnly": true,
+                "title": "startedDate",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of restoration.",
+                "enum": [
+                  {
+                    "description": "Restoration from a backup is in progress.",
+                    "value": "PENDING"
+                  },
+                  {
+                    "description": "Restoration from a backup has been successful.",
+                    "value": "COMPLETED"
+                  },
+                  {
+                    "description": "Restoration from a backup has failed.",
+                    "value": "FAILED"
+                  }
+                ],
+                "readOnly": true,
+                "title": "status",
+                "type": "string"
+              }
+            },
+            "summary": "restoration",
+            "title": "Restoration",
+            "type": "object"
+          }
+        },
+        "title": "RestoreBackupResponse",
+        "type": "object"
+      }
+    },
+    "title": "Restore Backup"
+  }
+]

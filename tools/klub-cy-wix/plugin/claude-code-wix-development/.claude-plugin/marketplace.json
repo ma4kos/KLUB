@@ -1,0 +1,17 @@
+{
+  "name": "markos-wix-development",
+  "owner": {
+    "name": "Markos Symeonides"
+  },
+  "metadata": {
+    "description": "Private Wix development, API, MCP, Headless, AI, and migration tools for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "wix-development-expert",
+      "source": "./",
+      "description": "Schema-first Wix engineering with an authoritative knowledge corpus, validated examples, Wix MCP integration, and existing-site replatforming workflows.",
+      "version": "1.0.0"
+    }
+  ]
+}

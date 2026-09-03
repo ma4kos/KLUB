@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "verifiedAt": "2026-09-03T00:00:00Z",
+  "wix": {
+    "accountId": "8372deba-8664-4ad5-8212-6c10a7f348b1",
+    "siteId": "20f11f6f-6ce3-469d-b44c-df397c750848",
+    "displayName": "KLUB-CY",
+    "editorType": "EDITOR",
+    "premium": true,
+    "published": false,
+    "customDomainConnected": true,
+    "headlessOAuthAppCount": 0,
+    "nativeCmsCollectionCount": 0,
+    "appOwnedCmsCollectionCount": 15,
+    "wixFormCount": 0,
+    "cmsBackupCount": 0
+  },
+  "source": {
+    "repository": "https://github.com/ma4kos/KLUB",
+    "defaultBranch": "claude/izzy-pilates-website-w61t75",
+    "pinnedCommit": "15ec3d93f187f5ec12bee14e8bd7b11692220002",
+    "sourceArchiveSha256": "dcde9cde70dabe6d1aa2828155c9870e5f7d437e14c1c1dcc2c08b5980d42423",
+    "netlifyPreviewUrl": "https://klub-cy.netlify.app/"
+  },
+  "architecture": {
+    "path": "SELF_MANAGED_HEADLESS_EXISTING_WIX_SITE",
+    "frontendHost": "Netlify",
+    "wixRole": "existing business backend and dashboard",
+    "newWixSiteAllowed": false,
+    "managedHeadlessConversionAllowed": false
+  },
+  "writeBoundary": {
+    "onlyTargetSite": "20f11f6f-6ce3-469d-b44c-df397c750848",
+    "writesRequireEnvironmentFlag": "KLUB_ALLOW_WIX_WRITES=true",
+    "publishRequiresEnvironmentFlag": "KLUB_ALLOW_NETLIFY_PRODUCTION_DEPLOY=true",
+    "domainCutoverRequiresEnvironmentFlag": "KLUB_ALLOW_DOMAIN_CUTOVER=true",
+    "billingChangesAllowed": false,
+    "planChangesAllowed": false,
+    "domainDetachOrDeleteAllowed": false,
+    "cmsRestoreAllowed": false,
+    "existingBusinessDataDeletionAllowed": false
+  }
+}

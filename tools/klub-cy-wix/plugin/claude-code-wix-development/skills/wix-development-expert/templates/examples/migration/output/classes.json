@@ -1,0 +1,127 @@
+[
+  {
+    "sourceId": "klub:class:foundations-reformer",
+    "slug": "foundations-reformer",
+    "name": "Foundations Reformer",
+    "shortDescription": "Learn. Control. Progress.",
+    "intro": [
+      "If you have never stepped onto a reformer — or it has been a while — this is where you start. Fundamentals is a slow, deliberate introduction to the machine: the carriage, the springs, the straps, and how your body works with each of them.",
+      "Your instructor walks the room the whole time. With six people maximum, nobody gets lost in the back row. You will leave knowing the foundational movements that every other class builds on — and why your core feels like it just woke up."
+    ],
+    "level": "Beginner-friendly",
+    "duration": "50 min",
+    "capacity": "Max 6 people",
+    "priceDisplay": "From €20",
+    "imageSourcePath": "/images/class-duo.jpg",
+    "imageAlt": "Two women training together with a medicine ball in warm studio light",
+    "goodFor": [
+      "Complete beginners",
+      "Anyone returning to movement after a break or injury",
+      "Experienced movers who want to refine their technique"
+    ],
+    "whatToExpect": [
+      "A full tour of the reformer before you move",
+      "Foundational exercises: footwork, bridging, arm work, basic core series",
+      "Constant hands-on guidance and modifications for your body",
+      "A calm pace — strength over speed"
+    ],
+    "seoTitle": "Foundations Reformer Class | Beginner Pilates Limassol | KLUB",
+    "seoDescription": "Never tried reformer Pilates? Foundations Reformer at KLUB Limassol teaches you the machine from zero. 50 minutes, small group, taught in English. First class €20.",
+    "sortOrder": 0,
+    "sourceHash": "87cc326781e30921adcccc6ef6fc6acfacdb3d25be1205026196f8c11c5c6504"
+  },
+  {
+    "sourceId": "klub:class:signature-reformer",
+    "slug": "signature-reformer",
+    "name": "Signature Reformer",
+    "shortDescription": "Strength. Control. Precision.",
+    "intro": [
+      "The Signature is the class KLUB is built around. Movements link into continuous, breath-led sequences — one exercise melting into the next — with the pace, resistance and layered progressions that reward movers who already know the reformer.",
+      "Rooted in classical technique and shaped by our instructors’ dance training, it builds stamina, coordination and control week over week: the choreography becomes familiar, and then it becomes yours."
+    ],
+    "level": "Intermediate–advanced",
+    "duration": "50 min",
+    "capacity": "Max 6 people",
+    "priceDisplay": "From €20",
+    "imageSourcePath": "/images/class-reformer.jpg",
+    "imageAlt": "Instructor in a foot-strap stretch on a reformer, coaching her form",
+    "goodFor": [
+      "Movers comfortable with reformer basics",
+      "Those who love rhythm and momentum in a workout",
+      "Building lean, functional strength week over week"
+    ],
+    "whatToExpect": [
+      "Continuous sequences with minimal stops",
+      "Progressions layered through the class — take the challenge or keep the base",
+      "Full-body work: legs, core, arms, back",
+      "A proper burn, and a proper cool-down"
+    ],
+    "seoTitle": "Signature Reformer Class | Dynamic Pilates Limassol | KLUB",
+    "seoDescription": "Signature Reformer at KLUB Limassol: 50 minutes of dynamic, breath-led reformer sequences for intermediate and advanced movers. Small groups, taught in English.",
+    "sortOrder": 1,
+    "sourceHash": "c5e30de12daa0200101d2d48e61b314ca2bf5a566f4fb7a3d92c609f78d1f79f"
+  },
+  {
+    "sourceId": "klub:class:mat-pilates",
+    "slug": "mat-pilates",
+    "name": "Mat Pilates",
+    "shortDescription": "Move. Strengthen. Flow.",
+    "intro": [
+      "Mat Pilates is where the method began — just you, the mat, and gravity. No springs to help and none to hide behind, which is exactly why mat work builds such honest, deep core strength.",
+      "Expect classical sequences taught with precision: articulation through the spine, control in every transition, and options at every level. It sharpens everything you do on the reformer — and stands alone as a complete practice."
+    ],
+    "level": "All levels",
+    "duration": "50 min",
+    "capacity": "Max 6 people",
+    "priceDisplay": "From €20",
+    "imageSourcePath": "/images/class-mat.jpg",
+    "imageAlt": "Woman holding a long plank position on a mat against a warm plaster wall",
+    "goodFor": [
+      "Anyone — no reformer experience needed",
+      "Building a strong, honest core foundation",
+      "Complementing your reformer practice"
+    ],
+    "whatToExpect": [
+      "Classical mat sequences, taught step by step",
+      "Deep core, spine mobility and posture work",
+      "Small props (bands, balls, rings) to challenge or support",
+      "Options for every level, every round"
+    ],
+    "seoTitle": "Mat Pilates Class | Core Strength & Mobility Limassol | KLUB",
+    "seoDescription": "Mat Pilates at KLUB Limassol: 50 minutes of classical mat work for deep core strength, mobility and control. All levels welcome, small groups, taught in English.",
+    "sortOrder": 2,
+    "sourceHash": "b83f17b33047ebeb5cb4d94b4aaf71a96018214648f57bab1afb74fd1eda5072"
+  },
+  {
+    "sourceId": "klub:class:private-sessions",
+    "slug": "private-sessions",
+    "name": "Private Sessions",
+    "shortDescription": "Personalised training tailored for you.",
+    "intro": [
+      "One reformer, one instructor, one plan built entirely around you. Private sessions are the fastest way to progress — every minute of the 50 is calibrated to your body, your history and your goals.",
+      "They are also the right choice when a group setting is not: recovering from injury, training through or after pregnancy, or simply preferring privacy and a schedule that bends to yours. Our instructors are certified in pre- and post-natal movement, so you are in qualified hands at every stage."
+    ],
+    "level": "Every level — fully personalized",
+    "duration": "50 min",
+    "capacity": "1-to-1",
+    "priceDisplay": "From €80",
+    "imageSourcePath": "/images/class-private.jpg",
+    "imageAlt": "Instructor guiding a client one-to-one on a reformer",
+    "goodFor": [
+      "Injury recovery and rehabilitation support",
+      "Pre- and post-natal training",
+      "Athletic conditioning and sport-specific goals",
+      "Anyone who wants undivided attention"
+    ],
+    "whatToExpect": [
+      "A movement assessment in your first session",
+      "A program designed for your specific goals",
+      "Pre/post-natal certified instruction when you need it",
+      "Flexible scheduling by appointment"
+    ],
+    "seoTitle": "Private Pilates Sessions | 1-to-1 Training Limassol | KLUB",
+    "seoDescription": "Private 1-to-1 reformer Pilates in Limassol city center. Personalized sessions for injury recovery, pre/post-natal training and athletic goals. From €80 per session.",
+    "sortOrder": 3,
+    "sourceHash": "0ae64cd2042e36caa9c81bef70ee6a797c0b8a1f908fe20a584ab77aa577388c"
+  }
+]

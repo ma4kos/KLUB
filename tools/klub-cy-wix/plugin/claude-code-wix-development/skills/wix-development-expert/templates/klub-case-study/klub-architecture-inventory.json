@@ -1,0 +1,3668 @@
+{
+  "repository": "https://github.com/ma4kos/KLUB",
+  "source_file_count": 179,
+  "text_file_count": 94,
+  "routes": [
+    {
+      "route": "/404.html",
+      "source": "src/pages/404.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/about/",
+      "source": "src/pages/about.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/book/",
+      "source": "src/pages/book.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/classes/[slug]/",
+      "source": "src/pages/classes/[slug].astro",
+      "dynamic": true
+    },
+    {
+      "route": "/classes/",
+      "source": "src/pages/classes/index.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/contact/",
+      "source": "src/pages/contact.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/faq/",
+      "source": "src/pages/faq.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/founding-member/",
+      "source": "src/pages/founding-member.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/",
+      "source": "src/pages/index.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/instructors/",
+      "source": "src/pages/instructors.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/location/",
+      "source": "src/pages/location.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/policies/",
+      "source": "src/pages/policies.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/pricing/",
+      "source": "src/pages/pricing.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/timetable/",
+      "source": "src/pages/timetable.astro",
+      "dynamic": false
+    }
+  ],
+  "components": [
+    "src/components/Analytics.astro",
+    "src/components/ArchVideo.astro",
+    "src/components/Banner.astro",
+    "src/components/BsportWidget.astro",
+    "src/components/Footer.astro",
+    "src/components/FoundingForm.astro",
+    "src/components/Header.astro",
+    "src/components/Pic.astro",
+    "src/components/StickyCTA.astro",
+    "src/components/WhatsAppButton.astro"
+  ],
+  "layouts": [
+    "src/layouts/Base.astro"
+  ],
+  "content_models": [
+    {
+      "file": "src/content/classes.json",
+      "top_level_keys": [
+        "classes"
+      ],
+      "flattened_fields": [
+        {
+          "path": "classes",
+          "type": "list"
+        },
+        {
+          "path": "classes[0]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[0].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].expect[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].goodFor[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].image",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].imageAlt",
+          "type": "str"
+        },
+        {
+          "path": "classes[1]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[1].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[1].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[1].expect[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].expect[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].expect[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].expect[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].goodFor",
+          "type": "list"
+        },
+        {
+          "path": "classes[1].goodFor[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].goodFor[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].goodFor[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].image",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].imageAlt",
+          "type": "str"
+        },
+        {
+          "path": "classes[2]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[2].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[2].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[2].expect[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].expect[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].expect[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].expect[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].goodFor",
+          "type": "list"
+        },
+        {
+          "path": "classes[2].goodFor[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].goodFor[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].goodFor[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].image",
+          "type": "str"
+        },
+        {
+          "path": "classes[2].imageAlt",
+          "type": "str"
+        },
+        {
+          "path": "classes[3]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[3].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[3].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[3].expect[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].expect[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].expect[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].expect[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].goodFor",
+          "type": "list"
+        },
+        {
+          "path": "classes[3].goodFor[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].goodFor[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].goodFor[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].goodFor[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].image",
+          "type": "str"
+        },
+        {
+          "path": "classes[3].imageAlt",
+          "type": "str"
+        }
+      ],
+      "bytes": 6528,
+      "sha256": "7c11e6f5f283f8c508b9bc9227743099bf0ed34c687520461573a9df46570ad8"
+    },
+    {
+      "file": "src/content/faq.json",
+      "top_level_keys": [
+        "seo",
+        "hero",
+        "still",
+        "sections"
+      ],
+      "flattened_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "hero",
+          "type": "dict"
+        },
+        {
+          "path": "hero.eyebrow",
+          "type": "str"
+        },
+        {
+          "path": "hero.heading",
+          "type": "str"
+        },
+        {
+          "path": "hero.intro",
+          "type": "str"
+        },
+        {
+          "path": "still",
+          "type": "dict"
+        },
+        {
+          "path": "still.heading",
+          "type": "str"
+        },
+        {
+          "path": "still.text",
+          "type": "str"
+        },
+        {
+          "path": "sections",
+          "type": "list"
+        },
+        {
+          "path": "sections[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[0].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[6]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[6].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[6].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[7]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[7].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[7].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[1].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[1].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[2].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[2].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[2].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[3].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[6]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[6].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[6].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[7]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[3].items[7].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[3].items[7].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[4].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[4].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[4].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[5].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[5].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[5].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[5].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[5].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[5].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[5].items[3].a",
+          "type": "str"
+        }
+      ],
+      "bytes": 9861,
+      "sha256": "bbb416e28594927126bb5c4637ed879695577ded1c03bb461a3f52561dd06b97"
+    },
+    {
+      "file": "src/content/home.json",
+      "top_level_keys": [
+        "seo",
+        "heroHeading",
+        "heroLede",
+        "heroSecondaryLabel",
+        "heroImage",
+        "heroAlt",
+        "about",
+        "classesHead",
+        "intro",
+        "experience",
+        "community",
+        "location",
+        "closing"
+      ],
+      "flattened_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "heroHeading",
+          "type": "str"
+        },
+        {
+          "path": "heroLede",
+          "type": "str"
+        },
+        {
+          "path": "heroSecondaryLabel",
+          "type": "str"
+        },
+        {
+          "path": "heroImage",
+          "type": "str"
+        },
+        {
+          "path": "heroAlt",
+          "type": "str"
+        },
+        {
+          "path": "about",
+          "type": "dict"
+        },
+        {
+          "path": "about.heading",
+          "type": "str"
+        },
+        {
+          "path": "about.text",
+          "type": "str"
+        },
+        {
+          "path": "about.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "about.image",
+          "type": "str"
+        },
+        {
+          "path": "about.alt",
+          "type": "str"
+        },
+        {
+          "path": "classesHead",
+          "type": "dict"
+        },
+        {
+          "path": "classesHead.heading",
+          "type": "str"
+        },
+        {
+          "path": "classesHead.lede",
+          "type": "str"
+        },
+        {
+          "path": "classesHead.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "intro",
+          "type": "dict"
+        },
+        {
+          "path": "intro.heading",
+          "type": "str"
+        },
+        {
+          "path": "intro.offer",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes",
+          "type": "list"
+        },
+        {
+          "path": "intro.includes[0]",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes[1]",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes[2]",
+          "type": "str"
+        },
+        {
+          "path": "intro.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "intro.image",
+          "type": "str"
+        },
+        {
+          "path": "intro.alt",
+          "type": "str"
+        },
+        {
+          "path": "experience",
+          "type": "dict"
+        },
+        {
+          "path": "experience.heading",
+          "type": "str"
+        },
+        {
+          "path": "experience.text",
+          "type": "str"
+        },
+        {
+          "path": "experience.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery",
+          "type": "list"
+        },
+        {
+          "path": "experience.gallery[0]",
+          "type": "dict"
+        },
+        {
+          "path": "experience.gallery[0].image",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[0].alt",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[1]",
+          "type": "dict"
+        },
+        {
+          "path": "experience.gallery[1].image",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[1].alt",
+          "type": "str"
+        },
+        {
+          "path": "community",
+          "type": "dict"
+        },
+        {
+          "path": "community.heading",
+          "type": "str"
+        },
+        {
+          "path": "community.lede",
+          "type": "str"
+        },
+        {
+          "path": "community.locationLine",
+          "type": "str"
+        },
+        {
+          "path": "community.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "community.image",
+          "type": "str"
+        },
+        {
+          "path": "community.alt",
+          "type": "str"
+        },
+        {
+          "path": "location",
+          "type": "dict"
+        },
+        {
+          "path": "location.heading",
+          "type": "str"
+        },
+        {
+          "path": "location.directionsLabel",
+          "type": "str"
+        },
+        {
+          "path": "location.messageLabel",
+          "type": "str"
+        },
+        {
+          "path": "location.parking",
+          "type": "list"
+        },
+        {
+          "path": "location.parking[0]",
+          "type": "dict"
+        },
+        {
+          "path": "location.parking[0].label",
+          "type": "str"
+        },
+        {
+          "path": "location.parking[0].note",
+          "type": "str"
+        },
+        {
+          "path": "location.parking[1]",
+          "type": "dict"
+        },
+        {
+          "path": "location.parking[1].label",
+          "type": "str"
+        },
+        {
+          "path": "location.parking[1].note",
+          "type": "str"
+        },
+        {
+          "path": "location.image",
+          "type": "str"
+        },
+        {
+          "path": "location.alt",
+          "type": "str"
+        },
+        {
+          "path": "closing",
+          "type": "dict"
+        },
+        {
+          "path": "closing.heading",
+          "type": "str"
+        },
+        {
+          "path": "closing.text",
+          "type": "str"
+        },
+        {
+          "path": "closing.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "closing.image",
+          "type": "str"
+        },
+        {
+          "path": "closing.alt",
+          "type": "str"
+        }
+      ],
+      "bytes": 3116,
+      "sha256": "91ed21a9dfa8d7eb7579eadfe32652f7d7980c609347709dcefcc66a52e76262"
+    },
+    {
+      "file": "src/content/pricing.json",
+      "top_level_keys": [
+        "seo",
+        "hero",
+        "tables",
+        "termsText",
+        "faqs"
+      ],
+      "flattened_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "hero",
+          "type": "dict"
+        },
+        {
+          "path": "hero.eyebrow",
+          "type": "str"
+        },
+        {
+          "path": "hero.heading",
+          "type": "str"
+        },
+        {
+          "path": "hero.intro",
+          "type": "str"
+        },
+        {
+          "path": "tables",
+          "type": "list"
+        },
+        {
+          "path": "tables[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[0].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[0].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[1].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[2].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[1].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[1].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[0].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[0].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[0].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].rows[1].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[1].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[1].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[1].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[2]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].rows[2].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[2].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[2].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[2].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[3]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].rows[3].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[3].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[3].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[3].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[2]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[2].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[2].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[2].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[2].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[0].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[0].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[0].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[2].rows[1].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[1].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[1].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[2].rows[1].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[3]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[3].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[3].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[3].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[3].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[0].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[0].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[0].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[3].rows[1].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[1].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[1].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[1].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[2]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[3].rows[2].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[2].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[2].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[3].rows[2].note",
+          "type": "str"
+        },
+        {
+          "path": "termsText",
+          "type": "str"
+        },
+        {
+          "path": "faqs",
+          "type": "list"
+        },
+        {
+          "path": "faqs[0]",
+          "type": "dict"
+        },
+        {
+          "path": "faqs[0].q",
+          "type": "str"
+        },
+        {
+          "path": "faqs[0].a",
+          "type": "str"
+        },
+        {
+          "path": "faqs[1]",
+          "type": "dict"
+        },
+        {
+          "path": "faqs[1].q",
+          "type": "str"
+        },
+        {
+          "path": "faqs[1].a",
+          "type": "str"
+        },
+        {
+          "path": "faqs[2]",
+          "type": "dict"
+        },
+        {
+          "path": "faqs[2].q",
+          "type": "str"
+        },
+        {
+          "path": "faqs[2].a",
+          "type": "str"
+        },
+        {
+          "path": "faqs[3]",
+          "type": "dict"
+        },
+        {
+          "path": "faqs[3].q",
+          "type": "str"
+        },
+        {
+          "path": "faqs[3].a",
+          "type": "str"
+        }
+      ],
+      "bytes": 4136,
+      "sha256": "ae2dde5a6a8f3f5a660ae31de81330699e6b3f0532086c59514f0a08c156b0e9"
+    },
+    {
+      "file": "src/content/studio.json",
+      "top_level_keys": [
+        "email",
+        "whatsappNumber",
+        "phoneDisplay",
+        "bookingUrl",
+        "bsportCompanyId",
+        "bsportWidgetId",
+        "ctaLabel",
+        "ctaCompact",
+        "ga4Id",
+        "clarityId",
+        "streetAddress",
+        "addressLocality",
+        "addressNote",
+        "instagram",
+        "instagramHandle",
+        "facebook",
+        "tiktok",
+        "tiktokHandle",
+        "openingLabel",
+        "openingHours",
+        "foundingForm",
+        "banner"
+      ],
+      "flattened_fields": [
+        {
+          "path": "email",
+          "type": "str"
+        },
+        {
+          "path": "whatsappNumber",
+          "type": "str"
+        },
+        {
+          "path": "phoneDisplay",
+          "type": "str"
+        },
+        {
+          "path": "bookingUrl",
+          "type": "str"
+        },
+        {
+          "path": "bsportCompanyId",
+          "type": "str"
+        },
+        {
+          "path": "bsportWidgetId",
+          "type": "str"
+        },
+        {
+          "path": "ctaLabel",
+          "type": "str"
+        },
+        {
+          "path": "ctaCompact",
+          "type": "str"
+        },
+        {
+          "path": "ga4Id",
+          "type": "str"
+        },
+        {
+          "path": "clarityId",
+          "type": "str"
+        },
+        {
+          "path": "streetAddress",
+          "type": "str"
+        },
+        {
+          "path": "addressLocality",
+          "type": "str"
+        },
+        {
+          "path": "addressNote",
+          "type": "str"
+        },
+        {
+          "path": "instagram",
+          "type": "str"
+        },
+        {
+          "path": "instagramHandle",
+          "type": "str"
+        },
+        {
+          "path": "facebook",
+          "type": "str"
+        },
+        {
+          "path": "tiktok",
+          "type": "str"
+        },
+        {
+          "path": "tiktokHandle",
+          "type": "str"
+        },
+        {
+          "path": "openingLabel",
+          "type": "str"
+        },
+        {
+          "path": "openingHours",
+          "type": "list"
+        },
+        {
+          "path": "foundingForm",
+          "type": "dict"
+        },
+        {
+          "path": "foundingForm.interestOptions",
+          "type": "list"
+        },
+        {
+          "path": "foundingForm.interestOptions[0]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[1]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[2]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[3]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[4]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.submitLabel",
+          "type": "str"
+        },
+        {
+          "path": "banner",
+          "type": "dict"
+        },
+        {
+          "path": "banner.enabled",
+          "type": "bool"
+        },
+        {
+          "path": "banner.text",
+          "type": "str"
+        },
+        {
+          "path": "banner.linkText",
+          "type": "str"
+        },
+        {
+          "path": "banner.linkUrl",
+          "type": "str"
+        }
+      ],
+      "bytes": 1215,
+      "sha256": "ea7b2f26707bf7fc0233007762747c87c5065eb30520df5e2fc6ac636879731c"
+    }
+  ],
+  "assets": [
+    {
+      "file": "public/admin/config.yml",
+      "extension": ".yml",
+      "bytes": 47597,
+      "sha256": "9a122d89bbeaa86b8f0c13e4c5b59c8e638d0b60ec169b32b1de88ca5134f71b"
+    },
+    {
+      "file": "public/admin/decap-cms.js",
+      "extension": ".js",
+      "bytes": 5122242,
+      "sha256": "952395b66c20e29ee3989e2924de6a5e31e2e2c0ec8daa1c5fa7cf79286b1e06"
+    },
+    {
+      "file": "public/admin/index.html",
+      "extension": ".html",
+      "bytes": 462,
+      "sha256": "20f9f666003902fcd8c8cc887d8335577b04707cbf03df4d1b74b6ee936385bf"
+    },
+    {
+      "file": "public/favicon.svg",
+      "extension": ".svg",
+      "bytes": 254,
+      "sha256": "e72ba48ecad401a9c45accf2ffed96d56fcb7deb752588d2eefd09ff26132f04"
+    },
+    {
+      "file": "public/fonts/dm-sans-latin-400-normal.woff2",
+      "extension": ".woff2",
+      "bytes": 14200,
+      "sha256": "4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006"
+    },
+    {
+      "file": "public/fonts/dm-sans-latin-500-normal.woff2",
+      "extension": ".woff2",
+      "bytes": 14304,
+      "sha256": "19bf1984956517c35c2bd35b6cdedac12a21d6fcd3596c614ecdfb88b648909d"
+    },
+    {
+      "file": "public/fonts/dm-sans-latin-700-normal.woff2",
+      "extension": ".woff2",
+      "bytes": 14348,
+      "sha256": "35c5efa0e5daa52ee5c6500f5be354bf751fb65c4e49e1d6806c6eb5883e8fe9"
+    },
+    {
+      "file": "public/fonts/dm-serif-display-latin-400-italic.woff2",
+      "extension": ".woff2",
+      "bytes": 24572,
+      "sha256": "ed8b291611e32fa2d2900488dd48fc95faf0957b2ef7ddf1527e8d21dd9cf2df"
+    },
+    {
+      "file": "public/fonts/dm-serif-display-latin-400-normal.woff2",
+      "extension": ".woff2",
+      "bytes": 24744,
+      "sha256": "fdf61e20fd2c0108e0ea28da4daca0035205b4b7fc031a3974b865b704de160a"
+    },
+    {
+      "file": "public/images/alex-closing-reformer.jpg",
+      "extension": ".jpg",
+      "bytes": 141001,
+      "sha256": "09b76ec16488b3c468c65911e25aea98e529a4a03cfe8319c3655a0d243a2038",
+      "width": 1572,
+      "height": 1001,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-closing-reformer.webp",
+      "extension": ".webp",
+      "bytes": 52050,
+      "sha256": "79be06afa6c093fad8dda5c7ff72792086ca16a8e3a181d07b50b167aa1e9e0f",
+      "width": 1572,
+      "height": 1001,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-corridor-k.jpg",
+      "extension": ".jpg",
+      "bytes": 35099,
+      "sha256": "cf040d053f32d418086a8cee891e31091431aeea66f7dc2fd1cb916eadce56c6",
+      "width": 1400,
+      "height": 670,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-corridor-k.webp",
+      "extension": ".webp",
+      "bytes": 12500,
+      "sha256": "83378240b15c0ba6939e77154d4d8e2877cadc23b3643aa538951cf9d6be94aa",
+      "width": 1400,
+      "height": 670,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-corridor-kwall.jpg",
+      "extension": ".jpg",
+      "bytes": 94166,
+      "sha256": "f9813361d84536af98ff2bce6ce4fdba08a4b9400c058ca0963e10fb000c3ba7",
+      "width": 1649,
+      "height": 954,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-corridor-kwall.webp",
+      "extension": ".webp",
+      "bytes": 30222,
+      "sha256": "2eb4df1619951374cf4d37bf3772e8a66591654a7f6b639a4dbe3854c01629cd",
+      "width": 1649,
+      "height": 954,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-hero-reformers.jpg",
+      "extension": ".jpg",
+      "bytes": 161843,
+      "sha256": "abedfff701cabf1046e1ecb27d8daa8f62cfad863aa24e0e0832064beba47b59",
+      "width": 1168,
+      "height": 1347,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-hero-reformers.webp",
+      "extension": ".webp",
+      "bytes": 67886,
+      "sha256": "5652b3a50ef25b5372556638a9d9b6ddd27d61ef38d9f3c6855ea5df96ab5424",
+      "width": 1168,
+      "height": 1347,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-hero-room.jpg",
+      "extension": ".jpg",
+      "bytes": 81994,
+      "sha256": "fe8271143058543567f0fc7267cd80ab86451eaa65cfa9f95336fee058b1e842",
+      "width": 1056,
+      "height": 992,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-hero-room.webp",
+      "extension": ".webp",
+      "bytes": 34602,
+      "sha256": "b0919fbbc96295bd7449cb025c4265b612efb88567ebf4f50840a1de0852ed10",
+      "width": 1056,
+      "height": 992,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-lounge-sofa.jpg",
+      "extension": ".jpg",
+      "bytes": 171377,
+      "sha256": "e3149e6abc11fd058b2ec8ad1d855a3ab2149b9a571cf84871bb7e3fde5a494a",
+      "width": 1172,
+      "height": 1342,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-lounge-sofa.webp",
+      "extension": ".webp",
+      "bytes": 75336,
+      "sha256": "bd6e450f4ae6e3850b0a7085dfa81af90ea33f7997703fb53904461bed0ad09a",
+      "width": 1172,
+      "height": 1342,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-lounge.jpg",
+      "extension": ".jpg",
+      "bytes": 61455,
+      "sha256": "088e1af1a4e891b84ad605cebcb1c338b45d0d201a2e75b6d4f9cf6b7746d18a",
+      "width": 940,
+      "height": 1066,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-lounge.webp",
+      "extension": ".webp",
+      "bytes": 25854,
+      "sha256": "1e567c8953275ed738854a8d387b094886c85e1763a8c0c4d84b6b81b76f5c13",
+      "width": 940,
+      "height": 1066,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reception-desk.jpg",
+      "extension": ".jpg",
+      "bytes": 124116,
+      "sha256": "6c996844a2a699b7d194bb37e34894e0f5432f9dd748bfdbad4c0eb5205fcdd5",
+      "width": 1172,
+      "height": 1342,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reception-desk.webp",
+      "extension": ".webp",
+      "bytes": 39436,
+      "sha256": "a514e3f70d13a0385cfb5568fe11690e5b64bf7d4879f8f4c1b4cf28acd70563",
+      "width": 1172,
+      "height": 1342,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reception.jpg",
+      "extension": ".jpg",
+      "bytes": 59160,
+      "sha256": "b346f0a31b220a94ee82186ac88ca42371e971bae0e0dd95da2330582240fc56",
+      "width": 972,
+      "height": 1034,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reception.webp",
+      "extension": ".webp",
+      "bytes": 19538,
+      "sha256": "4fe0ae908336994d6158e17877a04239ac6f02135c1cde2cdf65448598e0916f",
+      "width": 972,
+      "height": 1034,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reformer-window.jpg",
+      "extension": ".jpg",
+      "bytes": 56701,
+      "sha256": "f6bf1303b9e5972cd3d4a3e3678cb90a1842cd7cec9bf7b28bd9435df6822abb",
+      "width": 1280,
+      "height": 800,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-reformer-window.webp",
+      "extension": ".webp",
+      "bytes": 19938,
+      "sha256": "6ab8478dbc5a5a72925e334ad9ab224fb7ad2dc7b8dc9aded230ba6075565b30",
+      "width": 1280,
+      "height": 800,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-team-bench.jpg",
+      "extension": ".jpg",
+      "bytes": 209662,
+      "sha256": "130143affccfb5cd35090863c700add88f43e7f8ede33d55d505ed23324fa547",
+      "width": 2038,
+      "height": 771,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-team-bench.webp",
+      "extension": ".webp",
+      "bytes": 92180,
+      "sha256": "79e034bf95134c16816d9e97efa31468c1e5903daec29352043a5db83e7b3aae",
+      "width": 2038,
+      "height": 771,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-team-sofa.jpg",
+      "extension": ".jpg",
+      "bytes": 59448,
+      "sha256": "8f4a8110e547abb3dec23bda778c24222f3508d4ae1d8a3fcbc220d80f87e166",
+      "width": 1400,
+      "height": 502,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-team-sofa.webp",
+      "extension": ".webp",
+      "bytes": 24978,
+      "sha256": "bd68d4c950c96e4d13c89deb8cc60cd27033472557add15a8f83de564e1c0134",
+      "width": 1400,
+      "height": 502,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-trainer-reformer.jpg",
+      "extension": ".jpg",
+      "bytes": 156196,
+      "sha256": "a9bdd1b2f4935ffb9ee73e044a70e7d4ea7ab6873b0b80b925d9de44171f188b",
+      "width": 1708,
+      "height": 920,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-trainer-reformer.webp",
+      "extension": ".webp",
+      "bytes": 60732,
+      "sha256": "cfc8b0f995ddd289f7cbff2360c16bdb1e9916b79b60f346217eaab930862de5",
+      "width": 1708,
+      "height": 920,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-woman-reformer.jpg",
+      "extension": ".jpg",
+      "bytes": 69329,
+      "sha256": "6db2f771c2600ca80227908d909005d05bd4dac7d935cce064c27ea1ae28deef",
+      "width": 1400,
+      "height": 732,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/alex-woman-reformer.webp",
+      "extension": ".webp",
+      "bytes": 25764,
+      "sha256": "2138a1091a3caf2f4919aee6ba9bfcf1565410a11c55ee951552ecaf99c7743b",
+      "width": 1400,
+      "height": 732,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/arch-entrance.jpg",
+      "extension": ".jpg",
+      "bytes": 23447,
+      "sha256": "eb2dd0c90594a8b4b4e4c84bec5a4a22a35e8af2bf5bea18dc45a8afce3243ef",
+      "width": 322,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/arch-entrance.webp",
+      "extension": ".webp",
+      "bytes": 14318,
+      "sha256": "141173eb14a4fed4b5f5587da20df991f1b48b13dcaada69a7be4d9a6334c105",
+      "width": 322,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-duo.jpg",
+      "extension": ".jpg",
+      "bytes": 156565,
+      "sha256": "927953df8a80f21183a79290237cdf9a8f3558127ee492001a4686d5b66f44ce",
+      "width": 1426,
+      "height": 1103,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-duo.webp",
+      "extension": ".webp",
+      "bytes": 65828,
+      "sha256": "9d9cf30528d973519fcc777f6326b138ab6c0b749d9ffeba11d6b42de0ddbfb3",
+      "width": 1426,
+      "height": 1103,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-mat.jpg",
+      "extension": ".jpg",
+      "bytes": 98369,
+      "sha256": "423782299c6b33c4baace327acade6c80f818b3dbfc8b08c274c036b22577a0e",
+      "width": 1418,
+      "height": 1109,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-mat.webp",
+      "extension": ".webp",
+      "bytes": 34606,
+      "sha256": "01d39bbdff6f2a778a0ecd806eff220a517e975506962705e3c4acf1bb33add7",
+      "width": 1418,
+      "height": 1109,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-private.jpg",
+      "extension": ".jpg",
+      "bytes": 151633,
+      "sha256": "db36c238fd9cc7ca3c2d9ef3f44b221e1e4c1641cf7ed0c743daf2163a01045a",
+      "width": 1423,
+      "height": 1105,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-private.webp",
+      "extension": ".webp",
+      "bytes": 65808,
+      "sha256": "7fb2f40140de4fa0dde2319fa153fcc34a5254b2fc842a367832fcbbc825089c",
+      "width": 1423,
+      "height": 1105,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-reformer.jpg",
+      "extension": ".jpg",
+      "bytes": 166313,
+      "sha256": "c850e8644f6b72c75a00c641cc293aff869fa7ae0c8932daa1ed65d5bc9a6b0c",
+      "width": 1426,
+      "height": 1103,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/class-reformer.webp",
+      "extension": ".webp",
+      "bytes": 69440,
+      "sha256": "b309cfa51a252d8f4a0cc7efb959746cb653975c154e3c6d51476a2cac96d463",
+      "width": 1426,
+      "height": 1103,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/equipment-wall.jpg",
+      "extension": ".jpg",
+      "bytes": 24109,
+      "sha256": "807a6d6a0b5970bff08a7f0f2d62acf2f74d1721f44a7a3f2f27b15316e86f90",
+      "width": 285,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/equipment-wall.webp",
+      "extension": ".webp",
+      "bytes": 17756,
+      "sha256": "9b5f6e3846c87982a215b30595da16105b157fdae18f9983d768a6de19f4c826",
+      "width": 285,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/interior-arch.jpg",
+      "extension": ".jpg",
+      "bytes": 60752,
+      "sha256": "36f46429b1345da886b8a234c7b61569c4edf9d1e15c1dd24510641c4d2c242b",
+      "width": 706,
+      "height": 542,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/interior-arch.webp",
+      "extension": ".webp",
+      "bytes": 32458,
+      "sha256": "3e86e2f21e22fb2c0e2587166bb41ccc4b5c35f615d95ea68f8f7d76c86cd85b",
+      "width": 706,
+      "height": 542,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-class-foundations.jpg",
+      "extension": ".jpg",
+      "bytes": 170905,
+      "sha256": "5c60d64cdf3820fc9e1a51a4c7af59735ab50ae2f9732e35a6f9ee02ae753796",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-class-foundations.webp",
+      "extension": ".webp",
+      "bytes": 84902,
+      "sha256": "6f84797f056b372071b01e692db4f9f77daa4d7e10e88e42b649510922a1222e",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-class-signature.jpg",
+      "extension": ".jpg",
+      "bytes": 175026,
+      "sha256": "6921effdb3206425205c490f699d75efd98e2b8bb46821f26cd4965605b186db",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-class-signature.webp",
+      "extension": ".webp",
+      "bytes": 87552,
+      "sha256": "89c422c6101ed7234ff47d820d45e3ea88e1979405ce9fd8f1d253c5c4c68199",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-logo.jpg",
+      "extension": ".jpg",
+      "bytes": 22101,
+      "sha256": "82e0632f418f72ad3fea473d7fb152187665335b219c32ee9fffad5820eae15b",
+      "width": 1080,
+      "height": 1059,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-logo.webp",
+      "extension": ".webp",
+      "bytes": 7476,
+      "sha256": "ae19e3de91225e3f25b97aede2dfe0551b0533c8d6d56bb899a2788a44f5ce37",
+      "width": 1080,
+      "height": 1059,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-lounge.jpg",
+      "extension": ".jpg",
+      "bytes": 34910,
+      "sha256": "eaceeff6f0e8d727074cbf5dfc95ec0a4fc7bb4c98fb47c287ff2eca59f95b75",
+      "width": 576,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-lounge.webp",
+      "extension": ".webp",
+      "bytes": 15800,
+      "sha256": "22a33286a8d2dbdf0e4ed6e7d133011a6f3c7f8b2db1d0b60154fbe4a4531052",
+      "width": 576,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-reformers.jpg",
+      "extension": ".jpg",
+      "bytes": 61563,
+      "sha256": "6825bf250f589bda3ec5eaeea93b536854008e4619db144f1d2c5c87ff608308",
+      "width": 576,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-reformers.webp",
+      "extension": ".webp",
+      "bytes": 31234,
+      "sha256": "613fcf85c41afeabdbf2efcce8eb3b5b71a1e0f80f8631a53a26056836eb3421",
+      "width": 576,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-window-reformer.jpg",
+      "extension": ".jpg",
+      "bytes": 160862,
+      "sha256": "8fcde5259feaee2061e9ceb6725696aa87d9e4c37cf9ef339bffac631617e6a3",
+      "width": 937,
+      "height": 1266,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/klub-window-reformer.webp",
+      "extension": ".webp",
+      "bytes": 75138,
+      "sha256": "154c153dd3168b24a4a3d8a82f9449e086f059b3d988c4dfe7897f9cacb0bb86",
+      "width": 937,
+      "height": 1266,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/lounge.jpg",
+      "extension": ".jpg",
+      "bytes": 20418,
+      "sha256": "76551a676211082715eb8e39f436c6b42f4a5cff7a48958ba13cc6a82a86a2e9",
+      "width": 367,
+      "height": 346,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/lounge.webp",
+      "extension": ".webp",
+      "bytes": 12146,
+      "sha256": "ff9271a68bdf0a39c98ef062eb602b738df51761105d7519a5a568b9eb7f1e74",
+      "width": 367,
+      "height": 346,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/mat-studio.jpg",
+      "extension": ".jpg",
+      "bytes": 74077,
+      "sha256": "cee496a49cd0d47a81745eb7f814d1a9fe6d71191a52f1a465b34d241fb29e02",
+      "width": 708,
+      "height": 692,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/mat-studio.webp",
+      "extension": ".webp",
+      "bytes": 39230,
+      "sha256": "bc0c1d9622c26d97c6dc012da310d265d25534ac5888b95959726c98c6dcbd24",
+      "width": 708,
+      "height": 692,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/og/classes.jpg",
+      "extension": ".jpg",
+      "bytes": 50718,
+      "sha256": "344e8ac71a4e8bf7b3ee4377c9b06b0dfa44d29075e4c6d2b22db2ce506d0ba4",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/og/default.jpg",
+      "extension": ".jpg",
+      "bytes": 68679,
+      "sha256": "6fed5f7af5b37359813195c51d1ed781159e9060ddf093f96b3062226861aefa",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/og/pricing.jpg",
+      "extension": ".jpg",
+      "bytes": 51789,
+      "sha256": "c0e798dda915f1b01818a6ce31fb565b872632e1b4be255ceff5a5f149a035be",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/reception.jpg",
+      "extension": ".jpg",
+      "bytes": 28658,
+      "sha256": "0c513245730673b37c97fe1225dc584a81ae4859b307bfb66ffa5c03ceef4c3e",
+      "width": 467,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/reception.webp",
+      "extension": ".webp",
+      "bytes": 21264,
+      "sha256": "ffc8eef5cbe3a415cf1e1a62ef6f09892d0feb4d348d486d02a7585c85232bdb",
+      "width": 467,
+      "height": 431,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/street-sign.jpg",
+      "extension": ".jpg",
+      "bytes": 18209,
+      "sha256": "70cb68075754e19ffc8a15b67d31cce6595bf383174256ca4e4acd2b41c4383b",
+      "width": 358,
+      "height": 294,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/street-sign.webp",
+      "extension": ".webp",
+      "bytes": 10618,
+      "sha256": "4749946b423a16dee7d77b69f4bedf5e6fcf33ad965e606311c0e48a4d2f47a0",
+      "width": 358,
+      "height": 294,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/studio-room.jpg",
+      "extension": ".jpg",
+      "bytes": 24541,
+      "sha256": "989f9f28465a484d3ce62739f70a1020d4c625653f6e0e8cd4e795668b0beeee",
+      "width": 418,
+      "height": 294,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/images/studio-room.webp",
+      "extension": ".webp",
+      "bytes": 14422,
+      "sha256": "9b223421a4ad6ec3680694c4ce3092aefd018ee3da398d607f543d8b29dde228",
+      "width": 418,
+      "height": 294,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/llms.txt",
+      "extension": ".txt",
+      "bytes": 1632,
+      "sha256": "7c247c5f16ca65b0518a6af7b86d544b41fbbc4c8a584d2edf51195311033cb3"
+    },
+    {
+      "file": "public/robots.txt",
+      "extension": ".txt",
+      "bytes": 108,
+      "sha256": "4c82c91be958c082fd5daa6038c211e68f782be0f66ee578640a4cc55693a634"
+    },
+    {
+      "file": "public/videos/klub-reformer-flow-poster.jpg",
+      "extension": ".jpg",
+      "bytes": 73852,
+      "sha256": "7622eff0890c80d27ed141593e3b0849fdb6902096119617d512dc898d0f0bdc",
+      "width": 720,
+      "height": 960,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/videos/klub-reformer-flow.mp4",
+      "extension": ".mp4",
+      "bytes": 287978,
+      "sha256": "31638f7bfa099791fc804397038e4481f0d0c14f8fb12f8d951ef20069a8bcb3"
+    },
+    {
+      "file": "public/videos/klub-reformer-hero-poster.jpg",
+      "extension": ".jpg",
+      "bytes": 81164,
+      "sha256": "025d4ce8cf33e33ed645f67737ffc24dd199c668667c244f3df3bacc18761cc6",
+      "width": 720,
+      "height": 960,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/videos/klub-reformer-hero.mp4",
+      "extension": ".mp4",
+      "bytes": 395097,
+      "sha256": "786e23655318850301c60741bc102d5f565f5c66d9ffa10dab86679957db333b"
+    },
+    {
+      "file": "public/videos/klub-reformer-method-poster.jpg",
+      "extension": ".jpg",
+      "bytes": 77655,
+      "sha256": "b9041f30b5d161b7d55ed23f7aaa678c736854a8af3bb5f1a72350f4e4fd5af7",
+      "width": 720,
+      "height": 960,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/videos/klub-reformer-method.mp4",
+      "extension": ".mp4",
+      "bytes": 330015,
+      "sha256": "c7874c5a8230046735f59f3385d37a8b036a8afa21e92ccaed3507f3d2eba49d"
+    },
+    {
+      "file": "public/videos/klub-studio-instagram-poster.jpg",
+      "extension": ".jpg",
+      "bytes": 51303,
+      "sha256": "f127556ed70a6b132861785e9f381713a9d807e1c6cb92b4f0bc027b0fcbe2fd",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/videos/klub-studio-instagram-poster.webp",
+      "extension": ".webp",
+      "bytes": 16680,
+      "sha256": "7c851a5df26ea1fc88c935d436f304b1238aed504cb2ba062dfde7b1128b617c",
+      "width": 1080,
+      "height": 1920,
+      "mode": "RGB"
+    },
+    {
+      "file": "public/videos/klub-studio-instagram.mp4",
+      "extension": ".mp4",
+      "bytes": 697929,
+      "sha256": "a68061e1f729909d6e4de73a331370f81bddc17e7525bd676efd7cd4cd7494bb"
+    }
+  ],
+  "asset_extension_counts": {
+    ".yml": 1,
+    ".js": 1,
+    ".html": 1,
+    ".svg": 1,
+    ".woff2": 5,
+    ".jpg": 39,
+    ".webp": 33,
+    ".txt": 2,
+    ".mp4": 4
+  },
+  "external_urls": [
+    "http://dev.apollodata.com/core/fragments.html#unique-names",
+    "http://fb.me/use-check-prop-types",
+    "http://github.com/equinusocio",
+    "http://js.pusher.com/",
+    "http://json-schema.org/draft-07/schema",
+    "http://json-schema.org/draft-07/schema#",
+    "http://json-schema.org/schema",
+    "http://localhost:${PORT",
+    "http://localhost:4321",
+    "http://localhost:4321/admin/",
+    "http://localhost:4321/admin/`",
+    "http://localhost:8081/api/v1",
+    "http://react-dnd.github.io/react-dnd/docs/api/drag-source",
+    "http://react-dnd.github.io/react-dnd/docs/api/drag-source-monitor",
+    "http://react-dnd.github.io/react-dnd/docs/api/drop-target",
+    "http://react-dnd.github.io/react-dnd/docs/api/drop-target-monitor",
+    "http://react-dnd.github.io/react-dnd/docs/troubleshooting#could-not-find-the-drag-and-drop-manager-in-the-context",
+    "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd",
+    "http://www.opengis.net/def/crs/EPSG/0/3857",
+    "http://www.opengis.net/def/crs/EPSG/0/4326",
+    "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+    "http://www.opengis.net/gml/srs/epsg.xml#3857",
+    "http://www.opengis.net/gml/srs/epsg.xml#4326",
+    "http://www.w3.org/1998/Math/MathML",
+    "http://www.w3.org/1999/xhtml",
+    "http://www.w3.org/1999/xlink",
+    "http://www.w3.org/2000/svg",
+    "http://www.w3.org/2000/xmlns/",
+    "http://www.w3.org/XML/1998/namespace",
+    "https://${this.applicationID",
+    "https://.+",
+    "https://api.bitbucket.org/2.0",
+    "https://api.github.com",
+    "https://api.netlify.com",
+    "https://api.netlify.com/api/v1/sites/${e",
+    "https://app.vssps.visualstudio.com/_apis/profile/profiles/me",
+    "https://astro.build",
+    "https://bit.ly/3cXEKWf",
+    "https://bit.ly/3cXEKWf`",
+    "https://bitbucket.org",
+    "https://bitbucket.org/${e.backend.repo",
+    "https://bitbucket.status.atlassian.com",
+    "https://cdn.bsport.io/scripts/widget.js",
+    "https://d3dy5gmtp8yhk7.cloudfront.net/",
+    "https://decapcms.org",
+    "https://deploy-preview-12--klub-cy.netlify.app",
+    "https://dev.azure.com",
+    "https://dev.wix.com/docs/api-reference",
+    "https://dev.wix.com/docs/api-reference/business-solutions/bookings/architecture",
+    "https://dev.wix.com/docs/api-reference/business-solutions/bookings/flow-single-service-booking",
+    "https://dev.wix.com/docs/api-reference/business-solutions/bookings/introduction",
+    "https://dev.wix.com/docs/develop-websites",
+    "https://dev.wix.com/docs/develop-websites/articles/best-practices/best-practices-for-improving-performance-in-wix-sites-with-data",
+    "https://dev.wix.com/docs/develop-websites/articles/workspace-tools/developer-tools/git-integration-wix-cli-for-sites/about-git-integration-wix-cli-for-sites",
+    "https://dev.wix.com/docs/go-headless/get-started/choose-your-development-path",
+    "https://dev.wix.com/docs/go-headless/self-managed-headless/tutorials/java-script-sdk-tutorials/bookings-quick-start",
+    "https://dev.wix.com/docs/go-headless/wix-managed-headless/full-integration-astro/get-started/connect-an-existing-astro-project",
+    "https://dev.wix.com/docs/velo/apis/wix-data-v2/introduction",
+    "https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli",
+    "https://docs.netlify.com/visitor-access/git-gateway/#setup-and-settings",
+    "https://example.com",
+    "https://example.com/images/logo.svg",
+    "https://example.com/report-issue",
+    "https://fb.me/react-async-component-lifecycle-hooks",
+    "https://fb.me/react-warning-dont-call-proptypes",
+    "https://git-lfs.github.com/spec/v1\\noid",
+    "https://git.io/fxKR8",
+    "https://git.io/vg5Ft",
+    "https://github.com/${n",
+    "https://github.com/apollographql/invariant-packages",
+    "https://github.com/chalk/ansi-regex?sponsor=1",
+    "https://github.com/chalk/ansi-styles?sponsor=1",
+    "https://github.com/chalk/chalk?sponsor=1",
+    "https://github.com/chalk/strip-ansi?sponsor=1",
+    "https://github.com/chalk/wrap-ansi?sponsor=1",
+    "https://github.com/cheeriojs/dom-serializer?sponsor=1",
+    "https://github.com/decaporg/decap-cms/issues/new",
+    "https://github.com/fb55/domhandler?sponsor=1",
+    "https://github.com/fb55/domutils?sponsor=1",
+    "https://github.com/fb55/entities?sponsor=1",
+    "https://github.com/fb55/nth-check?sponsor=1",
+    "https://github.com/inikulin/parse5?sponsor=1",
+    "https://github.com/ma4kos/KLUB`",
+    "https://github.com/pmndrs/jotai/discussions/2044",
+    "https://github.com/remarkjs/react-markdown/blob/main/changelog.md#${e.id",
+    "https://github.com/sponsors/SuperchupuDev",
+    "https://github.com/sponsors/ai",
+    "https://github.com/sponsors/ayuhito",
+    "https://github.com/sponsors/brc-dd",
+    "https://github.com/sponsors/colinhacks",
+    "https://github.com/sponsors/cyyynthia",
+    "https://github.com/sponsors/fb55",
+    "https://github.com/sponsors/jonschlinkert",
+    "https://github.com/sponsors/nodeca",
+    "https://github.com/sponsors/puzrin",
+    "https://github.com/sponsors/sibiraj-s",
+    "https://github.com/sponsors/sindresorhus",
+    "https://github.com/sponsors/unifiedjs",
+    "https://github.com/sponsors/wooorm",
+    "https://github.com/vitejs/vite?sponsor=1",
+    "https://gitlab.com",
+    "https://gitlab.com/api/graphql",
+    "https://gitlab.com/api/v4",
+    "https://goo.gl/LrBNgw",
+    "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-",
+    "https://identity.netlify.com/v1/netlify-identity-widget.js",
+    "https://klub-cy.com`",
+    "https://klub-cy.netlify.app",
+    "https://klub-cy.netlify.app**",
+    "https://klub-cy.netlify.app/admin/#invite_token=XXXX`",
+    "https://klub-cy.netlify.app/admin/**",
+    "https://klub-cy.netlify.app/book/",
+    "https://klub.cy`",
+    "https://login.microsoftonline.com/${this.props.config.backend.tenant_id",
+    "https://ma4kos.github.io/KLUB/**",
+    "https://ma4kos.github.io/KLUB/`",
+    "https://material-theme.site/\\n*/\\n\\n.cm-s-material.CodeMirror",
+    "https://media-library.cloudinary.com/global/all.js",
+    "https://mozilla.github.io/localForage/#definedriver",
+    "https://npms.io/search?q=ponyfill",
+    "https://opencollective.com/astrodotbuild",
+    "https://opencollective.com/express",
+    "https://opencollective.com/libvips",
+    "https://opencollective.com/postcss/",
+    "https://opencollective.com/svgo",
+    "https://opencollective.com/unified",
+    "https://openlayers.org/en/v",
+    "https://paulmillr.com/funding/",
+    "https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#",
+    "https://react.dev/errors/",
+    "https://reactjs.org/docs/refs-and-the-dom.html#callback-refs",
+    "https://redux.js.org/Errors?code=",
+    "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.13.1.tgz",
+    "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.7.6.tgz",
+    "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-6.3.11.tgz",
+    "https://registry.npmjs.org/@astrojs/prism/-/prism-3.3.0.tgz",
+    "https://registry.npmjs.org/@astrojs/sitemap/-/sitemap-3.7.3.tgz",
+    "https://registry.npmjs.org/@astrojs/telemetry/-/telemetry-3.3.0.tgz",
+    "https://registry.npmjs.org/@axe-core/playwright/-/playwright-4.13.0.tgz",
+    "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz",
+    "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz",
+    "https://registry.npmjs.org/@babel/parser/-/parser-7.29.8.tgz",
+    "https://registry.npmjs.org/@babel/types/-/types-7.29.8.tgz",
+    "https://registry.npmjs.org/@capsizecss/unpack/-/unpack-4.0.1.tgz",
+    "https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.11.3.tgz",
+    "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/openharmony-arm64/-/openharmony-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/openharmony-arm64/-/openharmony-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.27.7.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.12.tgz",
+    "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.27.7.tgz",
+    "https://registry.npmjs.org/@fontsource/dm-sans/-/dm-sans-5.3.0.tgz",
+    "https://registry.npmjs.org/@fontsource/dm-serif-display/-/dm-serif-display-5.3.0.tgz",
+    "https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz",
+    "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-darwin-x64/-/sharp-darwin-x64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-darwin-x64/-/sharp-libvips-darwin-x64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-arm/-/sharp-libvips-linux-arm-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-arm64/-/sharp-libvips-linux-arm64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-ppc64/-/sharp-libvips-linux-ppc64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-riscv64/-/sharp-libvips-linux-riscv64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-s390x/-/sharp-libvips-linux-s390x-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-arm64/-/sharp-libvips-linuxmusl-arm64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.2.4.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-arm/-/sharp-linux-arm-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-arm64/-/sharp-linux-arm64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-ppc64/-/sharp-linux-ppc64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-riscv64/-/sharp-linux-riscv64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-s390x/-/sharp-linux-s390x-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linuxmusl-arm64/-/sharp-linuxmusl-arm64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-win32-arm64/-/sharp-win32-arm64-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-win32-ia32/-/sharp-win32-ia32-0.34.5.tgz",
+    "https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.34.5.tgz",
+    "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
+    "https://registry.npmjs.org/@napi-rs/lzma-linux-x64-gnu/-/lzma-linux-x64-gnu-1.5.1.tgz",
+    "https://registry.npmjs.org/@oslojs/encoding/-/encoding-1.1.0.tgz",
+    "https://registry.npmjs.org/@playwright/test/-/test-1.62.1.tgz",
+    "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.4.0.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-android-arm64/-/rollup-android-arm64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-darwin-x64/-/rollup-darwin-x64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-freebsd-arm64/-/rollup-freebsd-arm64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-freebsd-x64/-/rollup-freebsd-x64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-arm-gnueabihf/-/rollup-linux-arm-gnueabihf-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-arm-musleabihf/-/rollup-linux-arm-musleabihf-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-arm64-gnu/-/rollup-linux-arm64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-arm64-musl/-/rollup-linux-arm64-musl-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-loong64-gnu/-/rollup-linux-loong64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-loong64-musl/-/rollup-linux-loong64-musl-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-ppc64-gnu/-/rollup-linux-ppc64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-ppc64-musl/-/rollup-linux-ppc64-musl-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-gnu/-/rollup-linux-riscv64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-riscv64-musl/-/rollup-linux-riscv64-musl-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-s390x-gnu/-/rollup-linux-s390x-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-openbsd-x64/-/rollup-openbsd-x64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-openharmony-arm64/-/rollup-openharmony-arm64-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-win32-arm64-msvc/-/rollup-win32-arm64-msvc-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-win32-ia32-msvc/-/rollup-win32-ia32-msvc-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-win32-x64-gnu/-/rollup-win32-x64-gnu-4.62.4.tgz",
+    "https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.62.4.tgz",
+    "https://registry.npmjs.org/@shikijs/core/-/core-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/engine-javascript/-/engine-javascript-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/engine-oniguruma/-/engine-oniguruma-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/langs/-/langs-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/themes/-/themes-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/types/-/types-3.23.0.tgz",
+    "https://registry.npmjs.org/@shikijs/vscode-textmate/-/vscode-textmate-10.0.2.tgz",
+    "https://registry.npmjs.org/@types/debug/-/debug-4.1.13.tgz",
+    "https://registry.npmjs.org/@types/estree/-/estree-1.0.9.tgz",
+    "https://registry.npmjs.org/@types/hast/-/hast-3.0.5.tgz",
+    "https://registry.npmjs.org/@types/js-yaml/-/js-yaml-4.0.9.tgz",
+    "https://registry.npmjs.org/@types/mdast/-/mdast-4.0.4.tgz",
+    "https://registry.npmjs.org/@types/ms/-/ms-2.1.0.tgz",
+    "https://registry.npmjs.org/@types/nlcst/-/nlcst-2.0.3.tgz",
+    "https://registry.npmjs.org/@types/node/-/node-24.13.3.tgz",
+    "https://registry.npmjs.org/@types/sax/-/sax-1.2.7.tgz",
+    "https://registry.npmjs.org/@types/unist/-/unist-3.0.3.tgz",
+    "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.3.3.tgz",
+    "https://registry.npmjs.org/acorn/-/acorn-8.18.0.tgz",
+    "https://registry.npmjs.org/ansi-align/-/ansi-align-3.0.1.tgz",
+    "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+    "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
+    "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz",
+    "https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz",
+    "https://registry.npmjs.org/arg/-/arg-5.0.2.tgz",
+    "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz",
+    "https://registry.npmjs.org/aria-query/-/aria-query-5.3.2.tgz",
+    "https://registry.npmjs.org/array-iterate/-/array-iterate-2.0.1.tgz",
+    "https://registry.npmjs.org/astro/-/astro-5.18.2.tgz",
+    "https://registry.npmjs.org/axe-core/-/axe-core-4.13.0.tgz",
+    "https://registry.npmjs.org/axobject-query/-/axobject-query-4.1.0.tgz",
+    "https://registry.npmjs.org/bail/-/bail-2.0.2.tgz",
+    "https://registry.npmjs.org/base-64/-/base-64-1.0.0.tgz",
+    "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz",
+    "https://registry.npmjs.org/boxen/-/boxen-8.0.1.tgz",
+    "https://registry.npmjs.org/camelcase/-/camelcase-8.0.0.tgz",
+    "https://registry.npmjs.org/ccount/-/ccount-2.0.1.tgz",
+    "https://registry.npmjs.org/chalk/-/chalk-5.6.2.tgz",
+    "https://registry.npmjs.org/character-entities-html4/-/character-entities-html4-2.1.0.tgz",
+    "https://registry.npmjs.org/character-entities-legacy/-/character-entities-legacy-3.0.0.tgz",
+    "https://registry.npmjs.org/character-entities/-/character-entities-2.0.2.tgz",
+    "https://registry.npmjs.org/chokidar/-/chokidar-5.0.0.tgz",
+    "https://registry.npmjs.org/ci-info/-/ci-info-4.4.0.tgz",
+    "https://registry.npmjs.org/cli-boxes/-/cli-boxes-3.0.0.tgz",
+    "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz",
+    "https://registry.npmjs.org/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz",
+    "https://registry.npmjs.org/commander/-/commander-11.1.0.tgz",
+    "https://registry.npmjs.org/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz",
+    "https://registry.npmjs.org/cookie-es/-/cookie-es-1.2.3.tgz",
+    "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz",
+    "https://registry.npmjs.org/crossws/-/crossws-0.3.5.tgz",
+    "https://registry.npmjs.org/css-select/-/css-select-5.2.2.tgz",
+    "https://registry.npmjs.org/css-tree/-/css-tree-2.2.1.tgz",
+    "https://registry.npmjs.org/css-tree/-/css-tree-3.2.1.tgz",
+    "https://registry.npmjs.org/css-what/-/css-what-6.2.2.tgz",
+    "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz",
+    "https://registry.npmjs.org/csso/-/csso-5.0.5.tgz",
+    "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
+    "https://registry.npmjs.org/decode-named-character-reference/-/decode-named-character-reference-1.3.0.tgz",
+    "https://registry.npmjs.org/defu/-/defu-6.1.7.tgz",
+    "https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz",
+    "https://registry.npmjs.org/destr/-/destr-2.0.5.tgz",
+    "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
+    "https://registry.npmjs.org/deterministic-object-hash/-/deterministic-object-hash-2.0.2.tgz",
+    "https://registry.npmjs.org/devalue/-/devalue-5.9.0.tgz",
+    "https://registry.npmjs.org/devlop/-/devlop-1.1.0.tgz",
+    "https://registry.npmjs.org/diff/-/diff-8.0.4.tgz",
+    "https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz",
+    "https://registry.npmjs.org/dom-serializer/-/dom-serializer-2.0.0.tgz",
+    "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz",
+    "https://registry.npmjs.org/domhandler/-/domhandler-5.0.3.tgz",
+    "https://registry.npmjs.org/domutils/-/domutils-3.2.2.tgz",
+    "https://registry.npmjs.org/dset/-/dset-3.1.4.tgz",
+    "https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.6.0.tgz",
+    "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz",
+    "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz",
+    "https://registry.npmjs.org/entities/-/entities-6.0.1.tgz",
+    "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-1.7.0.tgz",
+    "https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz",
+    "https://registry.npmjs.org/esbuild/-/esbuild-0.27.7.tgz",
+    "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz",
+    "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz",
+    "https://registry.npmjs.org/estree-walker/-/estree-walker-3.0.3.tgz",
+    "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.4.tgz",
+    "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz",
+    "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz",
+    "https://registry.npmjs.org/flattie/-/flattie-1.1.1.tgz",
+    "https://registry.npmjs.org/fontace/-/fontace-0.4.1.tgz",
+    "https://registry.npmjs.org/fontkitten/-/fontkitten-1.0.3.tgz",
+    "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz",
+    "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+    "https://registry.npmjs.org/get-east-asian-width/-/get-east-asian-width-1.6.0.tgz",
+    "https://registry.npmjs.org/github-slugger/-/github-slugger-2.0.0.tgz",
+    "https://registry.npmjs.org/h3/-/h3-1.15.11.tgz",
+    "https://registry.npmjs.org/hast-util-from-html/-/hast-util-from-html-2.0.3.tgz",
+    "https://registry.npmjs.org/hast-util-from-parse5/-/hast-util-from-parse5-8.0.3.tgz",
+    "https://registry.npmjs.org/hast-util-is-element/-/hast-util-is-element-3.0.0.tgz",
+    "https://registry.npmjs.org/hast-util-parse-selector/-/hast-util-parse-selector-4.0.0.tgz",
+    "https://registry.npmjs.org/hast-util-raw/-/hast-util-raw-9.1.0.tgz",
+    "https://registry.npmjs.org/hast-util-to-html/-/hast-util-to-html-9.0.5.tgz",
+    "https://registry.npmjs.org/hast-util-to-parse5/-/hast-util-to-parse5-8.0.1.tgz",
+    "https://registry.npmjs.org/hast-util-to-text/-/hast-util-to-text-4.0.2.tgz",
+    "https://registry.npmjs.org/hast-util-whitespace/-/hast-util-whitespace-3.0.0.tgz",
+    "https://registry.npmjs.org/hastscript/-/hastscript-9.0.1.tgz",
+    "https://registry.npmjs.org/html-escaper/-/html-escaper-3.0.3.tgz",
+    "https://registry.npmjs.org/html-void-elements/-/html-void-elements-3.0.0.tgz",
+    "https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.2.0.tgz",
+    "https://registry.npmjs.org/import-meta-resolve/-/import-meta-resolve-4.2.0.tgz",
+    "https://registry.npmjs.org/iron-webcrypto/-/iron-webcrypto-1.2.1.tgz",
+    "https://registry.npmjs.org/is-docker/-/is-docker-3.0.0.tgz",
+    "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz",
+    "https://registry.npmjs.org/is-inside-container/-/is-inside-container-1.0.0.tgz",
+    "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-4.1.0.tgz",
+    "https://registry.npmjs.org/is-wsl/-/is-wsl-3.1.1.tgz",
+    "https://registry.npmjs.org/js-yaml/-/js-yaml-4.3.2.tgz",
+    "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz",
+    "https://registry.npmjs.org/longest-streak/-/longest-streak-3.1.0.tgz",
+    "https://registry.npmjs.org/lru-cache/-/lru-cache-11.5.2.tgz",
+    "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz",
+    "https://registry.npmjs.org/magicast/-/magicast-0.5.4.tgz",
+    "https://registry.npmjs.org/markdown-table/-/markdown-table-3.0.4.tgz",
+    "https://registry.npmjs.org/mdast-util-definitions/-/mdast-util-definitions-6.0.0.tgz",
+    "https://registry.npmjs.org/mdast-util-find-and-replace/-/mdast-util-find-and-replace-3.0.2.tgz",
+    "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-2.0.3.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm-autolink-literal/-/mdast-util-gfm-autolink-literal-2.0.1.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm-footnote/-/mdast-util-gfm-footnote-2.1.0.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm-strikethrough/-/mdast-util-gfm-strikethrough-2.0.0.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm-table/-/mdast-util-gfm-table-2.0.0.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm-task-list-item/-/mdast-util-gfm-task-list-item-2.0.0.tgz",
+    "https://registry.npmjs.org/mdast-util-gfm/-/mdast-util-gfm-3.1.0.tgz",
+    "https://registry.npmjs.org/mdast-util-phrasing/-/mdast-util-phrasing-4.1.0.tgz",
+    "https://registry.npmjs.org/mdast-util-to-hast/-/mdast-util-to-hast-13.2.1.tgz",
+    "https://registry.npmjs.org/mdast-util-to-markdown/-/mdast-util-to-markdown-2.1.2.tgz",
+    "https://registry.npmjs.org/mdast-util-to-string/-/mdast-util-to-string-4.0.0.tgz",
+    "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.28.tgz",
+    "https://registry.npmjs.org/mdn-data/-/mdn-data-2.27.1.tgz",
+    "https://registry.npmjs.org/micromark-core-commonmark/-/micromark-core-commonmark-2.0.3.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-2.1.0.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-footnote/-/micromark-extension-gfm-footnote-2.1.0.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-strikethrough/-/micromark-extension-gfm-strikethrough-2.1.0.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-table/-/micromark-extension-gfm-table-2.1.1.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-tagfilter/-/micromark-extension-gfm-tagfilter-2.0.0.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm-task-list-item/-/micromark-extension-gfm-task-list-item-2.1.0.tgz",
+    "https://registry.npmjs.org/micromark-extension-gfm/-/micromark-extension-gfm-3.0.0.tgz",
+    "https://registry.npmjs.org/micromark-factory-destination/-/micromark-factory-destination-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-factory-label/-/micromark-factory-label-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-factory-space/-/micromark-factory-space-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-factory-title/-/micromark-factory-title-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-factory-whitespace/-/micromark-factory-whitespace-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-character/-/micromark-util-character-2.1.1.tgz",
+    "https://registry.npmjs.org/micromark-util-chunked/-/micromark-util-chunked-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-classify-character/-/micromark-util-classify-character-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-combine-extensions/-/micromark-util-combine-extensions-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-decode-numeric-character-reference/-/micromark-util-decode-numeric-character-reference-2.0.2.tgz",
+    "https://registry.npmjs.org/micromark-util-decode-string/-/micromark-util-decode-string-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-encode/-/micromark-util-encode-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-html-tag-name/-/micromark-util-html-tag-name-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-normalize-identifier/-/micromark-util-normalize-identifier-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-resolve-all/-/micromark-util-resolve-all-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-sanitize-uri/-/micromark-util-sanitize-uri-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-subtokenize/-/micromark-util-subtokenize-2.1.0.tgz",
+    "https://registry.npmjs.org/micromark-util-symbol/-/micromark-util-symbol-2.0.1.tgz",
+    "https://registry.npmjs.org/micromark-util-types/-/micromark-util-types-2.0.2.tgz",
+    "https://registry.npmjs.org/micromark/-/micromark-4.0.2.tgz",
+    "https://registry.npmjs.org/mrmime/-/mrmime-2.0.1.tgz",
+    "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+    "https://registry.npmjs.org/nanoid/-/nanoid-3.3.18.tgz",
+    "https://registry.npmjs.org/neotraverse/-/neotraverse-0.6.18.tgz",
+    "https://registry.npmjs.org/nlcst-to-string/-/nlcst-to-string-4.0.0.tgz",
+    "https://registry.npmjs.org/node-fetch-native/-/node-fetch-native-1.6.7.tgz",
+    "https://registry.npmjs.org/node-mock-http/-/node-mock-http-1.0.5.tgz",
+    "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz",
+    "https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz",
+    "https://registry.npmjs.org/ofetch/-/ofetch-1.5.1.tgz",
+    "https://registry.npmjs.org/ohash/-/ohash-2.0.12.tgz",
+    "https://registry.npmjs.org/oniguruma-parser/-/oniguruma-parser-0.12.2.tgz",
+    "https://registry.npmjs.org/oniguruma-to-es/-/oniguruma-to-es-4.3.6.tgz",
+    "https://registry.npmjs.org/p-limit/-/p-limit-6.2.0.tgz",
+    "https://registry.npmjs.org/p-queue/-/p-queue-8.1.1.tgz",
+    "https://registry.npmjs.org/p-timeout/-/p-timeout-6.1.4.tgz",
+    "https://registry.npmjs.org/package-manager-detector/-/package-manager-detector-1.8.0.tgz",
+    "https://registry.npmjs.org/parse-latin/-/parse-latin-7.0.0.tgz",
+    "https://registry.npmjs.org/parse5/-/parse5-7.3.0.tgz",
+    "https://registry.npmjs.org/piccolore/-/piccolore-0.1.3.tgz",
+    "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+    "https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz",
+    "https://registry.npmjs.org/picomatch/-/picomatch-4.0.5.tgz",
+    "https://registry.npmjs.org/playwright-core/-/playwright-core-1.62.1.tgz",
+    "https://registry.npmjs.org/playwright/-/playwright-1.62.1.tgz",
+    "https://registry.npmjs.org/postcss/-/postcss-8.5.26.tgz",
+    "https://registry.npmjs.org/prismjs/-/prismjs-1.30.0.tgz",
+    "https://registry.npmjs.org/prompts/-/prompts-2.4.2.tgz",
+    "https://registry.npmjs.org/property-information/-/property-information-7.2.0.tgz",
+    "https://registry.npmjs.org/radix3/-/radix3-1.1.2.tgz",
+    "https://registry.npmjs.org/readdirp/-/readdirp-5.1.1.tgz",
+    "https://registry.npmjs.org/regex-recursion/-/regex-recursion-6.0.2.tgz",
+    "https://registry.npmjs.org/regex-utilities/-/regex-utilities-2.3.0.tgz",
+    "https://registry.npmjs.org/regex/-/regex-6.1.0.tgz",
+    "https://registry.npmjs.org/rehype-parse/-/rehype-parse-9.0.1.tgz",
+    "https://registry.npmjs.org/rehype-raw/-/rehype-raw-7.0.0.tgz",
+    "https://registry.npmjs.org/rehype-stringify/-/rehype-stringify-10.0.1.tgz",
+    "https://registry.npmjs.org/rehype/-/rehype-13.0.2.tgz",
+    "https://registry.npmjs.org/remark-gfm/-/remark-gfm-4.0.1.tgz",
+    "https://registry.npmjs.org/remark-parse/-/remark-parse-11.0.0.tgz",
+    "https://registry.npmjs.org/remark-rehype/-/remark-rehype-11.1.2.tgz",
+    "https://registry.npmjs.org/remark-smartypants/-/remark-smartypants-3.0.3.tgz",
+    "https://registry.npmjs.org/remark-stringify/-/remark-stringify-11.0.0.tgz",
+    "https://registry.npmjs.org/retext-latin/-/retext-latin-4.0.0.tgz",
+    "https://registry.npmjs.org/retext-smartypants/-/retext-smartypants-6.2.0.tgz",
+    "https://registry.npmjs.org/retext-stringify/-/retext-stringify-4.0.0.tgz",
+    "https://registry.npmjs.org/retext/-/retext-9.0.0.tgz",
+    "https://registry.npmjs.org/rollup/-/rollup-4.62.4.tgz",
+    "https://registry.npmjs.org/sax/-/sax-1.6.1.tgz",
+    "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz",
+    "https://registry.npmjs.org/sharp/-/sharp-0.34.5.tgz",
+    "https://registry.npmjs.org/shiki/-/shiki-3.23.0.tgz",
+    "https://registry.npmjs.org/sisteransi/-/sisteransi-1.0.5.tgz",
+    "https://registry.npmjs.org/sitemap/-/sitemap-9.0.1.tgz",
+    "https://registry.npmjs.org/smol-toml/-/smol-toml-1.8.0.tgz",
+    "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+    "https://registry.npmjs.org/space-separated-tokens/-/space-separated-tokens-2.0.2.tgz",
+    "https://registry.npmjs.org/stream-replace-string/-/stream-replace-string-2.0.0.tgz",
+    "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
+    "https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz",
+    "https://registry.npmjs.org/stringify-entities/-/stringify-entities-4.0.4.tgz",
+    "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz",
+    "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.2.0.tgz",
+    "https://registry.npmjs.org/svgo/-/svgo-4.0.2.tgz",
+    "https://registry.npmjs.org/tiny-inflate/-/tiny-inflate-1.0.3.tgz",
+    "https://registry.npmjs.org/tinyexec/-/tinyexec-1.3.0.tgz",
+    "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz",
+    "https://registry.npmjs.org/trim-lines/-/trim-lines-3.0.1.tgz",
+    "https://registry.npmjs.org/trough/-/trough-2.2.0.tgz",
+    "https://registry.npmjs.org/tsconfck/-/tsconfck-3.1.6.tgz",
+    "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+    "https://registry.npmjs.org/type-fest/-/type-fest-4.41.0.tgz",
+    "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+    "https://registry.npmjs.org/ufo/-/ufo-1.6.4.tgz",
+    "https://registry.npmjs.org/ultrahtml/-/ultrahtml-1.7.0.tgz",
+    "https://registry.npmjs.org/uncrypto/-/uncrypto-0.1.3.tgz",
+    "https://registry.npmjs.org/undici-types/-/undici-types-7.18.2.tgz",
+    "https://registry.npmjs.org/undici/-/undici-8.10.0.tgz",
+    "https://registry.npmjs.org/unified/-/unified-11.0.5.tgz",
+    "https://registry.npmjs.org/unifont/-/unifont-0.7.5.tgz",
+    "https://registry.npmjs.org/unist-util-find-after/-/unist-util-find-after-5.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-is/-/unist-util-is-6.0.1.tgz",
+    "https://registry.npmjs.org/unist-util-modify-children/-/unist-util-modify-children-4.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-position/-/unist-util-position-5.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-remove-position/-/unist-util-remove-position-5.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-stringify-position/-/unist-util-stringify-position-4.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-visit-children/-/unist-util-visit-children-3.0.0.tgz",
+    "https://registry.npmjs.org/unist-util-visit-parents/-/unist-util-visit-parents-6.0.2.tgz",
+    "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-5.1.0.tgz",
+    "https://registry.npmjs.org/unstorage/-/unstorage-1.17.5.tgz",
+    "https://registry.npmjs.org/vfile-location/-/vfile-location-5.0.3.tgz",
+    "https://registry.npmjs.org/vfile-message/-/vfile-message-4.0.3.tgz",
+    "https://registry.npmjs.org/vfile/-/vfile-6.0.3.tgz",
+    "https://registry.npmjs.org/vite/-/vite-6.4.3.tgz",
+    "https://registry.npmjs.org/vitefu/-/vitefu-1.1.3.tgz",
+    "https://registry.npmjs.org/web-namespaces/-/web-namespaces-2.0.1.tgz",
+    "https://registry.npmjs.org/which-pm-runs/-/which-pm-runs-1.1.0.tgz",
+    "https://registry.npmjs.org/widest-line/-/widest-line-5.0.0.tgz",
+    "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-9.0.2.tgz",
+    "https://registry.npmjs.org/xxhash-wasm/-/xxhash-wasm-1.1.0.tgz",
+    "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz",
+    "https://registry.npmjs.org/yocto-queue/-/yocto-queue-1.2.2.tgz",
+    "https://registry.npmjs.org/yocto-spinner/-/yocto-spinner-0.2.3.tgz",
+    "https://registry.npmjs.org/yoctocolors/-/yoctocolors-2.2.0.tgz",
+    "https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.2.tgz",
+    "https://registry.npmjs.org/zod-to-ts/-/zod-to-ts-1.2.0.tgz",
+    "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
+    "https://registry.npmjs.org/zod/-/zod-4.4.3.tgz",
+    "https://registry.npmjs.org/zwitch/-/zwitch-2.0.4.tgz",
+    "https://s3.amazonaws.com/uploadcare-static/WebSocketMainInsecure.swf",
+    "https://schema.org",
+    "https://social.uploadcare.com",
+    "https://support.wix.com/en/article/choosing-a-premium-plan",
+    "https://support.wix.com/en/article/cms-content-management-system-an-overview",
+    "https://support.wix.com/en/article/cms-understanding-collection-storage-limits-and-quotas",
+    "https://support.wix.com/en/article/studio-editor-building-a-site-with-a-template",
+    "https://support.wix.com/en/article/studio-editor-designing-across-breakpoints",
+    "https://support.wix.com/en/article/wix-bookings-about-memberships-and-packages",
+    "https://support.wix.com/en/article/wix-bookings-about-wix-bookings",
+    "https://support.wix.com/en/article/wix-bookings-adding-and-setting-up-waitlists",
+    "https://support.wix.com/en/article/wix-bookings-setting-up-your-booking-policies",
+    "https://support.wix.com/en/article/wix-studio-about-the-studio-editor",
+    "https://support.wix.com/en/article/wix-studio-switching-to-wix-studio",
+    "https://tidelift.com/funding/github/npm/postcss",
+    "https://try.gitea.io",
+    "https://try.gitea.io/api/v1",
+    "https://ucarecd.net",
+    "https://ucarecdn.com",
+    "https://upload.uploadcare.com",
+    "https://uploadcare.com/dashboard/",
+    "https://uploadcare.com/uploader/",
+    "https://wa.me/${SITE.whatsappNumber",
+    "https://www.clarity.ms/tag/",
+    "https://www.decapcms.org/docs/test-backend",
+    "https://www.facebook.com/share/1HEgcu8Aio/",
+    "https://www.githubstatus.com",
+    "https://www.googletagmanager.com/gtag/js?id=${ga4",
+    "https://www.instagram.com/klubstudios",
+    "https://www.instagram.com/klubstudios]",
+    "https://www.instagram.com/klubstudios`",
+    "https://www.instagram.com/pilateswithizzy]",
+    "https://www.instagram.com/pilatizstudio]",
+    "https://www.keeplivingunderbalance.com",
+    "https://www.keeplivingunderbalance.com/",
+    "https://www.keeplivingunderbalance.com/book/",
+    "https://www.keeplivingunderbalance.com/classes/",
+    "https://www.keeplivingunderbalance.com/contact/",
+    "https://www.keeplivingunderbalance.com/faq/",
+    "https://www.keeplivingunderbalance.com/instructors/",
+    "https://www.keeplivingunderbalance.com/location/",
+    "https://www.keeplivingunderbalance.com/pricing/",
+    "https://www.keeplivingunderbalance.com/sitemap-index.xml",
+    "https://www.keeplivingunderbalance.com/timetable/",
+    "https://www.keeplivingunderbalance.com`",
+    "https://www.netlifystatus.com",
+    "https://www.openstreetmap.org/copyright",
+    "https://www.tiktok.com/@klubstudios",
+    "https://x-access-token:${{",
+    "https://{a-c"
+  ],
+  "css_custom_properties": {
+    "-": 21,
+    "u": 1,
+    "c": 1,
+    "n": 1,
+    "r": 1,
+    "jcrop-handle": 2,
+    "text": 1,
+    "link": 6,
+    "button": 5,
+    "button_muted": 3,
+    "button_overlay": 3,
+    "button_primary": 4,
+    "input": 3,
+    "menu": 2,
+    "menu__item_current": 4,
+    "menu__item": 6,
+    "menu__toggle": 1,
+    "footer": 1,
+    "footer__additions": 1,
+    "footer__button": 4,
+    "draganddrop": 1,
+    "file": 1,
+    "file__description": 7,
+    "crop-sizes__item": 7,
+    "crop-sizes__item_current": 4,
+    "file-sources__item": 4,
+    "file-sources__items": 2,
+    "camera__device-select": 4,
+    "tab": 2,
+    "panel": 1,
+    "tab__footer": 1,
+    "dialog__close": 1,
+    "widget__button": 5,
+    "widget__button_type_open": 4,
+    "widget": 2,
+    "mouse-focused": 1,
+    "toastify-color-light": 1,
+    "toastify-color-dark": 1,
+    "toastify-color-info": 1,
+    "toastify-color-success": 1,
+    "toastify-color-warning": 1,
+    "toastify-color-error": 1,
+    "toastify-color-transparent": 1,
+    "toastify-icon-color-info": 1,
+    "toastify-icon-color-success": 1,
+    "toastify-icon-color-warning": 1,
+    "toastify-icon-color-error": 1,
+    "toastify-toast-width": 1,
+    "toastify-toast-offset": 1,
+    "toastify-toast-top": 1,
+    "toastify-toast-right": 1,
+    "toastify-toast-left": 1,
+    "toastify-toast-bottom": 1,
+    "toastify-toast-background": 1,
+    "toastify-toast-min-height": 1,
+    "toastify-toast-max-height": 1,
+    "toastify-toast-bd-radius": 1,
+    "toastify-font-family": 1,
+    "toastify-z-index": 1,
+    "toastify-text-color-light": 1,
+    "toastify-text-color-dark": 1,
+    "toastify-text-color-info": 1,
+    "toastify-text-color-success": 1,
+    "toastify-text-color-warning": 1,
+    "toastify-text-color-error": 1,
+    "toastify-spinner-color": 1,
+    "toastify-spinner-color-empty-area": 1,
+    "toastify-color-progress-light": 1,
+    "toastify-color-progress-dark": 1,
+    "toastify-color-progress-info": 1,
+    "toastify-color-progress-success": 1,
+    "toastify-color-progress-warning": 1,
+    "toastify-color-progress-error": 1,
+    "toastify-color-progress-bgo": 1,
+    "y": 1,
+    "stacked": 4,
+    "effect-button": 10,
+    "effect-button_applied": 1,
+    "range__input": 12,
+    "bg": 1,
+    "card": 1,
+    "sand": 1,
+    "ink": 1,
+    "ink-soft": 1,
+    "ink-faint": 1,
+    "umber": 1,
+    "umber-deep": 1,
+    "good": 1,
+    "warn": 1,
+    "stop": 1,
+    "line": 1,
+    "serif": 1,
+    "sans": 1,
+    "radius-card": 1,
+    "radius-btn": 1,
+    "radius-sm": 1,
+    "container": 1,
+    "section-y": 1,
+    "dark": 1,
+    "primary": 1,
+    "light": 1,
+    "ghost": 1,
+    "ghost-light": 1,
+    "accent": 1
+  },
+  "data_cta_values": {
+    "hero-book": 2,
+    "$": 4,
+    "header-book": 6,
+    "mobile-nav-book": 3,
+    "sticky-book": 1,
+    "404-home": 1,
+    "404-classes": 1,
+    "about-instructors": 1,
+    "book-reserve": 1,
+    "book-recommended-class": 1,
+    "book-faq": 1,
+    "book-private-ask": 1,
+    "contact-send": 1,
+    "contact-privacy": 1,
+    "contact-success-message": 1,
+    "contact-direct-message": 1,
+    "contact-direct-email": 1,
+    "contact-direct-ig": 1,
+    "faq-message": 1,
+    "hero-philosophy": 1,
+    "about-more": 1,
+    "classes-all": 1,
+    "intro-claim": 1,
+    "experience-look": 1,
+    "instructors-meet": 1,
+    "location-directions": 1,
+    "location-message": 1,
+    "closing-book": 1,
+    "instructors-hero-book": 1,
+    "instructors-hero-ig": 1,
+    "instructors-follow-ig": 1,
+    "instructors-ask": 1,
+    "instructors-cta-book": 1,
+    "instructors-cta-founding": 1,
+    "location-email": 1,
+    "location-ig": 1,
+    "location-directions-message": 1,
+    "location-founding": 1,
+    "pricing-policies": 1,
+    "pricing-message": 1,
+    "timetable-private-class": 1,
+    "timetable-message": 1,
+    "classes-closing-faq": 1,
+    "classes-closing-message": 1
+  },
+  "schema_types": {
+    "ExerciseGym": 1,
+    "PostalAddress": 1,
+    "OpeningHoursSpecification": 1,
+    "OfferCatalog": 2,
+    "Offer": 3,
+    "Service": 2,
+    "FAQPage": 1,
+    "Question": 1,
+    "Answer": 1,
+    "Course": 1,
+    "Organization": 1
+  },
+  "imports": {
+    "astro/config": 1,
+    "@astrojs/sitemap": 1,
+    "@playwright/test": 14,
+    "./content/studio.json": 1,
+    "\u2026/studio.json": 1,
+    "@axe-core/playwright": 1,
+    "./routes": 6,
+    "../src/content/studio.json": 5,
+    "../src/content/home.json": 2,
+    "node:fs": 2,
+    "node:url": 2,
+    "node:path": 2,
+    "js-yaml": 1,
+    "../src/content/pricing.json": 1,
+    "./helpers": 2,
+    "./wix-client": 1,
+    "+l+": 1,
+    ",Ae=Ze(": 1,
+    ",!1),Oe=function(e,t){return{operation:e,file:t}},Pe=": 1,
+    "../site": 17,
+    "../content/studio.json": 2,
+    "../content/classes.json": 2,
+    "./classes": 1,
+    "../components/Header.astro": 1,
+    "../components/Footer.astro": 1,
+    "../components/Banner.astro": 1,
+    "../components/WhatsAppButton.astro": 1,
+    "../components/StickyCTA.astro": 1,
+    "../components/Analytics.astro": 1,
+    "../layouts/Base.astro": 12,
+    "../components/Pic.astro": 4,
+    "../content/pages/about.json": 1,
+    "../components/BsportWidget.astro": 1,
+    "../components/FoundingForm.astro": 4,
+    "../content/pages/book.json": 1,
+    "../data/classes": 2,
+    "../content/pages/contact.json": 1,
+    "../content/faq.json": 1,
+    "../content/pages/founding.json": 1,
+    "../content/home.json": 1,
+    "../lib/inline": 3,
+    "../components/ArchVideo.astro": 1,
+    "../content/pages/instructors.json": 1,
+    "../content/pages/location.json": 1,
+    "../content/pages/policies.json": 1,
+    "../content/pricing.json": 1,
+    "../content/pages/timetable.json": 1,
+    "../../layouts/Base.astro": 2,
+    "../../components/Pic.astro": 2,
+    "../../data/classDetails": 2,
+    "../../site": 2,
+    "../../content/pages/classes-index.json": 1
+  },
+  "integrations_by_file_count": {
+    "netlify": 22,
+    "decap": 9,
+    "wix": 21,
+    "instagram": 23,
+    "whatsapp": 27,
+    "clarity": 9,
+    "playwright": 22,
+    "axe-core": 4,
+    "google analytics": 4,
+    "schema.org": 5
+  },
+  "forms": [
+    {
+      "file": "public/admin/decap-cms.js",
+      "count": 4
+    },
+    {
+      "file": "src/components/FoundingForm.astro",
+      "count": 1
+    },
+    {
+      "file": "src/pages/contact.astro",
+      "count": 1
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/a11y.spec.ts",
+      "declared_tests_or_suites": [
+        "the mobile menu opens and closes from the keyboard, flipping aria-expanded",
+        "the mobile menu closes with Escape",
+        "any marquee on the page can be paused from the keyboard"
+      ]
+    },
+    {
+      "file": "tests/analytics.spec.ts",
+      "declared_tests_or_suites": [
+        "no third-party analytics loads and no cookie is set while the CMS IDs are empty",
+        "clicking a CTA pushes a cta_click event with the button id",
+        "scroll depth fires at 25 / 50 / 75 / 90 exactly once each",
+        "section_view fires for the sections the homepage declares",
+        "every button on every page is instrumented with a unique data-cta"
+      ]
+    },
+    {
+      "file": "tests/assets.spec.ts",
+      "declared_tests_or_suites": [
+        "every internal link on every page resolves",
+        "no page in the sitemap is an orphan (nothing links to it)"
+      ]
+    },
+    {
+      "file": "tests/breakpoints.spec.ts",
+      "declared_tests_or_suites": [
+        "breakpoint sweep",
+        "mobile sticky booking bar appears only below the desktop breakpoint",
+        "no route overflows horizontally at the three critical widths"
+      ]
+    },
+    {
+      "file": "tests/buttons.spec.ts",
+      "declared_tests_or_suites": [
+        "the homepage carries each primary Book CTA exactly once, with the CMS label"
+      ]
+    },
+    {
+      "file": "tests/cms-config.spec.ts",
+      "declared_tests_or_suites": [
+        "config.yml parses and points at the right backend",
+        "every declared collection file exists on disk and parses as JSON",
+        "every image/file value in the CMS resolves to a real file under public/"
+      ]
+    },
+    {
+      "file": "tests/content.spec.ts",
+      "declared_tests_or_suites": [
+        "the homepage intro offer still matches the pricing table",
+        "any price a CTA label quotes still exists in the pricing table",
+        "every price in llms.txt still exists in the pricing table",
+        "inline() renders CMS emphasis and escapes everything else"
+      ]
+    },
+    {
+      "file": "tests/forms.spec.ts",
+      "declared_tests_or_suites": [
+        "contact form (/contact/)",
+        "renders all fields, hidden form-name input and honeypot",
+        "required validation blocks an empty submit (no Netlify POST)",
+        "the success panel shows only after a successful post",
+        "the success panel stays hidden on a normal visit",
+        "founding-member form (all four pages)"
+      ]
+    },
+    {
+      "file": "tests/helpers.ts",
+      "declared_tests_or_suites": []
+    },
+    {
+      "file": "tests/navigation.spec.ts",
+      "declared_tests_or_suites": [
+        "desktop header navigation",
+        "header Book CTA points at the booking destination from the CMS",
+        "footer links",
+        "every internal footer link resolves (HTTP ok)",
+        "mobile menu",
+        "hamburger opens the mobile nav and its links navigate",
+        "mobile menu Book button points at the booking destination from the CMS"
+      ]
+    },
+    {
+      "file": "tests/responsive.spec.ts",
+      "declared_tests_or_suites": [
+        "nav collapses to a hamburger menu",
+        "no horizontal overflow",
+        "hero renders"
+      ]
+    },
+    {
+      "file": "tests/routes.spec.ts",
+      "declared_tests_or_suites": [
+        "loads, unique <h1>, title, description, canonical, no JS errors"
+      ]
+    },
+    {
+      "file": "tests/routes.ts",
+      "declared_tests_or_suites": []
+    },
+    {
+      "file": "tests/seo.spec.ts",
+      "declared_tests_or_suites": [
+        "/faq/ publishes a valid FAQPage block",
+        "the sitemap and the canonical link agree on the domain",
+        "sitemap-index.xml resolves",
+        "sitemap-0.xml resolves and lists URLs",
+        "robots.txt resolves and references the sitemap"
+      ]
+    }
+  ]
+}

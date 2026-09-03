@@ -1,0 +1,26 @@
+{
+  "name": "wix-development-expert",
+  "description": "Schema-first Wix development, API/MCP integration, Claude Code workflows, Headless sites, apps, AI capabilities, and existing-site replatforming with an authoritative reference corpus and validated examples.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Manus AI"
+  },
+  "homepage": "https://dev.wix.com/docs/api-reference/articles/ai-tools/about-the-wix-plugin",
+  "repository": "https://github.com/ma4kos/markos-spine",
+  "license": "Proprietary",
+  "keywords": [
+    "wix",
+    "wix-api",
+    "wix-sdk",
+    "wix-cli",
+    "wix-mcp",
+    "claude-code",
+    "headless",
+    "cms",
+    "replatform"
+  ],
+  "skills": [
+    "./skills/wix-development-expert"
+  ],
+  "mcpServers": "./.mcp.json"
+}

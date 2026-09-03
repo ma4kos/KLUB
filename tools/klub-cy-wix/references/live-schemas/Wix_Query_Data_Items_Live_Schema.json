@@ -1,0 +1,425 @@
+{
+  "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/data-items/query-data-items",
+  "examples": [
+    {
+      "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/items/query' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e' \\\n-d '{\n    \"dataCollectionId\": \"cities\",\n    \"query\": {\n        \"filter\": {\n            \"state\": \"California\"\n        },\n        \"sort\": [\n            {\n                \"fieldName\": \"population\",\n                \"order\": \"ASC\"\n            }\n        ],\n        \"paging\": {\n            \"limit\": 2\n        },\n        \"fields\": [\"population\"]\n    },\n    \"returnTotalCount\": true\n}'",
+      "response": "{\n    \"dataItems\": [\n        {\n            \"id\": \"9b05dd0f-b3b6-481f-a9af-97379f4c81bb\",\n            \"dataCollectionId\": \"cities\",\n            \"data\": {\n                \"population\": 840000.0\n            }\n        },\n        {\n            \"id\": \"5331fc15-9441-4fd4-bc7b-7f6870c69228\",\n            \"dataCollectionId\": \"cities\",\n            \"data\": {\n                \"population\": 3800000.0\n            }\n        }\n    ],\n    \"pagingMetadata\": {\n        \"count\": 2,\n        \"total\": 4,\n        \"tooManyToCount\": false\n    }\n}",
+      "title": "Query existing items with filter, sort, paging, projection and total count calculation"
+    },
+    {
+      "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/items/query' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e' \\\n-d '{\n    \"dataCollectionId\": \"cities\",\n    \"query\": {\n        \"filter\": {\n            \"state\": \"California\"\n        },\n        \"paging\": {\n            \"limit\": 2\n        }\n    }\n}'",
+      "response": "{\n    \"dataItems\": [\n        {\n            \"id\": \"5331fc15-9441-4fd4-bc7b-7f6870c69228\",\n            \"dataCollectionId\": \"cities\",\n            \"data\": {\n                \"_id\": \"5331fc15-9441-4fd4-bc7b-7f6870c69228\",\n                \"_createdDate\": { \"$date\": \"2023-03-28T12:20:43.745Z\" },\n                \"_updatedDate\": { \"$date\": \"2023-03-28T12:20:43.745Z\" },\n                \"_owner\": \"690264f5-29a0-4aa8-a9b5-0842fc5ab360\",\n                \"state\": \"California\",\n                \"year\": 2022.0,\n                \"city\": \"Los Angeles\",\n                \"population\": 3800000.0\n            }\n        },\n        {\n            \"id\": \"9b05dd0f-b3b6-481f-a9af-97379f4c81bb\",\n            \"dataCollectionId\": \"cities\",\n            \"data\": {\n                \"_id\": \"9b05dd0f-b3b6-481f-a9af-97379f4c81bb\",\n                \"_createdDate\": { \"$date\": \"2023-03-28T12:20:43.745Z\" },\n                \"_updatedDate\": { \"$date\": \"2023-03-28T12:20:43.745Z\" },\n                \"_owner\": \"690264f5-29a0-4aa8-a9b5-0842fc5ab360\",\n                \"state\": \"California\",\n                \"year\": 2022.0,\n                \"city\": \"San Francisco\",\n                \"population\": 840000.0\n            }\n        }\n    ],\n    \"pagingMetadata\": {\n        \"count\": 2,\n        \"tooManyToCount\": false\n    }\n}",
+      "title": "Query existing items"
+    }
+  ],
+  "httpMethod": "POST",
+  "operationId": "com.wixpress.cloud.data.api.data.DataItemService.QueryDataItems",
+  "parameters": [],
+  "permissions": [
+    "WIX_DATA.QUERY"
+  ],
+  "publicUrl": "https://www.wixapis.com/data/v2/items/query",
+  "requestProperties": {
+    "appOptions": {
+      "properties": {
+        "fields": {
+          "format": "map",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "value": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "boolValue": {
+                      "title": "boolValue",
+                      "type": "boolean"
+                    },
+                    "listValue": {
+                      "properties": {
+                        "values": {
+                          "items": {
+                            "$circular": "google.protobuf.Value"
+                          },
+                          "title": "values",
+                          "type": "array"
+                        }
+                      },
+                      "title": "ListValue",
+                      "type": "object"
+                    },
+                    "nullValue": {
+                      "enum": [
+                        {
+                          "value": "NULL_VALUE"
+                        }
+                      ],
+                      "title": "NullValue",
+                      "type": "string"
+                    },
+                    "numberValue": {
+                      "title": "numberValue",
+                      "type": "number"
+                    },
+                    "stringValue": {
+                      "title": "stringValue",
+                      "type": "string"
+                    },
+                    "structValue": {
+                      "$circular": "google.protobuf.Struct"
+                    }
+                  },
+                  "title": "kind",
+                  "type": "object"
+                }
+              ],
+              "properties": {},
+              "title": "Value",
+              "type": "object"
+            }
+          },
+          "title": "fields",
+          "type": "object"
+        }
+      },
+      "title": "Struct",
+      "type": "object"
+    },
+    "consistentRead": {
+      "description": "Whether to retrieve data from the primary database instance.\nThis decreases performance but ensures data retrieved is up to date even immediately after an update.\nLearn more about [Wix Data and eventual consistency](https://dev.wix.com/api/rest/wix-data/wix-data/eventual-consistency).\n\nDefault: `false`",
+      "title": "consistentRead",
+      "type": "boolean"
+    },
+    "dataCollectionId": {
+      "description": "ID of the collection to query.",
+      "maxLength": 256,
+      "title": "dataCollectionId",
+      "type": "string"
+    },
+    "includeFieldGroups": {
+      "description": "Requests conditional fields. Currently used only in App Collections.\nPlease refer to app collection documentation or [collection field definitions](https://dev.wix.com/docs/api-reference/business-solutions/cms/collection-management/data-collections/get-data-collection) for a list of valid values.",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "maxLength": 100,
+      "title": "includeFieldGroups",
+      "type": "array"
+    },
+    "includeReferencedItems": {
+      "description": "Properties for which to include referenced items in the query's results.\nUp to 50 referenced items can be included for each item that matches the query.",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 50,
+      "maxLength": 1000,
+      "title": "includeReferencedItems",
+      "type": "array"
+    },
+    "includeReferences": {
+      "description": "Fields for which to include referenced items. For each reference field specified, the response includes the full data items being referenced. Use this to retrieve related data in a single call without additional queries. Maximum 100 reference configurations can be specified.",
+      "items": {
+        "properties": {
+          "field": {
+            "description": "Field containing references in the item. This field must be configured as a reference or multi-reference field in the collection schema.",
+            "maxLength": 1000,
+            "title": "field",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Maximum number of referenced items to include for each item. When a reference field contains more items than this limit, only the first items up to the limit are included in the response. If not specified, up to 50 items are included.",
+            "format": "int32",
+            "maximum": 1000,
+            "title": "limit",
+            "type": "integer"
+          }
+        },
+        "title": "IncludeReference",
+        "type": "object"
+      },
+      "maxItems": 100,
+      "title": "includeReferences",
+      "type": "array"
+    },
+    "language": {
+      "description": "Language to translate result text into, in [IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) format.\nIf provided, the result text is returned in the specified language.\n**Note:** Translation for the specified language must be enabled for the collection in [Wix Multilingual](https://www.wix.com/app-market/wix-multilingual).\n\nIf not provided, result text is not translated.",
+      "format": "LANGUAGE_TAG",
+      "title": "language",
+      "type": "string"
+    },
+    "publishPluginOptions": {
+      "properties": {
+        "includeDraftItems": {
+          "description": "Whether to include draft items.\n\nWhen `true`, both published and draft items are affected. Default: `false`.",
+          "title": "includeDraftItems",
+          "type": "boolean"
+        }
+      },
+      "title": "PublishPluginOptions",
+      "type": "object"
+    },
+    "query": {
+      "description": "Query preferences. For more details on using queries, see [API Query Language](https://dev.wix.com/api/rest/getting-started/api-query-language).",
+      "oneOf": [
+        {
+          "properties": {
+            "paging": {
+              "description": "Paging options to limit and skip the number of retrieved items.",
+              "properties": {
+                "limit": {
+                  "description": "Number of items to load.",
+                  "format": "int32",
+                  "minimum": 0,
+                  "title": "limit",
+                  "type": "integer"
+                },
+                "offset": {
+                  "description": "Number of items to skip in the current sort order.",
+                  "format": "int32",
+                  "minimum": 0,
+                  "title": "offset",
+                  "type": "integer"
+                }
+              },
+              "summary": "paging",
+              "title": "Paging",
+              "type": "object"
+            }
+          },
+          "summary": "pagingMethod",
+          "title": "pagingMethod",
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "fields": {
+          "description": "Fields to include for each retrieved item. Only fields specified in the array are included in the response. If the array is empty, all fields are returned.\n\n\u003e **Note:** The `_id` system field is always returned.",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "maxLength": 5000,
+          "title": "fields",
+          "type": "array"
+        },
+        "filter": {
+          "properties": {
+            "fields": {
+              "format": "map",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "boolValue": {
+                          "title": "boolValue",
+                          "type": "boolean"
+                        },
+                        "listValue": {
+                          "properties": {
+                            "values": {
+                              "items": {
+                                "$circular": "google.protobuf.Value"
+                              },
+                              "title": "values",
+                              "type": "array"
+                            }
+                          },
+                          "title": "ListValue",
+                          "type": "object"
+                        },
+                        "nullValue": {
+                          "enum": [
+                            {
+                              "value": "NULL_VALUE"
+                            }
+                          ],
+                          "title": "NullValue",
+                          "type": "string"
+                        },
+                        "numberValue": {
+                          "title": "numberValue",
+                          "type": "number"
+                        },
+                        "stringValue": {
+                          "title": "stringValue",
+                          "type": "string"
+                        },
+                        "structValue": {
+                          "$circular": "google.protobuf.Struct"
+                        }
+                      },
+                      "title": "kind",
+                      "type": "object"
+                    }
+                  ],
+                  "properties": {},
+                  "title": "Value",
+                  "type": "object"
+                }
+              },
+              "title": "fields",
+              "type": "object"
+            }
+          },
+          "title": "Struct",
+          "type": "object"
+        },
+        "sort": {
+          "description": "Sort object.\n\nLearn more about sorting in [API Query Language](https://dev.wix.com/docs/rest/articles/get-started/api-query-language#sorting).",
+          "items": {
+            "properties": {
+              "fieldName": {
+                "description": "Name of the field to sort by.",
+                "maxLength": 1000,
+                "minLength": 1,
+                "title": "fieldName",
+                "type": "string"
+              },
+              "order": {
+                "description": "Sort order.",
+                "enum": [
+                  {
+                    "value": "ASC"
+                  },
+                  {
+                    "value": "DESC"
+                  }
+                ],
+                "title": "order",
+                "type": "string"
+              }
+            },
+            "title": "Sorting",
+            "type": "object"
+          },
+          "maxItems": 100,
+          "title": "sort",
+          "type": "array"
+        }
+      },
+      "summary": "query",
+      "title": "QueryV2",
+      "type": "object"
+    },
+    "referencedItemOptions": {
+      "description": "Options for retrieving referenced items.",
+      "items": {
+        "properties": {
+          "fieldName": {
+            "description": "Field containing references in the queried item.",
+            "maxLength": 1000,
+            "title": "fieldName",
+            "type": "string"
+          },
+          "limit": {
+            "description": "Maximum number of referenced items to include for each queried item.",
+            "format": "int32",
+            "maximum": 1000,
+            "title": "limit",
+            "type": "integer"
+          }
+        },
+        "title": "ReferencedItemOptions",
+        "type": "object"
+      },
+      "maxItems": 100,
+      "title": "referencedItemOptions",
+      "type": "array"
+    },
+    "returnTotalCount": {
+      "description": "Whether to return the total count in the response for a query with offset paging.\nWhen `true`, the `pagingMetadata` object in the response contains a `total` field.\n\nDefault: `false`",
+      "title": "returnTotalCount",
+      "type": "boolean"
+    },
+    "sortMode": {
+      "description": "Selects how sorting is applied to the response.",
+      "enum": [
+        {
+          "description": "Use the sorting specified in query.sort.",
+          "value": "WIX_QUERY"
+        },
+        {
+          "description": "Return randomly sorted results, disregarding query.sort.",
+          "value": "RANDOM"
+        }
+      ],
+      "title": "sortMode",
+      "type": "string"
+    }
+  },
+  "requestRequired": true,
+  "required": [
+    "dataCollectionId"
+  ],
+  "response200": {
+    "properties": {
+      "dataItems": {
+        "description": "Retrieved items.",
+        "items": {
+          "$circular": "com.wixpress.cloud.data.api.data.DataItem"
+        },
+        "title": "dataItems",
+        "type": "array"
+      },
+      "pagingMetadata": {
+        "description": "Paging information.",
+        "properties": {
+          "count": {
+            "description": "Number of items returned in the response.",
+            "format": "int32",
+            "title": "count",
+            "type": "integer"
+          },
+          "cursors": {
+            "description": "Cursors to navigate through the result pages using `next` and `prev`. Returned if cursor paging is used.",
+            "properties": {
+              "next": {
+                "description": "Cursor pointing to next page in the list of results.",
+                "maxLength": 150000,
+                "title": "next",
+                "type": "string"
+              },
+              "prev": {
+                "description": "Cursor pointing to previous page in the list of results.",
+                "maxLength": 150000,
+                "title": "prev",
+                "type": "string"
+              }
+            },
+            "summary": "cursors",
+            "title": "Cursors",
+            "type": "object"
+          },
+          "offset": {
+            "description": "Offset that was requested.",
+            "format": "int32",
+            "title": "offset",
+            "type": "integer"
+          },
+          "tooManyToCount": {
+            "description": "Whether the server failed to calculate the `total` field.",
+            "title": "tooManyToCount",
+            "type": "boolean"
+          },
+          "total": {
+            "description": "Total number of items that match the query. Returned if offset paging is used, `returnTotalCount` is `true` in the request, and `tooManyToCount` is false.",
+            "format": "int32",
+            "title": "total",
+            "type": "integer"
+          }
+        },
+        "summary": "pagingMetadata",
+        "title": "PagingMetadataV2",
+        "type": "object"
+      }
+    },
+    "title": "QueryDataItemsResponse",
+    "type": "object"
+  },
+  "title": "Query Data Items"
+}

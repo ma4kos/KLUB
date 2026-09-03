@@ -1,0 +1,983 @@
+{
+  "routes": [
+    {
+      "route": "/404.html",
+      "source": "src/pages/404.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/about/",
+      "source": "src/pages/about.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/book/",
+      "source": "src/pages/book.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/classes/[slug]/",
+      "source": "src/pages/classes/[slug].astro",
+      "dynamic": true
+    },
+    {
+      "route": "/classes/",
+      "source": "src/pages/classes/index.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/contact/",
+      "source": "src/pages/contact.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/faq/",
+      "source": "src/pages/faq.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/founding-member/",
+      "source": "src/pages/founding-member.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/",
+      "source": "src/pages/index.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/instructors/",
+      "source": "src/pages/instructors.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/location/",
+      "source": "src/pages/location.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/policies/",
+      "source": "src/pages/policies.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/pricing/",
+      "source": "src/pages/pricing.astro",
+      "dynamic": false
+    },
+    {
+      "route": "/timetable/",
+      "source": "src/pages/timetable.astro",
+      "dynamic": false
+    }
+  ],
+  "content_models": [
+    {
+      "file": "src/content/classes.json",
+      "top_level_keys": [
+        "classes"
+      ],
+      "field_count": 98,
+      "sample_fields": [
+        {
+          "path": "classes",
+          "type": "list"
+        },
+        {
+          "path": "classes[0]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[0].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].expect[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].expect[3]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor",
+          "type": "list"
+        },
+        {
+          "path": "classes[0].goodFor[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].goodFor[2]",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].image",
+          "type": "str"
+        },
+        {
+          "path": "classes[0].imageAlt",
+          "type": "str"
+        },
+        {
+          "path": "classes[1]",
+          "type": "dict"
+        },
+        {
+          "path": "classes[1].slug",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].name",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].level",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].duration",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].capacity",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].price",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].short",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].seoTitle",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].seoDescription",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].intro",
+          "type": "list"
+        },
+        {
+          "path": "classes[1].intro[0]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].intro[1]",
+          "type": "str"
+        },
+        {
+          "path": "classes[1].expect",
+          "type": "list"
+        },
+        {
+          "path": "classes[1].expect[0]",
+          "type": "str"
+        }
+      ]
+    },
+    {
+      "file": "src/content/faq.json",
+      "top_level_keys": [
+        "seo",
+        "hero",
+        "still",
+        "sections"
+      ],
+      "field_count": 143,
+      "sample_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "hero",
+          "type": "dict"
+        },
+        {
+          "path": "hero.eyebrow",
+          "type": "str"
+        },
+        {
+          "path": "hero.heading",
+          "type": "str"
+        },
+        {
+          "path": "hero.intro",
+          "type": "str"
+        },
+        {
+          "path": "still",
+          "type": "dict"
+        },
+        {
+          "path": "still.heading",
+          "type": "str"
+        },
+        {
+          "path": "still.text",
+          "type": "str"
+        },
+        {
+          "path": "sections",
+          "type": "list"
+        },
+        {
+          "path": "sections[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].title",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items",
+          "type": "list"
+        },
+        {
+          "path": "sections[0].items[0]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[0].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[0].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[1].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[1].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[2]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[2].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[2].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[3]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[3].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[3].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[4]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[4].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[4].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[5]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[5].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[5].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[6]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[6].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[6].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[7]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[0].items[7].q",
+          "type": "str"
+        },
+        {
+          "path": "sections[0].items[7].a",
+          "type": "str"
+        },
+        {
+          "path": "sections[1]",
+          "type": "dict"
+        },
+        {
+          "path": "sections[1].title",
+          "type": "str"
+        }
+      ]
+    },
+    {
+      "file": "src/content/home.json",
+      "top_level_keys": [
+        "seo",
+        "heroHeading",
+        "heroLede",
+        "heroSecondaryLabel",
+        "heroImage",
+        "heroAlt",
+        "about",
+        "classesHead",
+        "intro",
+        "experience",
+        "community",
+        "location",
+        "closing"
+      ],
+      "field_count": 65,
+      "sample_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "heroHeading",
+          "type": "str"
+        },
+        {
+          "path": "heroLede",
+          "type": "str"
+        },
+        {
+          "path": "heroSecondaryLabel",
+          "type": "str"
+        },
+        {
+          "path": "heroImage",
+          "type": "str"
+        },
+        {
+          "path": "heroAlt",
+          "type": "str"
+        },
+        {
+          "path": "about",
+          "type": "dict"
+        },
+        {
+          "path": "about.heading",
+          "type": "str"
+        },
+        {
+          "path": "about.text",
+          "type": "str"
+        },
+        {
+          "path": "about.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "about.image",
+          "type": "str"
+        },
+        {
+          "path": "about.alt",
+          "type": "str"
+        },
+        {
+          "path": "classesHead",
+          "type": "dict"
+        },
+        {
+          "path": "classesHead.heading",
+          "type": "str"
+        },
+        {
+          "path": "classesHead.lede",
+          "type": "str"
+        },
+        {
+          "path": "classesHead.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "intro",
+          "type": "dict"
+        },
+        {
+          "path": "intro.heading",
+          "type": "str"
+        },
+        {
+          "path": "intro.offer",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes",
+          "type": "list"
+        },
+        {
+          "path": "intro.includes[0]",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes[1]",
+          "type": "str"
+        },
+        {
+          "path": "intro.includes[2]",
+          "type": "str"
+        },
+        {
+          "path": "intro.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "intro.image",
+          "type": "str"
+        },
+        {
+          "path": "intro.alt",
+          "type": "str"
+        },
+        {
+          "path": "experience",
+          "type": "dict"
+        },
+        {
+          "path": "experience.heading",
+          "type": "str"
+        },
+        {
+          "path": "experience.text",
+          "type": "str"
+        },
+        {
+          "path": "experience.buttonLabel",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery",
+          "type": "list"
+        },
+        {
+          "path": "experience.gallery[0]",
+          "type": "dict"
+        },
+        {
+          "path": "experience.gallery[0].image",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[0].alt",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[1]",
+          "type": "dict"
+        },
+        {
+          "path": "experience.gallery[1].image",
+          "type": "str"
+        },
+        {
+          "path": "experience.gallery[1].alt",
+          "type": "str"
+        },
+        {
+          "path": "community",
+          "type": "dict"
+        }
+      ]
+    },
+    {
+      "file": "src/content/pricing.json",
+      "top_level_keys": [
+        "seo",
+        "hero",
+        "tables",
+        "termsText",
+        "faqs"
+      ],
+      "field_count": 110,
+      "sample_fields": [
+        {
+          "path": "seo",
+          "type": "dict"
+        },
+        {
+          "path": "seo.title",
+          "type": "str"
+        },
+        {
+          "path": "seo.description",
+          "type": "str"
+        },
+        {
+          "path": "hero",
+          "type": "dict"
+        },
+        {
+          "path": "hero.eyebrow",
+          "type": "str"
+        },
+        {
+          "path": "hero.heading",
+          "type": "str"
+        },
+        {
+          "path": "hero.intro",
+          "type": "str"
+        },
+        {
+          "path": "tables",
+          "type": "list"
+        },
+        {
+          "path": "tables[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[0].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[0].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[0].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[1].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[1].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[0].rows[2].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].price",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].per",
+          "type": "str"
+        },
+        {
+          "path": "tables[0].rows[2].note",
+          "type": "str"
+        },
+        {
+          "path": "tables[1]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].title",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].blurb",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].cols",
+          "type": "list"
+        },
+        {
+          "path": "tables[1].cols[0]",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].cols[1]",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows",
+          "type": "list"
+        },
+        {
+          "path": "tables[1].rows[0]",
+          "type": "dict"
+        },
+        {
+          "path": "tables[1].rows[0].name",
+          "type": "str"
+        },
+        {
+          "path": "tables[1].rows[0].price",
+          "type": "str"
+        }
+      ]
+    },
+    {
+      "file": "src/content/studio.json",
+      "top_level_keys": [
+        "email",
+        "whatsappNumber",
+        "phoneDisplay",
+        "bookingUrl",
+        "bsportCompanyId",
+        "bsportWidgetId",
+        "ctaLabel",
+        "ctaCompact",
+        "ga4Id",
+        "clarityId",
+        "streetAddress",
+        "addressLocality",
+        "addressNote",
+        "instagram",
+        "instagramHandle",
+        "facebook",
+        "tiktok",
+        "tiktokHandle",
+        "openingLabel",
+        "openingHours",
+        "foundingForm",
+        "banner"
+      ],
+      "field_count": 33,
+      "sample_fields": [
+        {
+          "path": "email",
+          "type": "str"
+        },
+        {
+          "path": "whatsappNumber",
+          "type": "str"
+        },
+        {
+          "path": "phoneDisplay",
+          "type": "str"
+        },
+        {
+          "path": "bookingUrl",
+          "type": "str"
+        },
+        {
+          "path": "bsportCompanyId",
+          "type": "str"
+        },
+        {
+          "path": "bsportWidgetId",
+          "type": "str"
+        },
+        {
+          "path": "ctaLabel",
+          "type": "str"
+        },
+        {
+          "path": "ctaCompact",
+          "type": "str"
+        },
+        {
+          "path": "ga4Id",
+          "type": "str"
+        },
+        {
+          "path": "clarityId",
+          "type": "str"
+        },
+        {
+          "path": "streetAddress",
+          "type": "str"
+        },
+        {
+          "path": "addressLocality",
+          "type": "str"
+        },
+        {
+          "path": "addressNote",
+          "type": "str"
+        },
+        {
+          "path": "instagram",
+          "type": "str"
+        },
+        {
+          "path": "instagramHandle",
+          "type": "str"
+        },
+        {
+          "path": "facebook",
+          "type": "str"
+        },
+        {
+          "path": "tiktok",
+          "type": "str"
+        },
+        {
+          "path": "tiktokHandle",
+          "type": "str"
+        },
+        {
+          "path": "openingLabel",
+          "type": "str"
+        },
+        {
+          "path": "openingHours",
+          "type": "list"
+        },
+        {
+          "path": "foundingForm",
+          "type": "dict"
+        },
+        {
+          "path": "foundingForm.interestOptions",
+          "type": "list"
+        },
+        {
+          "path": "foundingForm.interestOptions[0]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[1]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[2]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[3]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.interestOptions[4]",
+          "type": "str"
+        },
+        {
+          "path": "foundingForm.submitLabel",
+          "type": "str"
+        },
+        {
+          "path": "banner",
+          "type": "dict"
+        },
+        {
+          "path": "banner.enabled",
+          "type": "bool"
+        },
+        {
+          "path": "banner.text",
+          "type": "str"
+        },
+        {
+          "path": "banner.linkText",
+          "type": "str"
+        },
+        {
+          "path": "banner.linkUrl",
+          "type": "str"
+        }
+      ]
+    }
+  ],
+  "asset_extension_counts": {
+    ".yml": 1,
+    ".js": 1,
+    ".html": 1,
+    ".svg": 1,
+    ".woff2": 5,
+    ".jpg": 39,
+    ".webp": 33,
+    ".txt": 2,
+    ".mp4": 4
+  },
+  "forms": [
+    {
+      "file": "public/admin/decap-cms.js",
+      "count": 4
+    },
+    {
+      "file": "src/components/FoundingForm.astro",
+      "count": 1
+    },
+    {
+      "file": "src/pages/contact.astro",
+      "count": 1
+    }
+  ],
+  "schema_types": {
+    "ExerciseGym": 1,
+    "PostalAddress": 1,
+    "OpeningHoursSpecification": 1,
+    "OfferCatalog": 2,
+    "Offer": 3,
+    "Service": 2,
+    "FAQPage": 1,
+    "Question": 1,
+    "Answer": 1,
+    "Course": 1,
+    "Organization": 1
+  },
+  "integrations_by_file_count": {
+    "netlify": 22,
+    "decap": 9,
+    "wix": 21,
+    "instagram": 23,
+    "whatsapp": 27,
+    "clarity": 9,
+    "playwright": 22,
+    "axe-core": 4,
+    "google analytics": 4,
+    "schema.org": 5
+  }
+}

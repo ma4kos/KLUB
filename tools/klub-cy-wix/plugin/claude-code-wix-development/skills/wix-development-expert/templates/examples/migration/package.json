@@ -1,0 +1,8 @@
+{
+  "name": "klub-wix-migration-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-payloads": "node src/build-klub-payloads.mjs"
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "sourceId": "klub:pricing-group:group-1",
+    "title": "Getting Started",
+    "blurb": "Your first steps on the reformer.",
+    "columnLabels": [
+      "Per class",
+      "Valid for"
+    ],
+    "sortOrder": 0,
+    "sourceHash": "c6baaf5ec7f9c82cc5a09ae55f565c4b1c31145d4a9103deac1a774224269fe5"
+  },
+  {
+    "sourceId": "klub:pricing-group:group-2",
+    "title": "Monthly",
+    "blurb": "A steady rhythm, month after month.",
+    "columnLabels": [
+      "Per class",
+      "Valid for"
+    ],
+    "sortOrder": 1,
+    "sourceHash": "49154f0a3d10b235fae09c94ca743a10dcf5f8383763bc4e22fcf9b373c52714"
+  },
+  {
+    "sourceId": "klub:pricing-group:group-3",
+    "title": "Flexi Packs",
+    "blurb": "Buy a bundle, book when it suits you.",
+    "columnLabels": [
+      "Per class",
+      "Valid for"
+    ],
+    "sortOrder": 2,
+    "sourceHash": "0e9effbce89d2221ec5bfed5f38dabc4bcf6abdc58dc638c7534073249cac51a"
+  },
+  {
+    "sourceId": "klub:pricing-group:group-4",
+    "title": "Private 1-to-1",
+    "blurb": "Fully personalized sessions, by appointment.",
+    "columnLabels": [
+      "Per session",
+      "Valid for"
+    ],
+    "sortOrder": 3,
+    "sourceHash": "c164815b8918cf52dab4f625ccccf634f4a4c121aaaa5800811ad9c2a740441d"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "name": "Official Wix Skills replatform resources",
+  "repository": "https://github.com/wix/skills.git",
+  "commit": "08aa16132399500d32cd81dd98c08ae8bbe8c8e9",
+  "acquiredAt": "2026-09-02",
+  "includedPaths": {
+    "wix-replatform": {
+      "fileCount": 242
+    },
+    "wix-headless-replatform": {
+      "fileCount": 95
+    },
+    "AGENTS.md": true,
+    "LICENSE": true
+  },
+  "usage": "Reference implementation and workflow resources. Read each script and its local documentation, pin the source version, retrieve current Wix API schemas, and obtain required approval before any live Wix write.",
+  "licenseFile": "LICENSE"
+}
