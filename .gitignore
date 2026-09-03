@@ -15,3 +15,6 @@ playwright-report/
 
 # Wix CLI local state and logs
 .wix/
+
+# Wix CLI local credentials (contains WIX_CLIENT_SECRET) — never commit
+.env.local
