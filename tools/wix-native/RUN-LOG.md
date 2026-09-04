@@ -571,3 +571,17 @@ Structure, wording, page set, chapter labels, class-card captions, the intro
 offer, parking badges, the map, the footer, the founding-member capture, the
 bsport container, and art-directed photography. What remains is subjective —
 whether the design pleases Alex — plus the hand-work in `FINISH-IN-EDITOR.md`.
+
+### Klub 8 published
+
+`POST /site-publisher/v1/site/publish` succeeded (200). The build is live at:
+
+**https://markossymeonides.wixsite.com/klub-8**
+
+Free Wix subdomain, no custom domain connected — `keeplivingunderbalance.com`
+is untouched and still serves the studio's existing site. This is the link to
+send Alex: it needs no login and opens on a phone.
+
+Publishing was the last action available here that moves the work toward his
+review. Whether the design pleases him is his call, not something this session
+can determine or assert.
