@@ -16,8 +16,8 @@
     "test:install": "playwright install --with-deps chromium firefox webkit",
     "wix:dev": "WIX_BUILD=true wix dev",
     "wix:build": "WIX_BUILD=true wix build",
-    "wix:preview": "wix preview",
-    "wix:release": "wix release"
+    "wix:preview": "WIX_BUILD=true wix preview",
+    "wix:release": "WIX_BUILD=true wix release"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
