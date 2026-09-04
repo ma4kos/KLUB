@@ -1,0 +1,159 @@
+{
+  "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/collection-management/data-collections/list-data-collections",
+  "examples": [
+    {
+      "request": "curl -X GET \\\n'https://www.wixapis.com/wix-data/v2/collections' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+      "response": "{\n  \"collections\": [\n    {\n      \"id\": \"my-third-collection\",\n      \"collectionType\": \"NATIVE\",\n      \"displayField\": \"name\",\n      \"capabilities\": {\n        \"dataOperations\": [\n          \"AGGREGATE\",\n          \"BULK_INSERT\",\n          \"BULK_REMOVE\",\n          \"BULK_SAVE\",\n          \"BULK_UPDATE\",\n          \"COUNT\",\n          \"DISTINCT\",\n          \"FIND\",\n          \"GET\",\n          \"INSERT\",\n          \"INSERT_REFERENCE\",\n          \"IS_REFERENCED\",\n          \"QUERY_REFERENCED\",\n          \"REMOVE\",\n          \"REMOVE_REFERENCE\",\n          \"REPLACE_REFERENCES\",\n          \"SAVE\",\n          \"TRUNCATE\",\n          \"UPDATE\"\n        ],\n        \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n      },\n      \"fields\": [\n        {\n          \"key\": \"title\",\n          \"displayName\": \"Book title\",\n          \"type\": \"TEXT\",\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"author_names\",\n          \"displayName\": \"Book authors\",\n          \"type\": \"ARRAY\",\n          \"typeMetadata\": { \"array\": { \"elementType\": \"TEXT\" } },\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_id\",\n          \"displayName\": \"ID\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_owner\",\n          \"displayName\": \"Owner\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_createdDate\",\n          \"displayName\": \"Created Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_updatedDate\",\n          \"displayName\": \"Updated Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_id\",\n          \"displayName\": \"ID\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_owner\",\n          \"displayName\": \"Owner\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_createdDate\",\n          \"displayName\": \"Created Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_updatedDate\",\n          \"displayName\": \"Updated Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        }\n      ],\n      \"permissions\": {\n        \"insert\": \"ADMIN\",\n        \"update\": \"ADMIN\",\n        \"remove\": \"ADMIN\",\n        \"read\": \"SITE_MEMBER\"\n      },\n      \"revision\": \"1\",\n      \"plugins\": [],\n      \"pagingModes\": [\"OFFSET\"],\n      \"createdDate\": \"2022-09-23T14:15:59.099Z\",\n      \"updatedDate\": \"2022-09-23T14:15:59.099Z\"\n    },\n    {\n      \"id\": \"my-fourth-collection\",\n      \"collectionType\": \"NATIVE\",\n      \"displayName\": \"My Fourth Collection\",\n      \"displayField\": \"name\",\n      \"capabilities\": {\n        \"dataOperations\": [\n          \"AGGREGATE\",\n          \"BULK_INSERT\",\n          \"BULK_REMOVE\",\n          \"BULK_SAVE\",\n          \"BULK_UPDATE\",\n          \"COUNT\",\n          \"DISTINCT\",\n          \"FIND\",\n          \"GET\",\n          \"INSERT\",\n          \"INSERT_REFERENCE\",\n          \"IS_REFERENCED\",\n          \"QUERY_REFERENCED\",\n          \"REMOVE\",\n          \"REMOVE_REFERENCE\",\n          \"REPLACE_REFERENCES\",\n          \"SAVE\",\n          \"TRUNCATE\",\n          \"UPDATE\"\n        ],\n        \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n      },\n      \"fields\": [\n        {\n          \"key\": \"building_name\",\n          \"displayName\": \"Building Name\",\n          \"type\": \"TEXT\",\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"meeting_rooms\",\n          \"displayName\": \"Meeting rooms\",\n          \"type\": \"ARRAY\",\n          \"typeMetadata\": {\n            \"array\": {\n              \"elementType\": \"OBJECT\",\n              \"typeMetadata\": {\n                \"object\": {\n                  \"fields\": [\n                    {\n                      \"key\": \"name\",\n                      \"displayName\": \"Room name\",\n                      \"type\": \"TEXT\",\n                      \"capabilities\": {\n                        \"sortable\": true,\n                        \"queryOperators\": [\"EQ\"]\n                      }\n                    },\n                    {\n                      \"key\": \"floor\",\n                      \"displayName\": \"Floor\",\n                      \"type\": \"NUMBER\",\n                      \"capabilities\": {\n                        \"sortable\": true,\n                        \"queryOperators\": [\"EQ\"]\n                      }\n                    },\n                    {\n                      \"key\": \"capacity\",\n                      \"displayName\": \"Room capacity\",\n                      \"type\": \"NUMBER\",\n                      \"capabilities\": {\n                        \"sortable\": true,\n                        \"queryOperators\": [\"EQ\", \"GT\", \"LT\"]\n                      }\n                    },\n                    {\n                      \"key\": \"busy\",\n                      \"displayName\": \"Currently taken\",\n                      \"type\": \"BOOLEAN\",\n                      \"capabilities\": {\n                        \"sortable\": true,\n                        \"queryOperators\": [\"EQ\"]\n                      }\n                    }\n                  ]\n                }\n              }\n            }\n          },\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_id\",\n          \"displayName\": \"ID\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_owner\",\n          \"displayName\": \"Owner\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_createdDate\",\n          \"displayName\": \"Created Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_updatedDate\",\n          \"displayName\": \"Updated Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        }\n      ],\n      \"permissions\": {\n        \"insert\": \"SITE_MEMBER\",\n        \"update\": \"ADMIN\",\n        \"remove\": \"ADMIN\",\n        \"read\": \"ANYONE\"\n      },\n      \"revision\": \"1\",\n      \"plugins\": [],\n      \"pagingModes\": [\"OFFSET\"],\n      \"createdDate\": \"2022-09-23T15:15:59.099Z\",\n      \"updatedDate\": \"2022-09-23T15:15:59.099Z\"\n    }\n  ],\n  \"pagingMetadata\": {\n    \"count\": 2,\n    \"offset\": 0,\n    \"total\": 2,\n    \"tooManyToCount\": false\n  }\n}",
+      "title": "List collections (examples containing object and array data fields)"
+    },
+    {
+      "request": "curl -X GET \\\n'https://www.wixapis.com/wix-data/v2/collections?sort.fieldName=displayName\u0026sort.order=ASC' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e'",
+      "response": "{\n  \"collections\": [\n    {\n      \"id\": \"my-second-collection\",\n      \"collectionType\": \"NATIVE\",\n      \"displayField\": \"name\",\n      \"capabilities\": {\n        \"dataOperations\": [\n          \"AGGREGATE\",\n          \"BULK_INSERT\",\n          \"BULK_REMOVE\",\n          \"BULK_SAVE\",\n          \"BULK_UPDATE\",\n          \"COUNT\",\n          \"DISTINCT\",\n          \"FIND\",\n          \"GET\",\n          \"INSERT\",\n          \"INSERT_REFERENCE\",\n          \"IS_REFERENCED\",\n          \"QUERY_REFERENCED\",\n          \"REMOVE\",\n          \"REMOVE_REFERENCE\",\n          \"REPLACE_REFERENCES\",\n          \"SAVE\",\n          \"TRUNCATE\",\n          \"UPDATE\"\n        ],\n        \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n      },\n      \"fields\": [\n        {\n          \"key\": \"title\",\n          \"displayName\": \"Book title\",\n          \"type\": \"TEXT\",\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"author_ref\",\n          \"displayName\": \"Book author\",\n          \"type\": \"REFERENCE\",\n          \"typeMetadata\": {\n            \"reference\": { \"referencedCollectionId\": \"my-first-collection\" }\n          },\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_id\",\n          \"displayName\": \"ID\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_owner\",\n          \"displayName\": \"Owner\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_createdDate\",\n          \"displayName\": \"Created Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_updatedDate\",\n          \"displayName\": \"Updated Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        }\n      ],\n      \"permissions\": {\n        \"insert\": \"ADMIN\",\n        \"update\": \"ADMIN\",\n        \"remove\": \"ADMIN\",\n        \"read\": \"ADMIN\"\n      },\n      \"revision\": \"1\",\n      \"plugins\": [],\n      \"pagingModes\": [\"OFFSET\"],\n      \"createdDate\": \"2022-09-19T15:15:59.099Z\",\n      \"updatedDate\": \"2022-09-19T15:15:59.099Z\"\n    },\n    {\n      \"id\": \"my-first-collection\",\n      \"collectionType\": \"NATIVE\",\n      \"displayName\": \"My First Collection\",\n      \"displayField\": \"name\",\n      \"capabilities\": {\n        \"dataOperations\": [\n          \"AGGREGATE\",\n          \"BULK_INSERT\",\n          \"BULK_REMOVE\",\n          \"BULK_SAVE\",\n          \"BULK_UPDATE\",\n          \"COUNT\",\n          \"DISTINCT\",\n          \"FIND\",\n          \"GET\",\n          \"INSERT\",\n          \"INSERT_REFERENCE\",\n          \"IS_REFERENCED\",\n          \"QUERY_REFERENCED\",\n          \"REMOVE\",\n          \"REMOVE_REFERENCE\",\n          \"REPLACE_REFERENCES\",\n          \"SAVE\",\n          \"TRUNCATE\",\n          \"UPDATE\"\n        ],\n        \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n      },\n      \"fields\": [\n        {\n          \"key\": \"name\",\n          \"displayName\": \"First Name\",\n          \"type\": \"TEXT\",\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"age\",\n          \"displayName\": \"Age\",\n          \"type\": \"NUMBER\",\n          \"systemField\": false,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_id\",\n          \"displayName\": \"ID\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_owner\",\n          \"displayName\": \"Owner\",\n          \"type\": \"TEXT\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_createdDate\",\n          \"displayName\": \"Created Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        },\n        {\n          \"key\": \"_updatedDate\",\n          \"displayName\": \"Updated Date\",\n          \"type\": \"DATETIME\",\n          \"systemField\": true,\n          \"capabilities\": {\n            \"sortable\": true,\n            \"queryOperators\": [\n              \"EQ\",\n              \"LT\",\n              \"GT\",\n              \"NE\",\n              \"LTE\",\n              \"GTE\",\n              \"STARTS_WITH\",\n              \"ENDS_WITH\",\n              \"CONTAINS\",\n              \"HAS_SOME\",\n              \"HAS_ALL\",\n              \"EXISTS\",\n              \"URLIZED\"\n            ]\n          },\n          \"encrypted\": false\n        }\n      ],\n      \"permissions\": {\n        \"insert\": \"ADMIN\",\n        \"update\": \"ADMIN\",\n        \"remove\": \"ADMIN\",\n        \"read\": \"ADMIN\"\n      },\n      \"revision\": \"1\",\n      \"plugins\": [],\n      \"pagingModes\": [\"OFFSET\"],\n      \"createdDate\": \"2022-09-19T15:10:56.603Z\",\n      \"updatedDate\": \"2022-09-19T15:10:56.603Z\"\n    }\n  ],\n  \"pagingMetadata\": {\n    \"count\": 2,\n    \"offset\": 0,\n    \"total\": 2,\n    \"tooManyToCount\": false\n  }\n}",
+      "title": "List collections with referenced collections included"
+    }
+  ],
+  "httpMethod": "GET",
+  "operationId": "com.wixpress.cloud.data.api.collectionservice.DataCollectionService.ListDataCollections",
+  "parameters": [
+    {
+      "description": "Defines how collections in the response are sorted.\n\nDefault: Ordered by ID in ascending order.",
+      "in": "query",
+      "name": "sort",
+      "required": false,
+      "schema": {
+        "description": "Defines how collections in the response are sorted.\n\nDefault: Ordered by ID in ascending order.",
+        "properties": {
+          "fieldName": {
+            "description": "Name of the field to sort by.",
+            "maxLength": 1000,
+            "title": "fieldName",
+            "type": "string"
+          },
+          "order": {
+            "description": "Sort order.",
+            "enum": [
+              {
+                "value": "ASC"
+              },
+              {
+                "value": "DESC"
+              }
+            ],
+            "title": "order",
+            "type": "string"
+          }
+        },
+        "summary": "sort",
+        "title": "Sorting",
+        "type": "object"
+      }
+    },
+    {
+      "description": "Pagination information.",
+      "in": "query",
+      "name": "paging",
+      "required": false,
+      "schema": {
+        "description": "Pagination information.",
+        "properties": {
+          "limit": {
+            "description": "Number of items to load.",
+            "format": "int32",
+            "minimum": 0,
+            "title": "limit",
+            "type": "integer"
+          },
+          "offset": {
+            "description": "Number of items to skip in the current sort order.",
+            "format": "int32",
+            "minimum": 0,
+            "title": "offset",
+            "type": "integer"
+          }
+        },
+        "summary": "paging",
+        "title": "Paging",
+        "type": "object"
+      }
+    },
+    {
+      "description": "Whether to retrieve data from the primary database instance.\nThis decreases performance but ensures data retrieved is up to date even immediately after an update.\nLearn more about [Wix Data and eventual consistency](https://dev.wix.com/api/rest/wix-data/wix-data/eventual-consistency).\n\nDefault: `false`",
+      "in": "query",
+      "name": "consistentRead",
+      "required": false,
+      "schema": {
+        "description": "Whether to retrieve data from the primary database instance.\nThis decreases performance but ensures data retrieved is up to date even immediately after an update.\nLearn more about [Wix Data and eventual consistency](https://dev.wix.com/api/rest/wix-data/wix-data/eventual-consistency).\n\nDefault: `false`",
+        "title": "consistentRead",
+        "type": "boolean"
+      }
+    },
+    {
+      "description": "List of specific field names to return, if empty all fields are returned.\nAffects all returned collections",
+      "in": "query",
+      "name": "fields",
+      "required": false,
+      "schema": {
+        "description": "List of specific field names to return, if empty all fields are returned.\nAffects all returned collections",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 100,
+        "maxLength": 128,
+        "title": "fields",
+        "type": "array"
+      }
+    }
+  ],
+  "permissions": [
+    "WIX_DATA.LIST_COLLECTIONS"
+  ],
+  "publicUrl": "https://www.wixapis.com/data/v2/collections",
+  "responses": {
+    "200": {
+      "properties": {
+        "collections": {
+          "description": "List of collections.",
+          "items": {
+            "$circular": "com.wixpress.cloud.data.api.collectionservice.DataCollection"
+          },
+          "title": "collections",
+          "type": "array"
+        },
+        "pagingMetadata": {
+          "description": "Paging information.",
+          "properties": {
+            "count": {
+              "description": "Number of items returned in the response.",
+              "format": "int32",
+              "title": "count",
+              "type": "integer"
+            },
+            "offset": {
+              "description": "Offset that was requested.",
+              "format": "int32",
+              "title": "offset",
+              "type": "integer"
+            },
+            "tooManyToCount": {
+              "description": "Flag that indicates the server failed to calculate the `total` field.",
+              "title": "tooManyToCount",
+              "type": "boolean"
+            },
+            "total": {
+              "description": "Total number of items that match the query. Returned if offset paging is used and the `tooManyToCount` flag is not set.",
+              "format": "int32",
+              "title": "total",
+              "type": "integer"
+            }
+          },
+          "summary": "pagingMetadata",
+          "title": "PagingMetadataV2",
+          "type": "object"
+        }
+      },
+      "title": "ListDataCollectionsResponse",
+      "type": "object"
+    }
+  },
+  "title": "List Data Collections"
+}

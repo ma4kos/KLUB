@@ -1,0 +1,186 @@
+[
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/crm/forms/form-schemas/query-forms",
+    "exampleRequest": "curl -X POST \\\n  'http://www.wixapis.com/form-schema-service/v4/forms/query' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -d '{\n    \"namespace\": \"wix.form_app.form\",\n    \"query\": {\n      \"filter\": {\n        \"id\": \"e62e3011-55cf-4de3-a497-e097b52d86b8\"\n      }\n    }\n  }'",
+    "exampleResponse": "{\n  \"forms\": [\n    {\n      \"id\": \"e62e3011-55cf-4de3-a497-e097b52d86b8\",\n      \"steps\": [\n        {\n          \"id\": \"60aee123-89c4-427d-696e-6560d5b72d37\",\n          \"name\": \"Page 1\",\n          \"hidden\": false,\n          \"layout\": {\n            \"large\": {\n              \"items\": [\n                {\n                  \"fieldId\": \"98cf12f2-7631-4d1d-fe5f-b5847754f901\",\n                  \"row\": 1,\n                  \"column\": 0,\n                  \"width\": 12,\n                  \"height\": 1\n                },\n                {\n                  \"fieldId\": \"9d12378c-f6b5-416e-1e3e-821964140c8f\",\n                  \"row\": 0,\n                  \"column\": 0,\n                  \"width\": 12,\n                  \"height\": 1\n                }\n              ],\n              \"columns\": null,\n              \"rowHeight\": null,\n              \"margin\": null,\n              \"padding\": null\n            },\n            \"medium\": null,\n            \"small\": null\n          }\n        }\n      ],\n      \"rules\": [],\n      \"revision\": \"1\",\n      \"createdDate\": \"2025-02-10T10:50:02.316Z\",\n      \"updatedDate\": \"2025-02-10T10:50:02.316Z\",\n      \"deletedFields\": [],\n      \"extendedFields\": {\n        \"namespaces\": {\n          \"@forms/form-app\": {\n            \"automationId\": \"90171237-675b-49a0-9dfc-c5a5109c3c13\"\n          }\n        }\n      },\n      \"namespace\": \"wix.form_app.form\",\n      \"mediaFolderId\": null,\n      \"limitationRule\": null,\n      \"spamFilterProtectionLevel\": \"ADVANCED\",\n      \"requiredIndicatorProperties\": null,\n      \"submitSettings\": {\n        \"submitSuccessAction\": \"THANK_YOU_MESSAGE\",\n        \"thankYouMessageOptions\": {\n          \"durationInSeconds\": null,\n          \"richContent\": null\n        }\n      },\n      \"disabledFormMessage\": null,\n      \"enabled\": true\n    }\n  ]\n}",
+    "httpMethod": "POST",
+    "operationId": "wix.forms.v4.FormSchemaService.QueryForms",
+    "parameterNames": [],
+    "permissions": [
+      "forms:v4:form:query_forms"
+    ],
+    "publicUrl": "https://www.wixapis.com/form-schema-service/v4/forms/query",
+    "queryFieldsCapabilities": {
+      "createdDate": {
+        "operators": [
+          "$eq",
+          "$gt",
+          "$gte",
+          "$in",
+          "$lt",
+          "$lte",
+          "$ne",
+          "$nin"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "enabled": {
+        "operators": [
+          "$eq",
+          "$ne"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "fields.validation.predefined.format": {
+        "operators": [
+          "$hasSome"
+        ],
+        "sort": []
+      },
+      "id": {
+        "operators": [
+          "$eq",
+          "$in",
+          "$ne",
+          "$nin"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "name": {
+        "operators": [
+          "$eq",
+          "$ne",
+          "$nin",
+          "$in",
+          "$startsWith"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "namespace": {
+        "operators": [
+          "$eq"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "properties.disabled": {
+        "operators": [
+          "$eq",
+          "$ne"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "properties.name": {
+        "operators": [
+          "$eq",
+          "$ne",
+          "$nin",
+          "$in",
+          "$startsWith"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "tags.privateTags.tagIds": {
+        "operators": [
+          "$hasAll",
+          "$hasSome"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      },
+      "updatedDate": {
+        "operators": [
+          "$eq",
+          "$gt",
+          "$gte",
+          "$in",
+          "$lt",
+          "$lte",
+          "$ne",
+          "$nin"
+        ],
+        "sort": [
+          "ASC",
+          "DESC"
+        ]
+      }
+    },
+    "requestRequired": true,
+    "requestTopLevelFields": [
+      "query",
+      "additionalMetadata",
+      "namespace"
+    ],
+    "responseTopLevelFields": [
+      "forms",
+      "metadata"
+    ],
+    "title": "Query Forms"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/crm/forms/form-schemas/create-form",
+    "exampleRequest": "curl -X POST \\\n  'https://www.wixapis.com/form-schema-service/v4/forms' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -d '{\n          \"form\": {\n            \"name\": \"Donation form\",\n            \"namespace\": \"wix.form_app.form\",\n            \"formFields\": [\n              {\n                \"id\": \"b7e7755e-fe11-4546-c29d-20d51007b164\",\n                \"identifier\": \"DONATION\",\n                \"fieldType\": \"INPUT\",\n                \"inputOptions\": {\n                  \"target\": \"donation_4dee\",\n                  \"inputType\": \"PAYMENT\",\n                  \"paymentOptions\": {\n                    \"componentType\": \"DONATION_INPUT\",\n                    \"validation\": {\n                      \"products\": [\n                        {\n                          \"id\": \"b66b1c6c-ec2e-4a69-abb9-37d6bbacc706\",\n                          \"priceType\": \"FIXED_PRICE\",\n                          \"productType\": \"DIGITAL\",\n                          \"quantityLimit\": {\n                            \"minimum\": 1,\n                            \"maximum\": 1\n                          },\n                          \"fixedPriceOptions\": {\n                            \"price\": \"10\"\n                          }\n                        },\n                        {\n                          \"id\": \"df5faf1a-4b00-4e94-0b64-b4b1f94fc09a\",\n                          \"priceType\": \"FIXED_PRICE\",\n                          \"productType\": \"DIGITAL\",\n                          \"quantityLimit\": {\n                            \"minimum\": 1,\n                            \"maximum\": 1\n                          },\n                          \"fixedPriceOptions\": {\n                            \"price\": \"20\"\n                          }\n                        },\n                        {\n                          \"id\": \"d65a8aae-3eea-415a-c364-838e28b16874\",\n                          \"priceType\": \"FIXED_PRICE\",\n                          \"productType\": \"DIGITAL\",\n                          \"quantityLimit\": {\n                            \"minimum\": 1,\n                            \"maximum\": 1\n                          },\n                          \"fixedPriceOptions\": {\n                            \"price\": \"30\"\n                          }\n                        }\n                      ]\n                    },\n                    \"donationInputOptions\": {\n                      \"label\": \"Choose an amount\",\n                      \"showLabel\": true,\n                      \"numberOfColumns\": \"THREE\",\n                      \"options\": [\n                        {\n                          \"value\": \"b66b1c6c-ec2e-4a69-abb9-37d6bbacc706\"\n                        },\n                        {\n                          \"value\": \"df5faf1a-4b00-4e94-0b64-b4b1f94fc09a\"\n                        },\n                        {\n                          \"value\": \"d65a8aae-3eea-415a-c364-838e28b16874\"\n                        }\n                      ]\n                    }\n                  }\n                }\n              },\n              {\n                \"id\": \"85f31411-8463-4060-31ac-21d42de2efb8\",\n                \"identifier\": \"PAYMENT_INPUT\",\n                \"fieldType\": \"INPUT\",\n                \"inputOptions\": {\n                  \"target\": \"other_amount_a267\",\n                  \"inputType\": \"PAYMENT\",\n                  \"paymentOptions\": {\n                    \"componentType\": \"PAYMENT_INPUT\",\n                    \"validation\": {\n                      \"products\": [\n                        {\n                          \"id\": \"a485fdbc-874b-431b-23c7-b6397e9b57c4\",\n                          \"priceType\": \"DYNAMIC_PRICE\",\n                          \"productType\": \"DIGITAL\",\n                          \"quantityLimit\": {\n                            \"minimum\": 1,\n                            \"maximum\": 1\n                          },\n                          \"dynamicPriceOptions\": {\n                            \"minPrice\": \"1\"\n                          }\n                        }\n                      ]\n                    },\n                    \"paymentInputOptions\": {\n                      \"label\": \"Or enter your own amount\",\n                      \"showLabel\": true\n                    }\n                  }\n                }\n              },\n              {\n                \"id\": \"2e56791e-926e-48fd-37d0-0ad60a27736d\",\n                \"identifier\": \"SUBMIT_BUTTON\",\n                \"fieldType\": \"DISPLAY\",\n                \"displayOptions\": {\n                  \"displayFieldType\": \"PAGE_NAVIGATION\",\n                  \"pageNavigationOptions\": {\n                    \"submitText\": \"Donate\"\n                  }\n                }\n              }\n            ],\n            \"steps\": [\n              {\n                \"id\": \"a26d12fc-ed7a-4b7f-90e4-994f3ad56e4b\",\n                \"name\": \"Page 1\",\n                \"layout\": {\n                  \"large\": {\n                    \"items\": [\n                      {\n                        \"fieldId\": \"b7e7755e-fe11-4546-c29d-20d51007b164\",\n                        \"row\": 0,\n                        \"column\": 0,\n                        \"width\": 12,\n                        \"height\": 1\n                      },\n                      {\n                        \"fieldId\": \"85f31411-8463-4060-31ac-21d42de2efb8\",\n                        \"row\": 1,\n                        \"column\": 0,\n                        \"width\": 12,\n                        \"height\": 1\n                      },\n                      {\n                        \"fieldId\": \"2e56791e-926e-48fd-37d0-0ad60a27736d\",\n                        \"row\": 2,\n                        \"column\": 0,\n                        \"width\": 12,\n                        \"height\": 1\n                      }\n                    ]\n                  }\n                }\n              }\n            ],\n            \"submitSettings\": {\n              \"submitSuccessAction\": \"THANK_YOU_MESSAGE\",\n              \"thankYouMessageOptions\": {\n                \"durationInSeconds\": 8,\n                \"richContent\": {\n                  \"nodes\": [\n                    {\n                      \"type\": \"PARAGRAPH\",\n                      \"id\": \"don9b74\",\n                      \"nodes\": [\n                        {\n                          \"type\": \"TEXT\",\n                          \"id\": \"\",\n                          \"nodes\": [],\n                          \"textData\": {\n                            \"text\": \"Thank you for your donation.\",\n                            \"decorations\": []\n                          }\n                        }\n                      ],\n                      \"paragraphData\": {\n                        \"textStyle\": {\n                          \"textAlignment\": \"CENTER\"\n                        }\n                      }\n                    }\n                  ]\n                }\n              }\n            }\n          }\n        }'",
+    "exampleResponse": "{\n  \"form\": {\n    \"id\": \"d2c86f40-1b57-4e93-a0d8-64f7135ba9e2\",\n    \"revision\": \"1\",\n    \"createdDate\": \"2025-06-18T16:52:11.407Z\",\n    \"updatedDate\": \"2025-06-18T16:52:11.407Z\",\n    \"name\": \"Donation form\",\n    \"namespace\": \"wix.form_app.form\",\n    \"formFields\": [\n      {\n        \"id\": \"b7e7755e-fe11-4546-c29d-20d51007b164\",\n        \"hidden\": false,\n        \"identifier\": \"DONATION\",\n        \"fieldType\": \"INPUT\",\n        \"inputOptions\": {\n          \"target\": \"donation_4dee\",\n          \"pii\": false,\n          \"required\": false,\n          \"inputType\": \"PAYMENT\",\n          \"readOnly\": false,\n          \"paymentOptions\": {\n            \"componentType\": \"DONATION_INPUT\",\n            \"validation\": {\n              \"products\": [\n                {\n                  \"id\": \"b66b1c6c-ec2e-4a69-abb9-37d6bbacc706\",\n                  \"priceType\": \"FIXED_PRICE\",\n                  \"productType\": \"DIGITAL\",\n                  \"quantityLimit\": {\n                    \"minimum\": 1,\n                    \"maximum\": 1\n                  },\n                  \"fixedPriceOptions\": {\n                    \"price\": \"10\"\n                  }\n                },\n                {\n                  \"id\": \"df5faf1a-4b00-4e94-0b64-b4b1f94fc09a\",\n                  \"priceType\": \"FIXED_PRICE\",\n                  \"productType\": \"DIGITAL\",\n                  \"quantityLimit\": {\n                    \"minimum\": 1,\n                    \"maximum\": 1\n                  },\n                  \"fixedPriceOptions\": {\n                    \"price\": \"20\"\n                  }\n                },\n                {\n                  \"id\": \"d65a8aae-3eea-415a-c364-838e28b16874\",\n                  \"priceType\": \"FIXED_PRICE\",\n                  \"productType\": \"DIGITAL\",\n                  \"quantityLimit\": {\n                    \"minimum\": 1,\n                    \"maximum\": 1\n                  },\n                  \"fixedPriceOptions\": {\n                    \"price\": \"30\"\n                  }\n                }\n              ]\n            },\n        ",
+    "httpMethod": "POST",
+    "operationId": "wix.forms.v4.FormSchemaService.CreateForm",
+    "parameterNames": [],
+    "permissions": [
+      "forms:v4:form:create_form"
+    ],
+    "publicUrl": "https://www.wixapis.com/form-schema-service/v4/forms",
+    "queryFieldsCapabilities": null,
+    "requestRequired": true,
+    "requestTopLevelFields": [
+      "form"
+    ],
+    "responseTopLevelFields": [
+      "form"
+    ],
+    "title": "Create Form"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/crm/forms/form-submissions/create-submission",
+    "exampleRequest": "~~~cURL\ncurl -X POST \\\n  'https://www.wixapis.com/form-submission-service/v4/submissions' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -d '{\n    \"submission\": {\n        \"formId\": \"e62e3011-55cf-4de3-a497-e097b52d86b8\",\n        \"submissions\": {\n          \"first_name\": \"Adam\",\n          \"last_name\": \"Fisher\",\n          \"heard_about_us_3978\": \"Social media\",\n          \"services_used_21e8\": [\n            \"Online store\",\n            \"Consultation\"\n          ]\n        }\n      }\n  }'\n~~~",
+    "exampleResponse": "~~~json\n{\n  \"submission\": {\n    \"id\": \"e62e3011-55cf-4de3-a497-e097b52d86b7\",\n    \"formId\": \"e62e3011-55cf-4de3-a497-e097b52d86b8\",\n    \"namespace\": \"wix.form_app.form\",\n    \"status\": \"PENDING\",\n    \"submissions\": {\n      \"first_name\": \"Adam\",\n      \"last_name\": \"Fisher\",\n      \"heard_about_us_3978\": \"Social media\",\n      \"services_used_21e8\": [\n        \"Online store\",\n        \"Consultation\"\n      ]\n    },\n    \"submitter\": {\n      \"memberId\": \"4b42fb49-8c77-4128-859c-8247756f68ef\"\n    },\n    \"seen\": false,\n    \"revision\": \"1\",\n    \"createdDate\": \"2019-10-30T17:22:10.299Z\",\n    \"updatedDate\": \"2019-10-30T17:22:10.299Z\"\n  }\n}\n~~~",
+    "httpMethod": "POST",
+    "operationId": "wix.forms.v4.FormSubmissionService.CreateSubmission",
+    "parameterNames": [],
+    "permissions": [
+      "forms:v4:submission:create_submission"
+    ],
+    "publicUrl": "https://www.wixapis.com/forms/v4/submissions",
+    "queryFieldsCapabilities": null,
+    "requestRequired": true,
+    "requestTopLevelFields": [
+      "submission",
+      "captchaToken",
+      "additionalMetadata"
+    ],
+    "responseTopLevelFields": [
+      "submission"
+    ],
+    "title": "Create Submission"
+  }
+]

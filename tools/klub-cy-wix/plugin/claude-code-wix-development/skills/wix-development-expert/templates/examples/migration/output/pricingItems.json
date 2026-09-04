@@ -1,0 +1,122 @@
+[
+  {
+    "sourceId": "klub:pricing-item:group-1-1",
+    "groupSourceId": "klub:pricing-group:group-1",
+    "name": "Single Intro Class",
+    "priceDisplay": "€20",
+    "billingUnit": "€20",
+    "note": "1 week · new to KLUB",
+    "sortOrder": 0,
+    "sourceHash": "d10109f4426a268bf1b09e4e9f2f2d472cfbd5c62c0519186c4243232a42eba0"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-1-2",
+    "groupSourceId": "klub:pricing-group:group-1",
+    "name": "Drop-In (1 credit)",
+    "priceDisplay": "€32",
+    "billingUnit": "€32",
+    "note": "1 week · one class",
+    "sortOrder": 1,
+    "sourceHash": "c200dfa35cb030dc22f913b670fe24cc47eaf08f3b573f5faefa33b75f80f7f1"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-1-3",
+    "groupSourceId": "klub:pricing-group:group-1",
+    "name": "Intro Offer (3 credits)",
+    "priceDisplay": "€55",
+    "billingUnit": "€18",
+    "note": "2 weeks · best-value start",
+    "sortOrder": 2,
+    "sourceHash": "966d5d47696f6541a71c15b4ee9053e9efdf8082e95fef9e39ec84385bb74bf4"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-2-1",
+    "groupSourceId": "klub:pricing-group:group-2",
+    "name": "4 Class Pack",
+    "priceDisplay": "€96",
+    "billingUnit": "€24",
+    "note": "1 month",
+    "sortOrder": 0,
+    "sourceHash": "2559e1e09865a2210a4313dbc9570dffdc0940b1a287782d7b49b268332c9440"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-2-2",
+    "groupSourceId": "klub:pricing-group:group-2",
+    "name": "8 Class Pack",
+    "priceDisplay": "€176",
+    "billingUnit": "€22",
+    "note": "1 month",
+    "sortOrder": 1,
+    "sourceHash": "e04fd7f04a9f22d5061d41346544e4373e7f430d9dbac7ffe09181b5b3f64a5e"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-2-3",
+    "groupSourceId": "klub:pricing-group:group-2",
+    "name": "12 Class Pack",
+    "priceDisplay": "€240",
+    "billingUnit": "€20",
+    "note": "1 month",
+    "sortOrder": 2,
+    "sourceHash": "3b66418d0eecc7d9f0d662df1353a4b0d3426808ffe8f466ec320b647ffb0793"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-2-4",
+    "groupSourceId": "klub:pricing-group:group-2",
+    "name": "KLUB+ Unlimited",
+    "priceDisplay": "€280",
+    "billingUnit": "—",
+    "note": "1 month · one class a day",
+    "sortOrder": 3,
+    "sourceHash": "6be844295a535b30e7ca1d68b54150d067212f521271ccf4eff29a812464893c"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-3-1",
+    "groupSourceId": "klub:pricing-group:group-3",
+    "name": "10 Class Pack",
+    "priceDisplay": "€280",
+    "billingUnit": "€28",
+    "note": "3 months",
+    "sortOrder": 0,
+    "sourceHash": "f476ccb1cfbf0cf07c5729a8da41ce2d8fc3c1885c3f7d9eabe3140e7ef908ce"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-3-2",
+    "groupSourceId": "klub:pricing-group:group-3",
+    "name": "20 Class Pack",
+    "priceDisplay": "€520",
+    "billingUnit": "€26",
+    "note": "3 months",
+    "sortOrder": 1,
+    "sourceHash": "8fb59909d296d48359e99e9c9a9905b6b4522c12c33de832abcbd73eb60bbcdb"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-4-1",
+    "groupSourceId": "klub:pricing-group:group-4",
+    "name": "Single Session",
+    "priceDisplay": "€100",
+    "billingUnit": "€100",
+    "note": "1 month",
+    "sortOrder": 0,
+    "sourceHash": "d08642ffa4f84fdb19206ac7031eec9139566ab5417c7562426c118c0f9d9202"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-4-2",
+    "groupSourceId": "klub:pricing-group:group-4",
+    "name": "5 Sessions",
+    "priceDisplay": "€450",
+    "billingUnit": "€90",
+    "note": "3 months",
+    "sortOrder": 1,
+    "sourceHash": "e9f5fc297ae9cb6bffc30c04f6eed68e9fcb3054ce3b1ccc8b5878d22200cef0"
+  },
+  {
+    "sourceId": "klub:pricing-item:group-4-3",
+    "groupSourceId": "klub:pricing-group:group-4",
+    "name": "10 Sessions",
+    "priceDisplay": "€800",
+    "billingUnit": "€80",
+    "note": "3 months",
+    "sortOrder": 2,
+    "sourceHash": "647b31f5c2c87171f6b4fc1caac7ab82053ddb75324ea48f1c3592a2d85eb7d2"
+  }
+]

@@ -1,0 +1,503 @@
+[
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-management/headless/oauth-apps/create-oauth-app",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/oauth-app/v1/oauth-apps' \\\n-H 'Authorization: \u003cAUTH\u003e \\\n-H 'Content-Type: application/json' \\\n-d '{\n  \"oAuthApp\": {\n    \"name\": \"Test app\",\n    \"description\": \"Some test app\",\n    \"applicationType\": \"WEB_APP\",\n  }\n}'",
+        "response": "{\n  \"oAuthApp\": {\n    \"id\": \"adddb436-aa2c-474a-8f0e-af719f3acd5b\",\n    \"createdDate\": \"2023-03-28T13:43:48.959Z\",\n    \"name\": \"Test app\",\n    \"description\": \"Some test app\",\n    \"allowedRedirectDomains\": [],\n    \"loginUrl\": \"\",\n    \"logoutUrl\": \"\",\n    \"allowedRedirectUris\": [],\n    \"applicationType\": \"WEB_APP\",\n    \"technology\": \"OAUTH_TECHNOLOGY_UNSPECIFIED\",\n  }\n}",
+        "title": "Create an OAuth app"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "wix.headless.v1.OAuthAppService.CreateOAuthApp",
+    "parameters": [],
+    "permissions": [
+      "OAUTH_APP.APP_CREATE"
+    ],
+    "publicUrl": "https://www.wixapis.com/oauth-app/v1/oauth-apps",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {
+              "oAuthApp": {
+                "description": "An intermediary application that authorizes and authenticates an external client to access data on a Wix project or site.",
+                "properties": {
+                  "allowSecretGeneration": {
+                    "description": "For internal use only.",
+                    "title": "allowSecretGeneration",
+                    "type": "boolean"
+                  },
+                  "allowedRedirectDomains": {
+                    "description": "List of domains to which redirection from Wix is allowed after processes other than authentication.\n\nWhen a client redirects a user to a Wix page (for example, for checkout), the client provides a URL to redirect the user back to.\nWix only redirects the user if the URL is in one of the specified domains.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 20,
+                    "title": "allowedRedirectDomains",
+                    "type": "array"
+                  },
+                  "allowedRedirectUris": {
+                    "description": "List of URIs to which redirection from Wix is allowed after authentication.\n\nWhen a client redirects a user to Wix for authentication, the client provides a URI to redirect the user back to after the user has been authenticated.\nWix only redirects the user if the exact URI is contained in this array.",
+                    "format": "URI",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 20,
+                    "title": "allowedRedirectUris",
+                    "type": "array"
+                  },
+                  "applicationType": {
+                    "description": "OAuth application type.",
+                    "enum": [
+                      {
+                        "description": "OAuth app type is not specified.",
+                        "value": "OAUTH_APP_TYPE_UNSPECIFIED"
+                      },
+                      {
+                        "description": "OAuth app type is a web application.",
+                        "value": "WEB_APP"
+                      },
+                      {
+                        "description": "OAuth app type is a mobile application.",
+                        "value": "MOBILE"
+                      },
+                      {
+                        "description": "OAuth app type is some other type of application.",
+                        "value": "OTHER"
+                      }
+                    ],
+                    "title": "OAuthAppType",
+                    "type": "string"
+                  },
+                  "createdDate": {
+                    "description": "Date and time the OAuth app was created, in ISO 8601 format.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "createdDate",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "Description of the OAuth app, as it appears in the dashboard.",
+                    "title": "description",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "ID of the OAuth app.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "loginUrl": {
+                    "description": "External login URL to which users are redirected automatically to authenticate. If no login URL is specified, the user is redirected to Wix to authenticate.",
+                    "format": "WEB_URL",
+                    "title": "loginUrl",
+                    "type": "string"
+                  },
+                  "logoutUrl": {
+                    "description": "External logout URL to which we invoke when user logout at wix. If no logout URL is specified, the user is logged out only at Wix.",
+                    "format": "WEB_URL",
+                    "title": "logoutUrl",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Display name of the OAuth app, as it appears in the dashboard.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "redirectUrlWixPages": {
+                    "description": "Redirect url for Wix-hosted pages.",
+                    "maxLength": 1024,
+                    "title": "redirectUrlWixPages",
+                    "type": "string"
+                  },
+                  "secret": {
+                    "description": "For internal use only.",
+                    "readOnly": true,
+                    "title": "secret",
+                    "type": "string"
+                  },
+                  "technology": {
+                    "description": "OAuth technology used by the oauth application.",
+                    "enum": [
+                      {
+                        "description": "The OAuth technology is not specified.",
+                        "value": "OAUTH_TECHNOLOGY_UNSPECIFIED"
+                      },
+                      {
+                        "description": "OAuth technology using JavaScript.",
+                        "value": "JAVASCRIPT"
+                      },
+                      {
+                        "description": "OAuth technology using Angular.",
+                        "value": "ANGULAR"
+                      },
+                      {
+                        "description": "OAuth technology using Vue.js.",
+                        "value": "VUE"
+                      },
+                      {
+                        "description": "OAuth technology using React.",
+                        "value": "REACT"
+                      },
+                      {
+                        "description": "OAuth technology using React Native.",
+                        "value": "REACT_NATIVE"
+                      },
+                      {
+                        "description": "OAuth technology using iOS.",
+                        "value": "IOS"
+                      },
+                      {
+                        "description": "OAuth technology using Android.",
+                        "value": "ANDROID"
+                      },
+                      {
+                        "description": "OAuth technology using some other kind of technology.",
+                        "value": "OTHER_TECHNOLOGY"
+                      }
+                    ],
+                    "title": "OAuthTechnologies",
+                    "type": "string"
+                  },
+                  "wixPagesDomainsMappings": {
+                    "description": "List of domain mappings from external domains to Wix domains.\nWhen a user accesses a non-Wix domain, they can be automatically forwarded to the corresponding\nWix domain based on these mappings. This enables domain-level redirection from\nexternal domains to Wix-hosted pages.",
+                    "items": {
+                      "properties": {
+                        "destination": {
+                          "maxLength": 2048,
+                          "title": "destination",
+                          "type": "string"
+                        },
+                        "origin": {
+                          "maxLength": 2048,
+                          "title": "origin",
+                          "type": "string"
+                        }
+                      },
+                      "title": "WixPagesDomainMapping",
+                      "type": "object"
+                    },
+                    "maxItems": 200,
+                    "title": "wixPagesDomainsMappings",
+                    "type": "array"
+                  }
+                },
+                "title": "OAuthApp",
+                "type": "object"
+              }
+            },
+            "required": [
+              "oAuthApp",
+              "oAuthApp.name"
+            ],
+            "title": "CreateOAuthAppRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "oAuthApp": {
+            "$circular": "wix.headless.v1.OAuthApp",
+            "description": "Created OAuth app info.",
+            "summary": "oAuthApp"
+          }
+        },
+        "title": "CreateOAuthAppResponse",
+        "type": "object"
+      }
+    },
+    "title": "Create OAuth App"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-management/headless/oauth-apps/get-oauth-app",
+    "examples": [
+      {
+        "request": "curl -X GET \\\n'https://www.wixapis.com/oauth-app/v1/oauth-apps/adddb436-aa2c-474a-8f0e-af719f3acd5b' \\\n-H 'Authorization: \u003cAUTH\u003e \\\n-H 'Content-Type: application/json' \\",
+        "response": "{\n  \"oAuthApp\": {\n    \"id\": \"adddb436-aa2c-474a-8f0e-af719f3acd5b\",\n    \"createdDate\": \"2023-03-28T13:43:48.959Z\",\n    \"name\": \"Test app\",\n    \"description\": \"Some test app\",\n    \"allowedRedirectDomains\": [],\n    \"loginUrl\": \"\",\n    \"logoutUrl\": \"\",\n    \"allowedRedirectUris\": [],\n    \"applicationType\": \"OAUTH_APP_TYPE_UNSPECIFIED\",\n    \"technology\": \"OAUTH_APP_TECHNOLOGY_UNSPECIFIED\",\n  }\n}",
+        "title": "Get an OAuth app by ID"
+      }
+    ],
+    "httpMethod": "GET",
+    "operationId": "wix.headless.v1.OAuthAppService.GetOAuthApp",
+    "parameters": [
+      {
+        "description": "ID of the OAuth app to retrieve.",
+        "in": "path",
+        "name": "oAuthAppId",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "permissions": [
+      "OAUTH_APP.APP_READ"
+    ],
+    "publicUrl": "https://www.wixapis.com/oauth-app/v1/oauth-apps/{oAuthAppId}",
+    "responses": {
+      "200": {
+        "properties": {
+          "oAuthApp": {
+            "$circular": "wix.headless.v1.OAuthApp",
+            "description": "Retrieved OAuth app info.",
+            "summary": "oAuthApp"
+          }
+        },
+        "title": "GetOAuthAppResponse",
+        "type": "object"
+      }
+    },
+    "title": "Get OAuth App"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-management/headless/oauth-apps/update-oauth-app",
+    "examples": [
+      {
+        "request": "curl -X PATCH \\\n'https://www.wixapis.com/oauth-app/v1/oauth-apps/adddb436-aa2c-474a-8f0e-af719f3acd5b' \\\n-H 'Authorization: \u003cAUTH\u003e \\\n-H 'Content-Type: application/json' \\\n-d '{\n  \"oAuthApp\": {\n    \"allowedRedirectDomains\": [\"www.my-test-site.com\"]\n  },\n  \"mask\": {\n    \"path\": \"allowedRedirectDomains\"\n  }\n}'",
+        "response": "{\n  \"oAuthApp\": {\n    \"id\": \"adddb436-aa2c-474a-8f0e-af719f3acd5b\",\n    \"createdDate\": \"2023-03-28T13:43:48.959Z\",\n    \"name\": \"Test app\",\n    \"description\": \"Some test app\",\n    \"allowedRedirectDomains\": [\"www.my-test-site.com\"],\n    \"allowedRedirectUris\": []\n  }\n}",
+        "title": "Update an existing OAuth app"
+      }
+    ],
+    "httpMethod": "PATCH",
+    "operationId": "wix.headless.v1.OAuthAppService.UpdateOAuthApp",
+    "parameters": [
+      {
+        "description": "ID of the OAuth app.",
+        "in": "path",
+        "name": "oAuthApp.id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "permissions": [
+      "OAUTH_APP.APP_UPDATE"
+    ],
+    "publicUrl": "https://www.wixapis.com/oauth-app/v1/oauth-apps/{oAuthApp.id}",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {
+              "mask": {
+                "description": "Explicit list of fields to update. Only fields listed are updated.",
+                "properties": {
+                  "paths": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "paths",
+                    "type": "array"
+                  }
+                },
+                "title": "mask",
+                "type": "object"
+              },
+              "oAuthApp": {
+                "description": "An intermediary application that authorizes and authenticates an external client to access data on a Wix project or site.",
+                "properties": {
+                  "allowSecretGeneration": {
+                    "description": "For internal use only.",
+                    "title": "allowSecretGeneration",
+                    "type": "boolean"
+                  },
+                  "allowedRedirectDomains": {
+                    "description": "List of domains to which redirection from Wix is allowed after processes other than authentication.\n\nWhen a client redirects a user to a Wix page (for example, for checkout), the client provides a URL to redirect the user back to.\nWix only redirects the user if the URL is in one of the specified domains.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 20,
+                    "title": "allowedRedirectDomains",
+                    "type": "array"
+                  },
+                  "allowedRedirectUris": {
+                    "description": "List of URIs to which redirection from Wix is allowed after authentication.\n\nWhen a client redirects a user to Wix for authentication, the client provides a URI to redirect the user back to after the user has been authenticated.\nWix only redirects the user if the exact URI is contained in this array.",
+                    "format": "URI",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 20,
+                    "title": "allowedRedirectUris",
+                    "type": "array"
+                  },
+                  "applicationType": {
+                    "description": "OAuth application type.",
+                    "enum": [
+                      {
+                        "description": "OAuth app type is not specified.",
+                        "value": "OAUTH_APP_TYPE_UNSPECIFIED"
+                      },
+                      {
+                        "description": "OAuth app type is a web application.",
+                        "value": "WEB_APP"
+                      },
+                      {
+                        "description": "OAuth app type is a mobile application.",
+                        "value": "MOBILE"
+                      },
+                      {
+                        "description": "OAuth app type is some other type of application.",
+                        "value": "OTHER"
+                      }
+                    ],
+                    "title": "OAuthAppType",
+                    "type": "string"
+                  },
+                  "createdDate": {
+                    "description": "Date and time the OAuth app was created, in ISO 8601 format.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "createdDate",
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "Description of the OAuth app, as it appears in the dashboard.",
+                    "title": "description",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "ID of the OAuth app.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "loginUrl": {
+                    "description": "External login URL to which users are redirected automatically to authenticate. If no login URL is specified, the user is redirected to Wix to authenticate.",
+                    "format": "WEB_URL",
+                    "title": "loginUrl",
+                    "type": "string"
+                  },
+                  "logoutUrl": {
+                    "description": "External logout URL to which we invoke when user logout at wix. If no logout URL is specified, the user is logged out only at Wix.",
+                    "format": "WEB_URL",
+                    "title": "logoutUrl",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Display name of the OAuth app, as it appears in the dashboard.",
+                    "maxLength": 256,
+                    "minLength": 2,
+                    "title": "name",
+                    "type": "string"
+                  },
+                  "redirectUrlWixPages": {
+                    "description": "Redirect url for Wix-hosted pages.",
+                    "maxLength": 1024,
+                    "title": "redirectUrlWixPages",
+                    "type": "string"
+                  },
+                  "secret": {
+                    "description": "For internal use only.",
+                    "readOnly": true,
+                    "title": "secret",
+                    "type": "string"
+                  },
+                  "technology": {
+                    "description": "OAuth technology used by the oauth application.",
+                    "enum": [
+                      {
+                        "description": "The OAuth technology is not specified.",
+                        "value": "OAUTH_TECHNOLOGY_UNSPECIFIED"
+                      },
+                      {
+                        "description": "OAuth technology using JavaScript.",
+                        "value": "JAVASCRIPT"
+                      },
+                      {
+                        "description": "OAuth technology using Angular.",
+                        "value": "ANGULAR"
+                      },
+                      {
+                        "description": "OAuth technology using Vue.js.",
+                        "value": "VUE"
+                      },
+                      {
+                        "description": "OAuth technology using React.",
+                        "value": "REACT"
+                      },
+                      {
+                        "description": "OAuth technology using React Native.",
+                        "value": "REACT_NATIVE"
+                      },
+                      {
+                        "description": "OAuth technology using iOS.",
+                        "value": "IOS"
+                      },
+                      {
+                        "description": "OAuth technology using Android.",
+                        "value": "ANDROID"
+                      },
+                      {
+                        "description": "OAuth technology using some other kind of technology.",
+                        "value": "OTHER_TECHNOLOGY"
+                      }
+                    ],
+                    "title": "OAuthTechnologies",
+                    "type": "string"
+                  },
+                  "wixPagesDomainsMappings": {
+                    "description": "List of domain mappings from external domains to Wix domains.\nWhen a user accesses a non-Wix domain, they can be automatically forwarded to the corresponding\nWix domain based on these mappings. This enables domain-level redirection from\nexternal domains to Wix-hosted pages.",
+                    "items": {
+                      "properties": {
+                        "destination": {
+                          "maxLength": 2048,
+                          "title": "destination",
+                          "type": "string"
+                        },
+                        "origin": {
+                          "maxLength": 2048,
+                          "title": "origin",
+                          "type": "string"
+                        }
+                      },
+                      "title": "WixPagesDomainMapping",
+                      "type": "object"
+                    },
+                    "maxItems": 200,
+                    "title": "wixPagesDomainsMappings",
+                    "type": "array"
+                  }
+                },
+                "title": "OAuthApp",
+                "type": "object"
+              }
+            },
+            "required": [
+              "oAuthApp",
+              "oAuthApp.id"
+            ],
+            "title": "UpdateOAuthAppRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "oAuthApp": {
+            "$circular": "wix.headless.v1.OAuthApp",
+            "description": "Updated OAuth app info.",
+            "summary": "oAuthApp"
+          }
+        },
+        "title": "UpdateOAuthAppResponse",
+        "type": "object"
+      }
+    },
+    "title": "Update OAuth App"
+  }
+]

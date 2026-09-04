@@ -13,11 +13,18 @@
     "test:fast": "BASE_URL=http://localhost:4321 playwright test",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report",
-    "test:install": "playwright install --with-deps chromium firefox webkit"
+    "test:install": "playwright install --with-deps chromium firefox webkit",
+    "wix:dev": "WIX_BUILD=true wix dev",
+    "wix:build": "WIX_BUILD=true wix build",
+    "wix:preview": "WIX_BUILD=true wix preview",
+    "wix:release": "WIX_BUILD=true wix release"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^5.18.2"
+    "astro": "^5.18.2",
+    "@wix/sdk": "^1.15.23",
+    "@wix/essentials": "^0.1.23",
+    "@wix/dashboard": "^1.3.43"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
@@ -25,6 +32,14 @@
     "@fontsource/dm-serif-display": "^5.3.0",
     "@playwright/test": "^1.62.1",
     "@types/js-yaml": "^4.0.9",
-    "js-yaml": "^4.3.2"
+    "js-yaml": "^4.3.2",
+    "@astrojs/react": "^4.3.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@wix/cli": "^1.1.92",
+    "@wix/astro": "^2.39.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@wix/astro-wix-hosting-adapter": "^2.0.0"
   }
 }

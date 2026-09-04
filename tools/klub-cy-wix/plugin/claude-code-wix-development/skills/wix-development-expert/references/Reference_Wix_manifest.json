@@ -1,0 +1,86 @@
+[
+  {
+    "workstream": "Wix Platform Architecture and Development Path Decision Guide",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/ytUOSnvh2swJxCVKNVmyf0/sandbox/im4h0rBikoMxdWyaWiOaTn_1788352479275_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1hcmNoaXRlY3R1cmUtY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveXRVT1Nudmgyc3dKeENWS05WbXlmMC9zYW5kYm94L2ltNGgwckJpa29NeGRXeWFXaU9hVG5fMTc4ODM1MjQ3OTI3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWhjbU5vYVhSbFkzUjFjbVV0WTJoaGNIUmxjZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICMbfwj4Hc6617RaI-Cwf6bK9aFQKL3HTjJg2zbUCDPFAiBICG9C8zYElQNu1DtMWdkODzUXdCfb06BrifdZkrKo5Q__",
+    "destination": "corpus/Reference_Wix_01_Wix_Platform_Architecture_and_Development_Path_Decision_Guide.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Unified Wix API Reference",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/CZJv7OhQSunMc6Ju6zKoCb/sandbox/feGEuXP6YVR3xxmYbVcJkN_1788352590637_na1fn_L2hvbWUvdWJ1bnR1L3dpeF91bmlmaWVkX2FwaV9yZWZlcmVuY2U.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQ1pKdjdPaFFTdW5NYzZKdTZ6S29DYi9zYW5kYm94L2ZlR0V1WFA2WVZSM3h4bVliVmNKa05fMTc4ODM1MjU5MDYzN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVGOTFibWxtYVdWa1gyRndhVjl5WldabGNtVnVZMlUubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIHZHJR7JStza31UX1TGKWMsq2pbuNJjWxaDY2EyYr9wdAiBU4mMH7tqZkPBZFEtmMGeA4sy1xRi7M2Yyfc6Es5Wgew__",
+    "destination": "corpus/Reference_Wix_02_Unified_Wix_API_Reference.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix Authentication, Authorization, and Security Reference",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/X86PD9axLuY8LRSK1GIP2z/sandbox/kGJ5LAf4cImK0VPeVRNnw5_1788352436087_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1hdXRoLWNoYXB0ZXI.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWDg2UEQ5YXhMdVk4TFJTSzFHSVAyei9zYW5kYm94L2tHSjVMQWY0Y0ltSzBWUGVWUk5udzVfMTc4ODM1MjQzNjA4N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWhkWFJvTFdOb1lYQjBaWEkubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCSaCbE3ea8x6wwF6PNhI7rkPbUBeiiyGcZqcQgGnoUegIgT-xcVFncvGKw8-Hb4o7K3MohcxoKQ61d8IuFiItVi1M_",
+    "destination": "corpus/Reference_Wix_03_Wix_Authentication_Authorization_and_Security_Reference.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix CLI and Code-First Wix Site Development",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/RIi0IYZL6P87fcbG84lnuO/sandbox/0Grd3tV4uIfU7xmXDupmpZ_1788352504189_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1jbGktY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUklpMElZWkw2UDg3ZmNiRzg0bG51Ty9zYW5kYm94LzBHcmQzdFY0dUlmVTd4bVhEdXBtcFpfMTc4ODM1MjUwNDE4OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWpiR2t0WTJoaGNIUmxjZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDp67DGwDOl5juwx5blZgWYeE0FR-uxQZ9rRKE3QYb22QIhALXqrd7531rPXpXP2l8RfcjL9MYpr-8d8--rc88xE-Vt",
+    "destination": "corpus/Reference_Wix_04_Wix_CLI_and_Code_First_Wix_Site_Development.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix Headless Architecture & Integration",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/S2OjZUDTmHYSU0tFz5vn8v/sandbox/9M52gdyUtdP1sMQCuVO77u_1788352407603_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1oZWFkbGVzcy1jaGFwdGVy.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUzJPalpVRFRtSFlTVTB0Rno1dm44di9zYW5kYm94LzlNNTJnZHlVdGRQMXNNUUN1Vk83N3VfMTc4ODM1MjQwNzYwM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMW9aV0ZrYkdWemN5MWphR0Z3ZEdWeS5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCHXv~LAXjWtKmqyMkDm3BCC3MwnfQ3-NshA2P9Bt-ajAIhAKorOCWZvJgfJu-OUvesPaa6pUVnFgTqlKzGbmPHCKE7",
+    "destination": "corpus/Reference_Wix_05_Wix_Headless_Architecture_Integration.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix App Development: Comprehensive Reference",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/fFsK9sbQAApL6k3Xnn9IIc/sandbox/3c3PaRM8wsuXcLI7ezl6yG_1788352462213_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1hcHAtZGV2ZWxvcG1lbnQtY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZkZzSzlzYlFBQXBMNmszWG5uOUlJYy9zYW5kYm94LzNjM1BhUk04d3N1WGNMSTdlemw2eUdfMTc4ODM1MjQ2MjIxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWhjSEF0WkdWMlpXeHZjRzFsYm5RdFkyaGhjSFJsY2cubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIGQ7xd1wV63oBmlN3fDEkROgVREGbkkV0F75fQIRyuawAiABDvMX4X89389OT4jVDgMXxQlKr2mhrooxGTDhjjJzGw__",
+    "destination": "corpus/Reference_Wix_06_Wix_App_Development_Comprehensive_Reference.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix MCP, Claude Code, and Official Wix Skills",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/zS2MZYAirIdWLMsJ552KDH/sandbox/l6WRwgZQUmkcs7GNBq832O_1788352472289_na1fn_L2hvbWUvdWJ1bnR1L3dpeF9tY3BfY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvelMyTVpZQWlySWRXTE1zSjU1MktESC9zYW5kYm94L2w2V1J3Z1pRVW1rY3M3R05CcTgzMk9fMTc4ODM1MjQ3MjI4OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVGOXRZM0JmWTJoaGNIUmxjZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQDP-sC0pZ-OawojVygZwRrR9xz9jrsCYXvfZS1SC1HnuwIhALk4aRvFz2RLIJonyDAhoqHaWvQBNkhS1NlKvLb1p4vn",
+    "destination": "corpus/Reference_Wix_07_Wix_MCP_Claude_Code_and_Official_Wix_Skills.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix AI Platform and Agent-Facing Capabilities",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/xIk5MZbgnUxTlUMWCdhX0d/sandbox/Y2W34H64WSSKmArMLo02AV_1788352422052_na1fn_L2hvbWUvdWJ1bnR1L3dpeF9haV9jaGFwdGVy.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveElrNU1aYmduVXhUbFVNV0NkaFgwZC9zYW5kYm94L1kyVzM0SDY0V1NTS21Bck1MbzAyQVZfMTc4ODM1MjQyMjA1Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVGOWhhVjlqYUdGd2RHVnkubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFIMDtPdl8l8QCiz8ZnO3eGdsPZogGQgeFxT2RobX75~AiAns6Qs8B6Ju7SsskRpocUwQ7Ot-BYCQTqkoMRgWxQwLw__",
+    "destination": "corpus/Reference_Wix_08_Wix_AI_Platform_and_Agent_Facing_Capabilities.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix Development: CMS, Data, Media, Forms, CRM, Members, and Migrations",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/Qmpho9nKryBq0naqbFoa3S/sandbox/9R2sk9fHRbNeFTEzGPHm9Q_1788352612144_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1kZXZlbG9wbWVudC1jaGFwdGVy.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUW1waG85bktyeUJxMG5hcWJGb2EzUy9zYW5kYm94LzlSMnNrOWZIUmJOZUZURXpHUEhtOVFfMTc4ODM1MjYxMjE0NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWtaWFpsYkc5d2JXVnVkQzFqYUdGd2RHVnkubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIG8hRxGQJkKvfUO9HFHZxs1UAgIHnvuULKHkjPag53h4AiBg1eBaiJE79NUIrogg8lUZSVSkFS8WWjFzdI~T4Q0p5g__",
+    "destination": "corpus/Reference_Wix_09_Wix_Development_CMS_Data_Media_Forms_CRM_Members_and_Migrations.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix Business and Account APIs: Reference Guide",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/fHmuaN8277nlhx3MaONt2k/sandbox/F3NXPUhdYhuWjcN83IhHlY_1788352450521_na1fn_L2hvbWUvdWJ1bnR1L3dpeF9idXNpbmVzc19hY2NvdW50X2FwaXM.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZkhtdWFOODI3N25saHgzTWFPTnQyay9zYW5kYm94L0YzTlhQVWhkWWh1V2pjTjgzSWhIbFlfMTc4ODM1MjQ1MDUyMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVGOWlkWE5wYm1WemMxOWhZMk52ZFc1MFgyRndhWE0ubWQiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEYCIQCcSyrBiFhoQn9hOtMAZphp-WeHMKwSGSq1or91ZygZxwIhAIORaG5RPCEfasE-9miBHf8KSY41y0aoB5sfweP3A8An",
+    "destination": "corpus/Reference_Wix_10_Wix_Business_and_Account_APIs_Reference_Guide.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Wix Design and Site Implementation",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/8es92xRewNrXsSCXyUijPo/sandbox/QtVn1ITvEynf5KsD4Ilh3G_1788352545638_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1kZXNpZ24taW1wbGVtZW50YXRpb24tY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOGVzOTJ4UmV3TnJYc1NDWHlVaWpQby9zYW5kYm94L1F0Vm4xSVR2RXluZjVLc0Q0SWxoM0dfMTc4ODM1MjU0NTYzOF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMWtaWE5wWjI0dGFXMXdiR1Z0Wlc1MFlYUnBiMjR0WTJoaGNIUmxjZy5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCIFqrNqLTCreijWusETA8vY-Yg10XoTI-k7pq1-Pb8Nw0AiAZAzNMgsEmtxM37NkH6yyoo0kh~HAqBhkIiOrBsYCWvw__",
+    "destination": "corpus/Reference_Wix_11_Wix_Design_and_Site_Implementation.md",
+    "source_count": null,
+    "confidence": "high"
+  },
+  {
+    "workstream": "Existing-Site-to-Wix Migration and Replatforming",
+    "source": "https://private-us-east-1.manuscdn.com/sessionFile/Y8EIQxZzsQVYraW0QgRey0/sandbox/k0OetXo1lmfFfUVrqgfkNJ_1788352482199_na1fn_L2hvbWUvdWJ1bnR1L3dpeC1taWdyYXRpb24tY2hhcHRlcg.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWThFSVF4WnpzUVZZcmFXMFFnUmV5MC9zYW5kYm94L2swT2V0WG8xbG1mRmZVVnJxZ2ZrTkpfMTc4ODM1MjQ4MjE5OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNkcGVDMXRhV2R5WVhScGIyNHRZMmhoY0hSbGNnLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCFNxwOcWYEYHmIH49c5J0hzjWK6CQaxacq8-d8JB359gIgafuuf2UXaF5fLoUS4tLa0gRlnubykeFNBDedlitWHvY_",
+    "destination": "corpus/Reference_Wix_12_Existing_Site_to_Wix_Migration_and_Replatforming.md",
+    "source_count": null,
+    "confidence": "high"
+  }
+]

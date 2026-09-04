@@ -1,0 +1,446 @@
+[
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/import-file",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n  'https://www.wixapis.com/site-media/v1/files/import' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -H 'Content-Type: application/json' \\\n  --data-binary '{\n    \"mimeType\": \"image/jpeg\",\n    \"displayName\": \"T-shirt\",\n    \"parentFolderId\":\"25284aa06584441ea94338fdcfbaba12\",\n    \"private\": false,\n    \"url\": \"https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png\"\n  }'",
+        "response": "{\n  \"file\": {\n    \"id\": \"4acbb8_f968336b3fea4cbebc056d5c41f9944d~mv2.png\",\n    \"displayName\": \"T-shirt.png\",\n    \"url\": \"https://static.wixstatic.com/media/4acbb8_f968336b3fea3cbebc056d5c41f9944d~mv2.png\",\n    \"parentFolderId\": \"25284aa06584441ea94338fdcfbaba12\",\n    \"hash\": \"\",\n    \"sizeInBytes\": \"7108\",\n    \"private\": false,\n    \"mediaType\": \"IMAGE\",\n    \"media\": null,\n    \"operationStatus\": \"PENDING\",\n    \"sourceUrl\": \"https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png\",\n    \"thumbnailUrl\": \"https://static.wixstatic.com/media/4acbb8_f968336b3f4a4cbebc056d5c41f9944d~mv2.png\",\n    \"labels\": [],\n    \"createdDate\": \"2022-08-31T18:20:37Z\",\n    \"updatedDate\": \"2022-08-31T18:20:37Z\",\n    \"state\": \"OK\"\n  }\n}",
+        "title": "Import a file using an external URL"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "com.wix.media.site_media.v1.FilesService.ImportFile",
+    "parameters": [],
+    "permissions": [
+      "MEDIA.SITE_MEDIA_FILES_IMPORT"
+    ],
+    "publicUrl": "https://www.wixapis.com/site-media/v1/files/import",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {
+              "displayName": {
+                "description": "File name that appears in the Media Manager.\nThe file name is truncated to 255 characters if longer.",
+                "maxLength": 1000,
+                "title": "displayName",
+                "type": "string"
+              },
+              "externalInfo": {
+                "properties": {
+                  "externalIds": {
+                    "description": "External IDs to specify in the File Ready or File Failed events.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 30,
+                    "maxLength": 4000,
+                    "title": "externalIds",
+                    "type": "array"
+                  },
+                  "origin": {
+                    "description": "External information to specify in the File Ready or File Failed events.",
+                    "maxLength": 1000,
+                    "title": "origin",
+                    "type": "string"
+                  }
+                },
+                "title": "ExternalInfo",
+                "type": "object"
+              },
+              "filePath": {
+                "description": "Path to the folder where the file will be stored.\nFor example, `/videos/2024/december`. \u003cbr/\u003e\nIf `parentFolderId` is defined, the parent folder is used as the path root. Otherwise, the root is `media-root`.\nThe folders in the path will be created if they don't already exist.  \u003cbr /\u003e",
+                "maxLength": 100,
+                "title": "filePath",
+                "type": "string"
+              },
+              "mediaType": {
+                "description": "Media type of the file to import.\nexcluding: OTHER media type",
+                "enum": [
+                  {
+                    "value": "UNKNOWN"
+                  },
+                  {
+                    "value": "IMAGE"
+                  },
+                  {
+                    "value": "VIDEO"
+                  },
+                  {
+                    "value": "AUDIO"
+                  },
+                  {
+                    "value": "DOCUMENT"
+                  },
+                  {
+                    "value": "VECTOR"
+                  },
+                  {
+                    "value": "ARCHIVE"
+                  },
+                  {
+                    "value": "MODEL3D"
+                  },
+                  {
+                    "value": "OTHER"
+                  }
+                ],
+                "title": "mediaType",
+                "type": "string"
+              },
+              "mimeType": {
+                "description": "File mime type.",
+                "maxLength": 100,
+                "title": "mimeType",
+                "type": "string"
+              },
+              "parentFolderId": {
+                "description": "ID of the file's parent folder. \u003cbr /\u003e\nThis folder is the path root for the `filePath`. \u003cbr /\u003e\nDefault: `media-root`.",
+                "maxLength": 100,
+                "title": "parentFolderId",
+                "type": "string"
+              },
+              "private": {
+                "description": "Whether the file will be public or private. Learn more [about private files](https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/private-files).",
+                "title": "private",
+                "type": "boolean"
+              },
+              "url": {
+                "description": "Publicly accessible external file URL.",
+                "format": "WEB_URL",
+                "minLength": 2,
+                "title": "url",
+                "type": "string"
+              },
+              "urlHeaders": {
+                "properties": {
+                  "fields": {
+                    "format": "map",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "boolValue": {
+                                "title": "boolValue",
+                                "type": "boolean"
+                              },
+                              "listValue": {
+                                "properties": {
+                                  "values": {
+                                    "items": {
+                                      "$circular": "google.protobuf.Value"
+                                    },
+                                    "title": "values",
+                                    "type": "array"
+                                  }
+                                },
+                                "title": "ListValue",
+                                "type": "object"
+                              },
+                              "nullValue": {
+                                "enum": [
+                                  {
+                                    "value": "NULL_VALUE"
+                                  }
+                                ],
+                                "title": "NullValue",
+                                "type": "string"
+                              },
+                              "numberValue": {
+                                "title": "numberValue",
+                                "type": "number"
+                              },
+                              "stringValue": {
+                                "title": "stringValue",
+                                "type": "string"
+                              },
+                              "structValue": {
+                                "$circular": "google.protobuf.Struct"
+                              }
+                            },
+                            "title": "kind",
+                            "type": "object"
+                          }
+                        ],
+                        "properties": {},
+                        "title": "Value",
+                        "type": "object"
+                      }
+                    },
+                    "title": "fields",
+                    "type": "object"
+                  }
+                },
+                "title": "Struct",
+                "type": "object"
+              },
+              "urlParams": {
+                "description": "Optional parameters that should be sent with the external URL.",
+                "properties": {
+                  "fields": {
+                    "format": "map",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "boolValue": {
+                                "title": "boolValue",
+                                "type": "boolean"
+                              },
+                              "listValue": {
+                                "properties": {
+                                  "values": {
+                                    "items": {
+                                      "oneOf": [
+                                        {
+                                          "properties": {
+                                            "boolValue": {
+                                              "title": "boolValue",
+                                              "type": "boolean"
+                                            },
+                                            "listValue": {
+                                              "properties": {
+                                                "values": {
+                                                  "items": {
+                                                    "$circular": "google.protobuf.Value"
+                                                  },
+                                                  "title": "values",
+                                                  "type": "array"
+                                                }
+                                              },
+                                              "title": "ListValue",
+                                              "type": "object"
+                                            },
+                                            "nullValue": {
+                                              "enum": [
+                                                {
+                                                  "value": "NULL_VALUE"
+                                                }
+                                              ],
+                                              "title": "NullValue",
+                                              "type": "string"
+                                            },
+                                            "numberValue": {
+                                              "title": "numberValue",
+                                              "type": "number"
+                                            },
+                                            "stringValue": {
+                                              "title": "stringValue",
+                                              "type": "string"
+                                            },
+                                            "structValue": {
+                                              "properties": {
+                                                "fields": {
+                                                  "format": "map",
+                                                  "properties": {
+                                                    "key": {
+                                                      "type": "string"
+                                                    },
+                                                    "value": {
+                                                      "$circular": "google.protobuf.Value"
+                                                    }
+                                                  },
+                                                  "title": "fields",
+                                                  "type": "object"
+                                                }
+                                              },
+                                              "title": "Struct",
+                                              "type": "object"
+                                            }
+                                          },
+                                          "title": "kind",
+                                          "type": "object"
+                                        }
+                                      ],
+                                      "properties": {},
+                                      "title": "Value",
+                                      "type": "object"
+                                    },
+                                    "title": "values",
+                                    "type": "array"
+                                  }
+                                },
+                                "title": "listValue",
+                                "type": "object"
+                              },
+                              "nullValue": {
+                                "enum": [
+                                  {
+                                    "value": "NULL_VALUE"
+                                  }
+                                ],
+                                "title": "nullValue",
+                                "type": "string"
+                              },
+                              "numberValue": {
+                                "title": "numberValue",
+                                "type": "number"
+                              },
+                              "stringValue": {
+                                "title": "stringValue",
+                                "type": "string"
+                              },
+                              "structValue": {
+                                "properties": {
+                                  "fields": {
+                                    "format": "map",
+                                    "properties": {
+                                      "key": {
+                                        "type": "string"
+                                      },
+                                      "value": {
+                                        "oneOf": [
+                                          {
+                                            "properties": {
+                                              "boolValue": {
+                                                "title": "boolValue",
+                                                "type": "boolean"
+                                              },
+                                              "listValue": {
+                                                "properties": {
+                                                  "values": {
+                                                    "items": {
+                                                      "$circular": "google.protobuf.Value"
+                                                    },
+                                                    "title": "values",
+                                                    "type": "array"
+                                                  }
+                                                },
+                                                "title": "ListValue",
+                                                "type": "object"
+                                              },
+                                              "nullValue": {
+                                                "enum": [
+                                                  {
+                                                    "value": "NULL_VALUE"
+                                                  }
+                                                ],
+                                                "title": "NullValue",
+                                                "type": "string"
+                                              },
+                                              "numberValue": {
+                                                "title": "numberValue",
+                                                "type": "number"
+                                              },
+                                              "stringValue": {
+                                                "title": "stringValue",
+                                                "type": "string"
+                                              },
+                                              "structValue": {
+                                                "$circular": "google.protobuf.Struct"
+                                              }
+                                            },
+                                            "title": "kind",
+                                            "type": "object"
+                                          }
+                                        ],
+                                        "properties": {},
+                                        "title": "Value",
+                                        "type": "object"
+                                      }
+                                    },
+                                    "title": "fields",
+                                    "type": "object"
+                                  }
+                                },
+                                "title": "Struct",
+                                "type": "object"
+                              }
+                            },
+                            "summary": "kind",
+                            "title": "kind",
+                            "type": "object"
+                          }
+                        ],
+                        "properties": {},
+                        "title": "Value",
+                        "type": "object"
+                      }
+                    },
+                    "title": "fields",
+                    "type": "object"
+                  }
+                },
+                "title": "urlParams",
+                "type": "object"
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "title": "ImportFileRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "file": {
+            "$circular": "com.wix.media.site_media.v1.FileDescriptor",
+            "description": "Information about the imported file.",
+            "summary": "file"
+          }
+        },
+        "title": "ImportFileResponse",
+        "type": "object"
+      }
+    },
+    "title": "Import File"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/get-file-descriptor",
+    "examples": [
+      {
+        "request": "curl -X GET \\\n  'https://www.wixapis.com/site-media/v1/files/get-file-by-id?fileId=4acbb8_5646ee01a5524905af4f2e7c567cbbce' \\\n  -H 'Authorization: \u003cAUTH\u003e'",
+        "response": "{\n  \"file\": {\n    \"id\": \"4acbb8_5646ee01a5524905af4f2e7c567cbbce\",\n    \"displayName\": \"sample-mpg-file.mpg\",\n    \"url\": \"https://video.wixstatic.com/video/4acbb8_5646ee01a5524905af4f2e7c567cbbce/file\",\n    \"parentFolderId\": \"media-root\",\n    \"hash\": \"6f9dad8f467c579269d96fdb4f7c95cd\",\n    \"sizeInBytes\": \"5918720\",\n    \"private\": false,\n    \"mediaType\": \"VIDEO\",\n    \"media\": {\n      \"video\": {\n        \"id\": \"4acbb8_5646ee01a5524905af4f2e7c567cbbce\",\n        \"resolutions\": [\n          {\n            \"url\": \"https://video.wixstatic.com/video/4acbb8_5646ee01a5524905af4f2e7c567cbbce/240p/mp4/file.mp4\",\n            \"height\": 240,\n            \"width\": 320,\n            \"format\": \"mp4\"\n          },\n          {\n            \"url\": \"https://files.wix.com/site/media/video/4acbb8_5646ee01a5524905af4f2e7c567cbbce/bee66e94-91b6-4ff2-b0b8-236c95361027/repackage/hls\",\n            \"height\": 0,\n            \"width\": 0,\n            \"format\": \"hls\"\n          },\n          {\n            \"url\": \"https://video.wixstatic.com/video/4acbb8_5646ee01a5524905af4f2e7c567cbbce/storyboard/144p/mp4/file.mp4\",\n            \"height\": 144,\n            \"width\": 192,\n            \"format\": \"mp4\"\n          }\n        ],\n        \"filename\": \"sample-mpg-file.mpg\"\n      }\n    },\n    \"operationStatus\": \"READY\",\n    \"thumbnailUrl\": \"https://static.wixstatic.com/media/4acbb8_5646ee01a5524905af4f2e7c567cbbcef002.jpg\",\n    \"labels\": [],\n    \"createdDate\": \"2022-08-21T15:39:09Z\",\n    \"updatedDate\": \"2022-08-21T15:39:21Z\",\n    \"state\": \"OK\"\n  }\n}",
+        "title": "Get information about a file"
+      }
+    ],
+    "httpMethod": "GET",
+    "operationId": "com.wix.media.site_media.v1.FilesService.GetFileDescriptor",
+    "parameters": [
+      {
+        "description": "File ID.\n\nYou can also specify the file's Wix media URL. For example, `wix:image://v1/0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg/leon.jpg#originWidth=3024\u0026originHeight=4032`.\nLearn more [about the file ID parameter](https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/file-id).\n\nIf you are working in REST, note that you must encode the Wix media URL to specify it as a query param because it contains special characters. For example, `wix:image://v1/0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg/leon.jpg#originWidth=3024\u0026originHeight=4032` becomes `wix%3Aimage%3A%2F%2Fv1%2F0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg%2Fleon.jpg%23originWidth%3D3024%26originHeight%3D4032`.",
+        "in": "query",
+        "name": "fileId",
+        "required": true,
+        "schema": {
+          "description": "File ID.\n\nYou can also specify the file's Wix media URL. For example, `wix:image://v1/0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg/leon.jpg#originWidth=3024\u0026originHeight=4032`.\nLearn more [about the file ID parameter](https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/file-id).\n\nIf you are working in REST, note that you must encode the Wix media URL to specify it as a query param because it contains special characters. For example, `wix:image://v1/0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg/leon.jpg#originWidth=3024\u0026originHeight=4032` becomes `wix%3Aimage%3A%2F%2Fv1%2F0abec0_b291a9349a0b4da59067f76287e386fb~mv2.jpg%2Fleon.jpg%23originWidth%3D3024%26originHeight%3D4032`.",
+          "maxLength": 1000,
+          "title": "fileId",
+          "type": "string"
+        }
+      }
+    ],
+    "permissions": [
+      "MEDIA.SITE_MEDIA_FILES_READ"
+    ],
+    "publicUrl": "https://www.wixapis.com/site-media/v1/files/get-file-by-id",
+    "responses": {
+      "200": {
+        "properties": {
+          "file": {
+            "$circular": "com.wix.media.site_media.v1.FileDescriptor",
+            "description": "Information about the file.",
+            "summary": "file"
+          }
+        },
+        "title": "GetFileDescriptorResponse",
+        "type": "object"
+      }
+    },
+    "title": "Get File Descriptor"
+  }
+]

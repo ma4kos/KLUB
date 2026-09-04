@@ -1,0 +1,38 @@
+[
+  {
+    "sourceId": "klub:faq-section:section-1",
+    "title": "Getting Started",
+    "sortOrder": 0,
+    "sourceHash": "8a0c4b849a915af2709a13726d69d9f3f0dd311b5c547b018135ca03d6154f92"
+  },
+  {
+    "sourceId": "klub:faq-section:section-2",
+    "title": "Classes & Booking",
+    "sortOrder": 1,
+    "sourceHash": "24674ea03939cad8d2de50532d9f98a46af0382df9cf10a2d32622e0f9788c32"
+  },
+  {
+    "sourceId": "klub:faq-section:section-3",
+    "title": "Location & Facilities",
+    "sortOrder": 2,
+    "sourceHash": "d092b4525781c426be045296ee78796e2e1fe8edd306c213a86967a19494a211"
+  },
+  {
+    "sourceId": "klub:faq-section:section-4",
+    "title": "Health & Safety",
+    "sortOrder": 3,
+    "sourceHash": "ba2006824c268f51c4d150a567c82de47a2ca64ac83111107ba2424db37e8d9c"
+  },
+  {
+    "sourceId": "klub:faq-section:section-5",
+    "title": "Pricing & Memberships",
+    "sortOrder": 4,
+    "sourceHash": "287f89891c07dec4e111663a8f633dd90f3fd9d20fe9f41296ef55ca6da9329f"
+  },
+  {
+    "sourceId": "klub:faq-section:section-6",
+    "title": "Language & Community",
+    "sortOrder": 5,
+    "sourceHash": "c36199e5b786eafdf54e7a59cb7f154e6864a437169f58410c63b4029a6230a9"
+  }
+]

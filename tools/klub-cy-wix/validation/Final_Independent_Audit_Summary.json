@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "input": "Security, no embedded credentials, target-lock correctness, independent Wix/deploy/domain gates, and destructive-operation boundaries",
+      "output": {
+        "audit_domain": "Security, no embedded credentials, target-lock correctness, independent Wix/deploy/domain gates, and destructive-operation boundaries",
+        "blocker_count": "",
+        "blockers": "NONE",
+        "report_file": "https://private-us-east-1.manuscdn.com/sessionFile/jNUbTzEeJC8ThWJfhUe42M/sandbox/k7B62FplVa6yWwAvVhhl8s_1788419442348_na1fn_L2hvbWUvdWJ1bnR1L2tsdWItY3ktYXVkaXQtcmVwb3J0.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvak5VYlR6RWVKQzhUaFdKZmhVZTQyTS9zYW5kYm94L2s3QjYyRnBsVmE2eVd3QXZWaGhsOHNfMTc4ODQxOTQ0MjM0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJ0c2RXSXRZM2t0WVhWa2FYUXRjbVZ3YjNKMC5tZCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEQCICmJ9aaL-W1j5uVOXx61dHIdedQpjJ2NQE5JibXZHG3eAiB9u8oJiD6C5R3f0-jbVdLkqoTJFcMgFPusLYeS66170g__",
+        "verdict": "PASS",
+        "warning_count": "",
+        "warnings": "NONE"
+      },
+      "error": ""
+    },
+    {
+      "input": "Claude Code plugin manifests, MCP configuration, local launcher paths, extraction instructions, skill/reference closure, and validator/example usability",
+      "output": {
+        "audit_domain": "Claude Code plugin manifests, MCP configuration, local launcher paths, extraction instructions, skill/reference closure, and validator/example usability",
+        "blocker_count": "",
+        "blockers": "NONE",
+        "report_file": "https://private-us-east-1.manuscdn.com/sessionFile/kaeqd2PzY5FlBeXSde60oa/sandbox/dJ5EoCZFtV91jXyyIWIfiE_1788419440329_na1fn_L2hvbWUvdWJ1bnR1L2F1ZGl0X3dvcmtzcGFjZS9hdWRpdF9yZXBvcnQ.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUva2FlcWQyUHpZNUZsQmVYU2RlNjBvYS9zYW5kYm94L2RKNUVvQ1pGdFY5MWpYeXlJV0lmaUVfMTc4ODQxOTQ0MDMyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGMVpHbDBYM2R2Y210emNHRmpaUzloZFdScGRGOXlaWEJ2Y25RLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQCo1DR4KJVQd5tpKV~3HQDF0Q9QTZwhjFMDNd6YAy-~-QIgBAzO5j39ig7UvAAaMUvJAztgn87VqWF3H~woVQR8FGU_",
+        "verdict": "PASS",
+        "warning_count": "",
+        "warnings": "NONE"
+      },
+      "error": ""
+    },
+    {
+      "input": "Live Wix REST/MCP contracts for CMS collections/items, paging, media upload, OAuth, backups, Forms, CRM contacts, exact endpoints, permissions, and read-back rules",
+      "output": {
+        "audit_domain": "Live Wix REST/MCP contracts",
+        "blocker_count": "",
+        "blockers": "NONE",
+        "report_file": "https://private-us-east-1.manuscdn.com/sessionFile/WmVp1TXte4gcqpZI8DDeKX/sandbox/XXsZ0xlUtkwbxcSK2S8ABJ_1788419508892_na1fn_L2hvbWUvdWJ1bnR1L2F1ZGl0X3JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvV21WcDFUWHRlNGdjcXBaSThERGVLWC9zYW5kYm94L1hYc1oweGxVdGt3YnhjU0syUzhBQkpfMTc4ODQxOTUwODg5Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGMVpHbDBYM0psY0c5eWRBLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDuWjO6sUSPFj-COIm56Oi7Owlp-mf~nW~foJlNU6yX-AIgEILkLwKCEygnL7B5e8bh9l6Ji4ATJvPNt5Tkj1~bU9Y_",
+        "verdict": "PASS",
+        "warning_count": "",
+        "warnings": "NONE"
+      },
+      "error": ""
+    },
+    {
+      "input": "One-shot prompt sequence, existing-repository safety, durable state, conditional idempotency, stop/resume behavior, recovery evidence, and truthful completion states",
+      "output": {
+        "audit_domain": "One-shot prompt sequence, safety, durable state, recovery, and completion states",
+        "blocker_count": "",
+        "blockers": "NONE",
+        "report_file": "https://private-us-east-1.manuscdn.com/sessionFile/jYBNR3bVzhLC2hqku0cYNc/sandbox/CoUzIt61ueDXGJLylWmUIO_1788419478870_na1fn_L2hvbWUvdWJ1bnR1L2F1ZGl0X3JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvallCTlIzYlZ6aExDMmhxa3UwY1lOYy9zYW5kYm94L0NvVXpJdDYxdWVEWEdKTHlsV21VSU9fMTc4ODQxOTQ3ODg3MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGMVpHbDBYM0psY0c5eWRBLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIDnLKA~92fgyPriFWBskQ3p3-jmWVW0Yfsy-~JEt5-LYAiEAq5fLS~0rq1F3aMk8zt59inb4GxCE7EG92dHiS14VuKc_",
+        "verdict": "PASS",
+        "warning_count": "",
+        "warnings": "NONE"
+      },
+      "error": ""
+    },
+    {
+      "input": "KLUB-CY migration architecture, existing Classic Editor self-managed Headless path, CMS/media/forms/CRM mapping, Bsport preservation and validation, Netlify preview/production separation, domain cutover, and rollback",
+      "output": {
+        "audit_domain": "KLUB-CY migration architecture",
+        "blocker_count": "",
+        "blockers": "NONE",
+        "report_file": "https://private-us-east-1.manuscdn.com/sessionFile/yhlv0Ow1I33iH7nWTKPvld/sandbox/WzGZM3v946Uw8ZCFOHlIr9_1788419404342_na1fn_L2hvbWUvdWJ1bnR1L2F1ZGl0X3JlcG9ydA.md?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveWhsdjBPdzFJMzNpSDduV1RLUHZsZC9zYW5kYm94L1d6R1pNM3Y5NDZVdzhaQ0ZPSGxJcjlfMTc4ODQxOTQwNDM0Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDJGMVpHbDBYM0psY0c5eWRBLm1kIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDRtD8OkpX50tFse46DwvrV-IVgZ5l6oUotuevWCEwkwQIgEtxHmPrGae9GCsdp5u4tm7J4bGDWv~nKfbjQZETSn6k_",
+        "verdict": "PASS",
+        "warning_count": "",
+        "warnings": "NONE"
+      },
+      "error": ""
+    }
+  ]
+}

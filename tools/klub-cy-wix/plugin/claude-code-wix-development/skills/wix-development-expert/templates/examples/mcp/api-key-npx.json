@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "wix-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wix/mcp-remote@latest",
+        "https://mcp.wix.com/mcp",
+        "--header",
+        "Authorization:${WIX_API_KEY}",
+        "--header",
+        "wix-account-id:${WIX_ACCOUNT_ID}"
+      ],
+      "env": {
+        "WIX_API_KEY": "${WIX_API_KEY}",
+        "WIX_ACCOUNT_ID": "${WIX_ACCOUNT_ID}"
+      }
+    }
+  }
+}
