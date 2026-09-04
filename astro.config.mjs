@@ -19,6 +19,22 @@ import wixHostingAdapter from '@wix/astro-wix-hosting-adapter';
 // Wix. The test suite runs `npm run build && npm run preview`, so if those
 // names pointed at the Wix toolchain — as they did immediately after
 // `headless link` — every CI run would attempt a deployment.
+//
+// TWO WIX SITE IDENTIFIERS LIVE IN THIS REPOSITORY. They are not in conflict;
+// they belong to different things:
+//
+//   wix.config.json                       cc7fa0d1-…  the Wix-managed headless
+//                                                     project that hosts THIS
+//                                                     site. The Wix CLI reads
+//                                                     it. This is the live one.
+//   tools/klub-cy-wix/config/*            20f11f6f-…  "KLUB-CY", the target of
+//                                                     the older self-managed
+//                                                     kit, which this repo does
+//                                                     NOT use. That site is an
+//                                                     unrelated empty sandbox.
+//
+// Do not "reconcile" them by copying one over the other. Running the kit's
+// scripts would act on the sandbox, not on this site.
 const WIX_BUILD = process.env.WIX_BUILD === 'true';
 
 // The site's public origin. Declared ONCE, here.
