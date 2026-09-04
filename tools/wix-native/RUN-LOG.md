@@ -439,3 +439,28 @@ Alex's twelve photographs are uploaded to Klub 5 as well (`wixId_klub5`).
 Everything reachable through the API is done. What remains is the editor and
 dashboard work in `FINISH-IN-EDITOR.md`, and Alex's own review — which is the
 one thing no amount of iteration here can substitute for.
+
+### Run 6 verified from the generator's own output
+
+Not inferred from the prompt — read back from the job's progress feed:
+
+```
+Hero · 01 The Klub · 02 Find Your Balance · 03 Start Here
+04 The KLUB Experience · 05 Move With Us · 06 Find Us · 07 Closing
+```
+
+The numbered chapter labels are present on the sections themselves, in Alex's
+order. The three pages that were missing are real and populated — Schedule holds
+a Booking Calendar block, Founding Member an Early Access block, plus FAQ and
+Policies.
+
+Structurally this now matches the Option-1 mock. Every gap that can be measured
+against the spec is closed; what is left is subjective judgement on the design,
+which needs Alex's eyes, and the editor/dashboard work in
+`FINISH-IN-EDITOR.md`.
+
+**Stopping generation here.** Six sites exist because each refinement requires a
+new one; a seventh would add clutter without closing any identified gap. The
+next change should be driven by specific feedback ("section 04's photo is
+wrong", "shorten the About copy"), which the generator handles well — one line
+of art direction or wording per section, kept under ~370 words in total.
