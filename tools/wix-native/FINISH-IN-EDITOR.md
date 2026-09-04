@@ -3,15 +3,20 @@
 Everything the Wix API can do has been done. What is left genuinely cannot be
 done through the API; this is the checklist for doing it in the browser.
 
-**The site to work on: "Klub 2"**
-`2a3b3fcb-a169-4101-a350-2d2e1e99e573`
+**The site to work on: "Klub 4"**
+`fbbcc5b2-c157-400b-aa9a-72617f47c16c`
 
-- Editor — https://editor.wix.com/edit/od/b4268c76-32eb-4e11-8db1-d19e8e07fc81?metaSiteId=2a3b3fcb-a169-4101-a350-2d2e1e99e573
-- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/b4268c76-32eb-4e11-8db1-d19e8e07fc81?metaSiteId=2a3b3fcb-a169-4101-a350-2d2e1e99e573
+- Editor — https://editor.wix.com/edit/od/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
+- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
 
 It already has: the 12 pages, the 8 homepage sections in Alex's order, his
-wording, the correct menu order, and **his 12 photographs sitting in the Media
-Manager ready to place**.
+wording, the correct menu order, **30 generated images shot to match the real
+studio** (warm light, plaster walls, black reformers, sheer curtains, plants),
+and **his 12 real photographs sitting in the Media Manager ready to place**.
+
+Because the generated imagery now matches the studio's register, swapping in the
+real photographs is an improvement rather than a rescue — the page reads
+correctly even before you start.
 
 ---
 
@@ -69,10 +74,10 @@ PATCH https://www.wixapis.com/promote/seo/v1/item-seo-tags/STATIC_PAGE/{itemId}
   "fieldMask": "tags" }
 ```
 
-Page IDs: Home `c1dmp` · Classes `ss38w` · Foundations `eeq4y` · Signature
-`cppey` · Mat `xkjwx` · Privates `yxedd` · Schedule `die2e` · Memberships
-`wgtdt` · About `fbunq` · Instructors `cv9bn` · Location `pw6u0` · Contact
-`ln1z1`. Titles are in `klub-wix-site-spec.json`.
+Page IDs on **Klub 4**: Home `c1dmp` · Classes `czyml` · Foundations `ghfp7` ·
+Signature `x98pp` · Mat `dmv1b` · Privates `v2g73` · Schedule `a2j34` ·
+Memberships `m5f7y` · About `auly0` · Instructors `kjl0a` · Location `zr96l` ·
+Contact `eplzf`. Titles are in `klub-wix-site-spec.json`.
 
 Note the documented quirk: `publish: true` writes only the published revision,
 never the saved one, so send each change twice if you want both.
@@ -89,12 +94,13 @@ cut-over is a separate, deliberate decision.
 
 | Site | What to do |
 |---|---|
-| **Klub 2** `2a3b3fcb` | **keep** — the build described above |
-| Klub 3 `e4576adc` | trash — the image-URL experiment; generator ignored the URLs |
+| **Klub 4** `fbbcc5b2` | **keep** — the build described above |
+| Klub 3 `e4576adc` | trash — image-URL experiment; generator ignored the URLs |
+| Klub 2 `2a3b3fcb` | trash — good copy, but generic imagery |
 | Klub 1 `a415605e` | trash — structure only, no copy |
 | Klub `0894a982` | **unpublish**, then trash — failed one-pager, currently live at markossymeonides.wixsite.com/klub |
 | KLUB Headless Test `cc7fa0d1` | leave alone |
 | KLUB-CY `20f11f6f` | leave alone |
 
 Each refinement needs a new generated site because reusing a `jobId` does
-nothing, which is why there are four. Nothing was deleted without asking.
+nothing, which is why there are five. Nothing was deleted without asking.

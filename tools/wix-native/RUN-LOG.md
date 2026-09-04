@@ -334,3 +334,45 @@ photographs uploaded to the Media Manager.
 What the API cannot do — placing those photographs, the locale, the bsport
 embed, the founding-member form — is written up as a ~30-minute checklist in
 `FINISH-IN-EDITOR.md`.
+
+---
+
+## Run 5 — steering the imagery. **This is the build to keep.**
+
+**Klub 4** — `fbbcc5b2-c157-400b-aa9a-72617f47c16c`
+Editor: https://editor.wix.com/edit/od/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
+Preview: https://editor.wix.com/html/editor/web/renderer/external_preview/document/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
+Job: `26c5fcb6-2f35-4197-b2a8-343e8c93c4e1`
+
+Run 4 proved the generator ignores supplied image URLs. It does not ignore
+**art direction**. This run kept the Run-3 structure and wording and added a
+photography brief — one paragraph of house style, plus a one-line scene
+description per section, all in the studio's real register: warm natural light,
+plaster walls, black reformer machines, sheer white curtains, potted plants,
+explicitly no gym equipment and no bright colours.
+
+| | Run 3 (Klub 2) | Run 4 (Klub 3) | Run 5 (Klub 4) |
+|---|---|---|---|
+| Pages | 12 | 12 | **12** |
+| Images generated | few, generic | **5**, generic | **30**, studio-matched |
+| Approach to imagery | none stated | URLs supplied (ignored) | **art direction** |
+
+Naming each section's scene made the generator produce roughly one image per
+section instead of a handful of stock fillers, and in the right visual register.
+This is as close to the Netlify site as the API alone can get.
+
+Alex's twelve real photographs are uploaded here too (`wixId_klub4` in
+`media-map.json`), so swapping them in is now a refinement rather than a repair.
+
+### The generator, summarised
+
+| Lever | Works? |
+|---|---|
+| Short prompt (~150–300 words) | **yes** — the single biggest factor |
+| Explicit page list with a count | **yes** |
+| Numbered sections with short names | **yes** |
+| Exact wording per section | **yes**, at ~300 words |
+| Art direction for photography | **yes** — one line per section |
+| Supplying image URLs | no — silently ignored |
+| Reusing a `jobId` to edit | no — always a no-op |
+| Long prompt (~1,000 words) | no — collapses to a generic one-pager |
