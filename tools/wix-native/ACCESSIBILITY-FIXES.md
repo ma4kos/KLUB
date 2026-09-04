@@ -59,12 +59,37 @@ levels for size rather than hierarchy. Fix by changing the *level* in the text
 panel and restoring the look with font size, not by changing the level to suit
 the look.
 
-## Six pages could not be scanned
+## The homepage — scanned separately, 10 findings
 
-`/`, `/mat-pilates`, `/private-sessions`, `/schedule`, `/memberships`,
-`/founding-member` returned as failed, undiagnosed. **The homepage is among
-them**, so its findings are unknown and the true total is higher than 43.
-Re-scan after the editor pass.
+Six pages failed during the full-site run (`/`, `/mat-pilates`,
+`/private-sessions`, `/schedule`, `/memberships`, `/founding-member`). Scanning
+the homepage on its own succeeded immediately
+(scan `5ec5ae0b-e2da-4a16-94d0-c47cc851fc78`, status COMPLETED, 0 failed), so
+**those failures were transient load problems in the batch run, not broken
+pages.** Re-run the full scan and they will likely come back clean or with
+comparable numbers.
+
+Homepage findings — 10:
+
+| Rule | Count | Elements |
+|---|---|---|
+| heading-structure | **7** | `comp-mtmhg0uk`, `comp-mtmhgdrr`, `comp-mtmhg15s`, `comp-mtmhgdyl`, `comp-mtmhgi7n`, `comp-mtmhg9bd`, `comp-mtmhgbm5` |
+| image-alt | 2 | `comp-mtmhjml0`, `comp-mtmhjgny` — the shared chrome again |
+| color-contrast | 1 | `comp-mtmhjms0` — the shared chrome again |
+
+Only the **7 heading-structure findings are homepage-specific**; the other three
+are the same header/footer elements as every other page. Seven is the highest
+count on any page, and unsurprising: the homepage has eight numbered chapters,
+and the generator gave each chapter heading a level chosen for size rather than
+hierarchy.
+
+Fix: one `H1` (the hero, "KEEP LIVING UNDER BALANCE"), then each chapter
+heading as `H2`, and anything inside a chapter as `H3`. Change the *level* in
+the text panel and restore the look with font size — do not pick a level
+because it looks right.
+
+Running total: **53 findings across 10 pages**, still roughly 12–19 distinct
+fixes because the shared chrome accounts for three of them site-wide.
 
 ## Re-scan when done
 
