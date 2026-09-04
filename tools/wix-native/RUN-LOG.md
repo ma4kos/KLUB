@@ -641,3 +641,39 @@ The 6 pages that failed to scan were not diagnosed; re-run the scan after the
 editor pass to get a clean number.
 
 **This should be resolved before the site goes anywhere near a real domain.**
+
+---
+
+## Per-page SEO written — all 15 pages
+
+Wix's SEO service recovered, and every page now carries a custom title and
+description instead of the generator's `<Page> | Klub 8` default. Verified by
+reading back: `total 15, customTitles 15, stillDefault []`. The site was
+republished afterwards so the tags reach the live version.
+
+This also settles the site-name complaint from earlier: page titles no longer
+show "Klub 8", because each page now has an explicit title of its own. The site
+still *carries* that name in My Sites — the dashboard rename is cosmetic now
+rather than something visitors or search engines see.
+
+It also clears the accessibility scan's `page-title` rule.
+
+Page ids on Klub 8, for future writes:
+
+| Page | id | Page | id |
+|---|---|---|---|
+| Home | `c1dmp` | About | `z3gkk` |
+| Classes | `k80e8` | Instructors | `pmlhb` |
+| Foundations Reformer | `yizvk` | Location | `o49w8` |
+| Signature Reformer | `sqqpe` | FAQ | `tv2fy` |
+| Mat Pilates | `h6xql` | Contact | `y0jqe` |
+| Private Sessions | `faz4o` | Policies | `qnh7e` |
+| Schedule | `jsm5d` | Founding Member | `fnobr` |
+| Memberships | `jjiex` | | |
+
+**The service is flaky, not broken.** Individual `PATCH` calls fail with
+`499 CANCELLED` perhaps half the time and succeed on retry; batches of three or
+more exceed the tool's 60-second limit. One or two pages per call with a single
+retry each is what worked. The bulk endpoint
+(`POST /bulk/item-seo-tags/set`) failed every time with
+`500 BULK_ENTRY_PREPARATION_FAILED` regardless of payload — avoid it.

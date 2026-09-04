@@ -80,11 +80,11 @@ the widget. Company `6604`, widget `868966`, loader
 Wix Forms is already installed. Add a form under the closing section with a
 single email field, headed **Founding Members**.
 
-## 6. Per-page SEO — deferred, retry later
+## 6. Per-page SEO — DONE
 
-Wix's SEO service is currently returning server-side timeouts
-(`499 CANCELLED`, 25s against their own 10s budget) on every write. The request
-shape is correct and verified:
+All 15 pages now carry a custom title and description, written via the API and
+published. Nothing to do here. Kept for reference — the working request shape
+is:
 
 ```
 PATCH https://www.wixapis.com/promote/seo/v1/item-seo-tags/STATIC_PAGE/{itemId}
