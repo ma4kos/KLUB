@@ -264,6 +264,13 @@ The cliff is somewhere between 300 and 1,000 words. Stay near 300.
 
 ### Confirmed: `jobId` reuse never edits
 
+> **Scope correction (see `ARIA-EDITING.md`).** What follows is true of the
+> API. It is not true of the platform: Wix Harmony ships an AI design agent,
+> **Aria**, which redesigns pages and generates content in natural language
+> from inside the editor. The site *is* iteratively editable — by a person in
+> the editor, not by an API client. That is the mechanism to hand Alex.
+
+
 Passing an existing `jobId` to `WixSiteBuilder` returned `success: true` on both
 attempts and changed nothing — no new site, and the target site's `Updated`
 timestamp and page count were identical afterwards. **Every refinement means a
