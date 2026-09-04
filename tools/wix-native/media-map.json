@@ -1,0 +1,20 @@
+{
+  "site": "a415605e-c816-4c34-80ba-6d8d40ee9047",
+  "siteName": "Klub 1",
+  "uploadedAt": "2026-09-04",
+  "note": "Alex's Option-1 photographs, uploaded to the Wix Media Manager from the public raw.githubusercontent.com URLs of this repo. Use these wixstatic URLs when placing images in the editor; the homepage section each belongs to is given by 'section'.",
+  "images": [
+    { "file": "alex-hero-reformers.jpg",  "section": "Hero",                "wixId": "8372de_078d4dbbb08e46e3909c23c1126f37d7~mv2.jpg" },
+    { "file": "alex-corridor-kwall.jpg",  "section": "01 The Klub",         "wixId": "8372de_11087bb402924645a29ca3f03d61da14~mv2.jpg" },
+    { "file": "alex-trainer-reformer.jpg","section": "03 Start Here",       "wixId": "8372de_8c027b574c40475dbfd7f5c0a3fb24e5~mv2.jpg" },
+    { "file": "alex-reception-desk.jpg",  "section": "04 The KLUB Experience", "wixId": "8372de_07245096334d43e4afb87fb01e58974b~mv2.jpg" },
+    { "file": "alex-lounge-sofa.jpg",     "section": "04 The KLUB Experience", "wixId": "8372de_3f5f9bcc382c45a1b3e9bba42b29d746~mv2.jpg" },
+    { "file": "alex-team-bench.jpg",      "section": "05 Move With Us",     "wixId": "8372de_e2ca152b165c49fa89d0618cb1740c53~mv2.jpg" },
+    { "file": "alex-closing-reformer.jpg","section": "07 Closing",          "wixId": "8372de_93cd55ecee9f40a49d9d60daa5175ed8~mv2.jpg" },
+    { "file": "street-sign.jpg",          "section": "06 Find Us",          "wixId": "8372de_dc78c9b4aa724e1481afc496e9b1afd2~mv2.jpg" },
+    { "file": "alex-hero-room.jpg",       "section": "spare / Classes",     "wixId": "8372de_f3a65247b1e74790a25da1569267bf4f~mv2.jpg" },
+    { "file": "alex-woman-reformer.jpg",  "section": "spare / class cards", "wixId": "8372de_bb67b4fb420e4104b6593850d8bbe57e~mv2.jpg" },
+    { "file": "alex-reformer-window.jpg", "section": "spare / class cards", "wixId": "8372de_94cfc0ddbc6845b4a2ac389562a696d1~mv2.jpg" },
+    { "file": "alex-team-sofa.jpg",       "section": "spare / Instructors", "wixId": "8372de_7af9bb394b8c4b5796721005d14d252d~mv2.jpg" }
+  ]
+}
