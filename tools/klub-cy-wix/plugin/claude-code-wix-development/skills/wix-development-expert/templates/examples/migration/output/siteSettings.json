@@ -1,0 +1,42 @@
+[
+  {
+    "sourceId": "klub:settings:global",
+    "email": "team@klub-cy.com",
+    "whatsappNumber": "",
+    "phoneDisplay": "",
+    "bookingUrl": "",
+    "bsportCompanyId": "6604",
+    "bsportWidgetId": "868966",
+    "ctaLabel": "Book Your First Class",
+    "ctaCompact": "Book a Class",
+    "ga4Id": "",
+    "clarityId": "",
+    "streetAddress": "Archiepiskopou Leontiou A', Mesa Geitonia 4006",
+    "addressLocality": "Limassol City Center",
+    "addressNote": "Parking available behind and next to the building.",
+    "instagram": "https://www.instagram.com/klubstudios",
+    "instagramHandle": "@klubstudios",
+    "facebook": "https://www.facebook.com/share/1HEgcu8Aio/",
+    "tiktok": "https://www.tiktok.com/@klubstudios",
+    "tiktokHandle": "@klubstudios",
+    "openingLabel": "Opening September 2026",
+    "openingHours": [],
+    "foundingForm": {
+      "interestOptions": [
+        "Small-group reformer classes",
+        "Private 1-to-1 sessions",
+        "Pre/post-natal Pilates",
+        "I'm new to Pilates",
+        "Just curious"
+      ],
+      "submitLabel": "Join the List"
+    },
+    "banner": {
+      "enabled": true,
+      "text": "We're opening September 2026 — join our Founding Member list for early access and exclusive rates.",
+      "linkText": "Join now",
+      "linkUrl": "/founding-member/"
+    },
+    "sourceHash": "8b253a01ef9107f72c4d5b6a63b96098f9b4d38c5e31bec7230a3460e228227e"
+  }
+]

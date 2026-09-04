@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-09-02T13:07:04.535Z",
+  "sourceRoot": "<path-to-KLUB-repository>",
+  "collections": {
+    "classes": {
+      "count": 4
+    },
+    "faqSections": {
+      "count": 6
+    },
+    "faqItems": {
+      "count": 38
+    },
+    "pricingGroups": {
+      "count": 4
+    },
+    "pricingItems": {
+      "count": 12
+    },
+    "siteSettings": {
+      "count": 1
+    }
+  },
+  "note": "Read-only transform. No Wix API calls were made."
+}

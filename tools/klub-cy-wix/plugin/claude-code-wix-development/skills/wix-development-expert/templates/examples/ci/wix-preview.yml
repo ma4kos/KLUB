@@ -1,0 +1,32 @@
+name: Validate Wix-managed Headless project
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck --if-present
+      - name: Test
+        run: npm test --if-present
+      - name: Build with Wix CLI
+        run: npm run build
+
+# Release is deliberately omitted. Add a separately protected release job only after
+# verifying the current Wix CLI non-interactive authentication and release commands,
+# storing credentials as repository secrets, and requiring an environment approval.

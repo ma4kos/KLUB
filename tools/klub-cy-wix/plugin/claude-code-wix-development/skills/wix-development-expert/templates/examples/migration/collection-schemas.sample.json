@@ -1,0 +1,35 @@
+{
+  "collections": {
+    "Classes": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId", "slug"],
+      "requiredFields": ["sourceId", "slug", "name", "imageAlt", "sourceHash"]
+    },
+    "FaqSections": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId"],
+      "requiredFields": ["sourceId", "sortOrder", "sourceHash"]
+    },
+    "FaqItems": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId"],
+      "requiredFields": ["sourceId", "sectionSourceId", "question", "answer", "sortOrder", "sourceHash"]
+    },
+    "PricingGroups": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId"],
+      "requiredFields": ["sourceId", "title", "sortOrder", "sourceHash"]
+    },
+    "PricingItems": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId"],
+      "requiredFields": ["sourceId", "groupSourceId", "name", "priceDisplay", "sortOrder", "sourceHash"]
+    },
+    "SiteSettings": {
+      "identityField": "sourceId",
+      "uniqueFields": ["sourceId"],
+      "requiredFields": ["sourceId", "email", "sourceHash"]
+    }
+  },
+  "warning": "Translate this logical schema into the exact current Wix CMS collection API only after retrieving the method schemas."
+}

@@ -7,7 +7,10 @@ export const SITE = {
   name: 'KLUB Pilates Studio',
   shortName: 'KLUB',
   tagline: 'Intentional Movement. Mindful Strength. Real Connection.',
-  url: 'https://www.keeplivingunderbalance.com',
+  // Derived from `site` in astro.config.mjs (Astro exposes it as
+  // import.meta.env.SITE) so the canonical link and the sitemap always agree.
+  // Set PUBLIC_SITE_URL to change both at once; never edit this literal alone.
+  url: import.meta.env.SITE ?? 'https://www.keeplivingunderbalance.com',
   addressCountry: 'Cyprus',
   openingDate: '2026-09-01',
 

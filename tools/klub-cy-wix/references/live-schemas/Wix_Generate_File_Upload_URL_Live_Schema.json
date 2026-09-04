@@ -1,0 +1,95 @@
+{
+  "docsUrl": "https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/generate-file-upload-url",
+  "examples": [
+    {
+      "request": "curl -X POST \\\n  'https://www.wixapis.com/site-media/v1/files/generate-upload-url' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -H 'Content-Type: application/json' \\\n  --data-binary '{\n    \"mimeType\": \"image/jpeg\",\n    \"fileName\": \"T-shirt.jpg\",\n    \"sizeInBytes\": \"2608831\",\n    \"parentFolderId\":\"25284aa06584441ea94338fdcfbaba12\",\n    \"private\": false,\n    \"labels\": [\"AMS:external_file_id\", \"woman\", \"bicycle\"]\n  }'",
+      "response": "{\n  \"uploadUrl\": \"https://upload.wixmp.com/upload/bnfhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ2MWI2ZjkzOS03YWExLTQxMTgtOGY3ZS03ZTRjOWJkYTk4YzgiLCJhdWQiOiJ1cm46c2VydmljZTp1cGxvYWQiLCJpc3MiOiJ1cm46c2VydmljZTp1cGxv6WQiLCJleHAiOjE2NjIwNTQ5OTMsImlhdCI6MTY2MTk2ODU4MywiYnVja2V0IjoidXBsb2FkLXRtcC13aXhtcC1jZGZjMzg0ZjE1ODQxYWFhNWVhYjE2YjEiLCJwYXRoIjoibWVkaWEvMmFjYmI4X2VmMDMwOTU0YjZmYjQ4ZWViMmQ4ZDJkYzYwNTEwZThjfm12Mi5qcGciLCJjYWxsYmFja1VybCI6Imh0dHBzOi8vd2l4bXAtY2RmYzM4NGYxNTg0MWFhYTVlYWIxNmIxLmFwcHNwb3QuY29tL19hcGkvdjMvdXBsb2FkL2NhbGxiYWNrP3VwbG9hZFRva2VuPWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSjFjbTQ2YzJWeWRtbGpaVHBtYVd4bExuVndiRzloWkNJc0ltRjFaQ0k2SW5WeWJqcHpaWEoyYVdObE9tWnBiR1V1ZFhCc2IyRmtJaXdpYzNWaUlqb2lkWEp1T21Gd2NEcGxOalkyTXpCbE56RTBaakEwT1RCaFlXVmhNV1l4TkRsaU0ySTJPV1V6TWlJc0ltbGhkQ0k2TVRZMk1UazJPRFU0TXl3aVpYaHdJam94TmpZeU1ERXhOemd6TENKcWRHa2lPaUkzT1RKa09EZzBOalEzTm1ZaUxDSmlhM1FpT2lKemRHRjBhV011ZDJsNGMzUmhkR2xqTG1OdmJTSXNJbkIwYUNJNklpOXRaV1JwWVM4eVlXTmlZamhmWldZd016QTVOVFJpTm1aaU5EaGxaV0l5WkRoa01tUmpOakExTVRCbE9HTi1iWFl5TG1wd1p5SXNJbUZqYkNJNkluQjFZbXhwWXlJc0lteG1ZeUk2Ym5Wc2JDd2lZMnhpSWpwN0luVnliQ0k2SW1oMGRIQnpPaTh2ZDJsNGNISnBkbUYwWlcxbFpHbGhMbUZ3Y0hOd2IzUXVZMjl0TDNZekwyMXdMMlpwYkdWekwzVndiRzloWkM5dFpXUnBZUzh5WVdOaVlqaGZaV1l3TXpBNU5UUmlObVppTkRobFpXSXlaRGhrTW1Sak5qQTFNVEJsT0dOLWJYWXlMbXB3WnlJc0ltRjBkR0ZqYUcxbGJuUWlPbnNpY0dGMGFDSTZJaTl0WldScFlTOHlZV05pWWpoZlpXWXdNekE1TlRSaU5tWmlORGhsWldJeVpEaGtNbVJqTmpBMU1UQmxPR04tYlhZeUxtcHdaeUlzSW5Wd2JHOWhaRjkwYjJ0bGJpSTZJa0pNYkZadFNDMTBWVTQzYVdoSFFqTlBiRWRLU25wVVZtVnlWakIwT1hadmJIRTNjM3BWUm5GeWFqTklia3BLV2s1dE0wWkNRekZqT1Y5cGVtOVhMVnBTZVRoM00xaDBaMng2ZEZVMGJDMVFkRlowYVRVemVXbGhUalpTU1dGUmIzbGFPVmRJU1VaT09EUjZiV2xDUVd4U09IRmhWMjlGWVdnNVdubFVaVTFxYkhCZlRVVkdiM0ZzUkVKRFdFZElUV05OV2xWamMxcGhha3N3WjFGRE4wTkZTa0ZrYUU5a1ZsWjVObEZDVUhwaFdYVkNNbEkwYTBORlpERXdhbGRvUjNOM2JWa3RkblZNVlVkNFdIVjBValoyYWxWb2NUWjFiV0pXT1V4WWRWVTFabUZ1ZFRWZlFsSmxWVkYxWTBGUFMzUXpVblJ3VTFwSVZrRnBXVmROUlZOemNuRXdhelE1ZWtoalowSjJRVXhTTUZWTGQxaE9XV1poTmpWUU1ISTFOa2N5TjAxd1ZFTXRVRms1V1hkT1ozbzRWMUJKVWpoSU1tRnNOMXBLYXpWSlpXdEpNRkF4VFdoSk5reENjVUZtU1ZKdFkyOWZVbTF4ZUVoa1dVcGtia2d4ZDIxTlNrTTRjbG95UlZsMFNUZDRVelpVT0dFMWRsRmpaVk53VW5oMU9URTFYMEYyT1ZaM1pXaHhUbWR6ZHpkSVZVaE1SVlpwWVV0ZmRsOVlZMmsxWTJNeVNFMURRbTFTT0hNOUluMHNJbWhsWVdSbGNuTWlPbTUxYkd3c0luQmhjM00wYUhKdmRXZG9JanAwY25WbGZYMC5WNWV4TndIdTAtXzltYzhMMUtYTUItdFRUVE9WS2czZTZnbnVSQlNtcThFIiwiYWNsIjoicHVibGljIiwibWltZVR5cGUiOiJpbWFnZS9qcGVnIn0.Z-R2i-w9YzBH4vkkP3RjaXaqj-QPnu-cyvQd5h_oTyE\"\n}",
+      "title": "Generate an upload URL"
+    }
+  ],
+  "httpMethod": "POST",
+  "operationId": "com.wix.media.site_media.v1.FilesService.GenerateFileUploadUrl",
+  "permissions": [
+    "MEDIA.SITE_MEDIA_FILES_UPLOAD"
+  ],
+  "publicUrl": "https://www.wixapis.com/site-media/v1/files/generate-upload-url",
+  "requestProperties": {
+    "externalInfo": {
+      "description": "A place to map an external entity to an uploaded file in the Wix Media Manager.",
+      "properties": {
+        "externalIds": {
+          "description": "External IDs to specify in the File Ready or File Failed events.",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 30,
+          "maxLength": 4000,
+          "title": "externalIds",
+          "type": "array"
+        },
+        "origin": {
+          "description": "External information to specify in the File Ready or File Failed events.",
+          "maxLength": 1000,
+          "title": "origin",
+          "type": "string"
+        }
+      },
+      "summary": "externalInfo",
+      "title": "ExternalInfo",
+      "type": "object"
+    },
+    "fileName": {
+      "description": "Temporary file name used to identify the file type. For example, a file named \"myFile.jpeg\" identifies as an \"image/jpeg\" file type.\n\u003cbr /\u003e **Notes:** \u003cul\u003e \u003cli\u003eThe name that appears in the Media Manager is taken from the `fileName` parameter in the Generate File Upload Url call.\u003c/li\u003e \u003cli\u003eIf you specify a `fileName`, the `filename` query parameter in the upload request itself is not required. \u003c/li\u003e \u003c/ul\u003e\nThe file name is truncated to 255 characters if longer.",
+      "maxLength": 1000,
+      "title": "fileName",
+      "type": "string"
+    },
+    "filePath": {
+      "description": "Path to the folder where the file will be stored.\nFor example, `/videos/2024/december`. \u003cbr/\u003e\nIf `parentFolderId` is defined, the parent folder is used as the path root. Otherwise, the root is `media-root`.\nThe folders in the path will be created if they don't already exist.  \u003cbr /\u003e",
+      "maxLength": 100,
+      "title": "filePath",
+      "type": "string"
+    },
+    "mimeType": {
+      "description": "File mime type.",
+      "maxLength": 100,
+      "title": "mimeType",
+      "type": "string"
+    },
+    "parentFolderId": {
+      "description": "ID of the file's parent folder. \u003cbr /\u003e\nThis folder is the path root for the `filePath`.\u003cbr /\u003e\nDefault: `media-root`.",
+      "maxLength": 100,
+      "title": "parentFolderId",
+      "type": "string"
+    },
+    "private": {
+      "description": "Whether the file will be public or private. Learn more [about private files](https://dev.wix.com/docs/api-reference/assets/media/media-manager/files/private-files).",
+      "title": "private",
+      "type": "boolean"
+    },
+    "sizeInBytes": {
+      "description": "File size in bytes.",
+      "format": "DECIMAL_VALUE",
+      "readOnly": true,
+      "title": "sizeInBytes",
+      "type": "string"
+    }
+  },
+  "requestRequired": true,
+  "required": [
+    "mimeType"
+  ],
+  "response200": {
+    "properties": {
+      "uploadUrl": {
+        "description": "The URL for uploading a file to the Media Manager.",
+        "format": "WEB_URL",
+        "title": "uploadUrl",
+        "type": "string"
+      }
+    },
+    "title": "GenerateFileUploadUrlResponse",
+    "type": "object"
+  },
+  "title": "Generate File Upload Url"
+}

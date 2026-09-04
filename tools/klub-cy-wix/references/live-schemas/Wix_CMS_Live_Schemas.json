@@ -1,0 +1,1751 @@
+[
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/collection-management/data-collections/create-data-collection",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/collections' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e' \\\n-d '{\n       \"collection\": {\n         \"id\": \"my-favorite-artists\",\n         \"displayName\": \"My Favorite Artists\",\n         \"fields\": [\n           {\n             \"key\": \"name\", \n             \"displayName\": \"Artist Name\", \n             \"type\": \"TEXT\"\n           },\n           {\n             \"key\": \"date_of_birth\", \n             \"displayName\": \"Date of birth\", \n             \"type\": \"DATE\"\n           },\n           {\n             \"key\": \"songs_multi_ref\",\n             \"displayName\": \"Songs\",\n             \"type\": \"MULTI_REFERENCE\",\n             \"typeMetadata\": {\n               \"multiReference\": {\n                 \"referencedCollectionId\": \"songs-collection\",\n                 \"referencingFieldKey\": \"my-favorite-artists\",\n                 \"referencingDisplayName\": \"Performed by\"\n               }\n             }\n           }\n         ],\n         \"permissions\": {\n           \"insert\": \"ADMIN\",\n           \"update\": \"ADMIN\",\n           \"remove\": \"ADMIN\",\n           \"read\": \"ANYONE\"\n         }\n       }\n}'",
+        "response": "{\n  \"collection\": {\n    \"id\": \"my-first-collection\",\n    \"collectionType\": \"NATIVE\",\n    \"displayName\": \"My First Collection\",\n    \"displayField\": \"name\",\n    \"capabilities\": {\n      \"dataOperations\": [\n        \"AGGREGATE\",\n        \"BULK_INSERT\",\n        \"BULK_REMOVE\",\n        \"BULK_SAVE\",\n        \"BULK_UPDATE\",\n        \"COUNT\",\n        \"DISTINCT\",\n        \"FIND\",\n        \"GET\",\n        \"INSERT\",\n        \"INSERT_REFERENCE\",\n        \"IS_REFERENCED\",\n        \"QUERY_REFERENCED\",\n        \"REMOVE\",\n        \"REMOVE_REFERENCE\",\n        \"REPLACE_REFERENCES\",\n        \"SAVE\",\n        \"TRUNCATE\",\n        \"UPDATE\"\n      ],\n      \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n    },\n    \"fields\": [\n      {\n        \"key\": \"name\",\n        \"displayName\": \"Artist Name\",\n        \"type\": \"TEXT\",\n        \"systemField\": false,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"date_of_birth\",\n        \"displayName\": \"Date of birth\",\n        \"type\": \"DATE\",\n        \"systemField\": false,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"songs_multi_ref\",\n        \"displayName\": \"Songs\",\n        \"type\": \"MULTI_REFERENCE\",\n        \"typeMetadata\": {\n          \"multiReference\": {\n            \"referencedCollectionId\": \"songs-collection\",\n            \"referencingFieldKey\": \"my-favorite-artists\",\n            \"referencingDisplayName\": \"Performed by\"\n          }\n        },\n        \"systemField\": false,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_id\",\n        \"displayName\": \"ID\",\n        \"type\": \"TEXT\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_owner\",\n        \"displayName\": \"Owner\",\n        \"type\": \"TEXT\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_createdDate\",\n        \"displayName\": \"Created Date\",\n        \"type\": \"DATETIME\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_updatedDate\",\n        \"displayName\": \"Updated Date\",\n        \"type\": \"DATETIME\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      }\n    ],\n    \"permissions\": {\n      \"insert\": \"ADMIN\",\n      \"update\": \"ADMIN\",\n      \"remove\": \"ADMIN\",\n      \"read\": \"ANYONE\"\n    },\n    \"revision\": \"1\",\n    \"plugins\": [],\n    \"pagingModes\": [\"OFFSET\"],\n    \"createdDate\": \"2022-09-19T15:10:56.603Z\",\n    \"updatedDate\": \"2022-09-19T15:10:56.603Z\"\n  }\n}",
+        "title": "Create a collection with a multi-reference field"
+      },
+      {
+        "request": "curl -X POST 'https://www.wixapis.com/wix-data/v2/collections' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: \u003cAUTH\u003e' \\\n  -d '{\n         \"collection\": {\n           \"id\": \"my-first-collection\",\n           \"displayName\": \"My First Collection\",\n           \"fields\": [\n             {\n               \"key\": \"name\",\n               \"displayName\": \"First Name\",\n               \"type\": \"TEXT\"\n             },\n             {\n               \"key\": \"age\",\n               \"displayName\": \"Age\",\n               \"type\": \"NUMBER\"\n             }\n           ],\n           \"permissions\": {\n             \"insert\": \"ADMIN\",\n             \"update\": \"ADMIN\",\n             \"remove\": \"ADMIN\",\n             \"read\": \"ANYONE\"\n           }\n         }\n  }'",
+        "response": "{\n  \"collection\": {\n    \"id\": \"my-first-collection\",\n    \"collectionType\": \"NATIVE\",\n    \"displayName\": \"My First Collection\",\n    \"displayField\": \"name\",\n    \"capabilities\": {\n      \"dataOperations\": [\n        \"AGGREGATE\",\n        \"BULK_INSERT\",\n        \"BULK_REMOVE\",\n        \"BULK_SAVE\",\n        \"BULK_UPDATE\",\n        \"COUNT\",\n        \"DISTINCT\",\n        \"FIND\",\n        \"GET\",\n        \"INSERT\",\n        \"INSERT_REFERENCE\",\n        \"IS_REFERENCED\",\n        \"QUERY_REFERENCED\",\n        \"REMOVE\",\n        \"REMOVE_REFERENCE\",\n        \"REPLACE_REFERENCES\",\n        \"SAVE\",\n        \"TRUNCATE\",\n        \"UPDATE\"\n      ],\n      \"collectionOperations\": [\"UPDATE\", \"REMOVE\"]\n    },\n    \"fields\": [\n      {\n        \"key\": \"name\",\n        \"displayName\": \"First Name\",\n        \"type\": \"TEXT\",\n        \"systemField\": false,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"age\",\n        \"displayName\": \"Age\",\n        \"type\": \"NUMBER\",\n        \"systemField\": false,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_id\",\n        \"displayName\": \"ID\",\n        \"type\": \"TEXT\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_owner\",\n        \"displayName\": \"Owner\",\n        \"type\": \"TEXT\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_createdDate\",\n        \"displayName\": \"Created Date\",\n        \"type\": \"DATETIME\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      },\n      {\n        \"key\": \"_updatedDate\",\n        \"displayName\": \"Updated Date\",\n        \"type\": \"DATETIME\",\n        \"systemField\": true,\n        \"capabilities\": {\n          \"sortable\": true,\n          \"queryOperators\": [\n            \"EQ\",\n            \"LT\",\n            \"GT\",\n            \"NE\",\n            \"LTE\",\n            \"GTE\",\n            \"STARTS_WITH\",\n            \"ENDS_WITH\",\n            \"CONTAINS\",\n            \"HAS_SOME\",\n            \"HAS_ALL\",\n            \"EXISTS\",\n            \"URLIZED\"\n          ]\n        },\n        \"encrypted\": false\n      }\n    ],\n    \"permissions\": {\n      \"insert\": \"ADMIN\",\n      \"update\": \"ADMIN\",\n      \"remove\": \"ADMIN\",\n      \"read\": \"ANYONE\"\n    },\n    \"revision\": \"1\",\n    \"plugins\": [],\n    \"pagingModes\": [\"OFFSET\"],\n    \"createdDate\": \"2022-09-19T15:10:56.603Z\",\n    \"updatedDate\": \"2022-09-19T15:10:56.603Z\"\n  }\n}",
+        "title": "Create a collection"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "com.wixpress.cloud.data.api.collectionservice.DataCollectionService.CreateDataCollection",
+    "parameters": [],
+    "permissions": [
+      "WIX_DATA.CREATE_COLLECTION"
+    ],
+    "publicUrl": "https://www.wixapis.com/data/v2/collections",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {
+              "collection": {
+                "description": "A data collection determines the structure of data to be stored in a database.",
+                "properties": {
+                  "capabilities": {
+                    "properties": {
+                      "collectionOperations": {
+                        "description": "Collection operations supported. The listed operations can be performed on the collection itself.",
+                        "enum": true,
+                        "items": {
+                          "enum": [
+                            {
+                              "description": "Allows updating the collection's structure, for example adding, updating, or deleting fields. If not included, the collection's structure can't be changed.",
+                              "value": "UPDATE"
+                            },
+                            {
+                              "description": "Allows deleting the entire collection. If not included, the collection can't be deleted.",
+                              "value": "REMOVE"
+                            }
+                          ],
+                          "title": "CollectionOperation",
+                          "type": "string"
+                        },
+                        "maxItems": 100,
+                        "title": "collectionOperations",
+                        "type": "array"
+                      },
+                      "dataOperations": {
+                        "description": "Data operations the collection supports. The listed operations can be performed on data the collection contains.\n\n\u003e **Note**: The `PATCH` and `BULK_PATCH` operations aren't currently supported.",
+                        "enum": true,
+                        "items": {
+                          "enum": [
+                            {
+                              "value": "AGGREGATE"
+                            },
+                            {
+                              "value": "BULK_INSERT"
+                            },
+                            {
+                              "value": "BULK_REMOVE"
+                            },
+                            {
+                              "value": "BULK_SAVE"
+                            },
+                            {
+                              "value": "BULK_UPDATE"
+                            },
+                            {
+                              "value": "COUNT"
+                            },
+                            {
+                              "value": "DISTINCT"
+                            },
+                            {
+                              "value": "FIND"
+                            },
+                            {
+                              "value": "GET"
+                            },
+                            {
+                              "value": "INSERT"
+                            },
+                            {
+                              "value": "INSERT_REFERENCE"
+                            },
+                            {
+                              "value": "IS_REFERENCED"
+                            },
+                            {
+                              "value": "QUERY_REFERENCED"
+                            },
+                            {
+                              "value": "REMOVE"
+                            },
+                            {
+                              "value": "REMOVE_REFERENCE"
+                            },
+                            {
+                              "value": "REPLACE_REFERENCES"
+                            },
+                            {
+                              "value": "SAVE"
+                            },
+                            {
+                              "value": "TRUNCATE"
+                            },
+                            {
+                              "value": "UPDATE"
+                            },
+                            {
+                              "value": "PATCH"
+                            },
+                            {
+                              "value": "BULK_PATCH"
+                            }
+                          ],
+                          "title": "DataOperation",
+                          "type": "string"
+                        },
+                        "maxItems": 100,
+                        "title": "dataOperations",
+                        "type": "array"
+                      },
+                      "indexLimits": {
+                        "properties": {
+                          "regular": {
+                            "description": "Maximum number of regular (non-unique) indexes allowed for this collection.",
+                            "title": "regular",
+                            "type": "integer"
+                          },
+                          "total": {
+                            "description": "Maximum number of regular and unique indexes allowed for this collection.",
+                            "title": "total",
+                            "type": "integer"
+                          },
+                          "unique": {
+                            "description": "Maximum number of unique indexes allowed for this collection.",
+                            "title": "unique",
+                            "type": "integer"
+                          }
+                        },
+                        "title": "IndexLimits",
+                        "type": "object"
+                      }
+                    },
+                    "title": "CollectionCapabilities",
+                    "type": "object"
+                  },
+                  "collectionType": {
+                    "enum": [
+                      {
+                        "description": "User-created collection.",
+                        "value": "NATIVE"
+                      },
+                      {
+                        "description": "[Collection](https://support.wix.com/en/article/velo-working-with-wix-app-collections-and-code#what-are-wix-app-collections) created by a Wix app when it is installed. This type of collection can be modified dynamically by that app (for example, Wix Forms).",
+                        "value": "WIX_APP"
+                      },
+                      {
+                        "description": "Collection created by a Wix Blocks app.",
+                        "value": "BLOCKS_APP"
+                      },
+                      {
+                        "description": "Collection located in externally connected storage.",
+                        "value": "EXTERNAL"
+                      }
+                    ],
+                    "title": "CollectionType",
+                    "type": "string"
+                  },
+                  "createdDate": {
+                    "description": "Date the collection was created.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "createdDate",
+                    "type": "string"
+                  },
+                  "defaultDisplayOrder": {
+                    "properties": {
+                      "direction": {
+                        "enum": [
+                          {
+                            "value": "ASC"
+                          },
+                          {
+                            "value": "DESC"
+                          }
+                        ],
+                        "title": "Direction",
+                        "type": "string"
+                      },
+                      "fieldKey": {
+                        "description": "Field to sort by.",
+                        "maxLength": 1000,
+                        "title": "fieldKey",
+                        "type": "string"
+                      }
+                    },
+                    "title": "Sort",
+                    "type": "object"
+                  },
+                  "displayField": {
+                    "description": "Field whose value the CMS displays to represent the collection item when referenced in a different collection.",
+                    "maxLength": 1000,
+                    "title": "displayField",
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "description": "Collection's display name as shown in the CMS. For example, `My First Collection`.",
+                    "maxLength": 1000,
+                    "title": "displayName",
+                    "type": "string"
+                  },
+                  "displayNamespace": {
+                    "description": "UI-friendly namespace of the Wix app with which the data collection is associated, such as Stores or Bookings.\nEmpty for all data collections not owned by Wix apps.",
+                    "maxLength": 1000,
+                    "readOnly": true,
+                    "title": "displayNamespace",
+                    "type": "string"
+                  },
+                  "fields": {
+                    "description": "Collection's field structure.",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "arraySizeRange": {
+                              "properties": {
+                                "maxSize": {
+                                  "description": "Maximum permitted number of items in an array field. Relevant for fields that hold arrays, such as those of type `ARRAY`, `ARRAY_STRING`, or `ARRAY_DOCUMENT`.\n\nDefault: No validation",
+                                  "format": "int32",
+                                  "title": "maxSize",
+                                  "type": "integer"
+                                },
+                                "minSize": {
+                                  "description": "Minimum permitted number of items in an array field. Relevant for fields that hold arrays, such as those of type `ARRAY`, `ARRAY_STRING`, or `ARRAY_DOCUMENT`.\n\nDefault: No validation",
+                                  "format": "int32",
+                                  "title": "minSize",
+                                  "type": "integer"
+                                }
+                              },
+                              "title": "ArraySizeRange",
+                              "type": "object"
+                            },
+                            "numberRange": {
+                              "properties": {
+                                "max": {
+                                  "description": "Maximum permitted value for a numerical field.\n\nDefault: No validation",
+                                  "format": "double",
+                                  "title": "max",
+                                  "type": "number"
+                                },
+                                "min": {
+                                  "description": "Minimum permitted value for a numerical field.\n\nDefault: No validation",
+                                  "format": "double",
+                                  "title": "min",
+                                  "type": "number"
+                                }
+                              },
+                              "title": "NumberRange",
+                              "type": "object"
+                            },
+                            "stringLengthRange": {
+                              "properties": {
+                                "maxLength": {
+                                  "description": "Maximum permitted length for a text field.\n\nDefault: No validation",
+                                  "format": "int32",
+                                  "title": "maxLength",
+                                  "type": "integer"
+                                },
+                                "minLength": {
+                                  "description": "Minimum permitted length for a text field.\n\nDefault: No validation",
+                                  "format": "int32",
+                                  "title": "minLength",
+                                  "type": "integer"
+                                }
+                              },
+                              "title": "StringLengthRange",
+                              "type": "object"
+                            }
+                          },
+                          "title": "rangeValidations",
+                          "type": "object"
+                        }
+                      ],
+                      "properties": {
+                        "capabilities": {
+                          "properties": {
+                            "queryOperators": {
+                              "description": "Query operators that can be used for this field.",
+                              "enum": true,
+                              "items": {
+                                "enum": [
+                                  {
+                                    "value": "EQ"
+                                  },
+                                  {
+                                    "value": "LT"
+                                  },
+                                  {
+                                    "value": "GT"
+                                  },
+                                  {
+                                    "value": "NE"
+                                  },
+                                  {
+                                    "value": "LTE"
+                                  },
+                                  {
+                                    "value": "GTE"
+                                  },
+                                  {
+                                    "value": "STARTS_WITH"
+                                  },
+                                  {
+                                    "value": "ENDS_WITH"
+                                  },
+                                  {
+                                    "value": "CONTAINS"
+                                  },
+                                  {
+                                    "value": "HAS_SOME"
+                                  },
+                                  {
+                                    "value": "HAS_ALL"
+                                  },
+                                  {
+                                    "value": "EXISTS"
+                                  },
+                                  {
+                                    "value": "URLIZED"
+                                  }
+                                ],
+                                "title": "QueryOperator",
+                                "type": "string"
+                              },
+                              "maxItems": 100,
+                              "title": "queryOperators",
+                              "type": "array"
+                            },
+                            "sortable": {
+                              "description": "Whether the collection can be sorted by this field.\n\nDefault: `false`",
+                              "title": "sortable",
+                              "type": "boolean"
+                            }
+                          },
+                          "title": "FieldCapabilities",
+                          "type": "object"
+                        },
+                        "condition": {
+                          "properties": {
+                            "groupName": {
+                              "description": "If `group_name` is set, this field will not be present in query results. To retrieve this field, pass `group_name` value to `includeFieldGroups` parameter in query operations.",
+                              "maxLength": 100,
+                              "title": "groupName",
+                              "type": "string"
+                            },
+                            "permission": {
+                              "enum": [
+                                {
+                                  "description": "Any role can request the field.",
+                                  "value": "ANYONE"
+                                },
+                                {
+                                  "description": "Special permission required to request the field.",
+                                  "value": "RESTRICTED"
+                                }
+                              ],
+                              "title": "Permission",
+                              "type": "string"
+                            }
+                          },
+                          "title": "FieldCondition",
+                          "type": "object"
+                        },
+                        "description": {
+                          "description": "Field description.",
+                          "maxLength": 16000,
+                          "title": "description",
+                          "type": "string"
+                        },
+                        "displayName": {
+                          "description": "Field's display name when displayed in the CMS. For example, `First Name`.",
+                          "maxLength": 1000,
+                          "title": "displayName",
+                          "type": "string"
+                        },
+                        "encrypted": {
+                          "description": "Whether the field is encrypted.",
+                          "title": "encrypted",
+                          "type": "boolean"
+                        },
+                        "immutable": {
+                          "description": "Whether the field is immutable. An immutable field can be set once, but then cannot be updated.\n\nDefault: `false`",
+                          "title": "immutable",
+                          "type": "boolean"
+                        },
+                        "key": {
+                          "description": "Unique identifier for the field. For example, `firstName`.",
+                          "maxLength": 1000,
+                          "title": "key",
+                          "type": "string"
+                        },
+                        "plugins": {
+                          "description": "Additional optional plugins for the field.",
+                          "items": {
+                            "description": "Optional plug-in aspects for fields",
+                            "oneOf": [
+                              {
+                                "properties": {
+                                  "categoryFieldOptions": {
+                                    "description": "Options for the CATEGORY_FIELD plugin.",
+                                    "properties": {
+                                      "isPrimary": {
+                                        "description": "Transient input-only flag. When set to `true` during create/update, designates\nthis category field's group as the target for `_primaryCategory`. The flag is\nnot persisted; `_primaryCategory` remains the source of truth.\n\nDefault: `false`",
+                                        "title": "isPrimary",
+                                        "type": "boolean"
+                                      }
+                                    },
+                                    "title": "CategoryFieldOptions",
+                                    "type": "object"
+                                  },
+                                  "cmsOptions": {
+                                    "description": "Options for the CMS plugin.",
+                                    "properties": {
+                                      "internal": {
+                                        "description": "Indicates an internal CMS field. The CMS does not display internal fields.\n\nDefault: `false`",
+                                        "title": "internal",
+                                        "type": "boolean"
+                                      }
+                                    },
+                                    "title": "CmsOptions",
+                                    "type": "object"
+                                  }
+                                },
+                                "title": "options",
+                                "type": "object"
+                              }
+                            ],
+                            "properties": {
+                              "type": {
+                                "enum": [
+                                  {
+                                    "description": "Uknown plugin type.",
+                                    "value": "UNKNOWN"
+                                  },
+                                  {
+                                    "description": "CMS-related field attributes",
+                                    "value": "CMS"
+                                  }
+                                ],
+                                "title": "Type",
+                                "type": "string"
+                              }
+                            },
+                            "title": "FieldPlugin",
+                            "type": "object"
+                          },
+                          "maxItems": 100,
+                          "title": "plugins",
+                          "type": "array"
+                        },
+                        "readOnly": {
+                          "description": "Whether the field is read-only. A read-only field can't be changed.\n\nDefault: `false`",
+                          "title": "readOnly",
+                          "type": "boolean"
+                        },
+                        "required": {
+                          "description": "Whether the field is required.\n\nDefault: `false`",
+                          "title": "required",
+                          "type": "boolean"
+                        },
+                        "systemField": {
+                          "description": "Whether the field is a system field.",
+                          "readOnly": true,
+                          "title": "systemField",
+                          "type": "boolean"
+                        },
+                        "type": {
+                          "enum": [
+                            {
+                              "description": "Plain-text string.",
+                              "value": "TEXT"
+                            },
+                            {
+                              "description": "Number.",
+                              "value": "NUMBER"
+                            },
+                            {
+                              "description": "Date string in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DD`.",
+                              "value": "DATE"
+                            },
+                            {
+                              "description": "[JavaScript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data)) or an object in the following format: `\"someFieldKey\": { \"$date\": \"YYYY-MM-DDTHH:mm:ss.sssZ\"}` ([REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data)).",
+                              "value": "DATETIME"
+                            },
+                            {
+                              "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                              "value": "IMAGE"
+                            },
+                            {
+                              "description": "Boolean `true` or `false` value.",
+                              "value": "BOOLEAN"
+                            },
+                            {
+                              "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                              "value": "DOCUMENT"
+                            },
+                            {
+                              "description": "URL in one of the following formats: `http://`, `https://`, `ftp://`, `mailto:`, `sms:`, `tel:`.",
+                              "value": "URL"
+                            },
+                            {
+                              "description": "[Rich-text](https://dev.wix.com/docs/rest/articles/getting-started/rich-text) string that may contain a subset of HTML tags.",
+                              "value": "RICH_TEXT"
+                            },
+                            {
+                              "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                              "value": "VIDEO"
+                            },
+                            {
+                              "description": "Any field type.",
+                              "value": "ANY"
+                            },
+                            {
+                              "description": "Array of strings.",
+                              "value": "ARRAY_STRING"
+                            },
+                            {
+                              "description": "Array of documents: web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                              "value": "ARRAY_DOCUMENT"
+                            },
+                            {
+                              "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                              "value": "AUDIO"
+                            },
+                            {
+                              "description": "Time string in `hh:mm:ss.SSS` format.",
+                              "value": "TIME"
+                            },
+                            {
+                              "description": "Language codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format. These may include country codes in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#officially_assigned_code_elements) format.",
+                              "value": "LANGUAGE"
+                            },
+                            {
+                              "description": "[Rich content](https://dev.wix.com/docs/ricos/getting-started/introduction).",
+                              "value": "RICH_CONTENT"
+                            },
+                            {
+                              "description": "Array of web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                              "value": "MEDIA_GALLERY"
+                            },
+                            {
+                              "description": "Physical address object ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data#address-object) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data#address-object)).",
+                              "value": "ADDRESS"
+                            },
+                            {
+                              "description": "[Dynamic page link](https://support.wix.com/en/article/cms-linking-to-dynamic-pages).",
+                              "value": "PAGE_LINK"
+                            },
+                            {
+                              "description": "Reference to another item in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.\n\nIf you select this type, then you must pass the `referencedCollectionId` field as well.",
+                              "value": "REFERENCE"
+                            },
+                            {
+                              "description": "References to multiple items in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.",
+                              "value": "MULTI_REFERENCE"
+                            },
+                            {
+                              "description": "JSON object.",
+                              "value": "OBJECT"
+                            },
+                            {
+                              "description": "Array.",
+                              "value": "ARRAY"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_TIME"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_BOOK"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_EXTERNAL_URL"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_BROKEN_REFERENCE"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_IMAGE"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_COLOR"
+                            },
+                            {
+                              "description": "Deprecated type that might appear in legacy collections.",
+                              "value": "LEGACY_EXTERNAL_VIDEO"
+                            },
+                            {
+                              "description": "SLUG type used for dynamic page URLs.",
+                              "value": "SLUG"
+                            },
+                            {
+                              "description": "Email.",
+                              "value": "EMAIL"
+                            },
+                            {
+                              "description": "Media image object.",
+                              "value": "MEDIA_IMAGE"
+                            },
+                            {
+                              "description": "Media vector art object.",
+                              "value": "MEDIA_VECTOR_ART"
+                            }
+                          ],
+                          "title": "Type",
+                          "type": "string"
+                        },
+                        "typeMetadata": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "array": {
+                                  "properties": {
+                                    "elementType": {
+                                      "enum": [
+                                        {
+                                          "description": "Plain-text string.",
+                                          "value": "TEXT"
+                                        },
+                                        {
+                                          "description": "Number.",
+                                          "value": "NUMBER"
+                                        },
+                                        {
+                                          "description": "Date string in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DD`.",
+                                          "value": "DATE"
+                                        },
+                                        {
+                                          "description": "[JavaScript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data)) or an object in the following format: `\"someFieldKey\": { \"$date\": \"YYYY-MM-DDTHH:mm:ss.sssZ\"}` ([REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data)).",
+                                          "value": "DATETIME"
+                                        },
+                                        {
+                                          "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                          "value": "IMAGE"
+                                        },
+                                        {
+                                          "description": "Boolean `true` or `false` value.",
+                                          "value": "BOOLEAN"
+                                        },
+                                        {
+                                          "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                          "value": "DOCUMENT"
+                                        },
+                                        {
+                                          "description": "URL in one of the following formats: `http://`, `https://`, `ftp://`, `mailto:`, `sms:`, `tel:`.",
+                                          "value": "URL"
+                                        },
+                                        {
+                                          "description": "[Rich-text](https://dev.wix.com/docs/rest/articles/getting-started/rich-text) string that may contain a subset of HTML tags.",
+                                          "value": "RICH_TEXT"
+                                        },
+                                        {
+                                          "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                          "value": "VIDEO"
+                                        },
+                                        {
+                                          "description": "Any field type.",
+                                          "value": "ANY"
+                                        },
+                                        {
+                                          "description": "Array of strings.",
+                                          "value": "ARRAY_STRING"
+                                        },
+                                        {
+                                          "description": "Array of documents: web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                                          "value": "ARRAY_DOCUMENT"
+                                        },
+                                        {
+                                          "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                          "value": "AUDIO"
+                                        },
+                                        {
+                                          "description": "Time string in `hh:mm:ss.SSS` format.",
+                                          "value": "TIME"
+                                        },
+                                        {
+                                          "description": "Language codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format. These may include country codes in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#officially_assigned_code_elements) format.",
+                                          "value": "LANGUAGE"
+                                        },
+                                        {
+                                          "description": "[Rich content](https://dev.wix.com/docs/ricos/getting-started/introduction).",
+                                          "value": "RICH_CONTENT"
+                                        },
+                                        {
+                                          "description": "Array of web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                                          "value": "MEDIA_GALLERY"
+                                        },
+                                        {
+                                          "description": "Physical address object ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data#address-object) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data#address-object)).",
+                                          "value": "ADDRESS"
+                                        },
+                                        {
+                                          "description": "[Dynamic page link](https://support.wix.com/en/article/cms-linking-to-dynamic-pages).",
+                                          "value": "PAGE_LINK"
+                                        },
+                                        {
+                                          "description": "Reference to another item in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.\n\nIf you select this type, then you must pass the `referencedCollectionId` field as well.",
+                                          "value": "REFERENCE"
+                                        },
+                                        {
+                                          "description": "References to multiple items in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.",
+                                          "value": "MULTI_REFERENCE"
+                                        },
+                                        {
+                                          "description": "JSON object.",
+                                          "value": "OBJECT"
+                                        },
+                                        {
+                                          "description": "Array.",
+                                          "value": "ARRAY"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_TIME"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_BOOK"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_EXTERNAL_URL"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_BROKEN_REFERENCE"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_IMAGE"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_COLOR"
+                                        },
+                                        {
+                                          "description": "Deprecated type that might appear in legacy collections.",
+                                          "value": "LEGACY_EXTERNAL_VIDEO"
+                                        },
+                                        {
+                                          "description": "SLUG type used for dynamic page URLs.",
+                                          "value": "SLUG"
+                                        },
+                                        {
+                                          "description": "Email.",
+                                          "value": "EMAIL"
+                                        },
+                                        {
+                                          "description": "Media image object.",
+                                          "value": "MEDIA_IMAGE"
+                                        },
+                                        {
+                                          "description": "Media vector art object.",
+                                          "value": "MEDIA_VECTOR_ART"
+                                        }
+                                      ],
+                                      "title": "Type",
+                                      "type": "string"
+                                    },
+                                    "typeMetadata": {
+                                      "$circular": "com.wixpress.cloud.data.api.collectionservice.Field.TypeMetadata"
+                                    }
+                                  },
+                                  "title": "Array",
+                                  "type": "object"
+                                },
+                                "multiReference": {
+                                  "properties": {
+                                    "referencedCollectionId": {
+                                      "description": "Referenced collection ID.",
+                                      "maxLength": 256,
+                                      "title": "referencedCollectionId",
+                                      "type": "string"
+                                    },
+                                    "referencingDisplayName": {
+                                      "description": "Display name in the CMS for the referenced data.",
+                                      "maxLength": 1000,
+                                      "title": "referencingDisplayName",
+                                      "type": "string"
+                                    },
+                                    "referencingFieldKey": {
+                                      "description": "Referencing field ID.",
+                                      "maxLength": 1000,
+                                      "title": "referencingFieldKey",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "title": "MultiReference",
+                                  "type": "object"
+                                },
+                                "object": {
+                                  "properties": {
+                                    "fields": {
+                                      "description": "Fields within the object.",
+                                      "items": {
+                                        "properties": {
+                                          "capabilities": {
+                                            "properties": {
+                                              "queryOperators": {
+                                                "description": "Query operators that can be used for this field.",
+                                                "enum": true,
+                                                "items": {
+                                                  "enum": [
+                                                    {
+                                                      "value": "EQ"
+                                                    },
+                                                    {
+                                                      "value": "LT"
+                                                    },
+                                                    {
+                                                      "value": "GT"
+                                                    },
+                                                    {
+                                                      "value": "NE"
+                                                    },
+                                                    {
+                                                      "value": "LTE"
+                                                    },
+                                                    {
+                                                      "value": "GTE"
+                                                    },
+                                                    {
+                                                      "value": "STARTS_WITH"
+                                                    },
+                                                    {
+                                                      "value": "ENDS_WITH"
+                                                    },
+                                                    {
+                                                      "value": "CONTAINS"
+                                                    },
+                                                    {
+                                                      "value": "HAS_SOME"
+                                                    },
+                                                    {
+                                                      "value": "HAS_ALL"
+                                                    },
+                                                    {
+                                                      "value": "EXISTS"
+                                                    },
+                                                    {
+                                                      "value": "URLIZED"
+                                                    }
+                                                  ],
+                                                  "title": "QueryOperator",
+                                                  "type": "string"
+                                                },
+                                                "maxItems": 100,
+                                                "title": "queryOperators",
+                                                "type": "array"
+                                              },
+                                              "sortable": {
+                                                "description": "Whether the collection can be sorted by this field.\n\nDefault: `false`",
+                                                "title": "sortable",
+                                                "type": "boolean"
+                                              }
+                                            },
+                                            "title": "FieldCapabilities",
+                                            "type": "object"
+                                          },
+                                          "displayName": {
+                                            "description": "Display name for the field.",
+                                            "maxLength": 1000,
+                                            "title": "displayName",
+                                            "type": "string"
+                                          },
+                                          "key": {
+                                            "description": "Field ID.",
+                                            "maxLength": 1000,
+                                            "title": "key",
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "enum": [
+                                              {
+                                                "description": "Plain-text string.",
+                                                "value": "TEXT"
+                                              },
+                                              {
+                                                "description": "Number.",
+                                                "value": "NUMBER"
+                                              },
+                                              {
+                                                "description": "Date string in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DD`.",
+                                                "value": "DATE"
+                                              },
+                                              {
+                                                "description": "[JavaScript Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data)) or an object in the following format: `\"someFieldKey\": { \"$date\": \"YYYY-MM-DDTHH:mm:ss.sssZ\"}` ([REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data)).",
+                                                "value": "DATETIME"
+                                              },
+                                              {
+                                                "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                                "value": "IMAGE"
+                                              },
+                                              {
+                                                "description": "Boolean `true` or `false` value.",
+                                                "value": "BOOLEAN"
+                                              },
+                                              {
+                                                "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                                "value": "DOCUMENT"
+                                              },
+                                              {
+                                                "description": "URL in one of the following formats: `http://`, `https://`, `ftp://`, `mailto:`, `sms:`, `tel:`.",
+                                                "value": "URL"
+                                              },
+                                              {
+                                                "description": "[Rich-text](https://dev.wix.com/docs/rest/articles/getting-started/rich-text) string that may contain a subset of HTML tags.",
+                                                "value": "RICH_TEXT"
+                                              },
+                                              {
+                                                "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                                "value": "VIDEO"
+                                              },
+                                              {
+                                                "description": "Any field type.",
+                                                "value": "ANY"
+                                              },
+                                              {
+                                                "description": "Array of strings.",
+                                                "value": "ARRAY_STRING"
+                                              },
+                                              {
+                                                "description": "Array of documents: web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                                                "value": "ARRAY_DOCUMENT"
+                                              },
+                                              {
+                                                "description": "Web URL or a [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URL.",
+                                                "value": "AUDIO"
+                                              },
+                                              {
+                                                "description": "Time string in `hh:mm:ss.SSS` format.",
+                                                "value": "TIME"
+                                              },
+                                              {
+                                                "description": "Language codes in [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format. These may include country codes in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#officially_assigned_code_elements) format.",
+                                                "value": "LANGUAGE"
+                                              },
+                                              {
+                                                "description": "[Rich content](https://dev.wix.com/docs/ricos/getting-started/introduction).",
+                                                "value": "RICH_CONTENT"
+                                              },
+                                              {
+                                                "description": "Array of web or [Media Manager](https://dev.wix.com/docs/rest/assets/media/media-manager/introduction) URLs.",
+                                                "value": "MEDIA_GALLERY"
+                                              },
+                                              {
+                                                "description": "Physical address object ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/data-types-in-wix-data#address-object) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-types-in-wix-data#address-object)).",
+                                                "value": "ADDRESS"
+                                              },
+                                              {
+                                                "description": "[Dynamic page link](https://support.wix.com/en/article/cms-linking-to-dynamic-pages).",
+                                                "value": "PAGE_LINK"
+                                              },
+                                              {
+                                                "description": "Reference to another item in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.\n\nIf you select this type, then you must pass the `referencedCollectionId` field as well.",
+                                                "value": "REFERENCE"
+                                              },
+                                              {
+                                                "description": "References to multiple items in another collection. See Query Referenced Data Items ([SDK](https://dev.wix.com/docs/sdk/backend-modules/data/items/query-referenced) | [REST](https://dev.wix.com/docs/rest/business-solutions/cms/data-items/query-referenced-data-items)) to learn about item references.",
+                                                "value": "MULTI_REFERENCE"
+                                              },
+                                              {
+                                                "description": "JSON object.",
+                                                "value": "OBJECT"
+                                              },
+                                              {
+                                                "description": "Array.",
+                                                "value": "ARRAY"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_TIME"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_BOOK"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_EXTERNAL_URL"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_BROKEN_REFERENCE"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_IMAGE"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_COLOR"
+                                              },
+                                              {
+                                                "description": "Deprecated type that might appear in legacy collections.",
+                                                "value": "LEGACY_EXTERNAL_VIDEO"
+                                              },
+                                              {
+                                                "description": "SLUG type used for dynamic page URLs.",
+                                                "value": "SLUG"
+                                              },
+                                              {
+                                                "description": "Email.",
+                                                "value": "EMAIL"
+                                              },
+                                              {
+                                                "description": "Media image object.",
+                                                "value": "MEDIA_IMAGE"
+                                              },
+                                              {
+                                                "description": "Media vector art object.",
+                                                "value": "MEDIA_VECTOR_ART"
+                                              }
+                                            ],
+                                            "title": "Type",
+                                            "type": "string"
+                                          },
+                                          "typeMetadata": {
+                                            "$circular": "com.wixpress.cloud.data.api.collectionservice.Field.TypeMetadata"
+                                          }
+                                        },
+                                        "title": "ObjectField",
+                                        "type": "object"
+                                      },
+                                      "maxItems": 1000,
+                                      "title": "fields",
+                                      "type": "array"
+                                    }
+                                  },
+                                  "title": "Object",
+                                  "type": "object"
+                                },
+                                "pageLink": {
+                                  "properties": {
+                                    "calculator": {
+                                      "oneOf": [
+                                        {
+                                          "properties": {
+                                            "fieldsPattern": {
+                                              "properties": {
+                                                "lowercase": {
+                                                  "title": "lowercase",
+                                                  "type": "boolean"
+                                                },
+                                                "pattern": {
+                                                  "maxLength": 1000,
+                                                  "title": "pattern",
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "title": "FieldsPattern",
+                                              "type": "object"
+                                            },
+                                            "urlizedOnlyPattern": {
+                                              "properties": {
+                                                "pattern": {
+                                                  "maxLength": 1000,
+                                                  "title": "pattern",
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "title": "UrlizedOnlyPattern",
+                                              "type": "object"
+                                            }
+                                          },
+                                          "title": "pattern",
+                                          "type": "object"
+                                        }
+                                      ],
+                                      "properties": {},
+                                      "title": "Calculator",
+                                      "type": "object"
+                                    },
+                                    "linkedRouterPage": {
+                                      "description": "Defines reference to router pattern in the site document.",
+                                      "maxLength": 1000,
+                                      "title": "linkedRouterPage",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "title": "PageLink",
+                                  "type": "object"
+                                },
+                                "reference": {
+                                  "properties": {
+                                    "referencedCollectionId": {
+                                      "description": "Referenced collection ID.",
+                                      "maxLength": 256,
+                                      "title": "referencedCollectionId",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "title": "Reference",
+                                  "type": "object"
+                                }
+                              },
+                              "title": "metadata",
+                              "type": "object"
+                            }
+                          ],
+                          "properties": {},
+                          "title": "TypeMetadata",
+                          "type": "object"
+                        }
+                      },
+                      "title": "Field",
+                      "type": "object"
+                    },
+                    "maxItems": 1000,
+                    "title": "fields",
+                    "type": "array"
+                  },
+                  "id": {
+                    "description": "[Collection ID](https://dev.wix.com/docs/develop-websites-sdk/code-your-site/work-with-data/introduction/about-collections#collection-ids). For example, `my-first-collection`.\nFor [app collections](https://dev.wix.com/docs/api-reference/business-solutions/cms/collection-management/wix-app-collections/introduction), use `AppName/CollectionName`.",
+                    "immutable": true,
+                    "maxLength": 256,
+                    "title": "id",
+                    "type": "string"
+                  },
+                  "maxPageSize": {
+                    "description": "Maximum number of items returned in a single query, based on the underlying storage.\nNative collections have a maximum page size of 1000 for offset-based queries or 100 for cursor-based queries.\nExternal collections' maximum page size defaults to 50, but an external provider can set any maximum value up to 1000.",
+                    "format": "int32",
+                    "readOnly": true,
+                    "title": "maxPageSize",
+                    "type": "integer"
+                  },
+                  "ownerAppId": {
+                    "description": "ID of the app that defined this collection. For collections defined by Wix users, this value is null.",
+                    "format": "GUID",
+                    "readOnly": true,
+                    "title": "ownerAppId",
+                    "type": "string"
+                  },
+                  "pagingModes": {
+                    "description": "Paging modes the collection supports. In native collections, offset-based paging is supported by default.",
+                    "enum": true,
+                    "items": {
+                      "enum": [
+                        {
+                          "description": "Offset-based paging.",
+                          "value": "OFFSET"
+                        },
+                        {
+                          "description": "Cursor-based paging.",
+                          "value": "CURSOR"
+                        }
+                      ],
+                      "title": "PagingMode",
+                      "type": "string"
+                    },
+                    "maxItems": 2,
+                    "readOnly": true,
+                    "title": "pagingModes",
+                    "type": "array"
+                  },
+                  "permissions": {
+                    "description": "Permissions defined by the lowest role needed to perform each action.",
+                    "properties": {
+                      "insert": {
+                        "enum": [
+                          {
+                            "description": "Site administrator.",
+                            "value": "ADMIN"
+                          },
+                          {
+                            "description": "Signed-in user who added content to this collection.",
+                            "value": "SITE_MEMBER_AUTHOR"
+                          },
+                          {
+                            "description": "Any signed-in user.",
+                            "value": "SITE_MEMBER"
+                          },
+                          {
+                            "description": "Any site visitor.",
+                            "value": "ANYONE"
+                          }
+                        ],
+                        "title": "Role",
+                        "type": "string"
+                      },
+                      "read": {
+                        "enum": [
+                          {
+                            "description": "Site administrator.",
+                            "value": "ADMIN"
+                          },
+                          {
+                            "description": "Signed-in user who added content to this collection.",
+                            "value": "SITE_MEMBER_AUTHOR"
+                          },
+                          {
+                            "description": "Any signed-in user.",
+                            "value": "SITE_MEMBER"
+                          },
+                          {
+                            "description": "Any site visitor.",
+                            "value": "ANYONE"
+                          }
+                        ],
+                        "title": "Role",
+                        "type": "string"
+                      },
+                      "remove": {
+                        "enum": [
+                          {
+                            "description": "Site administrator.",
+                            "value": "ADMIN"
+                          },
+                          {
+                            "description": "Signed-in user who added content to this collection.",
+                            "value": "SITE_MEMBER_AUTHOR"
+                          },
+                          {
+                            "description": "Any signed-in user.",
+                            "value": "SITE_MEMBER"
+                          },
+                          {
+                            "description": "Any site visitor.",
+                            "value": "ANYONE"
+                          }
+                        ],
+                        "title": "Role",
+                        "type": "string"
+                      },
+                      "update": {
+                        "enum": [
+                          {
+                            "description": "Site administrator.",
+                            "value": "ADMIN"
+                          },
+                          {
+                            "description": "Signed-in user who added content to this collection.",
+                            "value": "SITE_MEMBER_AUTHOR"
+                          },
+                          {
+                            "description": "Any signed-in user.",
+                            "value": "SITE_MEMBER"
+                          },
+                          {
+                            "description": "Any site visitor.",
+                            "value": "ANYONE"
+                          }
+                        ],
+                        "title": "Role",
+                        "type": "string"
+                      }
+                    },
+                    "title": "Permissions",
+                    "type": "object"
+                  },
+                  "plugins": {
+                    "description": "Plugins the collection uses. Plugins apply additional capabilities to the collection or extend its functionality.",
+                    "items": {
+                      "description": "Plugins that extend collection functionality.",
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "cmsOptions": {
+                              "properties": {
+                                "siteSort": {
+                                  "description": "if CMS-defined sort is enabled and should be used in site",
+                                  "properties": {
+                                    "sort": {
+                                      "description": "Field and order for the site sort.",
+                                      "items": {
+                                        "properties": {
+                                          "direction": {
+                                            "enum": [
+                                              {
+                                                "value": "ASC"
+                                              },
+                                              {
+                                                "value": "DESC"
+                                              }
+                                            ],
+                                            "title": "Direction",
+                                            "type": "string"
+                                          },
+                                          "fieldKey": {
+                                            "description": "Field to sort by.",
+                                            "maxLength": 1000,
+                                            "title": "fieldKey",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "title": "Sort",
+                                        "type": "object"
+                                      },
+                                      "maxItems": 100,
+                                      "title": "sort",
+                                      "type": "array"
+                                    }
+                                  },
+                                  "title": "SiteSort",
+                                  "type": "object"
+                                }
+                              },
+                              "title": "CmsOptions",
+                              "type": "object"
+                            },
+                            "editablePageLinkOptions": {
+                              "properties": {
+                                "isMutable": {
+                                  "title": "isMutable",
+                                  "type": "boolean"
+                                },
+                                "isPersisted": {
+                                  "title": "isPersisted",
+                                  "type": "boolean"
+                                }
+                              },
+                              "title": "PageLinkPluginOptions",
+                              "type": "object"
+                            },
+                            "multilingualOptions": {
+                              "properties": {
+                                "translatableFieldKeys": {
+                                  "description": "IDs of fields to allow translation.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "maxItems": 1000,
+                                  "maxLength": 1000,
+                                  "title": "translatableFieldKeys",
+                                  "type": "array"
+                                }
+                              },
+                              "title": "MultilingualOptions",
+                              "type": "object"
+                            },
+                            "publishOptions": {
+                              "properties": {
+                                "defaultStatus": {
+                                  "enum": [
+                                    {
+                                      "value": "PUBLISHED"
+                                    },
+                                    {
+                                      "value": "DRAFT"
+                                    }
+                                  ],
+                                  "title": "Status",
+                                  "type": "string"
+                                }
+                              },
+                              "title": "PublishPluginOptions",
+                              "type": "object"
+                            },
+                            "singleItemOptions": {
+                              "properties": {
+                                "singleItemId": {
+                                  "description": "ID of the single item in this collection. If you insert or update an item, its ID value is always changed to this.",
+                                  "maxLength": 16000,
+                                  "title": "singleItemId",
+                                  "type": "string"
+                                }
+                              },
+                              "title": "SingleItemPluginOptions",
+                              "type": "object"
+                            },
+                            "urlizedOptions": {
+                              "properties": {
+                                "format": {
+                                  "enum": [
+                                    {
+                                      "description": "Letters are converted to lower case and spaces are replaced with dashes before generating the encoded URL.",
+                                      "value": "ORIGINAL"
+                                    },
+                                    {
+                                      "description": "No changes are made before generating the encoded URL.",
+                                      "value": "PLAIN"
+                                    }
+                                  ],
+                                  "title": "Format",
+                                  "type": "string"
+                                }
+                              },
+                              "title": "UrlizedPluginOptions",
+                              "type": "object"
+                            }
+                          },
+                          "title": "options",
+                          "type": "object"
+                        }
+                      ],
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            {
+                              "description": "Allows items to be marked as either draft or published. For each item you can set a publishing time when the item will become visible to site visitors.",
+                              "value": "PUBLISH"
+                            },
+                            {
+                              "description": "Ensures the collection can have one item at most. Can only be applied to a new collection.",
+                              "value": "SINGLE_ITEM"
+                            },
+                            {
+                              "description": "Generates item URLs for collections used by dynamic pages.",
+                              "value": "URLIZED"
+                            },
+                            {
+                              "description": "Deprecated. Will be removed in the future.",
+                              "value": "GRIDAPPLESS"
+                            },
+                            {
+                              "description": "Indicates that the collection is translatable. This allows you to manage translation for selected fields using [Wix Multilingual](https://www.wix.com/app-market/wix-multilingual).",
+                              "value": "MULTILINGUAL"
+                            },
+                            {
+                              "description": "Indicates that collection is shared with current site.",
+                              "value": "SHARED"
+                            },
+                            {
+                              "description": "Indicates that page link fields are persisted and can be updated.",
+                              "value": "EDITABLE_PAGE_LINK"
+                            },
+                            {
+                              "description": "CMS-specific collection properties.",
+                              "value": "CMS"
+                            }
+                          ],
+                          "title": "Type",
+                          "type": "string"
+                        }
+                      },
+                      "title": "Plugin",
+                      "type": "object"
+                    },
+                    "maxItems": 100,
+                    "title": "plugins",
+                    "type": "array"
+                  },
+                  "revision": {
+                    "description": "Collection's current revision number, which increments each time the collection is updated. For an update operation to succeed, you must specify the latest revision number.",
+                    "format": "int64",
+                    "readOnly": true,
+                    "title": "revision",
+                    "type": "string"
+                  },
+                  "updatedDate": {
+                    "description": "Date the collection was last updated.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "title": "updatedDate",
+                    "type": "string"
+                  }
+                },
+                "title": "DataCollection",
+                "type": "object"
+              }
+            },
+            "required": [
+              "collection",
+              "collection.id",
+              "collection.fields.key",
+              "collection.fields.type",
+              "collection.permissions.insert",
+              "collection.permissions.update",
+              "collection.permissions.remove",
+              "collection.permissions.read"
+            ],
+            "title": "CreateDataCollectionRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "collection": {
+            "$circular": "com.wixpress.cloud.data.api.collectionservice.DataCollection",
+            "description": "Details of collection created.",
+            "summary": "collection"
+          }
+        },
+        "title": "CreateDataCollectionResponse",
+        "type": "object"
+      }
+    },
+    "title": "Create Data Collection"
+  },
+  {
+    "docsUrl": "https://dev.wix.com/docs/api-reference/business-solutions/cms/data-items/bulk-save-data-items",
+    "examples": [
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/bulk/items/save' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e' \\\n-d '{\n    \"dataCollectionId\": \"cities\",\n    \"dataItems\": [\n        {\n            \"data\": {\n                \"state\": \"California\",\n                \"year\": 2022,\n                \"city\": \"Los Angeles\",\n                \"population\": 3800000\n            }\n        },\n        {\n            \"id\": \"6c38b4f7-7b8d-4702-9283-66a5889f8e17\",\n            \"data\": {\n                \"state\": \"California\",\n                \"year\": 2022,\n                \"city\": \"San Francisco\",\n                \"population\": 840000\n            }\n        }\n    ],\n    \"returnEntity\": true\n}'",
+        "response": "{\n    \"results\": [\n        {\n            \"action\": \"INSERT\",\n            \"itemMetadata\": {\n                \"id\": \"6d717171-6f4d-4794-b6ea-7aea0071a76b\",\n                \"originalIndex\": 0,\n                \"success\": true\n            },\n            \"dataItem\": {\n                \"id\": \"6d717171-6f4d-4794-b6ea-7aea0071a76b\",\n                \"dataCollectionId\": \"cities\",\n                \"data\": {\n                    \"_id\": \"6d717171-6f4d-4794-b6ea-7aea0071a76b\",\n                    \"_createdDate\": { \"$date\": \"2023-03-28T13:24:45.845Z\" },\n                    \"_updatedDate\": { \"$date\": \"2023-03-28T13:24:45.845Z\" },\n                    \"_owner\": \"690264f5-29a0-4aa8-a9b5-0842fc5ab360\",\n                    \"city\": \"Los Angeles\",\n                    \"state\": \"California\",\n                    \"population\": 3800000.0,\n                    \"year\": 2022.0\n                }\n            }\n        },\n        {\n            \"action\": \"UPDATE\",\n            \"itemMetadata\": {\n                \"id\": \"6c38b4f7-7b8d-4702-9283-66a5889f8e17\",\n                \"originalIndex\": 1,\n                \"success\": true\n            },\n            \"dataItem\": {\n                \"id\": \"6c38b4f7-7b8d-4702-9283-66a5889f8e17\",\n                \"dataCollectionId\": \"cities\",\n                \"data\": {\n                    \"_id\": \"6c38b4f7-7b8d-4702-9283-66a5889f8e17\",\n                    \"_createdDate\": { \"$date\": \"2023-03-28T12:20:43.745Z\" },\n                    \"_updatedDate\": { \"$date\": \"2023-03-28T13:24:45.845Z\" },\n                    \"_owner\": \"690264f5-29a0-4aa8-a9b5-0842fc5ab360\",\n                    \"city\": \"San Francisco\",\n                    \"state\": \"California\",\n                    \"population\": 840000.0,\n                    \"year\": 2022.0\n                }\n            }\n        }\n    ],\n    \"bulkActionMetadata\": {\n        \"totalSuccesses\":2,\n        \"totalFailures\": 0\n    }\n}",
+        "title": "Bulk save new items by inserting first one and updating another"
+      },
+      {
+        "request": "curl -X POST \\\n'https://www.wixapis.com/wix-data/v2/bulk/items/save' \\\n-H 'Content-Type: application/json' \\\n-H 'Authorization: \u003cAUTH\u003e' \\\n-d '{\n    \"dataCollectionId\": \"cities\",\n    \"dataItems\": [\n        {\n            \"data\": {\n                \"state\": \"California\",\n                \"year\": 2022,\n                \"city\": \"Los Angeles\",\n                \"population\": 3800000\n            }\n        },\n        {\n            \"data\": {\n                \"state\": \"California\",\n                \"year\": 2022,\n                \"city\": \"San Francisco\",\n                \"population\": 840000\n            }\n        }\n    ]\n}'",
+        "response": "{\n    \"results\": [\n        {\n            \"action\": \"INSERT\",\n            \"itemMetadata\": {\n                \"id\": \"aa019290-b546-4b3e-b302-8f6474baedf9\",\n                \"originalIndex\": 0,\n                \"success\": true\n            }\n        },\n        {\n            \"action\": \"INSERT\",\n            \"itemMetadata\": {\n                \"id\": \"39cbd938-7b42-4e33-8acf-ff1ce278664c\",\n                \"originalIndex\": 1,\n                \"success\": true\n            }\n        }\n    ],\n    \"bulkActionMetadata\": {\n        \"totalSuccesses\": 2,\n        \"totalFailures\": 0\n    }\n}",
+        "title": "Bulk save new items"
+      }
+    ],
+    "httpMethod": "POST",
+    "operationId": "com.wixpress.cloud.data.api.data.DataItemService.BulkSaveDataItems",
+    "parameters": [],
+    "permissions": [
+      "WIX_DATA.BULK_SAVE"
+    ],
+    "publicUrl": "https://www.wixapis.com/data/v2/bulk/items/save",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "deprecated": false,
+            "properties": {
+              "appOptions": {
+                "properties": {
+                  "fields": {
+                    "format": "map",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "oneOf": [
+                          {
+                            "properties": {
+                              "boolValue": {
+                                "title": "boolValue",
+                                "type": "boolean"
+                              },
+                              "listValue": {
+                                "properties": {
+                                  "values": {
+                                    "items": {
+                                      "$circular": "google.protobuf.Value"
+                                    },
+                                    "title": "values",
+                                    "type": "array"
+                                  }
+                                },
+                                "title": "ListValue",
+                                "type": "object"
+                              },
+                              "nullValue": {
+                                "enum": [
+                                  {
+                                    "value": "NULL_VALUE"
+                                  }
+                                ],
+                                "title": "NullValue",
+                                "type": "string"
+                              },
+                              "numberValue": {
+                                "title": "numberValue",
+                                "type": "number"
+                              },
+                              "stringValue": {
+                                "title": "stringValue",
+                                "type": "string"
+                              },
+                              "structValue": {
+                                "$circular": "google.protobuf.Struct"
+                              }
+                            },
+                            "title": "kind",
+                            "type": "object"
+                          }
+                        ],
+                        "properties": {},
+                        "title": "Value",
+                        "type": "object"
+                      }
+                    },
+                    "title": "fields",
+                    "type": "object"
+                  }
+                },
+                "title": "Struct",
+                "type": "object"
+              },
+              "dataCollectionId": {
+                "description": "ID of the collection in which to insert or update the items.",
+                "maxLength": 256,
+                "title": "dataCollectionId",
+                "type": "string"
+              },
+              "dataItems": {
+                "description": "Data items to insert or update.",
+                "items": {
+                  "description": "A data item represents a single entry in a site's data collection.",
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "fields": {
+                          "format": "map",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "oneOf": [
+                                {
+                                  "properties": {
+                                    "boolValue": {
+                                      "title": "boolValue",
+                                      "type": "boolean"
+                                    },
+                                    "listValue": {
+                                      "properties": {
+                                        "values": {
+                                          "items": {
+                                            "$circular": "google.protobuf.Value"
+                                          },
+                                          "title": "values",
+                                          "type": "array"
+                                        }
+                                      },
+                                      "title": "ListValue",
+                                      "type": "object"
+                                    },
+                                    "nullValue": {
+                                      "enum": [
+                                        {
+                                          "value": "NULL_VALUE"
+                                        }
+                                      ],
+                                      "title": "NullValue",
+                                      "type": "string"
+                                    },
+                                    "numberValue": {
+                                      "title": "numberValue",
+                                      "type": "number"
+                                    },
+                                    "stringValue": {
+                                      "title": "stringValue",
+                                      "type": "string"
+                                    },
+                                    "structValue": {
+                                      "$circular": "google.protobuf.Struct"
+                                    }
+                                  },
+                                  "title": "kind",
+                                  "type": "object"
+                                }
+                              ],
+                              "properties": {},
+                              "title": "Value",
+                              "type": "object"
+                            }
+                          },
+                          "title": "fields",
+                          "type": "object"
+                        }
+                      },
+                      "title": "Struct",
+                      "type": "object"
+                    },
+                    "dataCollectionId": {
+                      "description": "ID of the collection this item belongs to.\n\nThis is the user-defined collection identifier set when the collection is created (for example, `EvalCustomers`), not a GUID.",
+                      "maxLength": 256,
+                      "readOnly": true,
+                      "title": "dataCollectionId",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Data item ID.\n\nWhen an item is inserted into a collection, the item's ID is automatically assigned a random value. You can optionally provide a custom ID in `dataItem.id` when inserting the item. If you specify an ID that already exists in the collection, the insertion will fail.",
+                      "immutable": true,
+                      "maxLength": 128,
+                      "title": "id",
+                      "type": "string"
+                    }
+                  },
+                  "title": "DataItem",
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "title": "dataItems",
+                "type": "array"
+              },
+              "publishPluginOptions": {
+                "properties": {
+                  "includeDraftItems": {
+                    "description": "Whether to include draft items.\n\nWhen `true`, both published and draft items are affected. Default: `false`.",
+                    "title": "includeDraftItems",
+                    "type": "boolean"
+                  }
+                },
+                "title": "PublishPluginOptions",
+                "type": "object"
+              },
+              "returnEntity": {
+                "description": "Whether to return the saved data items.\nWhen `true`, the `results` objects contain a `dataItem` field.\n\nDefault: `false`",
+                "title": "returnEntity",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "dataCollectionId",
+              "dataItems"
+            ],
+            "title": "BulkSaveDataItemsRequest",
+            "type": "object"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "properties": {
+          "bulkActionMetadata": {
+            "$circular": "com.wixpress.cloud.data.api.data.upstream.wix.common.BulkActionMetadata",
+            "description": "Bulk action metadata.",
+            "summary": "bulkActionMetadata"
+          },
+          "results": {
+            "description": "Information about the saved items.",
+            "items": {
+              "$circular": "com.wixpress.cloud.data.api.data.BulkDataItemResult"
+            },
+            "title": "results",
+            "type": "array"
+          }
+        },
+        "title": "BulkSaveDataItemsResponse",
+        "type": "object"
+      }
+    },
+    "title": "Bulk Save Data Items"
+  }
+]

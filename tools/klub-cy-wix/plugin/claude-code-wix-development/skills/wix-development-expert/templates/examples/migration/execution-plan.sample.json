@@ -1,0 +1,30 @@
+{
+  "project": "klub-to-wix",
+  "deliveryMode": "management_and_website",
+  "destination": {
+    "accountId": "<WIX_ACCOUNT_ID>",
+    "siteId": "<WIX_SITE_ID>",
+    "projectPath": "<WIX_MANAGED_HEADLESS_PROJECT_PATH>",
+    "pinned": false
+  },
+  "approval": {
+    "mappingApproved": false,
+    "writesApproved": false,
+    "releaseApproved": false
+  },
+  "operations": [
+    { "id": "verify-destination", "mode": "read", "dependsOn": [] },
+    { "id": "install-required-apps", "mode": "write", "dependsOn": ["verify-destination"] },
+    { "id": "create-cms-collections", "mode": "write", "dependsOn": ["install-required-apps"] },
+    { "id": "upload-media", "mode": "idempotent-write", "dependsOn": ["verify-destination"] },
+    { "id": "import-cms-records", "mode": "idempotent-write", "dependsOn": ["create-cms-collections", "upload-media"] },
+    { "id": "bind-frontend", "mode": "repository-write", "dependsOn": ["import-cms-records"] },
+    { "id": "preview-and-test", "mode": "read-test", "dependsOn": ["bind-frontend"] },
+    { "id": "release", "mode": "sensitive-write", "dependsOn": ["preview-and-test"] }
+  ],
+  "rollback": {
+    "frontend": "Keep the existing Astro deployment live until Wix cutover acceptance.",
+    "dns": "Revert DNS to the existing host if post-cutover critical checks fail.",
+    "data": "Use source-to-Wix crosswalks and operation logs; never bulk-delete without explicit approval."
+  }
+}

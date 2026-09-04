@@ -1,0 +1,55 @@
+{
+  "docsUrl": "https://dev.wix.com/docs/api-reference/account-level/sites/site-actions/duplicate-site",
+  "examples": [
+    {
+      "request": "curl 'https://www.wixapis.com/site-actions/v1/sites/duplicate' \\\n  -H 'authorization: \u003cAUTH\u003e' \\\n  -H 'content-type: application/json' \\\n  -d '{\n        \"sourceSiteId\": \"1e6179e9-c3db-49aa-a074-37566a7bad47\",\n        \"siteDisplayName\": \"Sunset Boutique Hotel\"\n      }'",
+      "response": "{\n    \"newSiteId\": \"f161fc0f-cae0-4202-8f75-2d4f2469fe0a\"\n  }",
+      "title": "DuplicateSite"
+    }
+  ],
+  "httpMethod": "POST",
+  "operationId": "com.wix.site.actions.SiteActionsService.DuplicateSite",
+  "parameterNames": [],
+  "permissions": [
+    "my-account.duplicate-site"
+  ],
+  "publicUrl": "https://www.wixapis.com/site-actions/v1/sites/duplicate",
+  "requestRequired": true,
+  "requestSchema": {
+    "deprecated": false,
+    "properties": {
+      "siteDisplayName": {
+        "description": "Display name for the new site.",
+        "maxLength": 40,
+        "minLength": 1,
+        "title": "siteDisplayName",
+        "type": "string"
+      },
+      "sourceSiteId": {
+        "description": "ID of the site to duplicated.",
+        "format": "GUID",
+        "title": "sourceSiteId",
+        "type": "string"
+      }
+    },
+    "required": [
+      "sourceSiteId",
+      "siteDisplayName"
+    ],
+    "title": "DuplicateSiteRequest",
+    "type": "object"
+  },
+  "response200": {
+    "properties": {
+      "newSiteId": {
+        "description": "ID of the new site.",
+        "format": "GUID",
+        "title": "newSiteId",
+        "type": "string"
+      }
+    },
+    "title": "DuplicateSiteResponse",
+    "type": "object"
+  },
+  "title": "Duplicate Site"
+}
