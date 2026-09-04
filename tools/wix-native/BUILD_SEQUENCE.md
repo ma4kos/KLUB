@@ -73,6 +73,14 @@ Add GA4 and Clarity in Wix Marketing Integrations once Alex supplies the IDs (bo
 
 ## Stage 8 — Verify, then stop
 
+Run the verifier before claiming anything is done:
+
+```bash
+node tools/wix-native/verify-wix-site.mjs <newSiteId>
+```
+
+It re-reads the live site through the Wix REST API and compares it with this spec: every page present at its exact slug with its SEO title, all 24 media files uploaded, no production domain connected, and the target not one of the protected sites. It exits non-zero on any blocking failure. A build that "looks right" but drops a page or a media file fails here rather than in front of Alex. If an endpoint path in the script is stale, repoint it — each carries a `need` note saying what it must read — but do not weaken a check to make it pass.
+
 Publish to a **Wix preview only**. Walk every page on a phone and a desktop. Then stop and hand back:
 
 - the new site id and its preview URL;
