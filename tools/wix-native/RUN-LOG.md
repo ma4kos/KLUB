@@ -289,3 +289,48 @@ new generation**, so get the prompt right before running it.
 | Klub `0894a982` | failed one-pager, **published** — unpublish and trash |
 | KLUB Headless Test `cc7fa0d1` | leave — protected |
 | KLUB-CY `20f11f6f` | leave — protected |
+
+---
+
+## Run 4 — image URLs in the prompt are ignored
+
+Tested whether the generator will use specific photographs given as URLs in the
+prompt, so the Wix build could match the Netlify site's imagery automatically.
+
+Site **Klub 3** `e4576adc-080c-4114-94e6-33d1247d70cf`, job
+`af2521ee-473d-4d70-ac5d-0c5fd5a4e1fb`. The prompt listed seven
+`raw.githubusercontent.com` URLs against named sections, prefixed
+"IMPORTANT: use these exact photographs, do not use stock images".
+
+`GET /site-media/v1/files?mediaTypes=IMAGE` on the result returns:
+
+```
+ai-generated-IMAGE.jpg  ×4
+ai-generated-IMAGE.png  ×1
+```
+
+**It ignored every URL and generated its own imagery.** Combined with the
+absence of any page/section API, this means photograph placement cannot be
+automated at all — it is editor work. `FINISH-IN-EDITOR.md` is the checklist.
+
+## Wix SEO service degraded during this run
+
+Every `PATCH .../item-seo-tags/STATIC_PAGE/{itemId}` returned
+`499 CANCELLED — time budget exceeded (budget 10000 ms, spent ~25000 ms)`, and
+`POST .../bulk/item-seo-tags/set` returned `500 BULK_ENTRY_PREPARATION_FAILED`
+on the first entry regardless of payload. Reads on the same service succeeded
+only after two to four retries.
+
+The endpoint, method and body were verified against the method article, and the
+singular method is **PATCH**, not POST — a `POST .../{itemId}/set` 404s. Nothing
+about the requests is wrong; the service is unwell. Retry later.
+
+## Where this ended
+
+Everything the API can do is done: the site, its 12 pages, the 8 homepage
+sections in Alex's order with his wording, the menu order, and his 12
+photographs uploaded to the Media Manager.
+
+What the API cannot do — placing those photographs, the locale, the bsport
+embed, the founding-member form — is written up as a ~30-minute checklist in
+`FINISH-IN-EDITOR.md`.
