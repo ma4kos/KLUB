@@ -181,3 +181,57 @@ Getting from here to the spec is **manual editor work** — 14 pages to add and
 a homepage to restructure — because, per the finding above, no API composes
 editor pages or sections. Decide between that, staying on Netlify, or a
 narrower Wix scope before spending more.
+
+---
+
+## Run 2 — the fix: short prompts, not long ones
+
+**The earlier conclusion was wrong.** The generator is not incapable of building
+structure — it was being given too much text and summarising it away.
+
+| | Run 1 | Run 2 |
+|---|---|---|
+| Prompt length | ~1,000 words | ~150 words |
+| Pages produced | **1** | **12** ✔ |
+| Homepage sections | 4 generic | **8, in the right order, with Alex's names** ✔ |
+
+Run 2 site: **Klub 1** — `a415605e-c816-4c34-80ba-6d8d40ee9047`
+Editor: https://editor.wix.com/edit/od/1373459e-1ff7-49c8-9355-1eb40412ba12?metaSiteId=a415605e-c816-4c34-80ba-6d8d40ee9047
+Job: `5759c26c-d42e-41c1-8928-5a03405f2188`
+
+Sections it built, in order: Hero · The Klub · Find Your Balance · Start Here ·
+The KLUB Experience · Move With Us · Find Us · Closing. Pages: Home, Classes,
+Foundations, Signature, Mat Pilates, Privates, Schedule, Memberships, About,
+Instructors, Location, Contact.
+
+### Rules for prompting this generator
+
+1. **Keep it short.** Roughly 150 words. Past a few hundred it stops following
+   structure and falls back to a generic Hero/About/Benefits/CTA one-pager.
+2. **List the pages explicitly**, on one line, prefixed with the count:
+   "Build these 12 pages, all of them: …".
+3. **Number the homepage sections** and give each a short name only. Do not
+   supply full body copy in the creation prompt — the copy is what pushes the
+   prompt over the length budget and costs you the structure.
+4. Keep constraints to a single terse line ("No names of people. No online
+   store, no blog, no Wix Bookings.").
+5. Structure first, wording second. Get the skeleton right, then refine copy in
+   follow-up passes.
+
+### What does not work
+
+- **Re-running `WixSiteBuilder` with a completed `jobId`** is a no-op: the job's
+  `updatedAt` and the site's page count were both unchanged afterwards.
+- **`Site Properties v4` is read-only** over REST — its spec exposes only
+  `Read`. Locale, currency and timezone must be set in the dashboard
+  (Settings → Language & Region). Both generated sites default to
+  **US / USD / America-Los_Angeles** and need changing to Cyprus / EUR /
+  Asia-Nicosia by hand.
+- There is still **no REST API for creating pages or composing sections**;
+  the generator is the only route, which is why prompt discipline matters.
+
+### Cleanup owed
+
+Site **Klub** (`0894a982-…`) is the failed Run-1 one-pager. It is *published*
+at https://markossymeonides.wixsite.com/klub, so it should be trashed or
+unpublished to avoid confusion. Left in place pending the owner's say-so.
