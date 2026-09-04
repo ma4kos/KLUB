@@ -3,11 +3,13 @@
 Everything the Wix API can do has been done. What is left genuinely cannot be
 done through the API; this is the checklist for doing it in the browser.
 
-**The site to work on: "Klub 5"**
-`15456f11-b92e-4935-8b04-036a4aa86d5c`
+**The site to work on: "Klub 7"**
+`ece32e34-4e44-4b4e-be5b-cacb89ce6018`
 
-- Editor — https://editor.wix.com/edit/od/685a6211-844a-4004-b470-9a74c3961e3f?metaSiteId=15456f11-b92e-4935-8b04-036a4aa86d5c
-- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/685a6211-844a-4004-b470-9a74c3961e3f?metaSiteId=15456f11-b92e-4935-8b04-036a4aa86d5c
+**Live, no login needed — send Alex this:** https://markossymeonides.wixsite.com/klub-7
+
+- Editor — https://editor.wix.com/edit/od/89744cc7-e6f8-4ac5-90a4-45eae51cba6e?metaSiteId=ece32e34-4e44-4b4e-be5b-cacb89ce6018
+- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/89744cc7-e6f8-4ac5-90a4-45eae51cba6e?metaSiteId=ece32e34-4e44-4b4e-be5b-cacb89ce6018
 
 It already has: **all 15 pages** of the spec (including FAQ, Policies and
 Founding Member), the 8 homepage sections in Alex's order with his numbered
@@ -47,12 +49,12 @@ two look alike. Cross-check against https://klub-cy.netlify.app.
 
 ## 2. Rename the site — 30 seconds *(deferred by Markos, 2026-09-04)*
 
-Every page title currently reads "… | Klub 5". Wix ignores the site name passed
+Every page title currently reads "… | Klub 7". Wix ignores the site name passed
 to the generator and derives it from the brand in the prompt, appending a number
 because "Klub" was already taken by the earlier attempts. Titles inherit it
 through the default pattern `{{page.name}} | {{site.name}}`.
 
-Fix: My Sites → rename **Klub 5** to **KLUB**. Every title corrects itself.
+Fix: My Sites → rename **Klub 7** to **KLUB**. Every title corrects itself.
 (The alternative — trashing the earlier sites and regenerating so the name lands
 clean — was considered and set aside.)
 
@@ -107,7 +109,9 @@ cut-over is a separate, deliberate decision.
 
 | Site | What to do |
 |---|---|
-| **Klub 5** `15456f11` | **keep** — the build described above, full 15 pages |
+| **Klub 7** `ece32e34` | **keep** — 15 pages, 24 images, map + footer, published |
+| Klub 6 `babf3be3` | trash — over-length prompt, collapsed to one page |
+| Klub 5 `15456f11` | keep until Klub 7 is reviewed — has the 01–07 labels on section titles |
 | Klub 4 `fbbcc5b2` | trash — 12 pages only, but richest imagery; keep until Klub 5 is reviewed |
 | Klub 3 `e4576adc` | trash — image-URL experiment; generator ignored the URLs |
 | Klub 2 `2a3b3fcb` | trash — good copy, but generic imagery |
@@ -117,4 +121,4 @@ cut-over is a separate, deliberate decision.
 | KLUB-CY `20f11f6f` | leave alone |
 
 Each refinement needs a new generated site because reusing a `jobId` does
-nothing, which is why there are six. Nothing was deleted without asking.
+nothing, which is why there are eight. Nothing was deleted without asking.

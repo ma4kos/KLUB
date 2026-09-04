@@ -464,3 +464,60 @@ new one; a seventh would add clutter without closing any identified gap. The
 next change should be driven by specific feedback ("section 04's photo is
 wrong", "shorten the About copy"), which the generator handles well — one line
 of art direction or wording per section, kept under ~370 words in total.
+
+---
+
+## Runs 7 and 8 — reading the actual mock, and finding the budget ceiling
+
+Alex's original artwork (`docs/design-concepts/2026-08-homepage-options-1-2-3.jpg`)
+was re-examined directly rather than through the derived spec. Two things in
+Option 1 had been missed:
+
+1. **06 Find Us shows a map.** Every run so far said "No map", inherited from a
+   decision made for the Astro build — where no truthful map asset existed, so
+   fabricating one was wrong. That reasoning does not transfer to Wix, which
+   renders a real map of a real address. The mock asks for one; Wix can give a
+   truthful one.
+2. **The footer** carries the KLUB wordmark, social icons, the menu links and
+   © KLUB STUDIOS. Dropped after Run 1.
+
+**Run 7 (Klub 6, `babf3be3`) failed.** Adding both lines pushed the prompt to
+~420 words and it collapsed to **1 page, 5 images** — the Run-1 failure mode
+exactly. This pins the ceiling: **~370 words works, ~420 does not.**
+
+**Run 8 (Klub 7, `ece32e34`) is the build to keep.** Same content, but the
+per-section image notes were cut to buy room for the map and footer.
+
+| | Run 6 (Klub 5) | Run 7 (Klub 6) | **Run 8 (Klub 7)** |
+|---|---|---|---|
+| Prompt words | ~370 | ~420 | ~360 |
+| Pages | 15 | **1** | **15** |
+| Images | 15 | 5 | **24** |
+| Map on 06 | — | — | ✔ |
+| Footer per mock | — | — | ✔ |
+| 01–07 labels on section titles | ✔ | — | not confirmed |
+| Published | no | no | **yes** |
+
+**Live and needs no login — this is the link to send Alex:**
+https://markossymeonides.wixsite.com/klub-7
+
+Verified from the job feed: 8 homepage sections in order (Hero · The Klub ·
+Find Your Balance · Start Here · The KLUB Experience · Move With Us · Find Us ·
+Closing), Location carries "Map and Directions", Schedule carries the empty
+"Calendar Container" for bsport, and all 15 pages are populated.
+
+Klub 5 is kept for now as the comparison: its section titles carry the 01–07
+labels explicitly, which Klub 7's feed does not confirm.
+
+### The budget, measured across eight runs
+
+| Words | Outcome |
+|---|---|
+| ~150 | 12 pages, structure only |
+| ~300 | 12 pages + exact wording |
+| ~360 | **15 pages + wording + art direction + map + footer** |
+| ~370 | 15 pages + numbered labels |
+| ~420 | **collapses to 1 page** |
+| ~1,000 | collapses to 1 page |
+
+Aim for ~350. Every word spent on prose is a word not spent on structure.
