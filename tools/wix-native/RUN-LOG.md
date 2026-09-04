@@ -763,5 +763,57 @@ pass: spaced-out capitals must be done with CSS letter-spacing, never literal
 spaces between letters, or screen readers spell the headline out letter by
 letter. The hero is the place that would go wrong.
 
-**Klub 10 supersedes Klub 8 and Klub 9.** It is the first build satisfying both
-the mock and the written review.
+### Correction — Klub 10 does NOT supersede Klub 8
+
+That claim was made from the prompt, before checking the output. Reading the
+job feed shows the homepage sections came back **generically named, with no
+01–07 labels**:
+
+```
+Hero · The Klub · Class Types · Intro Offer · Studio Experience
+Community · Location Map · Closing & Signup
+```
+
+Against Alex's names, which Klub 8 has:
+
+```
+Hero · 01 The Klub · 02 Find Your Balance · 03 Start Here
+04 The KLUB Experience · 05 Move With Us · 06 Find Us · 07 Closing
+```
+
+At ~430 words the prompt went over the budget again. This time the failure was
+partial rather than total — the 15 pages held and 25 images were produced, but
+section naming and the chapter labels were the first things dropped. That is
+consistent with everything else measured: **structure survives longest, naming
+and detail degrade first, and past ~420 words the whole thing collapses.**
+
+### Where that leaves the builds
+
+| | Klub 8 | Klub 9 | Klub 10 |
+|---|---|---|---|
+| Alex's section names + 01–07 labels | **✔** | not verified | ✗ |
+| Full class page names | **✔** | ✗ | ✗ |
+| Per-page SEO written | **✔** | ✗ | ✗ |
+| Published | ✔ | ✗ | ✔ |
+| Real contact details | ✗ | ✔ | ✔ |
+| KLUB's real studio rules | ✗ | ✔ | ✔ |
+| Full-bleed moment | ✗ | ✗ | requested |
+| Prices on Memberships | ✗ | ✗ | ✔ |
+
+**Klub 8 remains the most faithful to Alex's design.** No single generation has
+carried everything, and chasing one is the wrong approach: each attempt to add
+a requirement costs a requirement already won.
+
+### The right move now is Aria, not another generation
+
+`ARIA-EDITING.md` documents Wix's in-editor AI design agent, which edits an
+existing site in natural language. The sensible path is:
+
+1. Start from **Klub 8** — best structure, Alex's names, chapter labels, SEO
+   done, already published.
+2. Ask Aria for the four things it lacks, one at a time: the real contact
+   details, KLUB's five studio rules, the full-bleed treatment on section 04,
+   and prices on the Memberships page.
+
+That converges without losing anything, which repeated generation demonstrably
+does not.
