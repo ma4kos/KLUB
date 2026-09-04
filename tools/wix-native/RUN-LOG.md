@@ -85,3 +85,56 @@ Re-enable the Wix MCP connector, then work items 1–7 above in order, using
 `ListWixSites` first. If the generated structure is too far from the spec to
 edit into shape, delete that site and regenerate rather than accumulating
 half-built duplicates.
+
+---
+
+## Finding — why the first run came out generic, and what is actually possible
+
+After the connector dropped, the pinned snapshot of **Wix's own official
+migration skills** (`wix/skills` @ `08aa1613`, 340 files, vendored at
+`tools/klub-cy-wix/plugin/.../official-wix-replatform/`) was audited to find
+the API that composes editor pages and sections directly, instead of relying on
+the AI generator to interpret a long brief.
+
+**There isn't one.** Every Wix REST endpoint referenced anywhere in that
+snapshot is business data or metadata:
+
+```
+bookings/v2/*        stores/v3/provision      pricing-plans/v2,v3
+forms/v4/*           reviews/v1/*             addons/v1/*
+automations-service/v2                        ecom/v1/orders
+promote/seo/v1/item-seo-tags, seo-patterns, site-seo-tags
+promote-seo-robots-server/v2/robots
+```
+
+No editor, page-layout, or section-composition API appears. Page structure is
+not programmatically addressable on a visual-editor (Odeditor) site.
+
+### The two programmatic routes Wix actually supports
+
+| | Route 1 — AI site generator | Route 2 — headless replatform |
+|---|---|---|
+| What it makes | a real Odeditor site | an Astro + TypeScript + Tailwind project |
+| Alex can edit visually | **yes** | **no** — it is code |
+| Fidelity to the Option-1 spec | interpreted; it summarises a long brief | high; preserves structure, fonts, SEO, interactions |
+| Scope | whole site | **home page only** — `wix-headless-replatform` explicitly rejects additional-page scope |
+
+Route 2 is what `rp-website-continuation` routes to for website-mode
+migrations, and it is essentially what already exists on Netlify — the same
+codebase, hosted at Wix instead. It does not give Alex a visual editor.
+
+### Consequence for this project
+
+"Programmatic" + "Alex edits it visually" + "exact Option-1 likeness" cannot
+all hold at once. Route 1 is the only one that keeps the visual editor, so the
+realistic shape of the work is:
+
+1. Generate with Route 1 (**done** — site `0894a982-…`).
+2. Fix what the generator condensed, **by hand in the Wix editor** — section
+   order and the numbered chapters. This is editor work, not API work.
+3. Do programmatically the parts that *are* API-addressable: media upload,
+   per-page SEO (`promote/seo/v1/bulk/item-seo-tags/set`), the founding-member
+   form (`forms/v4`), site locale, and the bsport embed.
+
+Step 2 is the part no API can do. Budget for it, or accept the generator's
+structure.
