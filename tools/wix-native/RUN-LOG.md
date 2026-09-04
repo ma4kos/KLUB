@@ -585,3 +585,59 @@ send Alex: it needs no login and opens on a phone.
 Publishing was the last action available here that moves the work toward his
 review. Whether the design pleases him is his call, not something this session
 can determine or assert.
+
+---
+
+## Accessibility scan of the published build — 43 serious findings
+
+Ran Wix's own full-site scan against Klub 8
+(`POST /accessibility/v1/accessibility-scans/run`, scan
+`c4637edd-8e94-4aaa-8129-43a03beca9fa`).
+
+```
+status            PARTIALLY_COMPLETED
+pages discovered  15
+pages scanned      9   (6 failed to scan)
+affected pages     9   — every page it managed to scan
+findings          43   — all severity SERIOUS
+site-level         0
+```
+
+By category (findings overlap, so these sum above 43):
+
+| Category | Count |
+|---|---|
+| Screen reader | 33 |
+| Alternative text | 22 |
+| Heading structure | 11 |
+| Colour contrast | 10 |
+
+Rules checked: `color-contrast`, `dom-order`, `focus-indicator`,
+`heading-structure`, `image-alt`, `inaccessible-component`,
+`inaccessible-layout`, `media-alternatives`, `page-title`, `site-language`,
+`skip-to-main-content`.
+
+### Why this matters for the Netlify-versus-Wix decision
+
+The Astro site on Netlify runs an **axe accessibility suite in CI on every
+commit and passes**. This generated Wix site has 43 serious issues on the nine
+pages that could be scanned, and every scanned page is affected. That is a real
+regression, not a cosmetic one, and it is the strongest argument yet for
+weighing the two options carefully rather than assuming Wix is a straight
+upgrade.
+
+Cyprus is in the EU, where the European Accessibility Act applies to
+consumer-facing services from June 2025. A studio website taking bookings is
+squarely in scope.
+
+### Can it be fixed?
+
+Partly, and not from here. The 22 missing alt texts and the heading-structure
+problems are editor work — the same constraint as everything else: no API
+composes page content. Colour contrast is a theme decision. None of it is
+scriptable through the API.
+
+The 6 pages that failed to scan were not diagnosed; re-run the scan after the
+editor pass to get a clean number.
+
+**This should be resolved before the site goes anywhere near a real domain.**
