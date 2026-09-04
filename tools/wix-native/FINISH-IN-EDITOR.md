@@ -3,16 +3,16 @@
 Everything the Wix API can do has been done. What is left genuinely cannot be
 done through the API; this is the checklist for doing it in the browser.
 
-**The site to work on: "Klub 8"**
-`39c99397-4288-4294-92b1-0dad4b02e130`
+**The site to work on: "Klub 10"**
+`ac575e89-105d-44a3-babe-9b3a80ac4f66`
 
 **Live, no login needed — send Alex this:**
-# https://markossymeonides.wixsite.com/klub-8
+# https://markossymeonides.wixsite.com/klub-10
 
 (Klub 7, `ece32e34`, is the same design one iteration earlier and is also live
 at .../klub-7. It can be trashed once Klub 8 has been reviewed.)
 
-- Editor — https://editor.wix.com/edit/od/13bbc8cb-18ab-49ee-ae8e-17585d8a22c4?metaSiteId=39c99397-4288-4294-92b1-0dad4b02e130
+- Editor — https://editor.wix.com/edit/od/9f148365-6e94-41f6-aca1-28db625d4079?metaSiteId=ac575e89-105d-44a3-babe-9b3a80ac4f66
 - Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/89744cc7-e6f8-4ac5-90a4-45eae51cba6e?metaSiteId=ece32e34-4e44-4b4e-be5b-cacb89ce6018
 
 It already has: **all 15 pages** of the spec (including FAQ, Policies and
@@ -53,12 +53,12 @@ two look alike. Cross-check against https://klub-cy.netlify.app.
 
 ## 2. Rename the site — 30 seconds *(deferred by Markos, 2026-09-04)*
 
-Every page title currently reads "… | Klub 8". Wix ignores the site name passed
+Every page title currently reads "… | Klub 10". Wix ignores the site name passed
 to the generator and derives it from the brand in the prompt, appending a number
 because "Klub" was already taken by the earlier attempts. Titles inherit it
 through the default pattern `{{page.name}} | {{site.name}}`.
 
-Fix: My Sites → rename **Klub 8** to **KLUB**. Every title corrects itself.
+Fix: My Sites → rename **Klub 10** to **KLUB**. Every title corrects itself.
 (The alternative — trashing the earlier sites and regenerating so the name lands
 clean — was considered and set aside.)
 

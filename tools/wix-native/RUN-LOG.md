@@ -713,3 +713,48 @@ not a failure — wait before judging).
 **Klub 8 and Klub 9 are the two candidates.** Klub 8 is more polished; Klub 9 is
 more truthful. Truth is the easier gap to close by hand, so Klub 9 is the one to
 finish — but Klub 8 stays until that is decided.
+
+---
+
+## Run 11 — Klub 10, built against the documented review
+
+`ac575e89-105d-44a3-babe-9b3a80ac4f66` · job `17a42106-5393-45ea-ad33-2d07370d01ae`
+**Live: https://markossymeonides.wixsite.com/klub-10**
+Editor: https://editor.wix.com/edit/od/9f148365-6e94-41f6-aca1-28db625d4079?metaSiteId=ac575e89-105d-44a3-babe-9b3a80ac4f66
+
+Ten runs had been driven by the mock image and the generated spec. Re-reading
+`docs/design-concepts/layout-review-2026-08.md` — the written review that chose
+Option 1 in the first place — surfaced three requirements every build had
+missed:
+
+1. **"Keep one full-bleed image moment."** The review warns Option 1 "risks
+   feeling flat over seven sections if every block has the same rhythm" and
+   prescribes borrowing one full-bleed section from Option 2 as the fix. Every
+   build to Klub 9 used uniform contained strips. Now section 04, The KLUB
+   Experience, is a single full-width photograph with the text overlaid — the
+   one immersive moment, exactly as prescribed.
+2. **"Vary block backgrounds (linen / white / sand / one dark section)."**
+   Only sand and dark were ever specified; the alternation is now explicit.
+3. **Membership cards with the real prices**, and the comp's class-list rows
+   with a name, a three-word line and an **arrow**. The prices had been dropped
+   from the prompt in run 9 to save words.
+
+| | Klub 8 | Klub 9 | **Klub 10** |
+|---|---|---|---|
+| Pages | 15 | 15 | 15 |
+| Images | 26 | 20 | **25** |
+| Real contact details | ✗ | ✔ | **✔** |
+| KLUB's real studio rules | ✗ | ✔ | **✔** |
+| Full-bleed moment | ✗ | ✗ | **✔** |
+| Background alternation | ✗ | ✗ | **✔** |
+| Prices on Memberships | ✗ | ✗ | **✔** |
+| Class rows with arrows | ✗ | ✗ | **✔** |
+| Published | ✔ | ✗ | **✔** |
+
+The review also flags an accessibility trap worth keeping in mind for the editor
+pass: spaced-out capitals must be done with CSS letter-spacing, never literal
+spaces between letters, or screen readers spell the headline out letter by
+letter. The hero is the place that would go wrong.
+
+**Klub 10 supersedes Klub 8 and Klub 9.** It is the first build satisfying both
+the mock and the written review.
