@@ -1,0 +1,1548 @@
+{
+  "$comment": "Native Wix rebuild specification for KLUB. Generated from src/content/*.json — regenerate, do not hand-edit.",
+  "generatedAt": "2026-09-04",
+  "generatedFrom": {
+    "repository": "https://github.com/ma4kos/KLUB",
+    "branch": "main"
+  },
+  "site": {
+    "name": "KLUB — Keep Living Under Balance",
+    "businessType": "Pilates studio",
+    "locale": "en",
+    "country": "CY",
+    "productionDomain": "www.keeplivingunderbalance.com",
+    "domainNote": "Do NOT connect the domain during the build. It currently serves the studio's existing Wix site. Cut over only on explicit instruction."
+  },
+  "theme": {
+    "colors": {
+      "background": "#F7F3EE",
+      "card": "#FFFFFF",
+      "sand": "#E8DFD3",
+      "ink": "#1A1714",
+      "inkSoft": "#5C544C",
+      "inkFaint": "#6B6259",
+      "accent": "#7A6A55",
+      "accentDeep": "#5C4F3D",
+      "line": "#E8E0D6"
+    },
+    "fonts": {
+      "display": {
+        "family": "DM Serif Display",
+        "fallback": "Georgia, serif",
+        "usage": "headings"
+      },
+      "body": {
+        "family": "DM Sans",
+        "fallback": "system sans-serif",
+        "usage": "body, buttons, nav"
+      }
+    },
+    "radius": {
+      "card": 16,
+      "button": 12,
+      "small": 8
+    },
+    "contentWidth": 1200,
+    "voice": "Warm, editorial, unhurried. Headings in the serif; one italic accent word per heading is the house style."
+  },
+  "navigation": {
+    "header": [
+      {
+        "label": "Classes",
+        "target": "/classes"
+      },
+      {
+        "label": "Schedule",
+        "target": "/book",
+        "note": "the live bsport calendar"
+      },
+      {
+        "label": "Memberships",
+        "target": "/pricing"
+      },
+      {
+        "label": "About",
+        "target": "/about"
+      },
+      {
+        "label": "Location",
+        "target": "/location"
+      }
+    ],
+    "headerCta": {
+      "label": "Book Your First Class",
+      "target": "/book"
+    },
+    "footerExtra": [
+      "Instructors",
+      "FAQ",
+      "Contact",
+      "Policies",
+      "Founding Member"
+    ]
+  },
+  "homepage": {
+    "seo": {
+      "title": "KLUB | Pilates Reformer Studio in Limassol City Center",
+      "description": "Premium reformer Pilates in Limassol city center — small-group classes and private 1-to-1 sessions. New here? Try a €20 intro class. Opening September 2026."
+    },
+    "sections": [
+      {
+        "n": "hero",
+        "layout": "split-text-left-image-right",
+        "heading": "Keep\nliving\nunder\nbalance.",
+        "headingStyle": "uppercase, letter-spaced 0.14em, serif",
+        "body": "Pilates for strength, control and balance inside the studio and beyond it.",
+        "buttons": [
+          {
+            "label": "Book Your First Class",
+            "style": "primary-dark",
+            "target": "/book"
+          },
+          {
+            "label": "Our Philosophy",
+            "style": "outline",
+            "target": "/about"
+          }
+        ],
+        "image": "/images/alex-hero-reformers.jpg",
+        "imageAlt": "Sunlit KLUB studio with black reformer machines, sheer curtains and potted plants"
+      },
+      {
+        "n": "01",
+        "title": "The Klub",
+        "layout": "split-text-left-image-right",
+        "heading": "The Klub",
+        "body": "More than a workout. A space to strengthen your body, calm your mind and support your life in balance.",
+        "link": {
+          "label": "Read More",
+          "target": "/about"
+        },
+        "image": "/images/alex-corridor-kwall.jpg",
+        "imageAlt": "Bright KLUB corridor with a potted plant and a glowing K on the plaster wall"
+      },
+      {
+        "n": "02",
+        "title": "Find Your Balance",
+        "layout": "text-left-2x2-cards-right",
+        "heading": "Find Your Balance",
+        "body": "Different classes. Different focus. One goal: the best version of you.",
+        "link": {
+          "label": "Explore Classes",
+          "target": "/classes"
+        },
+        "cards": [
+          {
+            "image": "/images/class-duo.jpg",
+            "imageAlt": "Two women training together with a medicine ball in warm studio light",
+            "title": "FOUNDATIONS REFORMER",
+            "caption": "Learn. Control. Progress.",
+            "target": "/classes/foundations-reformer"
+          },
+          {
+            "image": "/images/class-reformer.jpg",
+            "imageAlt": "Instructor in a foot-strap stretch on a reformer, coaching her form",
+            "title": "SIGNATURE REFORMER",
+            "caption": "Strength. Control. Precision.",
+            "target": "/classes/signature-reformer"
+          },
+          {
+            "image": "/images/class-mat.jpg",
+            "imageAlt": "Woman holding a long plank position on a mat against a warm plaster wall",
+            "title": "MAT PILATES",
+            "caption": "Move. Strengthen. Flow.",
+            "target": "/classes/mat-pilates"
+          },
+          {
+            "image": "/images/class-private.jpg",
+            "imageAlt": "Instructor guiding a client one-to-one on a reformer",
+            "title": "PRIVATE SESSIONS",
+            "caption": "Personalised training tailored for you.",
+            "target": "/classes/private-sessions"
+          }
+        ]
+      },
+      {
+        "n": "03",
+        "title": "Start Here",
+        "layout": "split-text-left-image-right",
+        "heading": "Start Here",
+        "offerLine": "3 CLASSES FOR €55",
+        "checklist": [
+          "Valid for 2 weeks",
+          "All classes",
+          "New clients only"
+        ],
+        "buttons": [
+          {
+            "label": "Claim Your Intro Offer",
+            "style": "primary-dark",
+            "target": "/book"
+          }
+        ],
+        "image": "/images/alex-trainer-reformer.jpg",
+        "imageAlt": "Instructor mid-movement on a reformer beside a warm floor lamp and sheer curtains"
+      },
+      {
+        "n": "04",
+        "title": "The KLUB Experience",
+        "layout": "text-left-two-images-right",
+        "heading": "The KLUB Experience",
+        "body": "Thoughtful design. Premium equipment. A space to focus on you.",
+        "link": {
+          "label": "Take a Look",
+          "target": "/about"
+        },
+        "images": [
+          {
+            "image": "/images/alex-reception-desk.jpg",
+            "alt": "Minimalist plaster reception desk at KLUB with warm underlighting and potted plants"
+          },
+          {
+            "image": "/images/alex-lounge-sofa.jpg",
+            "alt": "KLUB lounge corner with a cream sofa, floor lamp and soft evening light"
+          }
+        ]
+      },
+      {
+        "n": "05",
+        "title": "Move With Us",
+        "layout": "text-then-full-width-image",
+        "background": "sand",
+        "heading": "Move With Us",
+        "body": "A community that motivates, inspires and grows together.",
+        "subLink": {
+          "label": "Limassol, Cyprus",
+          "target": "/location"
+        },
+        "link": {
+          "label": "Meet the Team",
+          "target": "/instructors"
+        },
+        "image": "/images/alex-team-bench.jpg",
+        "imageAlt": "Five KLUB instructors in black activewear sitting together, talking and laughing"
+      },
+      {
+        "n": "06",
+        "title": "Find Us",
+        "layout": "split-text-left-image-right",
+        "heading": "Find Us",
+        "address": [
+          "Archiepiskopou Leontiou A', Mesa Geitonia 4006",
+          "Limassol City Center, Cyprus"
+        ],
+        "parking": [
+          {
+            "label": "Parking 1",
+            "note": "Behind the building"
+          },
+          {
+            "label": "Parking 2",
+            "note": "Next to the building"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Location & Directions",
+            "style": "outline",
+            "target": "/location"
+          },
+          {
+            "label": "Message Us",
+            "style": "accent",
+            "target": "whatsapp-or-instagram"
+          }
+        ],
+        "image": "/images/street-sign.jpg",
+        "imageAlt": "Illuminated KLUB sign mounted on a stone building facade in Limassol city center"
+      },
+      {
+        "n": "07",
+        "title": "Closing",
+        "layout": "dark-split-text-left-image-right",
+        "background": "ink",
+        "heading": "Keep\nliving\nunder\nbalance.",
+        "headingStyle": "uppercase, letter-spaced 0.14em, serif",
+        "body": "Your body. Your mind. Your time.",
+        "buttons": [
+          {
+            "label": "Book Your Class",
+            "style": "light",
+            "target": "/book"
+          }
+        ],
+        "image": "/images/alex-closing-reformer.jpg",
+        "imageAlt": "A single black reformer machine in the KLUB studio at dusk beside a small plant",
+        "below": {
+          "element": "wix-form",
+          "ref": "foundingMemberForm"
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "slug": "/classes",
+      "title": "Classes",
+      "seo": {
+        "title": "Pilates Classes in Limassol | Reformer, Flow & Private | KLUB",
+        "description": "Small-group reformer Pilates classes and private 1-to-1 sessions in Limassol city center. All levels welcome. Classes taught in English. Book your first class for €20."
+      },
+      "content": {
+        "hero": {
+          "eyebrow": "Classes",
+          "heading": "Our Classes",
+          "intro": "Four ways to move. One space to grow."
+        },
+        "items": [
+          {
+            "slug": "foundations-reformer",
+            "name": "Foundations Reformer",
+            "level": "Beginner-friendly",
+            "duration": "50 min",
+            "capacity": "Max 6 people",
+            "price": "From €20",
+            "short": "Learn. Control. Progress.",
+            "seoTitle": "Foundations Reformer Class | Beginner Pilates Limassol | KLUB",
+            "seoDescription": "Never tried reformer Pilates? Foundations Reformer at KLUB Limassol teaches you the machine from zero. 50 minutes, small group, taught in English. First class €20.",
+            "intro": [
+              "If you have never stepped onto a reformer — or it has been a while — this is where you start. Fundamentals is a slow, deliberate introduction to the machine: the carriage, the springs, the straps, and how your body works with each of them.",
+              "Your instructor walks the room the whole time. With six people maximum, nobody gets lost in the back row. You will leave knowing the foundational movements that every other class builds on — and why your core feels like it just woke up."
+            ],
+            "expect": [
+              "A full tour of the reformer before you move",
+              "Foundational exercises: footwork, bridging, arm work, basic core series",
+              "Constant hands-on guidance and modifications for your body",
+              "A calm pace — strength over speed"
+            ],
+            "goodFor": [
+              "Complete beginners",
+              "Anyone returning to movement after a break or injury",
+              "Experienced movers who want to refine their technique"
+            ],
+            "image": "/images/class-duo.jpg",
+            "imageAlt": "Two women training together with a medicine ball in warm studio light"
+          },
+          {
+            "slug": "signature-reformer",
+            "name": "Signature Reformer",
+            "level": "Intermediate–advanced",
+            "duration": "50 min",
+            "capacity": "Max 6 people",
+            "price": "From €20",
+            "short": "Strength. Control. Precision.",
+            "seoTitle": "Signature Reformer Class | Dynamic Pilates Limassol | KLUB",
+            "seoDescription": "Signature Reformer at KLUB Limassol: 50 minutes of dynamic, breath-led reformer sequences for intermediate and advanced movers. Small groups, taught in English.",
+            "intro": [
+              "The Signature is the class KLUB is built around. Movements link into continuous, breath-led sequences — one exercise melting into the next — with the pace, resistance and layered progressions that reward movers who already know the reformer.",
+              "Rooted in classical technique and shaped by our instructors’ dance training, it builds stamina, coordination and control week over week: the choreography becomes familiar, and then it becomes yours."
+            ],
+            "expect": [
+              "Continuous sequences with minimal stops",
+              "Progressions layered through the class — take the challenge or keep the base",
+              "Full-body work: legs, core, arms, back",
+              "A proper burn, and a proper cool-down"
+            ],
+            "goodFor": [
+              "Movers comfortable with reformer basics",
+              "Those who love rhythm and momentum in a workout",
+              "Building lean, functional strength week over week"
+            ],
+            "image": "/images/class-reformer.jpg",
+            "imageAlt": "Instructor in a foot-strap stretch on a reformer, coaching her form"
+          },
+          {
+            "slug": "mat-pilates",
+            "name": "Mat Pilates",
+            "level": "All levels",
+            "duration": "50 min",
+            "capacity": "Max 6 people",
+            "price": "From €20",
+            "short": "Move. Strengthen. Flow.",
+            "seoTitle": "Mat Pilates Class | Core Strength & Mobility Limassol | KLUB",
+            "seoDescription": "Mat Pilates at KLUB Limassol: 50 minutes of classical mat work for deep core strength, mobility and control. All levels welcome, small groups, taught in English.",
+            "intro": [
+              "Mat Pilates is where the method began — just you, the mat, and gravity. No springs to help and none to hide behind, which is exactly why mat work builds such honest, deep core strength.",
+              "Expect classical sequences taught with precision: articulation through the spine, control in every transition, and options at every level. It sharpens everything you do on the reformer — and stands alone as a complete practice."
+            ],
+            "expect": [
+              "Classical mat sequences, taught step by step",
+              "Deep core, spine mobility and posture work",
+              "Small props (bands, balls, rings) to challenge or support",
+              "Options for every level, every round"
+            ],
+            "goodFor": [
+              "Anyone — no reformer experience needed",
+              "Building a strong, honest core foundation",
+              "Complementing your reformer practice"
+            ],
+            "image": "/images/class-mat.jpg",
+            "imageAlt": "Woman holding a long plank position on a mat against a warm plaster wall"
+          },
+          {
+            "slug": "private-sessions",
+            "name": "Private Sessions",
+            "level": "Every level — fully personalized",
+            "duration": "50 min",
+            "capacity": "1-to-1",
+            "price": "From €80",
+            "short": "Personalised training tailored for you.",
+            "seoTitle": "Private Pilates Sessions | 1-to-1 Training Limassol | KLUB",
+            "seoDescription": "Private 1-to-1 reformer Pilates in Limassol city center. Personalized sessions for injury recovery, pre/post-natal training and athletic goals. From €80 per session.",
+            "intro": [
+              "One reformer, one instructor, one plan built entirely around you. Private sessions are the fastest way to progress — every minute of the 50 is calibrated to your body, your history and your goals.",
+              "They are also the right choice when a group setting is not: recovering from injury, training through or after pregnancy, or simply preferring privacy and a schedule that bends to yours. Our instructors are certified in pre- and post-natal movement, so you are in qualified hands at every stage."
+            ],
+            "expect": [
+              "A movement assessment in your first session",
+              "A program designed for your specific goals",
+              "Pre/post-natal certified instruction when you need it",
+              "Flexible scheduling by appointment"
+            ],
+            "goodFor": [
+              "Injury recovery and rehabilitation support",
+              "Pre- and post-natal training",
+              "Athletic conditioning and sport-specific goals",
+              "Anyone who wants undivided attention"
+            ],
+            "image": "/images/class-private.jpg",
+            "imageAlt": "Instructor guiding a client one-to-one on a reformer"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "/classes/foundations-reformer",
+      "title": "Foundations Reformer",
+      "seo": null,
+      "content": {
+        "slug": "foundations-reformer",
+        "name": "Foundations Reformer",
+        "level": "Beginner-friendly",
+        "duration": "50 min",
+        "capacity": "Max 6 people",
+        "price": "From €20",
+        "short": "Learn. Control. Progress.",
+        "seoTitle": "Foundations Reformer Class | Beginner Pilates Limassol | KLUB",
+        "seoDescription": "Never tried reformer Pilates? Foundations Reformer at KLUB Limassol teaches you the machine from zero. 50 minutes, small group, taught in English. First class €20.",
+        "intro": [
+          "If you have never stepped onto a reformer — or it has been a while — this is where you start. Fundamentals is a slow, deliberate introduction to the machine: the carriage, the springs, the straps, and how your body works with each of them.",
+          "Your instructor walks the room the whole time. With six people maximum, nobody gets lost in the back row. You will leave knowing the foundational movements that every other class builds on — and why your core feels like it just woke up."
+        ],
+        "expect": [
+          "A full tour of the reformer before you move",
+          "Foundational exercises: footwork, bridging, arm work, basic core series",
+          "Constant hands-on guidance and modifications for your body",
+          "A calm pace — strength over speed"
+        ],
+        "goodFor": [
+          "Complete beginners",
+          "Anyone returning to movement after a break or injury",
+          "Experienced movers who want to refine their technique"
+        ],
+        "image": "/images/class-duo.jpg",
+        "imageAlt": "Two women training together with a medicine ball in warm studio light"
+      }
+    },
+    {
+      "slug": "/classes/signature-reformer",
+      "title": "Signature Reformer",
+      "seo": null,
+      "content": {
+        "slug": "signature-reformer",
+        "name": "Signature Reformer",
+        "level": "Intermediate–advanced",
+        "duration": "50 min",
+        "capacity": "Max 6 people",
+        "price": "From €20",
+        "short": "Strength. Control. Precision.",
+        "seoTitle": "Signature Reformer Class | Dynamic Pilates Limassol | KLUB",
+        "seoDescription": "Signature Reformer at KLUB Limassol: 50 minutes of dynamic, breath-led reformer sequences for intermediate and advanced movers. Small groups, taught in English.",
+        "intro": [
+          "The Signature is the class KLUB is built around. Movements link into continuous, breath-led sequences — one exercise melting into the next — with the pace, resistance and layered progressions that reward movers who already know the reformer.",
+          "Rooted in classical technique and shaped by our instructors’ dance training, it builds stamina, coordination and control week over week: the choreography becomes familiar, and then it becomes yours."
+        ],
+        "expect": [
+          "Continuous sequences with minimal stops",
+          "Progressions layered through the class — take the challenge or keep the base",
+          "Full-body work: legs, core, arms, back",
+          "A proper burn, and a proper cool-down"
+        ],
+        "goodFor": [
+          "Movers comfortable with reformer basics",
+          "Those who love rhythm and momentum in a workout",
+          "Building lean, functional strength week over week"
+        ],
+        "image": "/images/class-reformer.jpg",
+        "imageAlt": "Instructor in a foot-strap stretch on a reformer, coaching her form"
+      }
+    },
+    {
+      "slug": "/classes/mat-pilates",
+      "title": "Mat Pilates",
+      "seo": null,
+      "content": {
+        "slug": "mat-pilates",
+        "name": "Mat Pilates",
+        "level": "All levels",
+        "duration": "50 min",
+        "capacity": "Max 6 people",
+        "price": "From €20",
+        "short": "Move. Strengthen. Flow.",
+        "seoTitle": "Mat Pilates Class | Core Strength & Mobility Limassol | KLUB",
+        "seoDescription": "Mat Pilates at KLUB Limassol: 50 minutes of classical mat work for deep core strength, mobility and control. All levels welcome, small groups, taught in English.",
+        "intro": [
+          "Mat Pilates is where the method began — just you, the mat, and gravity. No springs to help and none to hide behind, which is exactly why mat work builds such honest, deep core strength.",
+          "Expect classical sequences taught with precision: articulation through the spine, control in every transition, and options at every level. It sharpens everything you do on the reformer — and stands alone as a complete practice."
+        ],
+        "expect": [
+          "Classical mat sequences, taught step by step",
+          "Deep core, spine mobility and posture work",
+          "Small props (bands, balls, rings) to challenge or support",
+          "Options for every level, every round"
+        ],
+        "goodFor": [
+          "Anyone — no reformer experience needed",
+          "Building a strong, honest core foundation",
+          "Complementing your reformer practice"
+        ],
+        "image": "/images/class-mat.jpg",
+        "imageAlt": "Woman holding a long plank position on a mat against a warm plaster wall"
+      }
+    },
+    {
+      "slug": "/classes/private-sessions",
+      "title": "Private Sessions",
+      "seo": null,
+      "content": {
+        "slug": "private-sessions",
+        "name": "Private Sessions",
+        "level": "Every level — fully personalized",
+        "duration": "50 min",
+        "capacity": "1-to-1",
+        "price": "From €80",
+        "short": "Personalised training tailored for you.",
+        "seoTitle": "Private Pilates Sessions | 1-to-1 Training Limassol | KLUB",
+        "seoDescription": "Private 1-to-1 reformer Pilates in Limassol city center. Personalized sessions for injury recovery, pre/post-natal training and athletic goals. From €80 per session.",
+        "intro": [
+          "One reformer, one instructor, one plan built entirely around you. Private sessions are the fastest way to progress — every minute of the 50 is calibrated to your body, your history and your goals.",
+          "They are also the right choice when a group setting is not: recovering from injury, training through or after pregnancy, or simply preferring privacy and a schedule that bends to yours. Our instructors are certified in pre- and post-natal movement, so you are in qualified hands at every stage."
+        ],
+        "expect": [
+          "A movement assessment in your first session",
+          "A program designed for your specific goals",
+          "Pre/post-natal certified instruction when you need it",
+          "Flexible scheduling by appointment"
+        ],
+        "goodFor": [
+          "Injury recovery and rehabilitation support",
+          "Pre- and post-natal training",
+          "Athletic conditioning and sport-specific goals",
+          "Anyone who wants undivided attention"
+        ],
+        "image": "/images/class-private.jpg",
+        "imageAlt": "Instructor guiding a client one-to-one on a reformer"
+      }
+    },
+    {
+      "slug": "/pricing",
+      "title": "Memberships",
+      "seo": {
+        "title": "Pilates Prices Limassol | Drop-In, Packages & Private | KLUB",
+        "description": "Clear Pilates pricing in Limassol. First class €20, drop-in €32, 3-class intro €55. Monthly packs from €96, KLUB+ unlimited €280. Private 1-to-1 from €80 per session."
+      },
+      "content": {
+        "seo": {
+          "title": "Pilates Prices Limassol | Drop-In, Packages & Private | KLUB",
+          "description": "Clear Pilates pricing in Limassol. First class €20, drop-in €32, 3-class intro €55. Monthly packs from €96, KLUB+ unlimited €280. Private 1-to-1 from €80 per session."
+        },
+        "hero": {
+          "eyebrow": "Pricing",
+          "heading": "Simple, Honest Pricing",
+          "intro": "All prices in euro. What you see is what you pay — no joining fees, no surprises."
+        },
+        "tables": [
+          {
+            "title": "Getting Started",
+            "blurb": "Your first steps on the reformer.",
+            "cols": [
+              "Per class",
+              "Valid for"
+            ],
+            "rows": [
+              {
+                "name": "Single Intro Class",
+                "price": "€20",
+                "per": "€20",
+                "note": "1 week · new to KLUB"
+              },
+              {
+                "name": "Drop-In (1 credit)",
+                "price": "€32",
+                "per": "€32",
+                "note": "1 week · one class"
+              },
+              {
+                "name": "Intro Offer (3 credits)",
+                "price": "€55",
+                "per": "€18",
+                "note": "2 weeks · best-value start"
+              }
+            ]
+          },
+          {
+            "title": "Monthly",
+            "blurb": "A steady rhythm, month after month.",
+            "cols": [
+              "Per class",
+              "Valid for"
+            ],
+            "rows": [
+              {
+                "name": "4 Class Pack",
+                "price": "€96",
+                "per": "€24",
+                "note": "1 month"
+              },
+              {
+                "name": "8 Class Pack",
+                "price": "€176",
+                "per": "€22",
+                "note": "1 month"
+              },
+              {
+                "name": "12 Class Pack",
+                "price": "€240",
+                "per": "€20",
+                "note": "1 month"
+              },
+              {
+                "name": "KLUB+ Unlimited",
+                "price": "€280",
+                "per": "—",
+                "note": "1 month · one class a day"
+              }
+            ]
+          },
+          {
+            "title": "Flexi Packs",
+            "blurb": "Buy a bundle, book when it suits you.",
+            "cols": [
+              "Per class",
+              "Valid for"
+            ],
+            "rows": [
+              {
+                "name": "10 Class Pack",
+                "price": "€280",
+                "per": "€28",
+                "note": "3 months"
+              },
+              {
+                "name": "20 Class Pack",
+                "price": "€520",
+                "per": "€26",
+                "note": "3 months"
+              }
+            ]
+          },
+          {
+            "title": "Private 1-to-1",
+            "blurb": "Fully personalized sessions, by appointment.",
+            "cols": [
+              "Per session",
+              "Valid for"
+            ],
+            "rows": [
+              {
+                "name": "Single Session",
+                "price": "€100",
+                "per": "€100",
+                "note": "1 month"
+              },
+              {
+                "name": "5 Sessions",
+                "price": "€450",
+                "per": "€90",
+                "note": "3 months"
+              },
+              {
+                "name": "10 Sessions",
+                "price": "€800",
+                "per": "€80",
+                "note": "3 months"
+              }
+            ]
+          }
+        ],
+        "termsText": "Grip socks are required in all classes (available for purchase at the studio). A 12-hour cancellation policy applies and credits are not extendable —",
+        "faqs": [
+          {
+            "q": "What's the difference between a drop-in and the intro offer?",
+            "a": "A single intro class is €20 — perfect for a first visit. A drop-in is one class at €32 (one credit, valid a week). The intro offer is three classes for €55 (valid two weeks), the best-value way to get started."
+          },
+          {
+            "q": "Do class packs expire?",
+            "a": "Monthly packs (4, 8 or 12 classes) are valid for one month. Flexi packs (10 or 20 classes) are valid for three months from purchase. Credits are not extendable and unused classes don't roll over."
+          },
+          {
+            "q": "Can I share a pack with a friend?",
+            "a": "Packs are personal to you. A friend can start with a €20 intro class or a €32 drop-in."
+          },
+          {
+            "q": "What happens if I need to cancel a booking?",
+            "a": "Cancel at least 12 hours before class and your credit is returned automatically. See our policies page for the details."
+          }
+        ]
+      }
+    },
+    {
+      "slug": "/book",
+      "title": "Book a Class",
+      "seo": {
+        "title": "Book a Pilates Class in Limassol | KLUB",
+        "description": "Booking for KLUB Pilates Limassol opens with our September 2026 launch. Join the founding member list for first access, or message us to reserve your spot personally."
+      },
+      "content": {
+        "seo": {
+          "title": "Book a Pilates Class in Limassol | KLUB",
+          "description": "Booking for KLUB Pilates Limassol opens with our September 2026 launch. Join the founding member list for first access, or message us to reserve your spot personally."
+        },
+        "hero": {
+          "eyebrow": "Book",
+          "heading": "Book a Class",
+          "intro": "Pick your class straight from the live schedule below. New to KLUB? Your first class is €20 — start with Foundations Reformer."
+        },
+        "firstAccess": {
+          "heading": "Get first access",
+          "text": "Join the founding member list — early rates, priority booking, the address before anyone else."
+        },
+        "reserve": {
+          "heading": "Reserve a spot personally",
+          "text": "Want to lock in a class the human way? Message us with your preferred class and time and we'll confirm within a few hours.",
+          "buttonLabel": "Message to Reserve"
+        },
+        "privateHeading": "Private sessions",
+        "recommendedClassSlug": "foundations-reformer",
+        "live": {
+          "heading": "The live schedule",
+          "text": "Booking runs on bsport, our secure booking system — choose a class, pick a time and pay online. Your spot is confirmed instantly."
+        }
+      },
+      "criticalElement": {
+        "type": "html-embed",
+        "ref": "bsportCalendar"
+      }
+    },
+    {
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About KLUB | Pilates Reformer Studio Limassol",
+        "description": "KLUB — Keep Living Under Balance — is a premium reformer Pilates studio opening in Limassol city center in September 2026. Small groups, private sessions, warm space."
+      },
+      "content": {
+        "seo": {
+          "title": "About KLUB | Pilates Reformer Studio Limassol",
+          "description": "KLUB — Keep Living Under Balance — is a premium reformer Pilates studio opening in Limassol city center in September 2026. Small groups, private sessions, warm space."
+        },
+        "hero": {
+          "eyebrow": "About",
+          "heading": "Keep Living Under Balance",
+          "intro": "That's what KLUB stands for — and what the studio is built around."
+        },
+        "space": {
+          "heading": "The Space",
+          "paragraphs": [
+            "Warm plaster walls, arched doorways, dried botanicals and soft, indirect light. The studio was designed to feel less like a gym and more like an exhale — a place where the pace of the city stops at the door.",
+            "On the floor: professional reformer machines, capped at six per class, arranged so every person has space to move and be seen by their instructor."
+          ],
+          "pullQuote": "Chill vibes are found here.",
+          "afterQuote": "It's painted on our wall, and it is a promise. No intimidation, no competition — just intentional movement, mindful strength and real connection.",
+          "images": [
+            {
+              "image": "/images/lounge.jpg",
+              "alt": "Cozy white sofa lounge corner with warm lamp light at KLUB Pilates studio Limassol"
+            },
+            {
+              "image": "/images/equipment-wall.jpg",
+              "alt": "Black Pilates springs, balls and equipment displayed in arched cream niches at KLUB Limassol"
+            }
+          ]
+        },
+        "beliefs": {
+          "heading": "What We Believe",
+          "cards": [
+            {
+              "title": "Intentional Movement",
+              "text": "Every exercise has a purpose. We teach you what you're doing and why, so strength comes with understanding."
+            },
+            {
+              "title": "Mindful Strength",
+              "text": "Progress that lasts is built with control, not chaos. Six people per class means your form always comes first."
+            },
+            {
+              "title": "Real Connection",
+              "text": "A studio should know your name. Ours will — and the community forming around it is the part we're most excited about."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "/instructors",
+      "title": "Our Instructors",
+      "seo": {
+        "title": "Our Instructors | Certified Reformer Pilates Team | KLUB Limassol",
+        "description": "The KLUB teaching team: internationally certified reformer Pilates instructors with classical dance foundations, trained and experienced in London and Dubai studios. Pre/post-natal qualified."
+      },
+      "content": {
+        "seo": {
+          "title": "Our Instructors | Certified Reformer Pilates Team | KLUB Limassol",
+          "description": "The KLUB teaching team: internationally certified reformer Pilates instructors with classical dance foundations, trained and experienced in London and Dubai studios. Pre/post-natal qualified."
+        },
+        "hero": {
+          "eyebrow": "The Team",
+          "heading": "Our *Instructors*",
+          "lede": "Classically trained. Internationally certified. Experienced in some of the world's best studios — and the reason your form is about to get very, very good.",
+          "image": "/images/arch-entrance.jpg",
+          "alt": "Arched entrance of the KLUB Pilates studio in Limassol with a glowing circular logo"
+        },
+        "stats": [
+          {
+            "big": "Certified",
+            "small": "reformer & mat instructors, comprehensively trained"
+          },
+          {
+            "big": "3",
+            "small": "cities of teaching experience — London, Dubai, Cyprus"
+          },
+          {
+            "big": "Pre/Post",
+            "small": "natal qualified — every stage, safely"
+          },
+          {
+            "big": "1000s",
+            "small": "of classes taught, in studios and online"
+          }
+        ],
+        "journeyEyebrow": "The Standard",
+        "journeyHeading": "London. Dubai. *Home.*",
+        "journey": [
+          {
+            "place": "London",
+            "era": "The foundation",
+            "title": "Trained where movement is a language",
+            "body": "Our teaching is built on classical dance education at degree level — training from one of the world's most respected movement traditions. Years of classical discipline teach what most fitness certifications never do: how bodies actually learn to move, and how to teach with precision and patience.",
+            "mediaType": "image",
+            "image": "/images/alex-woman-reformer.jpg",
+            "imageAlt": "Instructor mid-movement on a reformer, one arm extended, in a bright curtained studio",
+            "wide": true
+          },
+          {
+            "place": "Dubai",
+            "era": "The refinement",
+            "title": "Experience from world-class studios",
+            "body": "Our instructors have taught reformer Pilates in some of the region's most beautiful studios, training clients of every level — athletes, beginners, mothers, executives. It's where classical technique meets contemporary studio culture: teaching that is exacting, warm, and impossible to get lost in.",
+            "mediaType": "image",
+            "image": "/images/alex-reformer-window.jpg",
+            "imageAlt": "Premium black reformer machine beside a bright curtained window at KLUB",
+            "wide": true
+          },
+          {
+            "place": "The Method",
+            "era": "The approach",
+            "title": "Movement broken down until it clicks",
+            "body": "Thousands of hours of teaching — in studios and on camera — shape how we coach: every movement explained, every rep watched, every exercise adapted to the body in front of us. Classes are built on classical foundations and delivered with a contemporary flow.",
+            "mediaType": "video",
+            "image": "/images/mat-studio.jpg",
+            "imageAlt": "Bright mat Pilates studio space with soft natural light",
+            "video": "/videos/klub-reformer-method.mp4",
+            "poster": "/videos/klub-reformer-method-poster.jpg"
+          },
+          {
+            "place": "Limassol",
+            "era": "The home",
+            "title": "Bringing that standard to Cyprus",
+            "body": "KLUB is the studio we always wanted to walk into: bright, calm, seriously equipped, and small enough that every client is known by name. London's discipline, Dubai's polish, the island's soul — all under one roof in Limassol city center. The reformers are already on the floor.",
+            "mediaType": "image",
+            "image": "/images/klub-reformers.jpg",
+            "imageAlt": "Row of reformer Pilates machines on the floor of the KLUB studio in Limassol"
+          }
+        ],
+        "qualsEyebrow": "Credentials",
+        "qualsHeading": "Qualified is an *understatement*",
+        "quals": [
+          {
+            "t": "Classical Dance Education",
+            "s": "Degree-level training in teaching movement"
+          },
+          {
+            "t": "Certified Reformer Pilates Instructors",
+            "s": "Comprehensive apparatus training"
+          },
+          {
+            "t": "Certified Mat Pilates Instructors",
+            "s": "Classical foundations, contemporary method"
+          },
+          {
+            "t": "Pre & Post-Natal Qualified",
+            "s": "Safe movement through pregnancy and recovery"
+          },
+          {
+            "t": "International Teaching Experience",
+            "s": "London · Dubai · Cyprus"
+          },
+          {
+            "t": "Small-Group Specialists",
+            "s": "Six people max — every rep is seen and corrected"
+          }
+        ],
+        "langsLine": "Classes taught in English · Our team also speaks Greek · Fully certified and insured",
+        "quote": {
+          "text": "Pilates gives dancers strength without bulk, control without tension. It does the same for every body that walks in — you just have to *start*.",
+          "by": "— The KLUB teaching philosophy"
+        },
+        "follow": {
+          "eyebrow": "Can't wait for opening day?",
+          "heading": "Follow the *journey*",
+          "text": "The studio is taking shape week by week. Follow @klubstudios for previews of the space, the equipment and the classes — and be the first to know when the timetable goes live.",
+          "video": "/videos/klub-studio-instagram.mp4",
+          "poster": "/videos/klub-studio-instagram-poster.jpg"
+        },
+        "cta": {
+          "heading": "Your first class is *€20*",
+          "text": "Six people, fifty minutes, instructors who see every rep."
+        }
+      }
+    },
+    {
+      "slug": "/location",
+      "title": "Location",
+      "seo": {
+        "title": "KLUB Pilates Studio Location | Limassol City Center | Directions",
+        "description": "Find KLUB Pilates studio in Limassol city center, Cyprus. Full address, map and parking guide coming with our September 2026 opening. Message us for directions."
+      },
+      "content": {
+        "seo": {
+          "title": "KLUB Pilates Studio Location | Limassol City Center | Directions",
+          "description": "Find KLUB Pilates studio in Limassol city center, Cyprus. Full address, map and parking guide coming with our September 2026 opening. Message us for directions."
+        },
+        "hero": {
+          "eyebrow": "Location",
+          "heading": "Find Us in Limassol City Center"
+        },
+        "gallery": [
+          {
+            "image": "/images/street-sign.jpg",
+            "alt": "Illuminated KLUB studio sign on a stone building corner in Limassol city center"
+          },
+          {
+            "image": "/images/arch-entrance.jpg",
+            "alt": "KLUB Pilates studio entrance with arched doorway and glowing circular logo"
+          },
+          {
+            "image": "/images/klub-reformers.jpg",
+            "alt": "Rows of black reformer machines on the bright studio floor at KLUB Pilates Limassol"
+          },
+          {
+            "image": "/images/klub-lounge.jpg",
+            "alt": "KLUB studio lounge with white sofa and spiral staircase, Limassol city center"
+          }
+        ],
+        "infoCards": [
+          {
+            "title": "Getting Here",
+            "text": "We're right in the city center — walkable from the seafront, the old town and the main business district. A detailed map and directions go live with our address."
+          },
+          {
+            "title": "Parking",
+            "text": "Public parking is available within a short walk. We'll publish a simple where-to-park guide before opening day — Limassol parking should not be a workout."
+          }
+        ],
+        "announce": {
+          "heading": "Want the address the moment it drops?",
+          "text": "Founding members hear everything first — address, opening hours and booking access.",
+          "buttonLabel": "Join the Founding Member List"
+        }
+      }
+    },
+    {
+      "slug": "/faq",
+      "title": "FAQ",
+      "seo": {
+        "title": "Pilates FAQ Limassol | First Class, What to Wear, Parking | KLUB",
+        "description": "Everything you need to know before your first Pilates class in Limassol: what to wear, grip socks, class sizes, pregnancy Pilates, back pain, parking and more."
+      },
+      "content": {
+        "seo": {
+          "title": "Pilates FAQ Limassol | First Class, What to Wear, Parking | KLUB",
+          "description": "Everything you need to know before your first Pilates class in Limassol: what to wear, grip socks, class sizes, pregnancy Pilates, back pain, parking and more."
+        },
+        "hero": {
+          "eyebrow": "FAQ",
+          "heading": "Your Questions, Answered",
+          "intro": "Everything people ask before their first class — and a few things they wish they'd asked."
+        },
+        "still": {
+          "heading": "Still have questions?",
+          "text": "Message us — we typically reply within 30 minutes during business hours."
+        },
+        "sections": [
+          {
+            "title": "Getting Started",
+            "items": [
+              {
+                "q": "What is reformer Pilates?",
+                "a": "Reformer Pilates is practiced on a machine with a sliding carriage, springs and straps. The springs add resistance and support, making exercises both harder and safer than mat work alone. It builds strength, flexibility and control — and it is genuinely fun."
+              },
+              {
+                "q": "Do I need any experience to start?",
+                "a": "None at all. Our Foundations Reformer class is built for complete beginners — you will learn the machine from zero with a maximum of six people in the room."
+              },
+              {
+                "q": "What should I wear?",
+                "a": "Comfortable leggings or shorts and a fitted top that lets your instructor see your alignment. Avoid anything with zips that could scratch the equipment."
+              },
+              {
+                "q": "Do I need grip socks?",
+                "a": "Yes — grip socks are required in all classes for hygiene and safety. Bring your own or buy a pair at reception (€12)."
+              },
+              {
+                "q": "What should I bring?",
+                "a": "Just yourself, grip socks and a bottle of water. Everything else is provided."
+              },
+              {
+                "q": "What happens if I arrive late?",
+                "a": "Doors close 10 minutes after class starts — the warm-up matters for safety. If you miss the window, we will happily help you rebook."
+              },
+              {
+                "q": "Is Pilates a good workout, or is it too gentle?",
+                "a": "Both, depending on the class. Foundations is measured and controlled; the Signature Reformer will challenge experienced athletes. Every class is a genuine full-body workout — expect to feel muscles you forgot you had."
+              },
+              {
+                "q": "How quickly will I notice results?",
+                "a": "Most people feel a difference in posture and core awareness within a few sessions, and see visible change with two to three classes a week over a couple of months. Consistency beats intensity."
+              }
+            ]
+          },
+          {
+            "title": "Classes & Booking",
+            "items": [
+              {
+                "q": "How big are the classes?",
+                "a": "Maximum six people. Small enough that your instructor sees and corrects every rep."
+              },
+              {
+                "q": "How long is a class?",
+                "a": "All group classes and private sessions are 50 minutes."
+              },
+              {
+                "q": "Can I book a private 1-to-1 session?",
+                "a": "Yes — we are one of the few city-center studios offering true private sessions. They run by appointment and start from €80 per session in packs."
+              },
+              {
+                "q": "How do I book?",
+                "a": "Online booking opens shortly before we launch in September 2026. Until then, join the founding member list for first access, or message us and we will reserve your spot personally."
+              },
+              {
+                "q": "What's the cancellation policy?",
+                "a": "Cancel at least 12 hours before class and your credit returns to your account automatically. Later than that, the class is charged — the spot was held for you in a room of six."
+              },
+              {
+                "q": "Is there a waitlist for full classes?",
+                "a": "Yes. If a class is full, join the waitlist and you will be notified automatically the moment a spot opens."
+              }
+            ]
+          },
+          {
+            "title": "Location & Facilities",
+            "items": [
+              {
+                "q": "Where exactly is the studio?",
+                "a": "We are in Limassol city center. The exact street address is being announced with our opening — join the founding member list or follow @klubstudios and you will be the first to know."
+              },
+              {
+                "q": "Is there parking nearby?",
+                "a": "Yes — public parking is available within a short walk of the studio. We will publish a simple parking guide before opening day."
+              },
+              {
+                "q": "Can I reach you by public transport?",
+                "a": "The studio is centrally located and well served by city bus routes. Exact stop details will be published with our address."
+              },
+              {
+                "q": "Do you have changing rooms?",
+                "a": "Yes — changing facilities are available, so a lunchtime class between meetings is absolutely doable."
+              },
+              {
+                "q": "Can I store my things during class?",
+                "a": "Yes, there is space for your belongings inside the studio, always within sight."
+              },
+              {
+                "q": "Is the studio air-conditioned?",
+                "a": "Yes — comfortably cool in summer and warm in winter. Cyprus summers are no joke; we have planned for them."
+              }
+            ]
+          },
+          {
+            "title": "Health & Safety",
+            "items": [
+              {
+                "q": "Can I do Pilates while pregnant?",
+                "a": "In many cases yes, with the right guidance. Our instructors are fully certified in pre-natal movement. We recommend private sessions during pregnancy so everything is tailored to you — and always check with your doctor first."
+              },
+              {
+                "q": "When can I return after giving birth?",
+                "a": "Every recovery is different. With your doctor's clearance — typically from six weeks after birth — our post-natal certified instructors will rebuild your strength gradually and safely, starting with the deep core."
+              },
+              {
+                "q": "I have back pain. Is reformer Pilates safe for me?",
+                "a": "Reformer Pilates is often recommended for back pain because the springs support you while you strengthen the muscles that protect your spine. Tell us about your pain when you book — we may suggest starting with a private session."
+              },
+              {
+                "q": "Can I train with an injury?",
+                "a": "Often yes, and thoughtfully. Message us about your injury before booking. Private sessions let us work around and with your body; in group classes we offer modifications for most exercises."
+              },
+              {
+                "q": "Do you offer modifications in class?",
+                "a": "Constantly. With six people maximum, your instructor adapts exercises to your level and any limitations in real time."
+              },
+              {
+                "q": "Is reformer Pilates safe for older adults?",
+                "a": "Yes — the reformer is one of the most joint-friendly ways to build strength and balance at any age. Foundations Reformer is the right starting point."
+              },
+              {
+                "q": "Should I eat before class?",
+                "a": "Keep it light. A small snack an hour or two before is ideal; a full meal right before class is not your friend on the reformer."
+              },
+              {
+                "q": "Do I need to tell you about health conditions?",
+                "a": "Please do — it stays confidential and it helps us keep you safe. There is space for this when you register, and you can always message us privately."
+              }
+            ]
+          },
+          {
+            "title": "Pricing & Memberships",
+            "items": [
+              {
+                "q": "How much does a class cost?",
+                "a": "A single intro class is €20 and a drop-in is €32. Packs bring the per-class price down to as low as €18, and monthly packs start at €96 for four classes. The intro offer is three classes for €55. Full details are on our pricing page."
+              },
+              {
+                "q": "Do class packs expire?",
+                "a": "Flexi packs (10 or 20 classes) are valid for three months. Monthly packs (4, 8 or 12 classes) are valid for one month."
+              },
+              {
+                "q": "Can I share my pack with someone else?",
+                "a": "Packs are personal. Friends are always welcome to join you with their own drop-in or intro pack."
+              },
+              {
+                "q": "What payment methods do you accept?",
+                "a": "Card and cash at the studio, and card online once booking opens."
+              },
+              {
+                "q": "Is there a refund policy?",
+                "a": "Unused, unexpired packs can be discussed case by case — talk to us. Completed classes and expired packs are non-refundable."
+              },
+              {
+                "q": "Are there founding member rates?",
+                "a": "Yes — joining the founding member list before we open locks in exclusive rates and first access to bookings."
+              }
+            ]
+          },
+          {
+            "title": "Language & Community",
+            "items": [
+              {
+                "q": "What language are classes taught in?",
+                "a": "All classes are taught in English, and we welcome every nationality. Our team also speaks Greek."
+              },
+              {
+                "q": "Do I need to speak Greek to join?",
+                "a": "Not at all. English is the language of the studio, and much of our community is international."
+              },
+              {
+                "q": "Can I come alone?",
+                "a": "Most people do. Classes of six get friendly fast — coming alone is the normal way to arrive and rarely how people leave."
+              },
+              {
+                "q": "Is the studio beginner-friendly in atmosphere?",
+                "a": "Completely. No mirrored walls of intimidation, no competitive energy. Chill vibes are found here — it is on the wall, and we mean it."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact KLUB Pilates | Message, Email & Instagram | Limassol",
+        "description": "Contact KLUB Pilates studio in Limassol. Message us, email team@klub-cy.com or reach us on Instagram @klubstudios. We reply within 30 minutes in business hours."
+      },
+      "content": {
+        "seo": {
+          "title": "Contact KLUB Pilates | Message, Email & Instagram | Limassol",
+          "description": "Contact KLUB Pilates studio in Limassol. Message us, email team@klub-cy.com or reach us on Instagram @klubstudios. We reply within 30 minutes in business hours."
+        },
+        "hero": {
+          "eyebrow": "Contact",
+          "heading": "Say Hello",
+          "intro": "Questions, bookings, or just curious? We're quick to reply."
+        },
+        "formHeading": "Send a message",
+        "success": {
+          "heading": "Thanks — message sent",
+          "text": "We've received your message and will reply within business hours. Need us sooner?"
+        },
+        "directHeading": "Direct lines",
+        "messageNote": "fastest response, usually within 30 minutes during business hours.",
+        "instagramNote": "studio updates, class previews and opening news."
+      }
+    },
+    {
+      "slug": "/founding-member",
+      "title": "Founding Member",
+      "seo": {
+        "title": "Founding Member | Early Access & Exclusive Benefits | KLUB Limassol",
+        "description": "Join the KLUB founding member list before our September 2026 Limassol opening. Founding members get a free week of unlimited Pilates and 20% off their first package."
+      },
+      "content": {
+        "seo": {
+          "title": "Founding Member | Early Access & Exclusive Benefits | KLUB Limassol",
+          "description": "Join the KLUB founding member list before our September 2026 Limassol opening. Founding members get a free week of unlimited Pilates and 20% off their first package."
+        },
+        "hero": {
+          "eyebrow": "Early Access",
+          "heading": "Be Part of the Founding Circle",
+          "intro": "Be among the first to experience KLUB before our official opening. As a founding member you'll receive exclusive early-access benefits that welcome you into the community from day one — be part of something exceptional from the very beginning."
+        },
+        "perksHeading": "Your early-access benefits",
+        "perks": [
+          {
+            "strong": "One free week of unlimited Pilates",
+            "rest": "move without limits — unlimited access to every class in your first week, so you can experience all of KLUB."
+          },
+          {
+            "strong": "20% off your first purchase",
+            "rest": "a thank-you for joining early: 20% off your first membership or class package."
+          },
+          {
+            "strong": "First access to bookings",
+            "rest": "choose your class times before slots open to anyone else."
+          },
+          {
+            "strong": "The address first",
+            "rest": "location, hours and every announcement before they're public."
+          }
+        ],
+        "scarcity": "A limited opportunity — founding-member benefits are available to a select number of members only, and registration is open until 25 August 2026. Once we reach capacity or that date passes, early access closes for good.",
+        "formNote": "We never share your details. You'll receive a couple of emails before opening, then only our weekly timetable — unsubscribe anytime.",
+        "joinHeading": "Reserve your invitation"
+      }
+    },
+    {
+      "slug": "/policies",
+      "title": "Policies",
+      "seo": {
+        "title": "Studio Policies | Cancellations, Grip Socks & Arrival | KLUB",
+        "description": "KLUB Limassol studio policies: first-visit tips, grip socks required, the 12-hour cancellation rule, the 10-minute late policy, class-pack expiry, health, liability and privacy."
+      },
+      "content": {
+        "seo": {
+          "title": "Studio Policies | Cancellations, Grip Socks & Arrival | KLUB",
+          "description": "KLUB Limassol studio policies: first-visit tips, grip socks required, the 12-hour cancellation rule, the 10-minute late policy, class-pack expiry, health, liability and privacy."
+        },
+        "hero": {
+          "eyebrow": "Policies",
+          "heading": "Studio Policies",
+          "intro": "Short, fair and there to keep classes running smoothly for everyone."
+        },
+        "sections": [
+          {
+            "title": "First Time at KLUB",
+            "items": [
+              "New to the reformer? We recommend starting with Foundations Reformer, and arriving 10 minutes early so we can introduce you to the equipment and answer any questions.",
+              "Grip socks are required — you can buy a pair at reception (€12) if you forget yours."
+            ]
+          },
+          {
+            "title": "Grip Socks",
+            "items": [
+              "Grip socks are required in every class — for hygiene and for safety on the reformer. No socks, no entry.",
+              "Forgot yours? Pairs are available at reception for €12."
+            ]
+          },
+          {
+            "title": "Arrival & Late Policy",
+            "items": [
+              "Please arrive 5–10 minutes early, and 10 minutes early for your very first visit.",
+              "For safety, the studio is locked 10 minutes after class starts — late entry may not be permitted once class has begun.",
+              "If you miss the cut-off, message us and we'll help you rebook."
+            ]
+          },
+          {
+            "title": "Cancellation & No-Show",
+            "items": [
+              "Cancel at least 12 hours before class and your credit is returned automatically.",
+              "Classes cancelled inside 12 hours, and no-shows, result in a loss of credit — in a class of six, your spot matters.",
+              "Credits are not extendable. Genuine emergencies happen — talk to us."
+            ]
+          },
+          {
+            "title": "Class Pack Expiry",
+            "items": [
+              "Monthly packs (4, 8 or 12 classes) are valid for one month.",
+              "Flexi packs (10 or 20 classes) are valid for three months from purchase.",
+              "Credits are not extendable and unused classes don't roll over."
+            ]
+          },
+          {
+            "title": "Health & Safety",
+            "items": [
+              "Tell us about injuries, pregnancy or health conditions before your first class — it stays confidential and helps us keep you safe.",
+              "Our instructors are fully certified and insured, including pre/post-natal qualification, and equipment is cleaned between every class.",
+              "Classes are attended at your own risk; KLUB cannot be held liable for injuries sustained in the studio."
+            ]
+          },
+          {
+            "title": "Privacy",
+            "items": [
+              "We collect only the details needed to manage your bookings and keep in touch: name, contact details and any health information you choose to share.",
+              "We never sell or share your data with third parties for marketing.",
+              "Marketing emails are opt-in and every one includes an unsubscribe link.",
+              "To access or delete your data, email team@klub-cy.com — we comply with GDPR."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "integrations": {
+    "bsportCalendar": {
+      "why": "Bookings stay in bsport — it is the studio's live booking and payment system. Do not rebuild bookings in Wix Bookings.",
+      "placement": "Custom HTML embed on /book, full content width, min-height 560px.",
+      "companyId": "6604",
+      "widgetId": "868966",
+      "loader": "https://cdn.bsport.io/scripts/widget.js",
+      "mount": {
+        "parentElement": "bsport-widget-868966",
+        "companyId": 6604,
+        "franchiseId": null,
+        "dialogMode": 3,
+        "widgetType": "calendar",
+        "showFab": false,
+        "fullScreenPopup": false,
+        "config": {
+          "calendar": {
+            "todayOnly": false,
+            "cardMode": false,
+            "variant": "activityName"
+          }
+        }
+      }
+    },
+    "foundingMemberForm": {
+      "why": "The only pre-launch conversion. Rebuild as a native Wix Form so submissions land in the Wix dashboard.",
+      "fields": [
+        {
+          "name": "email",
+          "type": "email",
+          "required": true,
+          "label": "Email"
+        },
+        {
+          "name": "interest",
+          "type": "dropdown",
+          "required": false,
+          "label": "What interests you most?",
+          "options": [
+            "Small-group reformer classes",
+            "Private 1-to-1 sessions",
+            "Pre/post-natal Pilates",
+            "I'm new to Pilates",
+            "Just curious"
+          ]
+        },
+        {
+          "name": "consent",
+          "type": "checkbox",
+          "required": true,
+          "label": "Keep me posted about KLUB's opening and founding-member offers, and I accept the privacy policy."
+        }
+      ],
+      "submitLabel": "Join the List",
+      "placement": "Homepage below section 07, plus /founding-member and /book."
+    },
+    "analytics": {
+      "ga4": null,
+      "clarity": null,
+      "note": "Both empty today. Alex already uses Clarity and finds it useful — add both in Wix Marketing Integrations, and add a cookie-consent banner before any paid traffic (EU).",
+      "conversionEvent": "Track clicks on every Book control; that is the metric Alex optimises for."
+    },
+    "socials": {
+      "instagram": "https://www.instagram.com/klubstudios",
+      "facebook": "https://www.facebook.com/share/1HEgcu8Aio/",
+      "tiktok": "https://www.tiktok.com/@klubstudios",
+      "whatsapp": null
+    },
+    "contact": {
+      "email": "team@klub-cy.com",
+      "phone": null
+    }
+  },
+  "media": [
+    {
+      "path": "/images/alex-closing-reformer.jpg",
+      "exists": true,
+      "bytes": 141001,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-corridor-kwall.jpg",
+      "exists": true,
+      "bytes": 94166,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-hero-reformers.jpg",
+      "exists": true,
+      "bytes": 161843,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-lounge-sofa.jpg",
+      "exists": true,
+      "bytes": 171377,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-reception-desk.jpg",
+      "exists": true,
+      "bytes": 124116,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-reformer-window.jpg",
+      "exists": true,
+      "bytes": 56701,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-team-bench.jpg",
+      "exists": true,
+      "bytes": 209662,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-trainer-reformer.jpg",
+      "exists": true,
+      "bytes": 156196,
+      "kind": "image"
+    },
+    {
+      "path": "/images/alex-woman-reformer.jpg",
+      "exists": true,
+      "bytes": 69329,
+      "kind": "image"
+    },
+    {
+      "path": "/images/arch-entrance.jpg",
+      "exists": true,
+      "bytes": 23447,
+      "kind": "image"
+    },
+    {
+      "path": "/images/class-duo.jpg",
+      "exists": true,
+      "bytes": 156565,
+      "kind": "image"
+    },
+    {
+      "path": "/images/class-mat.jpg",
+      "exists": true,
+      "bytes": 98369,
+      "kind": "image"
+    },
+    {
+      "path": "/images/class-private.jpg",
+      "exists": true,
+      "bytes": 151633,
+      "kind": "image"
+    },
+    {
+      "path": "/images/class-reformer.jpg",
+      "exists": true,
+      "bytes": 166313,
+      "kind": "image"
+    },
+    {
+      "path": "/images/equipment-wall.jpg",
+      "exists": true,
+      "bytes": 24109,
+      "kind": "image"
+    },
+    {
+      "path": "/images/klub-lounge.jpg",
+      "exists": true,
+      "bytes": 34910,
+      "kind": "image"
+    },
+    {
+      "path": "/images/klub-reformers.jpg",
+      "exists": true,
+      "bytes": 61563,
+      "kind": "image"
+    },
+    {
+      "path": "/images/lounge.jpg",
+      "exists": true,
+      "bytes": 20418,
+      "kind": "image"
+    },
+    {
+      "path": "/images/mat-studio.jpg",
+      "exists": true,
+      "bytes": 74077,
+      "kind": "image"
+    },
+    {
+      "path": "/images/street-sign.jpg",
+      "exists": true,
+      "bytes": 18209,
+      "kind": "image"
+    },
+    {
+      "path": "/videos/klub-reformer-method-poster.jpg",
+      "exists": true,
+      "bytes": 77655,
+      "kind": "image"
+    },
+    {
+      "path": "/videos/klub-reformer-method.mp4",
+      "exists": true,
+      "bytes": 330015,
+      "kind": "video"
+    },
+    {
+      "path": "/videos/klub-studio-instagram-poster.jpg",
+      "exists": true,
+      "bytes": 51303,
+      "kind": "image"
+    },
+    {
+      "path": "/videos/klub-studio-instagram.mp4",
+      "exists": true,
+      "bytes": 697929,
+      "kind": "video"
+    }
+  ],
+  "doNot": [
+    "Do not name Izzy, link her personal socials, or identify her as owner — a standing regulatory constraint on all public content.",
+    "Do not connect www.keeplivingunderbalance.com during the build; it serves the existing site.",
+    "Do not rebuild bookings in Wix Bookings — bsport stays.",
+    "Do not touch the KLUB-CY site 20f11f6f-… ; it is an unrelated empty sandbox.",
+    "Do not invent prices, class names or an address — every value here comes from the live content model."
+  ]
+}
