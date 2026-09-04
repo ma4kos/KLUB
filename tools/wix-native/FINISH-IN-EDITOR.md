@@ -3,14 +3,16 @@
 Everything the Wix API can do has been done. What is left genuinely cannot be
 done through the API; this is the checklist for doing it in the browser.
 
-**The site to work on: "Klub 4"**
-`fbbcc5b2-c157-400b-aa9a-72617f47c16c`
+**The site to work on: "Klub 5"**
+`15456f11-b92e-4935-8b04-036a4aa86d5c`
 
-- Editor — https://editor.wix.com/edit/od/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
-- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/eb654cfe-e105-4efb-9529-f4f2a11c3dbf?metaSiteId=fbbcc5b2-c157-400b-aa9a-72617f47c16c
+- Editor — https://editor.wix.com/edit/od/685a6211-844a-4004-b470-9a74c3961e3f?metaSiteId=15456f11-b92e-4935-8b04-036a4aa86d5c
+- Preview — https://editor.wix.com/html/editor/web/renderer/external_preview/document/685a6211-844a-4004-b470-9a74c3961e3f?metaSiteId=15456f11-b92e-4935-8b04-036a4aa86d5c
 
-It already has: the 12 pages, the 8 homepage sections in Alex's order, his
-wording, the correct menu order, **30 generated images shot to match the real
+It already has: **all 15 pages** of the spec (including FAQ, Policies and
+Founding Member), the 8 homepage sections in Alex's order with his numbered
+chapter labels, his wording, the parking badges, the founding-member email
+capture, the correct menu order, **generated imagery shot to match the real
 studio** (warm light, plaster walls, black reformers, sheer curtains, plants),
 and **his 12 real photographs sitting in the Media Manager ready to place**.
 
@@ -45,12 +47,12 @@ two look alike. Cross-check against https://klub-cy.netlify.app.
 
 ## 2. Rename the site — 30 seconds *(deferred by Markos, 2026-09-04)*
 
-Every page title currently reads "… | Klub 4". Wix ignores the site name passed
+Every page title currently reads "… | Klub 5". Wix ignores the site name passed
 to the generator and derives it from the brand in the prompt, appending a number
 because "Klub" was already taken by the earlier attempts. Titles inherit it
 through the default pattern `{{page.name}} | {{site.name}}`.
 
-Fix: My Sites → rename **Klub 4** to **KLUB**. Every title corrects itself.
+Fix: My Sites → rename **Klub 5** to **KLUB**. Every title corrects itself.
 (The alternative — trashing the earlier sites and regenerating so the name lands
 clean — was considered and set aside.)
 
@@ -105,7 +107,8 @@ cut-over is a separate, deliberate decision.
 
 | Site | What to do |
 |---|---|
-| **Klub 4** `fbbcc5b2` | **keep** — the build described above |
+| **Klub 5** `15456f11` | **keep** — the build described above, full 15 pages |
+| Klub 4 `fbbcc5b2` | trash — 12 pages only, but richest imagery; keep until Klub 5 is reviewed |
 | Klub 3 `e4576adc` | trash — image-URL experiment; generator ignored the URLs |
 | Klub 2 `2a3b3fcb` | trash — good copy, but generic imagery |
 | Klub 1 `a415605e` | trash — structure only, no copy |
@@ -114,4 +117,4 @@ cut-over is a separate, deliberate decision.
 | KLUB-CY `20f11f6f` | leave alone |
 
 Each refinement needs a new generated site because reusing a `jobId` does
-nothing, which is why there are five. Nothing was deleted without asking.
+nothing, which is why there are six. Nothing was deleted without asking.

@@ -392,3 +392,50 @@ action recorded as step 2 of `FINISH-IN-EDITOR.md`.
 It cannot be fixed through the API in any case: there is no rename endpoint, and
 the SEO writes that would override the titles were failing throughout
 (`499 CANCELLED`, retried on two different sites).
+
+---
+
+## Run 6 — full spec coverage. **This is the build to keep.**
+
+**Klub 5** — `15456f11-b92e-4935-8b04-036a4aa86d5c`
+Editor: https://editor.wix.com/edit/od/685a6211-844a-4004-b470-9a74c3961e3f?metaSiteId=15456f11-b92e-4935-8b04-036a4aa86d5c
+Job: `2594536a-4efe-4ad4-8afe-3e92ddd8f3a8`
+
+Run 5 left three measurable gaps against Alex's mock: no numbered chapter
+labels, no parking badges, and three pages missing. Run 6 closed all three at
+~370 words, keeping the art direction.
+
+**All 15 pages**, exactly the spec's set:
+
+```
+Home · Classes · Foundations · Signature · Mat Pilates · Private Sessions
+Schedule · Memberships · About · Instructors · Location
+FAQ · Contact · Policies · Founding Member
+```
+
+Also carries the 01–07 chapter labels, the Parking 1 / Parking 2 badges, the
+"Founding Members" email capture beneath the closing section, and the empty
+container on Schedule for the bsport embed.
+
+| | Run 3 | Run 5 | **Run 6** |
+|---|---|---|---|
+| Prompt words | ~300 | ~330 | ~370 |
+| Pages | 12 | 12 | **15** ✔ |
+| Exact wording | ✔ | ✔ | ✔ |
+| Art-directed imagery | — | ✔ (30 images) | ✔ (15 images) |
+| Numbered chapters | — | — | ✔ |
+| Parking badges | — | — | ✔ |
+| Founding-member capture | — | — | ✔ |
+
+The prompt budget reaches at least ~370 words, so the Run-1 failure was not a
+near-miss — it was four times over.
+
+Klub 4 keeps the richer homepage imagery (30 images against 15). If a section
+on Klub 5 looks thin, that is the one to compare against before regenerating.
+Alex's twelve photographs are uploaded to Klub 5 as well (`wixId_klub5`).
+
+### Status
+
+Everything reachable through the API is done. What remains is the editor and
+dashboard work in `FINISH-IN-EDITOR.md`, and Alex's own review — which is the
+one thing no amount of iteration here can substitute for.
