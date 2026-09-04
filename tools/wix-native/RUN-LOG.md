@@ -677,3 +677,39 @@ more exceed the tool's 60-second limit. One or two pages per call with a single
 retry each is what worked. The bulk endpoint
 (`POST /bulk/item-seo-tags/set`) failed every time with
 `500 BULK_ENTRY_PREPARATION_FAILED` regardless of payload — avoid it.
+
+---
+
+## Run 10 — Klub 9, the first build carrying verified facts
+
+`6cf30d76-93d2-4eb9-974e-b727e6ba0fb7` · job `7d648951-a4ee-4aa1-b058-e81d238e81c5`
+Editor: https://editor.wix.com/edit/od/0d7c3544-3c3d-4084-a762-77616f0370f5?metaSiteId=6cf30d76-93d2-4eb9-974e-b727e6ba0fb7
+
+Every build up to Klub 8 carried plausible placeholders for contact details and
+studio policy. Markos then supplied the studio's WhatsApp Business profile and
+its Instagram, and the pinned post on @klubstudios turned out to be KLUB's own
+five studio rules. This run puts the verified facts into the site:
+
+- WhatsApp **+357 94 058004**, Instagram and Threads **@klubstudios**
+- The five real rules on the Policies page — including grip socks being required
+  for **Reformer** classes only, which every earlier build and the Netlify site
+  had wrong as "every class"
+
+| | Klub 8 | **Klub 9** |
+|---|---|---|
+| Pages | 15 | 15 |
+| Images | 26 | 20 |
+| Real contact details | ✗ | **✔** |
+| KLUB's actual studio rules | ✗ | **✔** |
+| 01–07 chapter labels | ✔ | ✔ |
+| Full class page names | ✔ | ✗ — back to "Foundations", "Signature" |
+| Per-page SEO written | ✔ | ✗ — not yet |
+
+At ~410 words this run sat close to the ceiling, and two things degraded: the
+class pages lost their full names, and imagery came back at 20 rather than 26
+(and arrived several minutes after the pages, so an early media count of 0 is
+not a failure — wait before judging).
+
+**Klub 8 and Klub 9 are the two candidates.** Klub 8 is more polished; Klub 9 is
+more truthful. Truth is the easier gap to close by hand, so Klub 9 is the one to
+finish — but Klub 8 stays until that is decided.
