@@ -54,7 +54,7 @@ const localBusiness = {
   priceRange: '€€',
   currenciesAccepted: 'EUR',
   areaServed: 'Limassol',
-  sameAs: [SITE.instagram, SITE.facebook, SITE.tiktok].filter(Boolean),
+  sameAs: [SITE.instagram, SITE.facebook, SITE.tiktok, SITE.threads].filter(Boolean),
   // Opening hours come from the CMS (studio.json). Emitted only when present so
   // the schema stays valid if the field is ever cleared.
   ...(Array.isArray(SITE.openingHours) && SITE.openingHours.length

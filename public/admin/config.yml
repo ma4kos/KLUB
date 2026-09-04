@@ -102,6 +102,12 @@ collections:
             required: false
             pattern: ['^$|^https://.+', 'Must start with https://']
           - { label: "TikTok handle", name: "tiktokHandle", widget: "string", required: false }
+          - label: "Threads URL"
+            name: "threads"
+            widget: "string"
+            required: false
+            pattern: ['^$|^https://.+', 'Must start with https://']
+          - { label: "Threads handle", name: "threadsHandle", widget: "string", required: false }
           - { label: "Opening label", name: "openingLabel", widget: "string" }
           - label: "Opening hours"
             name: "openingHours"
