@@ -16,7 +16,18 @@ Confirmed unavailable in the Claude Code remote session that produced this spec:
 
 ## Resolve schemas, don't guess them
 
-Wix's APIs change, and method names invented from memory are the fastest way to a broken run. Before each stage, resolve the current contract with the MCP's own documentation tools — `SearchWixRESTDocumentation` / `SearchWixSDKDocumentation`, then `ReadFullDocsMethodSchema` for the exact request shape — and call what they return. Every stage below states the *intent* and the *acceptance check*, not a guessed endpoint.
+**Start with the captured live schemas already in this repository** — `tools/klub-cy-wix/references/live-schemas/`. These are recordings of real Wix API responses (captured 2026-09-02), not documentation, so they show exact request and response shapes:
+
+| Stage | Capture |
+|---|---|
+| 2 — media | `Wix_Media_Live_Schemas.json`, `Wix_Generate_File_Upload_URL_Live_Schema.json` |
+| 5 — forms | `Wix_Forms_Live_Contracts.json` |
+| CMS, if needed | `Wix_CMS_Live_Schemas.json`, `Wix_List_Data_Collections_Live_Schema.json`, `Wix_Query_Data_Items_Live_Schema.json` |
+| other | `Wix_OAuth_App_Live_Schemas.json`, `Wix_Duplicate_Site_Live_Schema.json`, `Wix_Create_Contact_V4_Live_Schema.json`, `Wix_Backup_Live_Schemas.json` |
+
+`tools/klub-cy-wix/references/evidence/Verified_Live_Wix_API_Contracts.md` records which calls were actually exercised and the permission each needed — read it first if you hit a 403.
+
+Cross-check the captures against current docs before relying on them; Wix moves. Where a capture is silent, resolve the contract with the MCP's own documentation tools — `SearchWixRESTDocumentation` / `SearchWixSDKDocumentation`, then `ReadFullDocsMethodSchema` for the exact request shape — and call what they return. Every stage below states the *intent* and the *acceptance check*, not a guessed endpoint.
 
 ---
 
@@ -24,7 +35,7 @@ Wix's APIs change, and method names invented from memory are the fastest way to 
 
 1. `ListWixSites` — confirm the account and list existing sites.
 2. Identify and **leave alone**: the studio's existing live Wix site on `www.keeplivingunderbalance.com`, and `20f11f6f-…` (KLUB-CY, an unrelated empty sandbox).
-3. Create a **new** site for this rebuild. Name it clearly, e.g. `KLUB — native rebuild`. Record its site id in the run log.
+3. Create a **new** site for this rebuild via the API. If site creation is not available to your credentials, say so and stop — do **not** fall back to the Wix CLI, whose `--api-key` flag is silently ignored (CLI 1.1.242) and which falls through to a browser device-login that an unattended session cannot complete. Name it clearly, e.g. `KLUB — native rebuild`. Record its site id in the run log.
 4. Do not connect any domain. Do not change plans or billing.
 
 ## Stage 1 — Theme
