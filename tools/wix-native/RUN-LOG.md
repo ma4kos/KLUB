@@ -376,3 +376,19 @@ Alex's twelve real photographs are uploaded here too (`wixId_klub4` in
 | Supplying image URLs | no — silently ignored |
 | Reusing a `jobId` to edit | no — always a no-op |
 | Long prompt (~1,000 words) | no — collapses to a generic one-pager |
+
+## Decision — site name, 2026-09-04
+
+Page titles on Klub 4 read "… | Klub 4". Cause: the generator ignores the
+`suggestedSiteName` argument and derives the name from the brand in the prompt,
+auto-numbering it because "Klub" was taken by the earlier attempts; titles then
+inherit it via the default pattern `{{page.name}} | {{site.name}}`.
+
+Three options were put to Markos — rename in the dashboard, trash the earlier
+sites and regenerate for a clean name, or defer. **Deferred.** No sites were
+trashed and no further generation was run. The rename is a 30-second dashboard
+action recorded as step 2 of `FINISH-IN-EDITOR.md`.
+
+It cannot be fixed through the API in any case: there is no rename endpoint, and
+the SEO writes that would override the titles were failing throughout
+(`499 CANCELLED`, retried on two different sites).

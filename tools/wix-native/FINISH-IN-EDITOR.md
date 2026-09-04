@@ -43,25 +43,36 @@ Spares for the class cards and inner pages: `alex-hero-room.jpg`,
 These are the same photographs the Netlify site uses, so matching them makes the
 two look alike. Cross-check against https://klub-cy.netlify.app.
 
-## 2. Fix the locale — 1 minute
+## 2. Rename the site — 30 seconds *(deferred by Markos, 2026-09-04)*
+
+Every page title currently reads "… | Klub 4". Wix ignores the site name passed
+to the generator and derives it from the brand in the prompt, appending a number
+because "Klub" was already taken by the earlier attempts. Titles inherit it
+through the default pattern `{{page.name}} | {{site.name}}`.
+
+Fix: My Sites → rename **Klub 4** to **KLUB**. Every title corrects itself.
+(The alternative — trashing the earlier sites and regenerating so the name lands
+clean — was considered and set aside.)
+
+## 3. Fix the locale — 1 minute
 
 Dashboard → **Settings → Language & Region**. It was created as US / USD /
 America-Los_Angeles; set **Cyprus / EUR / Asia-Nicosia**. Site Properties is
 read-only over REST, so this cannot be scripted.
 
-## 3. Add the bsport booking calendar — 5 minutes
+## 4. Add the bsport booking calendar — 5 minutes
 
 On the **Schedule** page, add an **Embed → Custom Code / HTML iframe** and paste
 the widget. Company `6604`, widget `868966`, loader
 `https://cdn.bsport.io/scripts/widget.js`. The working markup is in
 `src/components/BsportWidget.astro`. Do **not** use Wix Bookings.
 
-## 4. Wire the founding-member form — 5 minutes
+## 5. Wire the founding-member form — 5 minutes
 
 Wix Forms is already installed. Add a form under the closing section with a
 single email field, headed **Founding Members**.
 
-## 5. Per-page SEO — deferred, retry later
+## 6. Per-page SEO — deferred, retry later
 
 Wix's SEO service is currently returning server-side timeouts
 (`499 CANCELLED`, 25s against their own 10s budget) on every write. The request
@@ -82,7 +93,7 @@ Contact `eplzf`. Titles are in `klub-wix-site-spec.json`.
 Note the documented quirk: `publish: true` writes only the published revision,
 never the saved one, so send each change twice if you want both.
 
-## 6. Publish — when Alex has approved
+## 7. Publish — when Alex has approved
 
 Dashboard → Publish. **Do not connect a domain.**
 `www.keeplivingunderbalance.com` still serves the studio's existing site and the
