@@ -235,3 +235,57 @@ Instructors, Location, Contact.
 Site **Klub** (`0894a982-…`) is the failed Run-1 one-pager. It is *published*
 at https://markossymeonides.wixsite.com/klub, so it should be trashed or
 unpublished to avoid confusion. Left in place pending the owner's say-so.
+
+---
+
+## Run 3 — the build to keep
+
+**Klub 2** — `2a3b3fcb-a169-4101-a350-2d2e1e99e573`
+Editor: https://editor.wix.com/edit/od/b4268c76-32eb-4e11-8db1-d19e8e07fc81?metaSiteId=2a3b3fcb-a169-4101-a350-2d2e1e99e573
+Preview: https://editor.wix.com/html/editor/web/renderer/external_preview/document/b4268c76-32eb-4e11-8db1-d19e8e07fc81?metaSiteId=2a3b3fcb-a169-4101-a350-2d2e1e99e573
+Job: `a07529a8-6d3f-4e27-b822-d46bf93b7b96`
+
+A ~300-word prompt — the Run-2 page-and-section skeleton **plus Alex's exact
+wording** — produced **12 pages**, same as the skeleton-only prompt. So the
+generator's budget comfortably carries the copy; Run 1 was simply far over it.
+
+Alex's twelve Option-1 photographs are uploaded to this site's Media Manager
+(ids in `media-map.json`, `wixId_klub2`).
+
+### Prompt budget, measured
+
+| Prompt | Words | Pages | Homepage |
+|---|---|---|---|
+| Run 1 | ~1,000 | 1 | 4 generic sections |
+| Run 2 | ~150 | 12 | 8 sections, right order |
+| Run 3 | ~300 | 12 | 8 sections + exact wording |
+
+The cliff is somewhere between 300 and 1,000 words. Stay near 300.
+
+### Confirmed: `jobId` reuse never edits
+
+Passing an existing `jobId` to `WixSiteBuilder` returned `success: true` on both
+attempts and changed nothing — no new site, and the target site's `Updated`
+timestamp and page count were identical afterwards. **Every refinement means a
+new generation**, so get the prompt right before running it.
+
+### Remaining, and where each must be done
+
+| Item | Where |
+|---|---|
+| Place the 12 photos into their sections | **editor** (ids in `media-map.json`) |
+| Locale → Cyprus / EUR / Asia-Nicosia | **dashboard** → Settings → Language & Region |
+| bsport embed (company 6604, widget 868966) on Schedule | **editor** — add an Embed/HTML element |
+| Founding-member email capture | **editor** — Wix Forms is already installed |
+| Per-page SEO titles | **API** — `POST /promote/seo/v1/bulk/item-seo-tags/set` |
+| Publish | dashboard, when Alex approves |
+
+### Sites in the account, and what to do with them
+
+| Site | Verdict |
+|---|---|
+| **Klub 2** `2a3b3fcb` | **keep** — best build |
+| Klub 1 `a415605e` | superseded; trash |
+| Klub `0894a982` | failed one-pager, **published** — unpublish and trash |
+| KLUB Headless Test `cc7fa0d1` | leave — protected |
+| KLUB-CY `20f11f6f` | leave — protected |
