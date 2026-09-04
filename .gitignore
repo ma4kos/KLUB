@@ -12,3 +12,9 @@ playwright-report/
 .env.klub-cy.local
 .secrets/
 .klub-wix-migration/
+
+# Wix CLI local state and logs
+.wix/
+
+# Wix CLI local credentials (contains WIX_CLIENT_SECRET) — never commit
+.env.local
