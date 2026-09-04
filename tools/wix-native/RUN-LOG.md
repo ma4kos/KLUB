@@ -138,3 +138,46 @@ realistic shape of the work is:
 
 Step 2 is the part no API can do. Budget for it, or accept the generator's
 structure.
+
+---
+
+## Run 1 — verified result (connector restored, 2026-09-04 ~03:40)
+
+The generation job finished and **published** the site.
+
+| | |
+|---|---|
+| Live | https://markossymeonides.wixsite.com/klub |
+| Editor | https://editor.wix.com/edit/od/473a7b62-980f-4cfa-be8c-f4919f7907a4?metaSiteId=0894a982-a8fd-4a76-bd44-b8822a1b981e |
+| Preview | https://editor.wix.com/html/editor/web/renderer/external_preview/document/473a7b62-980f-4cfa-be8c-f4919f7907a4?metaSiteId=0894a982-a8fd-4a76-bd44-b8822a1b981e |
+| Editor type | ODEDITOR — visually editable ✔ |
+| Status | Published, free plan, no custom domain ✔ |
+
+### Audit against the spec — it is not close
+
+`GET /promote/seo/v1/item-seo-tags/STATIC_PAGE` returns **one item**
+(`itemId: c1dmp`). The generated site has **a single page**.
+
+| | Spec | Generated |
+|---|---|---|
+| Pages | 15 | **1** |
+| Homepage sections | 8 numbered chapters | 4 generic (Hero / About / Benefits / CTA) |
+| Locale | Cyprus · EUR · Asia/Nicosia | US · USD · America/Los_Angeles |
+| Imagery | 22 real studio photos | AI stock |
+| bsport embed | Schedule page | no Schedule page exists |
+
+The eight-chapter brief, the fourteen inner pages, the exact wording, and the
+real prices were all in the prompt. The generator kept the brand tone and
+discarded the structure.
+
+Note: the SEO listing endpoint times out intermittently (Wix-side 499,
+"time budget exceeded", 25s against a 10s budget). It succeeded on the third
+attempt with no paging parameters.
+
+### Verdict
+
+Route 1 gives a genuinely editable site but will not reproduce Option-1.
+Getting from here to the spec is **manual editor work** — 14 pages to add and
+a homepage to restructure — because, per the finding above, no API composes
+editor pages or sections. Decide between that, staying on Netlify, or a
+narrower Wix scope before spending more.
