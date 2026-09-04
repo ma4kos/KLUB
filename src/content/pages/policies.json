@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Studio Policies | Cancellations, Grip Socks & Arrival | KLUB",
-    "description": "KLUB Limassol studio policies: first-visit tips, grip socks required, the 12-hour cancellation rule, the 10-minute late policy, class-pack expiry, health, liability and privacy."
+    "description": "KLUB Limassol studio policies: first-visit tips, grip socks for reformer classes, the 12-hour cancellation rule, arrival times, class-pack expiry, health, liability and privacy."
   },
   "hero": {
     "eyebrow": "Policies",
@@ -13,29 +13,29 @@
       "title": "First Time at KLUB",
       "items": [
         "New to the reformer? We recommend starting with Foundations Reformer, and arriving 10 minutes early so we can introduce you to the equipment and answer any questions.",
-        "Grip socks are required — you can buy a pair at reception (€12) if you forget yours."
+        "Grip socks are required for all Reformer classes — you can buy a pair at reception (€12) if you forget yours."
       ]
     },
     {
       "title": "Grip Socks",
       "items": [
-        "Grip socks are required in every class — for hygiene and for safety on the reformer. No socks, no entry.",
+        "Grip socks are required for all Reformer classes — for hygiene and for safety on the equipment.",
         "Forgot yours? Pairs are available at reception for €12."
       ]
     },
     {
       "title": "Arrival & Late Policy",
       "items": [
-        "Please arrive 5–10 minutes early, and 10 minutes early for your very first visit.",
-        "For safety, the studio is locked 10 minutes after class starts — late entry may not be permitted once class has begun.",
-        "If you miss the cut-off, message us and we'll help you rebook."
+        "Please arrive 5–10 minutes before class, and a little earlier for your very first visit so we can show you the equipment.",
+        "Late arrivals may not be permitted once class has started — for everyone's safety, and because the warm-up matters.",
+        "If you miss the start, message us and we'll help you rebook."
       ]
     },
     {
       "title": "Cancellation & No-Show",
       "items": [
-        "Cancel at least 12 hours before class and your credit is returned automatically.",
-        "Classes cancelled inside 12 hours, and no-shows, result in a loss of credit — in a class of six, your spot matters.",
+        "Please cancel at least 12 hours before your class and your credit is returned automatically.",
+        "Late cancellations and no-shows may result in the loss of your class credit — in a class of six, your spot matters.",
         "Credits are not extendable. Genuine emergencies happen — talk to us."
       ]
     },
@@ -48,9 +48,17 @@
       ]
     },
     {
+      "title": "Respect the Space",
+      "items": [
+        "Please treat the studio and equipment with care.",
+        "Return all props to where you found them after use."
+      ]
+    },
+    {
       "title": "Health & Safety",
       "items": [
-        "Tell us about injuries, pregnancy or health conditions before your first class — it stays confidential and helps us keep you safe.",
+        "Please tell your instructor about any injuries, pregnancy or limitations before class — it stays confidential and helps us keep you safe.",
+        "Always work at a level that feels right for your body.",
         "Our instructors are fully certified and insured, including pre/post-natal qualification, and equipment is cleaned between every class.",
         "Classes are attended at your own risk; KLUB cannot be held liable for injuries sustained in the studio."
       ]
