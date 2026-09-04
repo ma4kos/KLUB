@@ -521,3 +521,53 @@ labels explicitly, which Klub 7's feed does not confirm.
 | ~1,000 | collapses to 1 page |
 
 Aim for ~350. Every word spent on prose is a word not spent on structure.
+
+---
+
+## Run 9 — **Klub 8, the final build**
+
+`39c99397-4288-4294-92b1-0dad4b02e130` · job `85b325df-b6c3-47ac-9e54-7cf714f3a025`
+Editor: https://editor.wix.com/edit/od/13bbc8cb-18ab-49ee-ae8e-17585d8a22c4?metaSiteId=39c99397-4288-4294-92b1-0dad4b02e130
+
+Run 8 left one unverified gap: its section titles did not show the 01–07 chapter
+labels that Alex's mock uses, and the published page could not be fetched to
+check (wixsite.com is blocked by the egress policy). Rather than leave it
+uncertain, the instruction was made explicit — "Sections 01 to 07 each show
+their number as a small label beside the heading" — and the prices line dropped
+to stay inside the word budget.
+
+Confirmed from the job feed:
+
+```
+Hero · 01 The Klub · 02 Find Your Balance · 03 Start Here
+04 The KLUB Experience · 05 Move With Us · 06 Find Us · 07 Closing
+```
+
+An unexpected second gain: the class pages came back with their **full names** —
+"Foundations Reformer" and "Signature Reformer" rather than the truncated
+"Foundations" and "Signature" of every previous run. The inner pages are also
+richer, most now carrying two sections instead of one.
+
+| | Klub 5 | Klub 7 | **Klub 8** |
+|---|---|---|---|
+| Pages | 15 | 15 | **15** |
+| Images | 15 | 24 | **26** |
+| 01–07 labels | ✔ | ✗ | **✔** |
+| Map on 06 | ✗ | ✔ | **✔** |
+| Footer per mock | ✗ | ✔ | **✔** |
+| Full class page names | ✗ | ✗ | **✔** |
+
+This is the first build with every element of Option 1 that can be produced
+through the API. Alex's twelve photographs are uploaded to it (`wixId_klub8`).
+
+Klub 8 is a draft. Klub 7 is already published at
+https://markossymeonides.wixsite.com/klub-7 and is the same design one iteration
+earlier — usable for showing Alex without a login until Klub 8 is published in
+its place.
+
+### Every measurable gap against the mock is now closed
+
+Structure, wording, page set, chapter labels, class-card captions, the intro
+offer, parking badges, the map, the footer, the founding-member capture, the
+bsport container, and art-directed photography. What remains is subjective —
+whether the design pleases Alex — plus the hand-work in `FINISH-IN-EDITOR.md`.

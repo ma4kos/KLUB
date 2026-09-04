@@ -1,8 +1,8 @@
 {
-  "site": "ece32e34-4e44-4b4e-be5b-cacb89ce6018",
-  "siteName": "Klub 7 (preferred build)",
+  "site": "39c99397-4288-4294-92b1-0dad4b02e130",
+  "siteName": "Klub 8 (final build)",
   "uploadedAt": "2026-09-04",
-  "note": "Alex's Option-1 photographs, uploaded to the Wix Media Manager from this repo's public raw URLs. wixId_klub7 is the preferred build (ece32e34 'Klub 7') — 15 pages, 24 images, map and footer, and published. Earlier builds keep their own ids. 'section' says where each photo belongs on the homepage; there is no API to attach an image to a section, so this is the reference for placing them by hand in the editor.",
+  "note": "Alex's Option-1 photographs, uploaded to the Wix Media Manager from this repo's public raw URLs. wixId_klub8 is the final build (39c99397 'Klub 8') — 15 pages, 26 images, 01-07 chapter labels, map and footer. Earlier builds keep their own ids. 'section' says where each photo belongs on the homepage; there is no API to attach an image to a section, so this is the reference for placing them by hand in the editor.",
   "images": [
     {
       "file": "alex-hero-reformers.jpg",
@@ -11,7 +11,8 @@
       "wixId_klub2": "8372de_ee751b47e31d467c846ab96be0e5a2bf~mv2.jpg",
       "wixId_klub4": "8372de_65b745a08763498b814a4be4909c96f7~mv2.jpg",
       "wixId_klub5": "8372de_a849036b029e4500b02bda3e8e9e98f7~mv2.jpg",
-      "wixId_klub7": "8372de_0824aa2736be4ceca7be86c9401a551d~mv2.jpg"
+      "wixId_klub7": "8372de_0824aa2736be4ceca7be86c9401a551d~mv2.jpg",
+      "wixId_klub8": "8372de_b53ee5d8557f40eab5d181e7318cdcf5~mv2.jpg"
     },
     {
       "file": "alex-corridor-kwall.jpg",
@@ -20,7 +21,8 @@
       "wixId_klub2": "8372de_6f5cf1591ade4cfbb62323bebd37825b~mv2.jpg",
       "wixId_klub4": "8372de_22a9bdb2ec654c5ab55ae8d407bafe78~mv2.jpg",
       "wixId_klub5": "8372de_35c9aa2942bb48908c356e6600283e02~mv2.jpg",
-      "wixId_klub7": "8372de_334cc24b1fb646da8add1ef025051d9f~mv2.jpg"
+      "wixId_klub7": "8372de_334cc24b1fb646da8add1ef025051d9f~mv2.jpg",
+      "wixId_klub8": "8372de_a69a3423591341618316b5a43c0c4b68~mv2.jpg"
     },
     {
       "file": "alex-trainer-reformer.jpg",
@@ -29,7 +31,8 @@
       "wixId_klub2": "8372de_579463269e5e4f8b81d295db4b6382bf~mv2.jpg",
       "wixId_klub4": "8372de_b052659372e9442080ac0bb4dc9e2e26~mv2.jpg",
       "wixId_klub5": "8372de_7b5d21e0faad4b12836af37a4e3da5ec~mv2.jpg",
-      "wixId_klub7": "8372de_5914bb600baa4d94b38ca94a77455382~mv2.jpg"
+      "wixId_klub7": "8372de_5914bb600baa4d94b38ca94a77455382~mv2.jpg",
+      "wixId_klub8": "8372de_d191bce42cb34ef3aada65660e43a018~mv2.jpg"
     },
     {
       "file": "alex-reception-desk.jpg",
@@ -38,7 +41,8 @@
       "wixId_klub2": "8372de_ae4e94f7021a49748db9b9bbb24e073b~mv2.jpg",
       "wixId_klub4": "8372de_3a295c7a56064f1e99c59868df884c46~mv2.jpg",
       "wixId_klub5": "8372de_9a93c2492138451eb4026f0d74fc8d88~mv2.jpg",
-      "wixId_klub7": "8372de_3fb0bef1a425485ab1dc1bb696588a58~mv2.jpg"
+      "wixId_klub7": "8372de_3fb0bef1a425485ab1dc1bb696588a58~mv2.jpg",
+      "wixId_klub8": "8372de_f170f0e6e5ec40a4b04284a6cde52225~mv2.jpg"
     },
     {
       "file": "alex-lounge-sofa.jpg",
@@ -47,7 +51,8 @@
       "wixId_klub2": "8372de_791361d5394046e9892636ab4a4f604d~mv2.jpg",
       "wixId_klub4": "8372de_09959580bdbd475597db04792b30d352~mv2.jpg",
       "wixId_klub5": "8372de_b9a6e70174b441bb895a424160602e4a~mv2.jpg",
-      "wixId_klub7": "8372de_fdd0258bd3a54140b85445bdcb204f9a~mv2.jpg"
+      "wixId_klub7": "8372de_fdd0258bd3a54140b85445bdcb204f9a~mv2.jpg",
+      "wixId_klub8": "8372de_0b4fb33c759c4f4ea2e14e4e6011c8be~mv2.jpg"
     },
     {
       "file": "alex-team-bench.jpg",
@@ -56,7 +61,8 @@
       "wixId_klub2": "8372de_4768e7eee754437390a17f7e417b51ae~mv2.jpg",
       "wixId_klub4": "8372de_012a33d2898c4f1589706c3554351edc~mv2.jpg",
       "wixId_klub5": "8372de_698b6586ccbb41518754dea862c5c2a3~mv2.jpg",
-      "wixId_klub7": "8372de_298da7c7c232412e9b991fa0060f20f4~mv2.jpg"
+      "wixId_klub7": "8372de_298da7c7c232412e9b991fa0060f20f4~mv2.jpg",
+      "wixId_klub8": "8372de_076331841cbd42789f715126d34aaf2d~mv2.jpg"
     },
     {
       "file": "alex-closing-reformer.jpg",
@@ -65,7 +71,8 @@
       "wixId_klub2": "8372de_d8a647e14bcf4d78a20d2e5bf1868eb7~mv2.jpg",
       "wixId_klub4": "8372de_d80894029175434fa5a6bdc62160fe55~mv2.jpg",
       "wixId_klub5": "8372de_c2e4e28dfbfb4d3f969b889711c339bb~mv2.jpg",
-      "wixId_klub7": "8372de_af24589d24684317ab7180943660be56~mv2.jpg"
+      "wixId_klub7": "8372de_af24589d24684317ab7180943660be56~mv2.jpg",
+      "wixId_klub8": "8372de_7c16b8351585480e9f2f42652ed8fb95~mv2.jpg"
     },
     {
       "file": "street-sign.jpg",
@@ -74,7 +81,8 @@
       "wixId_klub2": "8372de_dd0c88150f514e9caec421e2a4a1891b~mv2.jpg",
       "wixId_klub4": "8372de_b80bc87c2467476db91cd4b8d4e857ee~mv2.jpg",
       "wixId_klub5": "8372de_1ef1371d08fa490a9a2d101557820356~mv2.jpg",
-      "wixId_klub7": "8372de_889d7b8d513047189080dfa483a44273~mv2.jpg"
+      "wixId_klub7": "8372de_889d7b8d513047189080dfa483a44273~mv2.jpg",
+      "wixId_klub8": "8372de_c85fa8546ab2417aa29f24b0a7dc121a~mv2.jpg"
     },
     {
       "file": "alex-hero-room.jpg",
@@ -83,7 +91,8 @@
       "wixId_klub2": "8372de_497819ee479d44479fdf3675b9986717~mv2.jpg",
       "wixId_klub4": "8372de_c9004c27b7fa496d97b9b14147b0cd9f~mv2.jpg",
       "wixId_klub5": "8372de_f96dd9ee1d034ecea134ab04089a17c4~mv2.jpg",
-      "wixId_klub7": "8372de_2576c43591db4adfa98d2a8656378862~mv2.jpg"
+      "wixId_klub7": "8372de_2576c43591db4adfa98d2a8656378862~mv2.jpg",
+      "wixId_klub8": "8372de_df477813d7ef4596ad31e6bfbfbc2909~mv2.jpg"
     },
     {
       "file": "alex-woman-reformer.jpg",
@@ -92,7 +101,8 @@
       "wixId_klub2": "8372de_b09ed7b4ff6443b4b53d7d626ce2b3da~mv2.jpg",
       "wixId_klub4": "8372de_fe11c451bf5940feb485794b6d4793d8~mv2.jpg",
       "wixId_klub5": "8372de_741131de124242c980b21d138c7a5bc5~mv2.jpg",
-      "wixId_klub7": "8372de_f9c4de4c962a403eb771d7ad7995a412~mv2.jpg"
+      "wixId_klub7": "8372de_f9c4de4c962a403eb771d7ad7995a412~mv2.jpg",
+      "wixId_klub8": "8372de_8325904c074242ab87508c7c9072bce7~mv2.jpg"
     },
     {
       "file": "alex-reformer-window.jpg",
@@ -101,7 +111,8 @@
       "wixId_klub2": "8372de_d55a9ad145fa4e5989964ede5f70f1b1~mv2.jpg",
       "wixId_klub4": "8372de_d03aa3db787b440bb8d88911e9461343~mv2.jpg",
       "wixId_klub5": "8372de_40b41fd498e14b588ecfa0cf616c7afa~mv2.jpg",
-      "wixId_klub7": "8372de_69f52949773d481c8496fbc05d2b9b82~mv2.jpg"
+      "wixId_klub7": "8372de_69f52949773d481c8496fbc05d2b9b82~mv2.jpg",
+      "wixId_klub8": "8372de_6eba07f86a454aaa86770a1939fa248f~mv2.jpg"
     },
     {
       "file": "alex-team-sofa.jpg",
@@ -110,8 +121,8 @@
       "wixId_klub2": "8372de_8e08e40c95a748f1850470435b530c4c~mv2.jpg",
       "wixId_klub4": "8372de_6bdd20b4dc864f2cb2169b0aeae6cf31~mv2.jpg",
       "wixId_klub5": "8372de_107ba01301314e0b9fc17e683ace4083~mv2.jpg",
-      "wixId_klub7": "8372de_4886cf8d415a450093fb9022598c93d7~mv2.jpg"
+      "wixId_klub7": "8372de_4886cf8d415a450093fb9022598c93d7~mv2.jpg",
+      "wixId_klub8": "8372de_adf46ed96f034301be892515d8fd9ea9~mv2.jpg"
     }
-  ],
-  "liveUrl": "https://markossymeonides.wixsite.com/klub-7"
+  ]
 }
